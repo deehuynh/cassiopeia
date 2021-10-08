@@ -11,3 +11,7 @@ Type of website: E-commerce
 - React
 - Nextjs
 - HTML5, CSS3, JS
+
+## Design
+
+The design file taken from: https://www.behance.net/gallery/96992647/Cassiopeia-Flower-store-Free-UI-kit (thank you Alice Samokhina for free ui kit)
