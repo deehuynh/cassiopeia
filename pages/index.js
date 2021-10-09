@@ -1,10 +1,8 @@
 import Head from 'next/head'
-// import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Layout() {
   return (
-    <div className={styles.container}>
+    <div className="layout">
       <Head>
         <title>Cassiopeia | Flower Store</title>
         <meta 
@@ -13,6 +11,8 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      layout
     </div>
   )
 }
