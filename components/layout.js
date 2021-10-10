@@ -2,6 +2,8 @@
 
 export default function Layout ({ children }) {
   return (
-    <div className="layout"></div>
+    <div className="layout">
+      {children}
+    </div>
   )
 }
