@@ -2,7 +2,7 @@
 import '../styles/global/globals.css'
 import '../styles/scss/index.scss'
 
-// Components
+// Using layout for entire pages
 import Layout from '../components/layout'
 
 function MyApp({ Component, pageProps }) {
