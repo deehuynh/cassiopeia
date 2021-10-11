@@ -1,4 +1,4 @@
-const openToggle = () => {
+const openToggle = (refContainer) => {
   refContainer.current.style = "display: block";
 }
 

@@ -1,11 +1,9 @@
 import Link from "next/link"
 import {useRef} from "react"
+import {openToggle} from "../hooks/useToggle"
 
 export default function Header () {
   const refContainer = useRef(null);
-  const openSearchBar = () => {
-    refContainer.current.style = "display: block";
-  }
 
   return (
     <header className="header">
@@ -24,7 +22,7 @@ export default function Header () {
       <div className="header__group">
         <div className="header__search">
           <input ref={refContainer} style={{display: 'none'}} type="text" defaultValue='' placeholder='Search' />
-          <img onClick={openSearchBar} src="/svgs/search.svg" alt="search icon" />
+          <img onClick={() => {openToggle(refContainer)}} src="/svgs/search.svg" alt="search icon" />
         </div>
         <div className="header__cart">
           <img src="/svgs/cart.svg" alt="cart icon" />
