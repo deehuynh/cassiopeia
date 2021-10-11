@@ -1,3 +1,3 @@
 .header {
-  width: 1160px;
+  @include frame(1160px, 51.86px, center);
 }
