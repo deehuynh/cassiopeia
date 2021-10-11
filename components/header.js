@@ -17,7 +17,7 @@ export default function Header () {
       </div>
       <div className="header__group">
         <div className="header__search">
-          <input type="text" defaultValue='' placeholder='Search' />
+          <input style={{display: 'none'}} type="text" defaultValue='' placeholder='Search' />
           <img src="/svgs/search.svg" alt="search icon" />
         </div>
         <div className="header__cart">
