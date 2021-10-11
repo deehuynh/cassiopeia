@@ -5,4 +5,13 @@ body {
   font-family: 'Inter' ,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   -webkit-tap-highlight-color: transparent;
- }
+}
+
+/* the effects of the functions */
+.show {
+  display: block;
+}
+
+.hiden {
+  display: none;
+}

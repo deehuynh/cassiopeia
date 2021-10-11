@@ -14,15 +14,28 @@
   }
 
   &__search {
+    &--hiden {
+      width: 0px;
+      padding: 7px 0;
+    }
+
+    &--show {
+      width: 170px;
+      padding: 7px;
+    }
+
     @include flex();
     input {
-      width: 170px;
       @include input;
       font-family: 'Inter';
-      border: none;
-      padding: 7px;
       font-weight: 500;
-      border-bottom: 2px solid black;
+      border-top-width: 0;
+      border-left-width: 0;
+      border-right-width: 0;
+      border-bottom-width: 2px;
+      border-style: solid;
+      border-color: black;
+      transition: width .5s, padding .5s;
 
       &::placeholder {
         color: black;

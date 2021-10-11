@@ -1,6 +1,6 @@
 import Link from "next/link"
 import {useRef} from "react"
-import handleToggle from "../hooks/handleToggle"
+import handleShow from "../hooks/handleShow";
 
 export default function Header () {
   const refContainer = useRef(null);
@@ -21,8 +21,14 @@ export default function Header () {
       </div>
       <div className="header__group">
         <div className="header__search">
-          <input ref={refContainer} style={{display: 'none'}} type="text" defaultValue='' placeholder='Search' />
-          <img onClick={() => {handleToggle(refContainer)}} src="/svgs/search.svg" alt="search icon" />
+          <input
+            ref={refContainer}
+            className='header__search--hiden'
+            type="text" defaultValue='' placeholder='Search' 
+          />
+          <img 
+            onClick={() => {handleShow(refContainer, 'header__search--hiden', 'header__search--show')}} 
+            src="/svgs/search.svg" alt="search icon" />
         </div>
         <div className="header__cart">
           <img src="/svgs/cart.svg" alt="cart icon" />
