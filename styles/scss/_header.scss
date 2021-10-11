@@ -67,9 +67,18 @@
     &__menu {
       width: 250px;
       display: block;
+      @include button-icon(1);
 
       img {
         width: 21px;
+      }
+    }
+  }
+
+  @include media (425px) {
+    &__group {
+      img {
+        width: 19px;
       }
     }
   }
