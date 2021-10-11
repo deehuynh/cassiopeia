@@ -7,6 +7,9 @@ export default function Header () {
         <img src="/svgs/location.svg" alt="location icon" />
         <span>Vietnam</span>
       </div>
+      <div className="header__menu">
+        <img src="/svgs/menu.svg" alt="menu" />
+      </div>
       <div className="header__logo">
         <Link href="/">
           <a><img src="/svgs/logo.svg" alt="Logo" /></a>
