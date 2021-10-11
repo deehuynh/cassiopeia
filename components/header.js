@@ -5,7 +5,7 @@ export default function Header () {
     <header className="header">
       <div className="header__location"></div>
       <div className="header__logo">
-        <img src="/logo.svg" alt="Logo" />
+        <img src="/svgs/logo.svg" alt="Logo" />
       </div>
       <div className="header__group">
         <div className="header__search"></div>
