@@ -1,6 +1,12 @@
 import Link from "next/link"
+import {useRef} from "react"
 
 export default function Header () {
+  const refContainer = useRef(null);
+  const openSearchBar = () => {
+    refContainer.current.style = "display: block";
+  }
+
   return (
     <header className="header">
       <div className="header__location">
@@ -17,8 +23,8 @@ export default function Header () {
       </div>
       <div className="header__group">
         <div className="header__search">
-          <input style={{display: 'none'}} type="text" defaultValue='' placeholder='Search' />
-          <img src="/svgs/search.svg" alt="search icon" />
+          <input ref={refContainer} style={{display: 'none'}} type="text" defaultValue='' placeholder='Search' />
+          <img onClick={openSearchBar} src="/svgs/search.svg" alt="search icon" />
         </div>
         <div className="header__cart">
           <img src="/svgs/cart.svg" alt="cart icon" />

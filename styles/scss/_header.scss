@@ -16,13 +16,16 @@
   &__search {
     @include flex();
     input {
-      display: none;
       width: 170px;
       @include input;
       font-family: 'Inter';
       border: none;
-      padding: 5px;
-      border-bottom: 1px solid rgba(0,0,0,0.09);
+      padding: 7px;
+      border-bottom: 1px solid rgba(0,0,0,0.5);
+
+      &::placeholder {
+        color: black;
+      }
     }
 
     img {
