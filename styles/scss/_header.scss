@@ -1,4 +1,50 @@
 .header {
   @include frame(1160px, 51.86px, center);
   @include flex(0, space-between, center);
+
+  &__group {
+    width: 250px;
+    @include flex(0,flex-end,center);
+  }
+
+  &__cart {
+    @include flex();
+    margin-left: 20px;
+    @include button-icon(1);
+  }
+
+  &__search {
+    @include flex();
+    input {
+      display: none;
+      width: 170px;
+      @include input;
+      font-family: 'Inter';
+      border: none;
+      padding: 5px;
+      border-bottom: 1px solid rgba(0,0,0,0.09);
+    }
+
+    img {
+      @include button-icon(1);
+      margin-left: 10px;
+    }
+  }
+
+  &__logo {
+    width: 150px;
+    @include flex(0,center,center);
+  }
+
+  &__location {
+    width: 250px;
+    @include flex(0,0,center);
+    margin-top: -10px;
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 5px;
+    }
+  }
 }

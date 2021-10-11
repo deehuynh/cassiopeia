@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Link from "next/link"
 
 export default function Header () {
   return (
@@ -8,10 +8,13 @@ export default function Header () {
         <span>Vietnam</span>
       </div>
       <div className="header__logo">
-        <img src="/svgs/logo.svg" alt="Logo" />
+        <Link href="/">
+          <a><img src="/svgs/logo.svg" alt="Logo" /></a>
+        </Link>
       </div>
       <div className="header__group">
         <div className="header__search">
+          <input type="text" defaultValue='' placeholder='Search' />
           <img src="/svgs/search.svg" alt="search icon" />
         </div>
         <div className="header__cart">
