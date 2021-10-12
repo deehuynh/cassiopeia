@@ -1,5 +1,6 @@
 .nav {
   @include frame(1160px, 79.64px, center);
+  @include flex(0,center,center);
   
   &__tab {
     @include link;
