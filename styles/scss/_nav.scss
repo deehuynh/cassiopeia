@@ -5,5 +5,10 @@
   &__tab {
     @include link;
     color: black;
+    margin-right: 76px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
