@@ -13,7 +13,7 @@ export default function Nav () {
   elements.forEach((item, index) => {
     tabs.push(
       <Link key={index} href={item.url}>
-        <a>{item.name}</a>
+        <a className='nav__tab'>{item.name}</a>
       </Link>
     );
   });

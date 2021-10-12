@@ -1,3 +1,8 @@
 .nav {
-  @include frame(1160px, auto, center);
+  @include frame(1160px, 79.64px, center);
+  
+  &__tab {
+    @include link;
+    color: black;
+  }
 }
