@@ -1,4 +1,4 @@
-
+import Link from "next/link"
 
 const elements = [
   {name: 'Flowers', url: '/flowers'},
@@ -9,7 +9,17 @@ const elements = [
 ];
 
 export default function Nav () {
+  const tabs = [];
+  elements.forEach((item, index) => {
+    tabs.push(
+      <Link key={index} href={item.url}>
+        <a>{item.name}</a>
+      </Link>
+    );
+  });
   return (
-    <nav className="nav"></nav>
+    <nav className="nav">
+      {tabs}
+    </nav>
   )
 }
