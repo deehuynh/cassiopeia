@@ -17,6 +17,7 @@ export default function Nav () {
       </Link>
     );
   });
+  
   return (
     <nav className="nav">
       {tabs}
