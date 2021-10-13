@@ -14,6 +14,18 @@ const helpAPI = [
   {title: 'FAQ', url: '/faq'}
 ];
 
+const aboutAPI = [
+  {title: 'Our stores', url: '/our-stores'},
+  {title: 'Flower care', url: '/flower-care'},
+  {title: 'Site map', url: '/site-map'}
+];
+
+const legalAPI = [
+  {title: 'Privacy policy', url: '/privacy-policy'},
+  {title: 'Terms & Conditions', url: '/terms-and-conditions'},
+  {title: 'Cookie policy', url: '/cookie-policy'}
+];
+
 function Tab (props) {
   return (
     <span>
@@ -47,6 +59,20 @@ export default function Footer () {
     );
   });
 
+  const aboutUs = [];
+  aboutAPI.forEach((item, index) => {
+    aboutUs.push(
+      <Tab key={index} title={item.title} url={item.url} />
+    );
+  });
+
+  const legal = [];
+  legalAPI.forEach((item, index) => {
+    legal.push(
+      <Tab key={index} title={item.title} url={item.url} />
+    );
+  });
+
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -67,11 +93,15 @@ export default function Footer () {
             </div>
 
             <div className="footer__link">
-              <p></p>
+              <p>About us</p>
+
+              {aboutUs}
             </div>
 
             <div className="footer__link">
-              <p></p>
+              <p>Legal</p>
+
+              {legal}
             </div>
           </div>
         </div>
