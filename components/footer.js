@@ -1,10 +1,10 @@
 import Link from "next/link"
 
-function Tab (props) {
+function Tab ({children}) {
   return (
     <span>
       <Link href='/'>
-        <a></a>
+        <a>{children}</a>
       </Link>
     </span>
   )
@@ -21,11 +21,7 @@ export default function Footer () {
             <div className="footer__link">
               <p></p>
 
-              <span>
-                <Link href='/'>
-                  <a></a>
-                </Link>
-              </span>
+              <Tab></Tab>
             </div>
 
             <div className="footer__link">
