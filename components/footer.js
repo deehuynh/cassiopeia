@@ -6,11 +6,19 @@ const socialMedia = [
   {name: 'facebook', url: 'https://www.facebook.com', image: '/svgs/facebook.svg'},
 ];
 
-function Tab ({children}) {
+const helpAPI = [
+  {title: 'Contact us', url: '/contact-us'},
+  {title: 'Delivery information', url: '/delivery-information'},
+  {title: 'Payment information', url: '/payment-information'},
+  {title: 'Customer service', url: '/customer-service'},
+  {title: 'FAQ', url: '/faq'}
+];
+
+function Tab (props) {
   return (
     <span>
-      <Link href='/'>
-        <a>{children}</a>
+      <Link href={props.url}>
+        <a>{props.title}</a>
       </Link>
     </span>
   )
@@ -25,6 +33,20 @@ function MediaLink (props) {
 }
 
 export default function Footer () {
+  const mediaList = [];
+  socialMedia.forEach((item, index) => {
+    mediaList.push(
+      <MediaLink key={index} name={item.name} url={item.url} image={item.image} />
+    );
+  });
+
+  const helpList = [];
+  helpAPI.forEach((item, index) => {
+    helpList.push(
+      <Tab key={index} title={item.title} url={item.url} />
+    );
+  });
+
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -33,15 +55,15 @@ export default function Footer () {
             <p>Follow us</p>
             <span>+00 0000 0000</span>
             <div className="footer__media">
-              <MediaLink />
-              <MediaLink />
-              <MediaLink />
+              {mediaList}
             </div>
           </div>
 
           <div className="footer__col-2">
             <div className="footer__link">
-              <p></p>
+              <p>Help</p>
+
+              {helpList}
             </div>
 
             <div className="footer__link">
@@ -54,7 +76,9 @@ export default function Footer () {
           </div>
         </div>
         
-        <div className="footer__row-2"></div>
+        <div className="footer__row-2">
+          &copy; Copyright,  2020
+        </div>
       </div>
     </footer>
   )

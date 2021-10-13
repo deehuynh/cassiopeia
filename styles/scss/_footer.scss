@@ -1,6 +1,7 @@
 .footer {
   @include block(100%, 356px);
   background-color: black;
+  color: white;
 
   &__container {
     @include frame(1160px, auto, center);
