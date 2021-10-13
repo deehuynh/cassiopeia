@@ -3,7 +3,7 @@ import Link from "next/link"
 const socialMedia = [
   {name: 'instagram', url: 'https://www.instagram.com', image: '/svgs/instagram.svg'},
   {name: 'whatsapp', url: 'https://www.whatsapp.com', image: '/svgs/whatsapp.svg'},
-  {name: 'facebook', url: 'https://www.facebook.com', image: '/svgs/instagram.svg'},
+  {name: 'facebook', url: 'https://www.facebook.com', image: '/svgs/facebook.svg'},
 ];
 
 function Tab ({children}) {
