@@ -1,5 +1,9 @@
 import Link from "next/link"
 
+const socialMedia = [
+  {name: 'instagram', url: 'https://www.instagram.com', image: ''},
+];
+
 function Tab ({children}) {
   return (
     <span>
@@ -10,6 +14,14 @@ function Tab ({children}) {
   )
 }
 
+function MediaLink (props) {
+  return (
+    <a href={props.url}>
+      <img src={props.image} alt={props.name} />
+    </a>
+  )
+}
+
 export default function Footer () {
   return (
     <footer className="footer">
@@ -17,8 +29,12 @@ export default function Footer () {
         <div className="footer__row-1">
           <div className="footer__col-1">
             <p>Follow us</p>
-
             <span>+00 0000 0000</span>
+            <div className="footer__media">
+              <MediaLink />
+              <MediaLink />
+              <MediaLink />
+            </div>
           </div>
 
           <div className="footer__col-2">
