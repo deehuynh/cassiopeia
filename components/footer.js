@@ -9,21 +9,13 @@ export default function Footer () {
 
           <div className="footer__col-2">
             <div className="footer__link">
-              <Link href='/'>
-                <a></a>
-              </Link>
-            </div>
+              <p></p>
 
-            <div className="footer__link">
-              <Link href='/'>
-                <a></a>
-              </Link>
-            </div>
-
-            <div className="footer__link">
-              <Link href='/'>
-                <a></a>
-              </Link>
+              <span>
+                <Link href='/'>
+                  <a></a>
+                </Link>
+              </span>
             </div>
           </div>
         </div>
