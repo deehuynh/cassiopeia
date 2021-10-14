@@ -19,4 +19,8 @@
       font-weight: 500;
     }
   }
+
+  @include media (768px) {
+    display: none;
+  }
 }
