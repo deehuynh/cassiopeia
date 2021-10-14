@@ -10,6 +10,12 @@
   &__row {
     &-1 {
       @include flex(0,center);
+      padding: {
+        top: 58px;
+      }
+      p {
+        margin: 0;
+      }
     }
   }
 
@@ -19,7 +25,12 @@
     }
 
     &-2 {
+      @include flex(0,space-between);
       width: 815px;
+
+      span {
+        display: block;
+      }
     }
   }
 }

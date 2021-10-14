@@ -79,7 +79,7 @@ export default function Footer () {
         <div className="footer__row-1">
           <div className="footer__col-1">
             <p>Follow us</p>
-            <span>+00 0000 0000</span>
+            <span>+84 0000 0000</span>
             <div className="footer__media">
               {mediaList}
             </div>
