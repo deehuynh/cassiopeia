@@ -42,7 +42,9 @@
       width: 345px;
 
       span {
+        display: block;
         @extend %caption2;
+        margin-bottom: 17px;
       }
     }
 
@@ -52,6 +54,18 @@
 
       span {
         display: block;
+        margin-bottom: 14px;
+
+        a {
+          @extend %button2;
+          @include link;
+          opacity: .8;
+
+          &:hover {
+            opacity: 1;
+            font-weight: 500;
+          }
+        }
       }
     }
   }
