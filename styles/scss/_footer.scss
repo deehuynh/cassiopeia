@@ -9,7 +9,7 @@
 
   &__media {
     a {
-      margin-right: 20px;
+      margin-right: 22px;
 
       &:last-child {
         margin-right: 0;
@@ -18,6 +18,16 @@
       &:hover {
         opacity: .5;
       }
+    }
+  }
+
+  &__link {
+    &:first-child {
+      width: 335px;
+    }
+    width: 315px;
+    &:last-child {
+      width: 265px;
     }
   }
 
