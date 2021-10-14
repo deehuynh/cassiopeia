@@ -6,4 +6,20 @@
   &__container {
     @include frame(1160px, auto, center);
   }
+
+  &__row {
+    &-1 {
+      @include flex(0,center);
+    }
+  }
+
+  &__col {
+    &-1 {
+      width: 345px;
+    }
+
+    &-2 {
+      width: 815px;
+    }
+  }
 }
