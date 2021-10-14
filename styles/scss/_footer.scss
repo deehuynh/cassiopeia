@@ -135,4 +135,15 @@
       padding-bottom: 30px;
     }
   }
+
+  @include media (768px) {
+    &__container {
+      @include container (40px);
+    }
+
+    &__row-1 {
+      padding-top: 48px;
+      margin-bottom: 15px;
+    }
+  }
 }
