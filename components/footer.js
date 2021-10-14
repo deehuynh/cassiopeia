@@ -105,6 +105,14 @@ export default function Footer () {
 
               {legal}
             </div>
+
+            <div className='footer__contact footer__hiden'>
+              <p>Follow us</p>
+              <span>+84 0000 0000</span>
+              <div className="footer__media">
+                {mediaList}
+              </div>
+            </div>
           </div>
         </div>
         
