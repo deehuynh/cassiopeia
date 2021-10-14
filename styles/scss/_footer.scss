@@ -5,6 +5,10 @@
 
   &__container {
     @include frame(1160px, auto, center);
+    
+    @include media (1200px) {
+      @include container(50px);
+    }
   }
 
   &__media {

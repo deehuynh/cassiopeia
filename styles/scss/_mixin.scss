@@ -310,3 +310,10 @@
     opacity: 1;
   }
 }
+
+@mixin container ($spacing) {
+  margin: {
+    left: $spacing;
+    right: $spacing;
+  };
+}
