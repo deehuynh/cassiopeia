@@ -1,5 +1,5 @@
 .footer {
-  @include block(100%, 356px);
+  @include block(100%, auto);
   background-color: black;
   color: white;
 
@@ -37,6 +37,7 @@
       padding: {
         top: 58px;
       }
+      margin-bottom: 30px;
       p {
         margin: {
           top: 0;
@@ -47,8 +48,11 @@
     }
 
     &-2 {
-      border-top: 1px solid #363636;
+      border-top: 1px solid #464646;
       padding-top: 20px;
+      padding-bottom: 40px;
+      @extend %caption1;
+      color: #565656;
     }
   }
 

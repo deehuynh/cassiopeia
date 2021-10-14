@@ -107,7 +107,7 @@ export default function Footer () {
         </div>
         
         <div className="footer__row-2">
-          &copy; Copyright,  2020
+          &copy; Copyright,  2021
         </div>
       </div>
     </footer>
