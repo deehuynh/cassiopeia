@@ -92,4 +92,47 @@
       }
     }
   }
+
+  @include media (1200px) {
+    &__col {
+      &-2 {
+        width: 715px;
+      }
+    }
+  }
+
+  @include media (1024px) {
+    &__row-1 {
+      flex-direction: column-reverse;
+      margin-bottom: 20px;
+    }
+
+    &__col-1 {
+      width: 100%;
+      @include flex(0,space-between,center);
+      margin-top: 15px;
+    }
+
+    &__contact {
+      @include flex(0,0,center);
+      width: 300px;
+
+      p {
+        margin-right: 40px;
+      }
+    }
+
+    &__media {
+      width: 200px;
+      @include flex(0,flex-end);
+    }
+
+    &__col-2 {
+      width: 100%;
+    }
+
+    &__row-2 {
+      padding-bottom: 30px;
+    }
+  }
 }
