@@ -157,9 +157,9 @@
         width: 60%;
       }
       width: 40%;
-      &:last-child {
+      &:nth-child(3) {
         width: 60%;
-        margin-top: 15px;
+        margin-top: 10px;
       }
     }
 
@@ -172,6 +172,7 @@
     }
 
     &__contact {
+      margin-top: 10px;
       width: 40%;
       flex-direction: column;
 
@@ -201,5 +202,18 @@
     }
   }
 
-  
+  @include media (425px) {
+    &__container {
+      @include container(30px);
+    }
+
+    &__row-1 {
+      padding-top: 38px;
+    }
+
+    &__row-2 {
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+  }
 }
