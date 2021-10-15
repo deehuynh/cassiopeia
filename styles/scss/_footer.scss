@@ -216,4 +216,10 @@
       padding-bottom: 20px;
     }
   }
+
+  @include media (335px) {
+    &__container {
+      @include container(25px);
+    }
+  }
 }
