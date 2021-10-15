@@ -10,6 +10,10 @@
     @include input;
   }
 
+  @include media (768px, 'min') {
+    display: none!important;
+  }
+
   @include media (375px) {
     @include container (15px);
   }
