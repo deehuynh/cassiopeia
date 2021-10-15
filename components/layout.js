@@ -1,6 +1,7 @@
 import Meta from "./meta"
 import Header from "./header"
 import Nav from "./navigation"
+import MobileSearch from "./mobile-search"
 import Footer from "./footer"
 
 export default function Layout ({ children }) {
@@ -9,6 +10,7 @@ export default function Layout ({ children }) {
       <Meta />
       <Header />
       <Nav />
+      <MobileSearch />
 
       {children}
 
