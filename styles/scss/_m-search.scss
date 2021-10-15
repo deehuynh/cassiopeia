@@ -9,4 +9,8 @@
     font-family: 'Inter';
     @include input;
   }
+
+  @include media (375px) {
+    @include container (15px);
+  }
 }
