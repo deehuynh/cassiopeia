@@ -4,6 +4,4 @@ export default function handleShow (refContainer, hiden, show) {
   } else {
     refContainer.current.className = hiden;
   }
-
-  console.log(show, hiden);
 }

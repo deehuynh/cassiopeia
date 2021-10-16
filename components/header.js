@@ -2,7 +2,7 @@ import Link from "next/link"
 import {useRef} from "react"
 import handleShow from "../hooks/handleShow";
 
-export default function Header () {
+export default function Header (props) {
   const refContainer = useRef(null);
 
   return (
@@ -31,7 +31,10 @@ export default function Header () {
               () => {
                 handleShow(
                   refContainer, 'header__search--hiden', 'header__search--show'
-                )
+                );
+                handleShow(
+                  props.searchRef, 'm-search__hiden', 'm-search'
+                );
               }
             } 
             src="/svgs/search.svg" alt="search icon" />

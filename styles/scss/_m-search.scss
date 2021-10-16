@@ -1,6 +1,7 @@
 .m-search {
   max-width: 100%;
   @include container (20px);
+  display: none;
 
   input {
     width: 100%;
@@ -10,8 +11,12 @@
     @include input;
   }
 
-  @include media (768px, 'min') {
+  &__hiden {
     display: none;
+  }
+
+  @include media (768px) {
+    display: block;
   }
 
   @include media (375px) {

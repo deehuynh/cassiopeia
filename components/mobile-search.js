@@ -1,6 +1,6 @@
-export default function MobileSearch () {
+export default function MobileSearch (props) {
   return (
-    <div className="m-search">
+    <div ref={props.searchRef} className="m-search__hiden">
       <input type="text" defaultValue='' placeholder='Search' />
     </div>
   )
