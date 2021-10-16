@@ -1,6 +1,7 @@
 .header {
   @include frame(1160px, 51.86px, center);
   @include flex(0, space-between, center);
+  position: relative;
 
   &__group {
     width: 250px;
