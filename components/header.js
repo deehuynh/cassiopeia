@@ -1,8 +1,6 @@
 import Link from "next/link"
 import {useRef} from "react"
 import handleShow from "../hooks/handleShow";
-// import mobile nav
-import MobileNav from "./m-navigation";
 
 export default function Header (props) {
   const refContainer = useRef(null);
@@ -45,8 +43,6 @@ export default function Header (props) {
           <img src="/svgs/cart.svg" alt="cart icon" />
         </div>
       </div>
-
-      <MobileNav />
     </header>
   )
 }
