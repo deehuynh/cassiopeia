@@ -23,6 +23,15 @@
   }
 
   @include media (768px) {
+    @include block(100%, auto);
     position: absolute;
+    background-color: white;
+    overflow: hidden;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    &__tab {
+      display: block;
+    }
   }
 }
