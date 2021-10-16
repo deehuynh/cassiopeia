@@ -20,4 +20,4 @@ The design file taken from: https://www.behance.net/gallery/96992647/Cassiopeia-
 
 Package
 
-- npm i sass
+`npm i sass`
