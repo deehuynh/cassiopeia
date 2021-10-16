@@ -20,18 +20,58 @@
         font-weight: 500;
       }
     }
+
+    &__location {
+      display: none;
+    }
   }
 
   @include media (768px) {
-    @include block(100%, auto);
+    @include block(100%, 100%);
     position: absolute;
+    z-index: 1;
     background-color: white;
     overflow: hidden;
-    padding: 0 20px;
-    box-sizing: border-box;
 
     &__tab {
       display: block;
+      @include link;
+      color: black;
+      font-weight: 500;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border-top: 1px solid rgba(0,0,0, 0.09);
+
+      &:hover {
+        opacity: .5;
+      }
+
+      &:nth-last-child(2) {
+        border-bottom: 1px solid rgba(0,0,0, 0.09);
+      }
+    }
+
+    &__location {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      display: block;
+      padding: 12px 20px;
+      background-color: rgba(0, 0, 0, 0.04);
+
+      span {
+        margin-left: 7px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  @include media (375px) {
+    &__tab, &__location {
+      padding: {
+        left: 15px;
+        right: 15px;
+      }
     }
   }
 }

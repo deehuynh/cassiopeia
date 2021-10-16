@@ -21,6 +21,11 @@ export default function Nav () {
   return (
     <nav className="nav">
       {tabs}
+
+      <div className="nav__location">
+        <img src="/svgs/location.svg" alt="location icon" />
+        <span>Vietnam</span>
+      </div>
     </nav>
   )
 }
