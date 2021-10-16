@@ -1,26 +1,28 @@
 .nav {
-  @include frame(1160px, 79.64px, center);
-  @include flex(0,center,center);
-  
-  &__tab {
-    @include link;
-    color: black;
-    margin-right: 76px;
+  @include media (769px, 'min') {
+    @include frame(1160px, 79.64px, center);
+    @include flex(0,center,center);
+    
+    &__tab {
+      @include link;
+      color: black;
+      margin-right: 76px;
 
-    &:last-child {
-      margin-right: 0;
-    }
+      &:last-child {
+        margin-right: 0;
+      }
 
-    &:hover {
-      opacity: .5;
-    }
+      &:hover {
+        opacity: .5;
+      }
 
-    &--active {
-      font-weight: 500;
+      &--active {
+        font-weight: 500;
+      }
     }
   }
 
   @include media (768px) {
-    display: none;
+    position: absolute;
   }
 }
