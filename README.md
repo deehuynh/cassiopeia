@@ -18,6 +18,6 @@ The design file taken from: https://www.behance.net/gallery/96992647/Cassiopeia-
 
 ## Clone
 
-Package
-
-`npm i sass`
+```jsx
+const test = '';
+```
