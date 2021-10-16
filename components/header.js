@@ -27,7 +27,13 @@ export default function Header () {
             type="text" defaultValue='' placeholder='Search' 
           />
           <img 
-            onClick={() => {handleShow(refContainer, 'header__search--hiden', 'header__search--show')}} 
+            onClick={
+              () => {
+                handleShow(
+                  refContainer, 'header__search--hiden', 'header__search--show'
+                )
+              }
+            } 
             src="/svgs/search.svg" alt="search icon" />
         </div>
         <div className="header__cart">

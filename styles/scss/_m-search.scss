@@ -11,7 +11,7 @@
   }
 
   @include media (768px, 'min') {
-    display: none!important;
+    display: none;
   }
 
   @include media (375px) {
