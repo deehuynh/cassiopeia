@@ -93,6 +93,10 @@
 
       img {
         width: 21px;
+
+        &:last-child {
+          width: 18px;
+        }
       }
     }
   }
