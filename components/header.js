@@ -1,8 +1,8 @@
 import Link from "next/link"
 import {useRef} from "react"
-import handleShow from "../functions/handleShow";
-import handleShowButton from "../functions/handleShowButton"
-import preventBodyScroll from "../functions/preventBodyScroll";
+import handleShow from "../function/handleShow";
+import handleShowButton from "../function/handleShowButton"
+import preventBodyScroll from "../function/preventBodyScroll";
 
 export default function Header (props) {
   const refContainer = useRef(null);
