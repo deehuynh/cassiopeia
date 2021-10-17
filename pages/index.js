@@ -1,4 +1,6 @@
 import Title from "../components/title"
+// import components
+import BannerAds from "../components/banner-ads"
 
 export default function Home () {
   return (
@@ -6,7 +8,7 @@ export default function Home () {
       <Title>Cassiopeia | Flower Store</Title>
 
       <div className="home">
-        Home
+        <BannerAds />
       </div>
     </>
   )
