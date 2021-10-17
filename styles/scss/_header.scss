@@ -95,7 +95,7 @@
     &__menu {
       width: 250px;
       display: block;
-      @include button-icon(1);
+      @include button-icon(0);
 
       img {
         width: 21px;
