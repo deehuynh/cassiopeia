@@ -86,6 +86,12 @@
       display: none;
     }
 
+    &__logo {
+      a {
+        display: flex;
+      }
+    }
+
     &__menu {
       width: 250px;
       display: block;
