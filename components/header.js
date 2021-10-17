@@ -3,11 +3,13 @@ import {useRef} from "react"
 import handleShow from "../function/handleShow";
 import handleShowButton from "../function/handleShowButton"
 import preventBodyScroll from "../function/preventBodyScroll";
+import effectOneButton from "../function/effectOneButton";
 
 export default function Header (props) {
   const refContainer = useRef(null);
   const openNavRef = useRef(null);
   const closeNavRef = useRef(null);
+  const searchBtnRef = useRef(null);
 
   return (
     <header className="header">
@@ -52,7 +54,8 @@ export default function Header (props) {
             className='header__search--hiden'
             type="text" defaultValue='' placeholder='Search' 
           />
-          <img 
+          <img
+            ref={searchBtnRef}
             onClick={
               () => {
                 handleShow(
@@ -61,6 +64,7 @@ export default function Header (props) {
                 handleShow(
                   props.searchRef, 'm-search__hiden', 'm-search'
                 );
+                effectOneButton(searchBtnRef, 'header__search-btn--opacity');
               }
             } 
             src="/svgs/search.svg" alt="search icon" />

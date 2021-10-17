@@ -50,6 +50,18 @@
     img {
       @include button-icon(1);
       margin-left: 10px;
+
+      @include media (768px) {
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    &-btn--opacity {
+      @include media (768px) {
+        opacity: .5!important;
+      }
     }
   }
 
