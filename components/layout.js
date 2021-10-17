@@ -19,7 +19,9 @@ export default function Layout ({ children }) {
       <Nav navRef={navRef} />
       <MobileSearch searchRef={searchRef} />
 
-      {children}
+      <section className="content">
+        {children}
+      </section>
 
       <Footer />
     </div>

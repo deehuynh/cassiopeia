@@ -5,7 +5,9 @@ export default function Home () {
     <>
       <Title>Cassiopeia | Flower Store</Title>
 
-      Home
+      <div className="home">
+        Home
+      </div>
     </>
   )
 }
