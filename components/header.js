@@ -12,7 +12,10 @@ export default function Header (props) {
         <span>Vietnam</span>
       </div>
       <div className="header__menu">
-        <img src="/svgs/menu.svg" alt="menu" />
+        <img 
+          onClick={()=>{handleShow(props.navRef, 'nav nav--hiden', 'nav nav--show')}}
+          src="/svgs/menu.svg" alt="menu"
+        />
       </div>
       <div className="header__logo">
         <Link href="/">

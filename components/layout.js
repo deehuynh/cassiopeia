@@ -10,12 +10,13 @@ import Footer from "./footer"
 
 export default function Layout ({ children }) {
   const searchRef = useRef(null);
+  const navRef = useRef(null);
 
   return (
     <div className="layout">
       <Meta />
-      <Header searchRef={searchRef} />
-      <Nav />
+      <Header navRef={navRef} searchRef={searchRef} />
+      <Nav navRef={navRef} />
       <MobileSearch searchRef={searchRef} />
 
       {children}

@@ -8,7 +8,7 @@ const elements = [
   {name: 'About us', url: '/about-us'}
 ];
 
-export default function Nav () {
+export default function Nav (props) {
   const tabs = [];
   elements.forEach((item, index) => {
     tabs.push(
@@ -19,7 +19,7 @@ export default function Nav () {
   });
   
   return (
-    <nav className="nav">
+    <nav ref={props.navRef} className="nav nav--hiden">
       {tabs}
 
       <div className="nav__location">

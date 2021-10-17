@@ -27,11 +27,20 @@
   }
 
   @include media (768px) {
-    @include block(100%, 100%);
+    &--hiden {
+      height: 0;
+    }
+
+    &--show {
+      height: 100%;
+    }
+
+    width: 100%;
     position: absolute;
     z-index: 1;
     background-color: white;
     overflow: hidden;
+    transition: height .3s;
 
     &__tab {
       display: block;
@@ -57,7 +66,7 @@
       bottom: 0;
       display: block;
       padding: 12px 20px;
-      background-color: rgba(0, 0, 0, 0.04);
+      background-color: #f9f9f9;
 
       span {
         margin-left: 7px;
