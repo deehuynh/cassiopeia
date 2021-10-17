@@ -1,9 +1,12 @@
 import Link from "next/link"
 import {useRef} from "react"
 import handleShow from "../hooks/handleShow";
+import handleShowButton from "../hooks/handleShowButton"
 
 export default function Header (props) {
   const refContainer = useRef(null);
+  const openNavRef = useRef(null);
+  const closeNavRef = useRef(null);
 
   return (
     <header className="header">
@@ -13,8 +16,20 @@ export default function Header (props) {
       </div>
       <div className="header__menu">
         <img 
-          onClick={()=>{handleShow(props.navRef, 'nav nav--hiden', 'nav nav--show')}}
+          ref={openNavRef}
+          onClick={
+            ()=>{
+              handleShow(props.navRef, 'nav nav--hiden', 'nav nav--show');
+              handleShowButton(openNavRef, closeNavRef);
+            }
+          }
           src="/svgs/menu.svg" alt="menu"
+        />
+
+        <img 
+          ref={closeNavRef}
+          onClick={()=>{handleShowButton(openNavRef, closeNavRef)}}
+          src="/svgs/close.svg" alt="close menu" 
         />
       </div>
       <div className="header__logo">
