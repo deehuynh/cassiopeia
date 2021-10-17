@@ -1,6 +1,6 @@
 import Link from "next/link"
 import {useRef} from "react"
-import handleShow from "../hooks/handleShow";
+import handleShow from "../functions/handleShow";
 import handleShowButton from "../functions/handleShowButton"
 import preventBodyScroll from "../functions/preventBodyScroll";
 
