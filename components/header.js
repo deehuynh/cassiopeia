@@ -15,20 +15,25 @@ export default function Header (props) {
         <span>Vietnam</span>
       </div>
       <div className="header__menu">
-        <img 
+        <img
+          className='show'
           ref={openNavRef}
           onClick={
             ()=>{
               handleShow(props.navRef, 'nav nav--hiden', 'nav nav--show');
-              handleShowButton(openNavRef, closeNavRef);
+              handleShowButton(openNavRef, closeNavRef, 'show', 'hiden');
             }
           }
           src="/svgs/menu.svg" alt="menu"
         />
 
         <img 
+          className='hiden'
           ref={closeNavRef}
-          onClick={()=>{handleShowButton(openNavRef, closeNavRef)}}
+          onClick={()=>{
+            handleShow(props.navRef, 'nav nav--hiden', 'nav nav--show');
+            handleShowButton(closeNavRef, openNavRef, 'show', 'hiden');
+          }}
           src="/svgs/close.svg" alt="close menu" 
         />
       </div>
