@@ -1,7 +1,7 @@
 import Link from "next/link"
 import {useRef} from "react"
 import handleShow from "../hooks/handleShow";
-import handleShowButton from "../hooks/handleShowButton"
+import handleShowButton from "../functions/handleShowButton"
 import preventBodyScroll from "../functions/preventBodyScroll";
 
 export default function Header (props) {
