@@ -5,6 +5,51 @@
 }
 
 .banner-ads {
-  max-width: 1160px;
-  max-height: 220px;
+  width: 1160px;
+  height: 220px;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  padding: {
+    left: 80px;
+    top: 43px;
+  }
+  box-sizing: border-box;
+
+  &__title {
+    font-family: 'Roboto';
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  p {
+    @extend %H4;
+    margin: {
+      top: 0;
+      bottom: 24px;
+    };
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    @extend %button2;
+    font-weight: 300;
+    color: white;
+    background-color: black;
+    padding: 12px 22px;
+    box-sizing: border-box;
+    border-radius: 7px;
+
+    span {
+      margin-right: 12px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: .8;
+    }
+  }
 }

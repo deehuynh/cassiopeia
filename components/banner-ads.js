@@ -1,12 +1,12 @@
 import Image from "next/image"
 
 const adsAPI = [
-  {type: 'primary', background: '', title: '', description: '', btnTitle: ''},
+  {type: 'primary', background: '', title: 'title', description: 'abcds', btnTitle: 'Shop now'},
   {type: 'secondary', image: ''},
   {type: 'secondary', image: ''},
 ];
 
-export default function BannerAds (props) {
+export default function BannerAds () {
   const prBanner = [];
   const sndBanner = [];
   adsAPI.forEach((item, index) => {
@@ -33,6 +33,7 @@ export default function BannerAds (props) {
             item.btnTitle !== '' ? (
               <div className="banner-ads__btn">
                 <span>{item.btnTitle}</span>
+                <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
               </div>
             ) : ''
           }
