@@ -2,6 +2,7 @@ import Link from "next/link"
 import {useRef} from "react"
 import handleShow from "../hooks/handleShow";
 import handleShowButton from "../hooks/handleShowButton"
+import preventBodyScroll from "../functions/preventBodyScroll";
 
 export default function Header (props) {
   const refContainer = useRef(null);
@@ -22,6 +23,7 @@ export default function Header (props) {
             ()=>{
               handleShow(props.navRef, 'nav nav--hiden', 'nav nav--show');
               handleShowButton(openNavRef, closeNavRef, 'show', 'hiden');
+              preventBodyScroll(true);
             }
           }
           src="/svgs/menu.svg" alt="menu"
@@ -33,6 +35,7 @@ export default function Header (props) {
           onClick={()=>{
             handleShow(props.navRef, 'nav nav--hiden', 'nav nav--show');
             handleShowButton(closeNavRef, openNavRef, 'show', 'hiden');
+            preventBodyScroll(false);
           }}
           src="/svgs/close.svg" alt="close menu" 
         />
