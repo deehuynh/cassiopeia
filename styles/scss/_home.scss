@@ -57,11 +57,11 @@
 
   &__secondary {
     width: 100%;
-    @include flex();
+    @include flex(0,space-between);
+  }
 
-    img {
-      @include block(560px, 221px);
-      background-color: #f9f9f9;
-    }
+  &__image {
+    @include block(560px, 221px);
+    background-color: #f9f9f9;
   }
 }

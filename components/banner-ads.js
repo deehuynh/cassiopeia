@@ -40,16 +40,18 @@ export default function BannerAds () {
         </div>
       );
     } else if (item.type === 'secondary') {
-      if (item.image !== '') {
-        sndBanner.push(
-          <div key={index} className="banner-ads__image">
-            <Image
-              src={item.image}
-              alt='banner'
-            />
-          </div>
-        );
-      }
+      sndBanner.push(
+        <div key={index} className="banner-ads__image">
+          {
+            item.image !== '' ? (
+              <Image
+                src={item.image}
+                alt='banner'
+              />
+            ) : ''
+          }
+        </div>
+      );
     }
   });
   return (
