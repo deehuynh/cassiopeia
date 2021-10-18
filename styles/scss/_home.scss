@@ -10,12 +10,11 @@
     max-width: 1160px;
     max-height: 220px;
     overflow: hidden;
-    padding: {
-      left: 80px;
-      top: 43px;
-    }
     margin-bottom: 40px;
-    box-sizing: border-box;
+  }
+
+  &__background {
+    user-select: none;
   }
 
   &__title {
@@ -38,6 +37,7 @@
   }
 
   &__btn {
+    user-select: none;
     position: absolute;
     left: 80px;
     top: 127px;

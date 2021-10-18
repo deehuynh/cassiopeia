@@ -3,7 +3,7 @@ import Img1 from "../public/images/cass1.jpg"
 import Img2 from "../public/images/cass2.jpg"
 
 const adsAPI = [
-  {type: 'primary', background: '', title: 'title', description: 'abcds', btnTitle: 'Shop now'},
+  {type: 'primary', background: Img1, title: 'title', description: 'abcds', btnTitle: 'Shop now'},
   {type: 'secondary', image: Img2},
   {type: 'secondary', image: Img2},
 ];
