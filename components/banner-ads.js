@@ -40,24 +40,24 @@ export default function BannerAds () {
         </div>
       );
     } else if (item.type === 'secondary') {
-      sndBanner.push(
-        <div key={index} className="banner-ads__secondary">
-          {
-            item.image !== '' ? (
-              <Image
-                src={item.image}
-                alt='banner'
-              />
-            ) : ''
-          }
-        </div>
-      );
+      if (item.image !== '') {
+        sndBanner.push(
+          <div key={index} className="banner-ads__image">
+            <Image
+              src={item.image}
+              alt='banner'
+            />
+          </div>
+        );
+      }
     }
   });
   return (
     <div className="banner-ads">
       {prBanner}
-      {sndBanner}
+      <div className="banner-ads__secondary">
+        {sndBanner}
+      </div>
     </div>
   )
 }
