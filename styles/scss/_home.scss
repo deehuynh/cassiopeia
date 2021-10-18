@@ -6,8 +6,8 @@
 
 .banner-ads {
   &__primary {
-    width: 1160px;
-    height: 220px;
+    max-width: 1160px;
+    max-height: 220px;
     background-color: #f9f9f9;
     overflow: hidden;
     padding: {
