@@ -27,9 +27,18 @@
     font-weight: 500;
     line-height: 28px;
     text-transform: uppercase;
+    @include media (950px) {
+      top: 18%;
+      transform: scale(.9);
+    }
 
-    @include media (900px) {
+    @include media (850px) {
+      top: 16%;
+    }
+
+    @include media (800px) {
       top: 15%;
+      transform: scale(.8);
     }
   }
 
@@ -40,9 +49,12 @@
     margin: 0;
     @extend %H4;
     font-size: 1.125em;
-
-    @include media (900px) {
+    @include media (950px) {
+      transform: scale(.8);
+    }
+    @include media (800px) {
       top: 35%;
+      transform: scale(.7);
     }
   }
 
@@ -69,6 +81,15 @@
     &:hover {
       cursor: pointer;
       opacity: .8;
+    }
+
+    @include media (950px) {
+      transform: scale(.9);
+    }
+    @include media (800px) {
+      top: 50%;
+      transform: scale(.8);
+      left: 6%;
     }
   }
 
