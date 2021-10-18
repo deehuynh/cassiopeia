@@ -11,6 +11,7 @@
     max-height: 220px;
     overflow: hidden;
     margin-bottom: 40px;
+    font-size: 16px;
   }
 
   &__background {
@@ -19,35 +20,45 @@
 
   &__title {
     position: absolute;
-    top: 43px;
-    left: 80px;
+    top: 20%;
+    left: 6.9%;
     font-family: 'Roboto';
-    font-size: 28px;
+    font-size: 1.750em;
     font-weight: 500;
     line-height: 28px;
     text-transform: uppercase;
+
+    @include media (900px) {
+      top: 15%;
+    }
   }
 
   p {
     position: absolute;
-    left: 80px;
-    top: 81px;
+    left: 6.9%;
+    top: 37%;
     margin: 0;
     @extend %H4;
+    font-size: 1.125em;
+
+    @include media (900px) {
+      top: 35%;
+    }
   }
 
   &__btn {
     user-select: none;
     position: absolute;
-    left: 80px;
-    top: 127px;
+    left: 6.9%;
+    top: 58%;
     display: inline-flex;
     align-items: center;
     @extend %button2;
     font-weight: 300;
     color: white;
     background-color: black;
-    padding: 12px 22px;
+    font-size: 0.875em;
+    padding: 0.857em 1.571em;
     box-sizing: border-box;
     border-radius: 7px;
 
