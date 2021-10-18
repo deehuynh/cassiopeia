@@ -62,7 +62,8 @@
   }
 
   &__image {
-    @include block(560px, 221px);
+    max-width: 560px;
+    max-height: 221px;
     background-color: #f9f9f9;
   }
 }
