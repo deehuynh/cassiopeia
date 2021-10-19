@@ -4,9 +4,20 @@ import Img2 from "../public/images/cass31.png"
 import Img3 from "../public/images/cass23.png"
 
 const adsAPI = [
-  {type: 'primary', background: Img1, title: '40% off', description: 'Best deals this week. Fresh flowers, plants and gifts', btnTitle: 'Shop now'},
-  {type: 'secondary', title: '', description: '', background: Img3},
-  {type: 'secondary', title: '', description: '', background: Img2},
+  {
+    type: 'primary', background: Img1,
+    title: '40% off',
+    description: 'Best deals this week. Fresh flowers, plants and gifts',
+    btnTitle: 'Shop now'
+  }, {
+    type: 'secondary', title: '',
+    description: '',
+    background: Img3, btnTitle: ''
+  }, {
+    type: 'secondary', title: '',
+    description: '',
+    background: Img2, btnTitle: ''
+  }
 ];
 
 export default function BannerAds () {
