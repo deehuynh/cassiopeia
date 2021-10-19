@@ -14,9 +14,9 @@ const adsAPI = [
     description: '',
     background: Img3, btnTitle: ''
   }, {
-    type: 'secondary', title: '',
-    description: '',
-    background: Img2, btnTitle: ''
+    type: 'secondary', title: 'Plants',
+    description: 'for home comfort',
+    background: Img2, btnTitle: 'View now'
   }
 ];
 
