@@ -93,6 +93,10 @@
       opacity: .8;
     }
 
+    &--light {
+      left: 45%;
+    }
+
     @include media (950px) {
       transform: scale(.9);
     }
