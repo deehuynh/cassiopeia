@@ -1,10 +1,11 @@
 import Image from "next/image"
-import Img1 from "../public/images/cass1.jpg"
-import Img2 from "../public/images/cass2.jpg"
+import Img1 from "../public/images/cass15.jpg"
+import Img2 from "../public/images/cass21.jpg"
+import Img3 from "../public/images/cass3.jpg"
 
 const adsAPI = [
-  {type: 'primary', background: Img1, title: 'title', description: 'abcds', btnTitle: 'Shop now'},
-  {type: 'secondary', image: Img2},
+  {type: 'primary', background: Img1, title: '40% off', description: 'Best deals this week. Fresh flowers, plants and gifts', btnTitle: 'Shop now'},
+  {type: 'secondary', image: Img3},
   {type: 'secondary', image: Img2},
 ];
 
