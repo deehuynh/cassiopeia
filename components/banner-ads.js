@@ -10,9 +10,9 @@ const adsAPI = [
     description: 'Best deals this week. Fresh flowers, plants and gifts',
     btnTitle: 'Shop now'
   }, {
-    type: 'secondary', title: '',
-    description: '',
-    background: Img3, btnTitle: ''
+    type: 'secondary', title: 'Nice little gifts',
+    description: 'for loved ones',
+    background: Img3, btnTitle: 'View now'
   }, {
     type: 'secondary', title: 'Plants',
     description: 'for home comfort',
