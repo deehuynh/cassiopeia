@@ -27,6 +27,11 @@
     font-weight: 500;
     line-height: 28px;
     text-transform: uppercase;
+
+    &--light {
+      left: 45%;
+    }
+
     @include media (950px) {
       top: 18%;
       transform: scale(.9);
@@ -49,6 +54,11 @@
     margin: 0;
     @extend %H4;
     font-size: 1.125em;
+
+    &.banner-ads__description {
+      left: 45%;
+    }
+
     @include media (950px) {
       transform: scale(.8);
     }

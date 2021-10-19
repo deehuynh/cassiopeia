@@ -65,11 +65,11 @@ export default function BannerAds () {
             ) : ''
           }
 
-          <div className="banner-ads__title">
+          <div className="banner-ads__title banner-ads__title--light">
             {item.title}
           </div>
 
-          <p>{item.description}</p>
+          <p className="banner-ads__description">{item.description}</p>
 
           {
             item.btnTitle !== '' ? (
