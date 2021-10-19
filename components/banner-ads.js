@@ -5,8 +5,8 @@ import Img3 from "../public/images/cass23.png"
 
 const adsAPI = [
   {type: 'primary', background: Img1, title: '40% off', description: 'Best deals this week. Fresh flowers, plants and gifts', btnTitle: 'Shop now'},
-  {type: 'secondary', background: Img3},
-  {type: 'secondary', background: Img2},
+  {type: 'secondary', title: '', description: '', background: Img3},
+  {type: 'secondary', title: '', description: '', background: Img2},
 ];
 
 export default function BannerAds () {
@@ -53,6 +53,12 @@ export default function BannerAds () {
               />
             ) : ''
           }
+
+          <div className="banner-ads__title">
+            {item.title}
+          </div>
+
+          <p>{item.description}</p>
         </div>
       );
     }
