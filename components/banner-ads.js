@@ -59,6 +59,15 @@ export default function BannerAds () {
           </div>
 
           <p>{item.description}</p>
+
+          {
+            item.btnTitle !== '' ? (
+              <div className="banner-ads__btn banner-ads__btn--light">
+                <span>{item.btnTitle}</span>
+                <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
+              </div>
+            ) : ''
+          }
         </div>
       );
     }
