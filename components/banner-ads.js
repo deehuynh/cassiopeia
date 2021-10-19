@@ -5,8 +5,8 @@ import Img3 from "../public/images/cass23.png"
 
 const adsAPI = [
   {type: 'primary', background: Img1, title: '40% off', description: 'Best deals this week. Fresh flowers, plants and gifts', btnTitle: 'Shop now'},
-  {type: 'secondary', image: Img3},
-  {type: 'secondary', image: Img2},
+  {type: 'secondary', background: Img3},
+  {type: 'secondary', background: Img2},
 ];
 
 export default function BannerAds () {
@@ -46,9 +46,9 @@ export default function BannerAds () {
       sndBanner.push(
         <div key={index} className="banner-ads__image">
           {
-            item.image !== '' ? (
+            item.background !== '' ? (
               <Image
-                src={item.image}
+                src={item.background}
                 alt='banner'
               />
             ) : ''
