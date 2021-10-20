@@ -5,18 +5,18 @@ import Img3 from "../public/images/cass23.png"
 
 const adsAPI = [
   {
-    type: 'primary', background: Img1,
+    type: 'primary', background: '/cass15_mrg4hb.jpg',
     title: '40% off',
     description: 'Best deals this week. Fresh flowers, plants and gifts',
     btnTitle: 'Shop now'
   }, {
     type: 'secondary', title: 'Nice little gifts',
     description: 'for loved ones',
-    background: Img3, btnTitle: 'View now'
+    background: '/cass23_gfwimt.png', btnTitle: 'View now'
   }, {
     type: 'secondary', title: 'Plants',
     description: 'for home comfort',
-    background: Img2, btnTitle: 'View now'
+    background: '/cass31_esdbjz.png', btnTitle: 'View now'
   }
 ];
 
@@ -33,6 +33,8 @@ export default function BannerAds () {
                 <Image
                   src={item.background}
                   alt={item.title}
+                  width={1160}
+                  height={220}
                 />
               ) : ''
             }
@@ -61,6 +63,8 @@ export default function BannerAds () {
               <Image
                 src={item.background}
                 alt='banner'
+                width={560}
+                height={221}
               />
             ) : ''
           }
@@ -75,7 +79,7 @@ export default function BannerAds () {
             item.btnTitle !== '' ? (
               <div className="banner-ads__btn banner-ads__btn--light">
                 <span>{item.btnTitle}</span>
-                <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
+                <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
               </div>
             ) : ''
           }
