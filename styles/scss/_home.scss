@@ -5,6 +5,7 @@
 }
 
 .banner-ads {
+  margin-bottom: 80px;
   &__primary {
     position: relative;
     max-width: 1160px;
@@ -129,7 +130,7 @@
   &__secondary {
     width: 100%;
     @include flex(0,space-between);
-    
+
     @include media (768px) {
       display: none;
     }

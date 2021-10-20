@@ -1,6 +1,6 @@
 import Title from "../components/title"
 // import components
-import BannerAds from "../components/banner-ads"
+import BannerAds from "../components/contents/banner-ads"
 
 export default function Home () {
   return (
