@@ -57,6 +57,15 @@
       padding-bottom: 40px;
       @extend %caption1;
       color: #565656;
+
+      a {
+        @include link;
+        color: #565656;
+
+        &:hover {
+          color: #f9f9f9;
+        }
+      }
     }
   }
 
