@@ -12,6 +12,22 @@
     overflow: hidden;
     margin-bottom: 40px;
     font-size: 16px;
+
+    @include media (1024px) {
+      margin-bottom: 20px;
+    }
+
+    @include media (950px) {
+      font-size: 14px;
+    }
+
+    @include media (900px) {
+      font-size: 13px;
+    }
+
+    @include media (800px) {
+      font-size: 12px;
+    }
   }
 
   &__background {
@@ -35,7 +51,6 @@
 
     @include media (950px) {
       top: 18%;
-      transform: scale(.9);
     }
 
     @include media (850px) {
@@ -44,7 +59,6 @@
 
     @include media (800px) {
       top: 15%;
-      transform: scale(.8);
     }
   }
 
@@ -59,13 +73,8 @@
     &.banner-ads__description {
       left: 48%;
     }
-
-    @include media (950px) {
-      transform: scale(.8);
-    }
     @include media (800px) {
       top: 35%;
-      transform: scale(.7);
     }
   }
 
@@ -95,21 +104,21 @@
     }
 
     &--light {
-      left: 48%;
+      left: 48%!important;
       top: 60%;
       padding: 0;
       font-weight: 500;
       background-color: transparent;
       color: black;
+
+      &:hover {
+        opacity: .6;
+      }
     }
 
-    @include media (950px) {
-      transform: scale(.9);
-    }
     @include media (800px) {
-      top: 50%;
-      transform: scale(.8);
-      left: 6%;
+      top: 55%;
+      left: 7%;
     }
   }
 
@@ -122,6 +131,30 @@
     position: relative;
     max-width: 560px;
     max-height: 221px;
-    background-color: #f9f9f9;
+    user-select: none;
+
+    @include media (950px) {
+      font-size: 14px;
+    }
+
+    @include media (900px) {
+      font-size: 13px;
+    }
+
+    @include media (800px) {
+      font-size: 12px;
+    }
+
+    @include media (1200px) {
+      &:first-child {
+        margin-right: 40px;
+      }
+    }
+
+    @include media (1024px) {
+      &:first-child {
+        margin-right: 20px;
+      }
+    }
   }
 }
