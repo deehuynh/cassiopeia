@@ -1,7 +1,4 @@
 import Image from "next/image"
-import Img1 from "../public/images/cass15.jpg"
-import Img2 from "../public/images/cass31.png"
-import Img3 from "../public/images/cass23.png"
 
 const adsAPI = [
   {
