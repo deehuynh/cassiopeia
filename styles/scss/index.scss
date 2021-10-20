@@ -14,16 +14,3 @@ $c-primary: '#595CFF';
 @import 
   'header','nav','m-search','footer',
   'home','content';
-
-// Styling content
-.content {
-  @include frame(1160px, auto, center);
-
-  @include media (1200px) {
-    @include container (20px);
-  }
-
-  @include media (375px) {
-    @include container (15px);
-  }
-}
