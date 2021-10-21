@@ -16,7 +16,20 @@
 
   &__item {
     @include block(260px, 366px);
-    border: 1px solid red;
+  }
+
+  &__thumbnail {
+    @include block(100%, 260px);
+    overflow: hidden;
+    background-color: #f8f8f8;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  &__product {
+    &-name {
+      font-weight: 400;
+    }
   }
 }
 
