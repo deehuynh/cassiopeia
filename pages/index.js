@@ -2,6 +2,7 @@ import Title from "../components/title"
 // import components
 import BannerAds from "../components/contents/banner-ads"
 import Headline from "../components/contents/title"
+import Container from "../components/contents/container"
 
 export default function Home () {
   return (
@@ -11,6 +12,7 @@ export default function Home () {
       <div className="home">
         <BannerAds />
         <Headline>New</Headline>
+        <Container />
       </div>
     </>
   )

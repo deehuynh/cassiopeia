@@ -8,6 +8,10 @@
   @include media (375px) {
     @include container (15px);
   }
+
+  &__container {
+    @include block(100%, auto);
+  }
 }
 
 .content__title {
