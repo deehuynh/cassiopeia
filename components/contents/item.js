@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function Item (props) {
   const thumbnail = props.thumbnail;
   const prName = props.name ? props.name : '';
-  const prPrice = props.price ? '$' + props.price : '';
+  const prPrice = props.price ? '$ ' + props.price : '';
   const prOldPrice = props.oldPrice  ? '$' + props.oldPrice : '';
   return (
     <div className="content__item">
