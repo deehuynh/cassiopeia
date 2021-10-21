@@ -61,3 +61,16 @@
   font-weight: 600;
   line-height: 18px;
 }
+
+%strikel {
+  font-size: 18px;
+  font-weight: 500px;
+  line-height: 22px;
+  text-decoration: line-through;
+}
+
+%strikes {
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: line-through;
+}
