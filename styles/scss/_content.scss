@@ -16,6 +16,11 @@
 
   &__item {
     @include block(260px, 366px);
+    user-select: none;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__thumbnail {
