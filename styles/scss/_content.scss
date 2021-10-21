@@ -82,7 +82,8 @@
         }
 
         &:last-child {
-          @extend %button2;
+          @extend %strikes;
+          color: #82828B;
         }
       }
     }
