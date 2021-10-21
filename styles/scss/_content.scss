@@ -11,5 +11,25 @@
 }
 
 .content__title {
-  @extend %H3;
+  @include flex(0,space-between,center);
+  margin-bottom: 44px;
+
+  span {
+    @extend %H3;
+  }
+
+  div {
+    @include block(67px, 24px);
+    @include flex(0,space-between, center);
+  }
+
+  img {
+    &:first-child {
+      opacity: .2;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
