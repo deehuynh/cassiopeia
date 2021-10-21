@@ -25,7 +25,7 @@ export default function Home () {
       <div className="home">
         <BannerAds />
         <Headline>New</Headline>
-        <Container prAPI={productsAPI} />
+        <Container className="home__container" prAPI={productsAPI} />
       </div>
     </>
   )
