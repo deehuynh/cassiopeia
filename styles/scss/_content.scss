@@ -30,15 +30,44 @@
     padding: 15px;
     box-sizing: border-box;
     margin-bottom: 20px;
+    position: relative;
+
+    &-overlay {
+      @include flex(0,center);
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -60px;
+      transition: bottom .3s;
+
+      img {
+        margin: 0 15px;
+
+        &:hover {
+          opacity: .7;
+        }
+      }
+    }
+
+    &:hover &-overlay {
+      bottom: 15px;
+    }
   }
 
   &__product {
     &-name {
+      display: block;
+      @include link;
+      color: black;
       @extend %H4;
       text-align: center;
       margin: {
         top: 0;
         bottom: 8px;
+      }
+
+      &:hover {
+        opacity: .7;
       }
     }
 
