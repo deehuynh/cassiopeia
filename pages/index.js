@@ -30,6 +30,9 @@ export default function Home () {
         <BannerAds />
         <Headline>New</Headline>
         <Container className="home__container" prAPI={productsAPI} />
+
+        <Headline>Relevant</Headline>
+        <Container className="home__container" prAPI={productsAPI} />
       </div>
     </>
   )
