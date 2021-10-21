@@ -28,6 +28,11 @@ export default function Item (props) {
         <span>{prPrice}</span>
         <span>{prOldPrice}</span>
       </p>
+
+      <div className="content__item-overlay">
+        <img src="/svgs/cart-btn.svg" alt="cart btn" />
+        <img src="/svgs/view-btn.svg" alt="view detail" />
+      </div>
     </div>
   )
 }
