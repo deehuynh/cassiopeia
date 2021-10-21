@@ -3,8 +3,8 @@ import Image from "next/image"
 export default function Item (props) {
   const thumbnail = props.thumbnail;
   const prName = props.name ? props.name : '';
-  const prPrice = props.price ? props.price : '';
-  const prOldPrice = props.oldPrice ? props.oldPrice : '';
+  const prPrice = props.price ? '$' + props.price : '';
+  const prOldPrice = props.oldPrice  ? '$' + props.oldPrice : '';
   return (
     <div className="content__item">
       <div className="content__thumbnail">

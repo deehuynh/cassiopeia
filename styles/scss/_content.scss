@@ -28,7 +28,23 @@
 
   &__product {
     &-name {
-      font-weight: 400;
+      @extend %H4;
+      text-align: center;
+    }
+
+    &-price {
+      text-align: center;
+
+      span {
+        &:first-child {
+          @extend %button;
+          margin-right: 16px;
+        }
+
+        &:last-child {
+          @extend %button2;
+        }
+      }
     }
   }
 }
