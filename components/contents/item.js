@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function Item (props) {
   const thumbnail = props.thumbnail;
@@ -18,21 +19,25 @@ export default function Item (props) {
             />
           ) : ''
         }
+
+        <div className="content__thumbnail-overlay">
+          <img src="/svgs/cart-btn.svg" alt="cart btn" />
+          <Link href="/">
+            <a><img src="/svgs/view-btn.svg" alt="view detail" /></a>
+          </Link>
+        </div>
       </div>
 
-      <p className="content__product-name">
-        {prName}
-      </p>
+      <Link href="/">
+        <a className="content__product-name">
+          {prName}
+        </a>
+      </Link>
 
       <p className="content__product-price">
         <span>{prPrice}</span>
         <span>{prOldPrice}</span>
       </p>
-
-      <div className="content__item-overlay">
-        <img src="/svgs/cart-btn.svg" alt="cart btn" />
-        <img src="/svgs/view-btn.svg" alt="view detail" />
-      </div>
     </div>
   )
 }
