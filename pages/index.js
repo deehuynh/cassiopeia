@@ -4,6 +4,10 @@ import BannerAds from "../components/contents/banner-ads"
 import Headline from "../components/contents/title"
 import Container from "../components/contents/container"
 
+const productsAPI = [
+  {name: '', price: '', oldPrice: '', thumbnail: ''},
+];
+
 export default function Home () {
   return (
     <>
