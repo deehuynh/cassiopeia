@@ -11,6 +11,12 @@
 
   &__container {
     @include block(100%, auto);
+    @include flex(0, space-between);
+  }
+
+  &__item {
+    @include block(260px, 366px);
+    border: 1px solid red;
   }
 }
 
