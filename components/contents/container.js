@@ -5,7 +5,10 @@ export default function Container (props) {
   const listItem = [];
   props.prAPI && props.prAPI.forEach((item, index) => {
     listItem.push(
-      <Item key={index} />
+      <Item 
+        name={item.name} thumbnail={item.thumbnail} price={item.price}
+        oldPrice={item.oldPrice} key={index} 
+      />
     );
   });
 
