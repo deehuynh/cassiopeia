@@ -24,16 +24,22 @@
     background-color: #f8f8f8;
     padding: 15px;
     box-sizing: border-box;
+    margin-bottom: 20px;
   }
 
   &__product {
     &-name {
       @extend %H4;
       text-align: center;
+      margin: {
+        top: 0;
+        bottom: 8px;
+      }
     }
 
     &-price {
       text-align: center;
+      margin: 0;
 
       span {
         &:first-child {
