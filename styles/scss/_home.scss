@@ -5,6 +5,10 @@
 
   &__container {
     margin-bottom: 60px;
+
+    @include media (1024px) {
+      margin-bottom: 20px;
+    }
   }
 }
 
