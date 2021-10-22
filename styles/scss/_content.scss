@@ -129,6 +129,10 @@
 
   span {
     @extend %H3;
+
+    @include media (768px) {
+      font-size: 18px;
+    }
   }
 
   div {
