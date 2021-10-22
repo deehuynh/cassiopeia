@@ -1,4 +1,7 @@
 import Image from "next/image"
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/splide.min.css';
+
 
 const adsAPI = [
   {
@@ -18,6 +21,7 @@ const adsAPI = [
 ];
 
 export default function BannerAds () {
+  const slideBanner = [];
   const prBanner = [];
   const sndBanner = [];
   adsAPI.forEach((item, index) => {
@@ -84,12 +88,45 @@ export default function BannerAds () {
       );
     }
   });
+
+  adsAPI.forEach((item, index) => {
+    slideBanner.push(
+      <SplideSlide key={index} >
+        <div className="m-banner-ads__slide">
+          {
+            item.background !== '' ? (
+              <Image 
+                src={item.background}
+                alt='banner ads'
+                layout='fill'
+                objectFit='cover'
+              />
+            ) : ''
+          }
+        </div>
+      </SplideSlide>
+    );
+  });
   return (
-    <div className="banner-ads">
-      {prBanner}
-      <div className="banner-ads__secondary">
-        {sndBanner}
+    <>
+      <div className="banner-ads">
+        {prBanner}
+        <div className="banner-ads__secondary">
+          {sndBanner}
+        </div>
       </div>
-    </div>
+
+      <div className="m-banner-ads">
+        <Splide
+          options = {{
+            type: 'loop',
+            perPage: 1,
+            autoplay: true,
+          }}
+        >
+          {slideBanner}
+        </Splide>
+      </div>
+    </>
   )
 }
