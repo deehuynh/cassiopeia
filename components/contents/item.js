@@ -8,10 +8,16 @@ export default function Item (props) {
   const prOldPrice = props.oldPrice  ? '$' + props.oldPrice : '';
   if (props.seeMore) {
     return (
-      <div className="content__see-more-item">see more</div>
+      <div className="content__see-more-item">
+        <h3>Catalog</h3>
+        <p>
+          <span>See more</span> 
+          <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
+        </p>
+      </div>
     )
   }
-  
+
   return (
     <div className="content__item">
       <div className="content__thumbnail">
