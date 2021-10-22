@@ -12,6 +12,12 @@ export default function Container (props) {
     );
   });
 
+  if (listItem.length > 3) {
+    listItem.push(
+      <Item key={listItem.length} seeMore />
+    );
+  }
+
   return (
     <div className={`content__container` + className}>
       {listItem}
