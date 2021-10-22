@@ -173,4 +173,25 @@
       }
     }
   }
+
+  @include media (768px) {
+    display: none;
+  }
+}
+
+.m-banner-ads {
+  display: none;
+
+  @include media (768px) {
+    @include block(100%, 220px);
+    display: block;
+    margin: {
+      bottom: 30px;
+    };
+  }
+
+  &__slide {
+    position: relative;
+    @include block(100%, 220px);
+  }
 }
