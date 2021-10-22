@@ -138,6 +138,10 @@
   div {
     @include block(67px, 24px);
     @include flex(0,space-between, center);
+
+    @include media (425px) {
+      display: none;
+    }
   }
 
   img {
