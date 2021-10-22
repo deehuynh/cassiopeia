@@ -27,8 +27,33 @@
   }
 
   &__see-more-item {
-    @include block(260px, 366px);
+    flex-shrink: 0;
+    @include block(260px);
     user-select: none;
+    @include flex(column, center);
+
+    &:hover {
+      cursor: pointer;
+      opacity: .6;
+    }
+
+    h3 {
+      margin: 0;
+      @extend %H3;
+      font-weight: 600;
+      margin-left: 40px;
+    }
+
+    p {
+      @include flex(0,0, center);
+
+      span {
+        margin-left: 40px;
+        margin-right: 50px;
+        @extend %H5;
+        font-weight: 600;
+      }
+    }
   }
 
   &__thumbnail {
