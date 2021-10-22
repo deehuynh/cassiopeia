@@ -13,6 +13,9 @@
     @include block(100%, auto);
     @include flex(0, space-between);
     overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &__item {
@@ -23,6 +26,55 @@
 
     &:hover {
       cursor: pointer;
+    }
+
+    @include media (1200px) {
+      width: 24%;
+      margin-right: 1.33%;
+    }
+
+    @include media (900px) {
+      height: 346px;
+    }
+
+    @include media (850px) {
+      height: 326px;
+    }
+
+    @include media (800px) {
+      height: 306px;
+    }
+
+    @include media (700px) {
+      height: 286px;
+    }
+
+    @include media (650px) {
+      height: 266px;
+    }
+
+    @include media (620px) {
+      width: 32%;
+      margin-right: 1.8%;
+      height: 300px;
+    }
+
+    @include media (500px) {
+      height: 260px;
+    }
+
+    @include media (425px) {
+      width: 49%;
+      margin-right: 2%;
+      height: 300px;
+    }
+
+    @include media (375px) {
+      height: 280px;
+    }
+
+    @include media (350px) {
+      height: 260px;
     }
   }
 
@@ -65,6 +117,11 @@
     margin-bottom: 20px;
     position: relative;
 
+    @include media (1200px) {
+      height: auto;
+      padding: 5.5%;
+    }
+
     &-overlay {
       @include flex(0,center);
       position: absolute;
@@ -101,6 +158,18 @@
 
       &:hover {
         opacity: .7;
+      }
+
+      @include media (768px) {
+        font-size: 16px;
+      }
+
+      @include media (500px) {
+        font-size: 14.5px;
+      }
+
+      @include media (425px) {
+        font-size: 15px;
       }
     }
 
