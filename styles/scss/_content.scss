@@ -26,6 +26,11 @@
     }
   }
 
+  &__see-more-item {
+    @include block(260px, 366px);
+    user-select: none;
+  }
+
   &__thumbnail {
     @include block(100%, 260px);
     overflow: hidden;
