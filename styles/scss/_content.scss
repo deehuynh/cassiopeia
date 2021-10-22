@@ -12,11 +12,14 @@
   &__container {
     @include block(100%, auto);
     @include flex(0, space-between);
+    overflow-x: scroll;
   }
 
   &__item {
+    flex-shrink: 0;
     @include block(260px, 366px);
     user-select: none;
+    margin-right: 40px;
 
     &:hover {
       cursor: pointer;

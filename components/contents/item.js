@@ -6,6 +6,12 @@ export default function Item (props) {
   const prName = props.name ? props.name : '';
   const prPrice = props.price ? '$ ' + props.price : '';
   const prOldPrice = props.oldPrice  ? '$' + props.oldPrice : '';
+  if (props.seeMore) {
+    return (
+      <div className="content__see-more-item">see more</div>
+    )
+  }
+  
   return (
     <div className="content__item">
       <div className="content__thumbnail">

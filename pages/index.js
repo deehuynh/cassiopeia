@@ -18,7 +18,7 @@ const productsAPI = [
     thumbnail: '/5d19dc8cc0983744838000_xc256j.webp'
   },
   {name: 'Roses and Lilies', price: '69', oldPrice: '82', thumbnail: '/5d84d46e1fe63737087781_eztymk.webp'},
-  // {name: 'Lilies And Roses', price: '39', oldPrice: '50', thumbnail: '/5d84d53800517236157520_awcivk.webp'}
+  {name: 'Lilies And Roses', price: '39', oldPrice: '50', thumbnail: '/5d84d53800517236157520_awcivk.webp'}
 ];
 
 export default function Home () {
