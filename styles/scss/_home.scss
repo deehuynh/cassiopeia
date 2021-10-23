@@ -188,10 +188,70 @@
     margin: {
       bottom: 30px;
     };
+    user-select: none;
+  }
+
+  @include media (440px) {
+    height: 190px;
   }
 
   &__slide {
     position: relative;
     @include block(100%, 220px);
+
+    @include media (440px) {
+      height: 190px;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    font-family: 'Roboto';
+    top: 40px;
+    left: 55%;
+    @extend %H3;
+  }
+
+  &__des {
+    position: absolute;
+    top: 80px;
+    left: 55%;
+    @extend %H4;
+    margin: 0;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 135px;
+    left: 55%;
+    display: inline-flex;
+    align-items: center;
+    @extend %button;
+
+    span {
+      margin-right: 20px;
+    }
+  }
+
+  @include media (440px) {
+    &__title {
+      font-size: 20px;
+    }
+
+    &__des {
+      font-size: 14px;
+      top: 75px;
+    }
+
+    &__btn {
+      top: 120px;
+      font-size: 13px;
+    }
+  }
+
+  @include media (350px) {
+    &__title, &__des, &__btn {
+      left: 50%;
+    }
   }
 }
