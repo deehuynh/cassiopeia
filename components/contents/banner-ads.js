@@ -90,37 +90,71 @@ export default function BannerAds () {
   });
 
   adsAPI.forEach((item, index) => {
-    slideBanner.push(
-      <SplideSlide key={index} >
-        <div className="m-banner-ads__slide">
-          {
-            item.background !== '' ? (
-              <Image 
-                src={item.background}
-                alt='banner ads'
-                layout='fill'
-                objectFit='cover'
-              />
-            ) : ''
-          }
-
-          <div className="m-banner-ads__title">
-            {item.title}
+    if (item.type && item.type === 'primary') {
+      slideBanner.push(
+        <SplideSlide key={index} >
+          <div className="m-banner-ads__slide">
+            {
+              item.background !== '' ? (
+                <Image 
+                  src={item.background}
+                  alt='banner ads'
+                  layout='fill'
+                  objectFit='cover'
+                />
+              ) : ''
+            }
+  
+            <div className="m-banner-ads__title m-banner-ads--spacing">
+              {item.title}
+            </div>
+  
+            <p className="m-banner-ads__des m-banner-ads--spacing">{item.description}</p>
+  
+            {
+              item.btnTitle !== '' ? (
+                <div className="m-banner-ads__btn m-banner-ads--spacing">
+                  <span>{item.btnTitle}</span>
+                  <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
+                </div>
+              ) : ''
+            }
           </div>
-
-          <p className="m-banner-ads__des">{item.description}</p>
-
-          {
-            item.btnTitle !== '' ? (
-              <div className="m-banner-ads__btn">
-                <span>{item.btnTitle}</span>
-                <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
-              </div>
-            ) : ''
-          }
-        </div>
-      </SplideSlide>
-    );
+        </SplideSlide>
+      );
+    } else {
+      slideBanner.push(
+        <SplideSlide key={index} >
+          <div className="m-banner-ads__slide">
+            {
+              item.background !== '' ? (
+                <Image 
+                  src={item.background}
+                  alt='banner ads'
+                  layout='fill'
+                  objectFit='cover'
+                />
+              ) : ''
+            }
+  
+            <div className="m-banner-ads__title">
+              {item.title}
+            </div>
+  
+            <p className="m-banner-ads__des">{item.description}</p>
+  
+            {
+              item.btnTitle !== '' ? (
+                <div className="m-banner-ads__btn">
+                  <span>{item.btnTitle}</span>
+                  <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
+                </div>
+              ) : ''
+            }
+          </div>
+        </SplideSlide>
+      );
+    }
   });
   return (
     <>
