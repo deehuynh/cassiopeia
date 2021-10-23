@@ -103,6 +103,21 @@ export default function BannerAds () {
               />
             ) : ''
           }
+
+          <div className="m-banner-ads__title">
+            {item.title}
+          </div>
+
+          <p className="m-banner-ads__des">{item.description}</p>
+
+          {
+            item.btnTitle !== '' ? (
+              <div className="m-banner-ads__btn">
+                <span>{item.btnTitle}</span>
+                <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
+              </div>
+            ) : ''
+          }
         </div>
       </SplideSlide>
     );
