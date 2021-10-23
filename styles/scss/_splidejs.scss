@@ -1,3 +1,25 @@
 .splide__arrows {
   display: none!important;
 }
+
+.splide__pagination {
+  padding: 0!important;
+  left: 55%!important;
+  right: auto!important;
+
+  @include media (350px) {
+    left: 50%!important;
+  }
+}
+
+.splide__pagination__page.is-active {
+  background: black!important;
+  transform: scale(1.2)!important;
+}
+
+@include media (425px) {
+  .splide__pagination__page {
+    width: 6px!important;
+    height: 6px!important;
+  }
+}
