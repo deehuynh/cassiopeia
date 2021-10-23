@@ -204,6 +204,14 @@
     }
   }
 
+  &--spacing {
+    left: 7%!important;
+
+    @include media (560px) {
+      left: 5%!important;
+    }
+  }
+
   &__title {
     position: absolute;
     font-family: 'Roboto';
