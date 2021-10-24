@@ -235,6 +235,7 @@
     display: inline-flex;
     align-items: center;
     @extend %button;
+    color: black;
 
     span {
       margin-right: 20px;
