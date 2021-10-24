@@ -1,7 +1,10 @@
-.m-search {
+.m-search, .m-search__hiden {
   max-width: 100%;
   @include container (20px);
   display: none;
+  height: 38px;
+  overflow: hidden;
+  transition: height .2s;
 
   input {
     width: 100%;
@@ -11,10 +14,6 @@
     @include input;
   }
 
-  &__hiden {
-    display: none;
-  }
-
   @include media (768px) {
     display: block;
   }
@@ -22,4 +21,10 @@
   @include media (375px) {
     @include container (15px);
   }
+}
+
+.m-search__hiden {
+  height: 0;
+  overflow: hidden;
+  transition: height .2s;
 }
