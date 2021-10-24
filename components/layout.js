@@ -17,6 +17,7 @@ export default function Layout ({ children }) {
     <div className="layout">
       <Meta />
       <Header navRef={navRef} searchRef={searchRef} />
+      <ModalContainer />
       <Nav navRef={navRef} />
       <MobileSearch searchRef={searchRef} />
 
