@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 
@@ -8,15 +9,18 @@ const adsAPI = [
     type: 'primary', background: '/cass15_mrg4hb.jpg',
     title: '40% off',
     description: 'Best deals this week. Fresh flowers, plants and gifts',
-    btnTitle: 'Shop now'
+    btnTitle: 'Shop now',
+    url:'/'
   }, {
     type: 'secondary', title: 'Nice little gifts',
     description: 'for loved ones',
-    background: '/cass23_gfwimt.png', btnTitle: 'View now'
+    background: '/cass23_gfwimt.png', btnTitle: 'View now',
+    url:'/'
   }, {
     type: 'secondary', title: 'Plants',
     description: 'for home comfort',
-    background: '/cass31_esdbjz.png', btnTitle: 'View now'
+    background: '/cass31_esdbjz.png', btnTitle: 'View now',
+    url:'/'
   }
 ];
 
@@ -48,10 +52,14 @@ export default function BannerAds () {
 
           {
             item.btnTitle !== '' ? (
-              <div className="banner-ads__btn">
-                <span>{item.btnTitle}</span>
-                <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
-              </div>
+              <Link href={item.url}>
+                <a>
+                  <div className="banner-ads__btn">
+                    <span>{item.btnTitle}</span>
+                    <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
+                  </div>
+                </a>
+              </Link>
             ) : ''
           }
         </div>
@@ -78,10 +86,14 @@ export default function BannerAds () {
 
           {
             item.btnTitle !== '' ? (
-              <div className="banner-ads__btn banner-ads__btn--light">
-                <span>{item.btnTitle}</span>
-                <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
-              </div>
+              <Link href={item.url}>
+                <a>
+                  <div className="banner-ads__btn banner-ads__btn--light">
+                    <span>{item.btnTitle}</span>
+                    <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
+                  </div>
+                </a>
+              </Link>
             ) : ''
           }
         </div>
@@ -113,10 +125,14 @@ export default function BannerAds () {
   
             {
               item.btnTitle !== '' ? (
-                <div className="m-banner-ads__btn m-banner-ads--spacing">
-                  <span>{item.btnTitle}</span>
-                  <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
-                </div>
+                <Link href={item.url}>
+                  <a>
+                    <div className="m-banner-ads__btn m-banner-ads--spacing">
+                      <span>{item.btnTitle}</span>
+                      <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
+                    </div>
+                  </a>
+                </Link>
               ) : ''
             }
           </div>
@@ -145,10 +161,14 @@ export default function BannerAds () {
   
             {
               item.btnTitle !== '' ? (
-                <div className="m-banner-ads__btn">
-                  <span>{item.btnTitle}</span>
-                  <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
-                </div>
+                <Link href={item.url}>
+                  <a>
+                    <div className="m-banner-ads__btn">
+                      <span>{item.btnTitle}</span>
+                      <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
+                    </div>
+                  </a>
+                </Link>
               ) : ''
             }
           </div>
