@@ -1,0 +1,8 @@
+.cart-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  @include block(300px, 500px);
+  background-color: white;
+  box-shadow: 0 0 10px black;
+}
