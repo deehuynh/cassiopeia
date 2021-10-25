@@ -11,4 +11,13 @@
   }
   box-sizing: border-box;
   box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
+
+  h2 {
+    margin: {
+      top: 40px;
+    }
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #F0F0F5;
+  }
 }
