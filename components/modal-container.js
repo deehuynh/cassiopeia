@@ -2,8 +2,8 @@ import Cart from "./cart-modal"
 
 export default function ModalContainer ({children}) {
   return (
-    <>
-      {children}
-    </>
+    <div className="modal-container">
+      <Cart />
+    </div>
   )
 }
