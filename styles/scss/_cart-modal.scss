@@ -3,7 +3,7 @@
   top: 0;
   right: 0;
   z-index: 2;
-  @include block(554px, 500px);
+  @include block(554px, 937px);
   background-color: white;
-  box-shadow: 0 0 10px black;
+  box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
 }
