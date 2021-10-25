@@ -10,3 +10,9 @@ export default function Cart () {
     </div>
   )
 }
+
+function Item () {
+  return (
+    <div className="cart-modal__item"></div>
+  )
+}
