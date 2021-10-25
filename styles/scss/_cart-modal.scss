@@ -5,5 +5,10 @@
   z-index: 2;
   @include block(554px, 937px);
   background-color: white;
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
+  box-sizing: border-box;
   box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
 }
