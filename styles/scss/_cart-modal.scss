@@ -16,9 +16,11 @@
     @include flex(0,space-between);
     margin: {
       top: 40px;
+      bottom: 40px;
     }
     padding-bottom: 20px;
     box-sizing: border-box;
     border-bottom: 1px solid #F0F0F5;
+    @extend %H3;
   }
 }
