@@ -6,13 +6,14 @@
   @include block(554px, 937px);
   background-color: white;
   padding: {
-    left: 20px;
-    right: 20px;
+    left: 60px;
+    right: 60px;
   }
   box-sizing: border-box;
   box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
 
   h2 {
+    @include flex(0,space-between);
     margin: {
       top: 40px;
     }
