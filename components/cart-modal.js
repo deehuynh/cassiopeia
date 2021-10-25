@@ -7,6 +7,9 @@ export default function Cart () {
         Your cart
         <img src="/svgs/close-btn.svg" alt="close btn" />
       </h2>
+
+      <Item />
+      <Item />
     </div>
   )
 }
