@@ -1,0 +1,4 @@
+.modal-container {
+  position: relative;
+  @include frame(1160px, auto, center);
+}
