@@ -10,6 +10,8 @@ export default function Cart () {
 
       <Item />
       <Item />
+
+      <Promocode />
     </div>
   )
 }
