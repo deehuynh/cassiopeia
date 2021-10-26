@@ -21,7 +21,10 @@ function Item () {
     <div className="cart-modal__item">
       <div className="cart-modal__avatar"></div>
       <div className="cart-modal__infor">
-        <div></div>
+        <div>
+          <span>Name</span>
+          <span>Price</span>
+        </div>
         <div></div>
       </div>
     </div>
