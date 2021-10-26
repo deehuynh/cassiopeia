@@ -53,5 +53,17 @@
         }
       }
     }
+
+    div:last-child {
+      @include flex(0,0,center);
+      user-select: none;
+
+      span {
+        margin: {
+          left: 24px;
+          right: 24px;
+        }
+      }
+    }
   }
 }
