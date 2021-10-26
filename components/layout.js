@@ -12,12 +12,18 @@ import Footer from "./footer"
 export default function Layout ({ children }) {
   const searchRef = useRef(null);
   const navRef = useRef(null);
+  const cartRef = useRef(null);
 
   return (
     <div className="layout">
       <Meta />
-      <Header navRef={navRef} searchRef={searchRef} />
-      <ModalContainer />
+      <Header 
+        navRef={navRef} searchRef={searchRef}
+        cartRef={cartRef}
+      />
+      <ModalContainer
+        cartRef={cartRef}
+      />
       <Nav navRef={navRef} />
       <MobileSearch searchRef={searchRef} />
 
