@@ -7,8 +7,21 @@
 // Import mixin
 @import 'mixin';
 
-// Color variables
+// Main color variables
 $c-primary: #595CFF;
+$c-secondary: #8C8EFF;
+$c-primary-dark: #383BE4;
+// Neutral color variables
+$c-snow: #F9F9FB;
+$c-pale-grey: #F0F0F5;
+$c-light-grey: #E6E6EB;
+$c-grey: #AFB1BD;
+$c-dark-grey: #82828B;
+// UI color variables
+$c-positive: #00CB6F;
+$c-warning: #FFBC2C;
+$c-negative: #EE7764;
+$c-active: #595CFF;
 
 // Import partials
 @import 
