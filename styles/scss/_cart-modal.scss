@@ -27,4 +27,9 @@
   &__item {
     margin-bottom: 40px;
   }
+
+  &__avatar {
+    @include block(100px);
+    background: #F0F0F5;
+  }
 }
