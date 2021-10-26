@@ -75,4 +75,22 @@
       }
     }
   }
+
+  &__promocode {
+    @include flex(0,space-between);
+
+    &-btn {
+      @include flex(0,center,center);
+      @include button(white, 4px);
+      @include block(151px, 40px);
+      border: 1px solid $c-primary;
+      @extend %button;
+      transition: .2s;
+
+      &:hover {
+        background: $c-primary;
+        color: white;
+      }
+    }
+  }
 }
