@@ -18,7 +18,13 @@ export default function Cart () {
 
 function Item () {
   return (
-    <div className="cart-modal__item"></div>
+    <div className="cart-modal__item">
+      <div className="cart-modal__avatar"></div>
+      <div className="cart-modal__infor">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
   )
 }
 
