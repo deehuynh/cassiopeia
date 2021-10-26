@@ -70,7 +70,10 @@ export default function Header (props) {
             src="/svgs/search.svg" alt="search icon" />
         </div>
         <div className="header__cart">
-          <img src="/svgs/cart.svg" alt="cart icon" />
+          <img
+            onClick={()=>{handleShow(props.cartRef, 'cart-modal__hidden', 'cart-modal')}}
+            src="/svgs/cart.svg" alt="cart icon" 
+          />
         </div>
       </div>
     </header>
