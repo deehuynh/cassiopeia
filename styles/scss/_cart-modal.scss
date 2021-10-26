@@ -33,4 +33,13 @@
     @include block(100px);
     background: #F0F0F5;
   }
+
+  &__infor {
+    width: calc(100% - 100px);
+    @include flex(column);
+
+    div:first-child {
+      @include flex(0,space-between);
+    }
+  }
 }
