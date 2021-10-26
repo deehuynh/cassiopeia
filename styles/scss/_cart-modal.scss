@@ -25,6 +25,7 @@
   }
 
   &__item {
+    @include flex();
     margin-bottom: 40px;
   }
 
