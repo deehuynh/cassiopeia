@@ -23,4 +23,8 @@
     border-bottom: 1px solid #F0F0F5;
     @extend %H3;
   }
+
+  &__item {
+    margin-bottom: 40px;
+  }
 }
