@@ -42,6 +42,7 @@
 
     div:first-child {
       @include flex(0,space-between);
+      margin-bottom: 15px;
 
       span {
         &:first-child {
@@ -56,12 +57,20 @@
 
     div:last-child {
       @include flex(0,0,center);
-      user-select: none;
 
       span {
         margin: {
           left: 24px;
           right: 24px;
+        }
+        @extend %button;
+      }
+
+      img {
+        user-select: none;
+        &:hover {
+          cursor: pointer;
+          opacity: .5;
         }
       }
     }
