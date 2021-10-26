@@ -38,6 +38,9 @@ function Item () {
 
 function Promocode () {
   return (
-    <div className="cart-modal__promocode"></div>
+    <div className="cart-modal__promocode">
+      <input type="text" defaultValue='' placeholder='Add promocode' />
+      <div className="cart-modal__promocode-btn">Apply</div>
+    </div>
   )
 }
