@@ -25,7 +25,12 @@ function Item () {
           <span>Name</span>
           <span>Price</span>
         </div>
-        <div></div>
+
+        <div>
+          <img src="/svgs/minus-btn.svg" alt="minus button" />
+          <span>N</span>
+          <img src="/svgs/plus-btn.svg" alt="plus button" />
+        </div>
       </div>
     </div>
   )
