@@ -3,14 +3,19 @@
   top: 0;
   right: 0;
   z-index: 2;
-  @include block(554px, 937px);
+  @include block(544px, auto);
   background-color: white;
   padding: {
     left: 60px;
     right: 60px;
+    bottom: 40px;
   }
   box-sizing: border-box;
   box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
+
+  a {
+    text-decoration: none;
+  }
 
   h2 {
     @include flex(0,space-between);
@@ -21,7 +26,11 @@
     padding-bottom: 20px;
     box-sizing: border-box;
     border-bottom: 1px solid #F0F0F5;
-    @extend %H3;
+    @extend %H4;
+
+    img {
+      cursor: pointer;
+    }
   }
 
   &__item {
@@ -78,6 +87,22 @@
 
   &__promocode {
     @include flex(0,space-between);
+    margin-bottom: 40px;
+
+    input {
+      width: 268px;
+      padding: 12px 13px;
+      box-sizing: border-box;
+      background-color: $c-snow;
+      border: 1px solid $c-light-grey;
+      border-radius: 4px;
+      outline: none;
+
+      &::placeholder {
+        @extend %caption1;
+        @include placeholder('Inter', black);
+      }
+    }
 
     &-btn {
       @include flex(0,center,center);
@@ -91,6 +116,47 @@
         background: $c-primary;
         color: white;
       }
+    }
+  }
+
+  &__field {
+    @include flex(0,space-between);
+    padding: {
+      top: 18px;
+      bottom: 14px;
+    }
+    box-sizing: border-box;
+    border-top: 1px solid $c-pale-grey;
+    span {
+      &:first-child {
+        @extend %body2;
+      }
+
+      &:last-child {
+        @extend %button;
+      }
+    }
+  }
+
+  &__checkout-btn {
+    @include block(221px, 46px);
+    @include flex(0,center,center);
+    @include button($c-primary, 8px);
+    margin: {
+      top: 26px;
+      left: auto;
+      right: auto;
+    }
+    transition: .2s;
+
+    &:hover {
+      background-color: $c-secondary;
+    }
+
+    span {
+      color: white;
+      @extend %button;
+      margin-right: 12px;
     }
   }
 }
