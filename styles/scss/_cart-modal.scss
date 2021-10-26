@@ -37,9 +37,21 @@
   &__infor {
     width: calc(100% - 100px);
     @include flex(column);
+    padding-right: 20px;
+    box-sizing: border-box;
 
     div:first-child {
       @include flex(0,space-between);
+
+      span {
+        &:first-child {
+          @extend %body1;
+        }
+
+        &:last-child {
+          @extend %H5;
+        }
+      }
     }
   }
 }
