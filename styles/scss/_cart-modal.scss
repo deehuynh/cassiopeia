@@ -1,4 +1,10 @@
 .cart-modal {
+  &__hidden {
+    height: 0;
+    overflow: hidden;
+    transition: height .2s;
+  }
+  
   position: absolute;
   top: 0;
   right: 0;
@@ -11,6 +17,7 @@
     bottom: 50px;
   }
   box-sizing: border-box;
+  transition: height .2s;
   box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
 
   a {
