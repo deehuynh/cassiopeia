@@ -19,3 +19,9 @@ function Item () {
     <div className="cart-modal__item"></div>
   )
 }
+
+function Promocode () {
+  return (
+    <div className="cart-modal__promocode"></div>
+  )
+}
