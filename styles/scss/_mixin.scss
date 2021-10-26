@@ -317,3 +317,10 @@
     right: $spacing;
   };
 }
+
+@mixin placeholder ($font, $c: 0) {
+  font-family: $font;
+  @if $c != 0 {
+    color: $c;
+  }
+}
