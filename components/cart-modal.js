@@ -2,13 +2,9 @@ import Link from "next/link"
 
 export default function Cart (props) {
   return (
-    <div ref={props.cartRef} className="cart-modal__hidden">
+    <div ref={props.cartRef} className="cart-modal cart-modal__hidden">
       <h2>
         Your cart
-        <img
-          onClick={()=>{props.cartRef.current.className = "cart-modal__hidden"}}
-          src="/svgs/close-btn.svg" alt="close btn" 
-        />
       </h2>
       <Item />
       <Item />
