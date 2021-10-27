@@ -1,23 +1,29 @@
 .cart-modal {
   &__hidden {
     height: 0;
-    overflow: hidden;
-    transition: height .2s;
   }
-  
+
+  &__show {
+    height: auto;
+
+    @include media (768px) {
+      height: calc(100vh - 51.86px);
+    }
+  }
+
+  width: 554px;
   position: absolute;
   top: 0;
   right: 0;
   z-index: 2;
-  @include block(554px, auto);
   background-color: white;
   padding: {
     left: 60px;
     right: 60px;
-    bottom: 50px;
   }
   box-sizing: border-box;
-  transition: height .2s;
+  overflow: hidden;
+  transition: height .3s;
   box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
 
   a {
@@ -38,11 +44,22 @@
     img {
       cursor: pointer;
     }
+
+    @include media (425px) {
+      font-size: 16px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      padding-bottom: 10px;
+    }
   }
 
   &__item {
     @include flex();
     margin-bottom: 40px;
+
+    @include media (425px) {
+      margin-bottom: 20px;
+    }
   }
 
   &__avatar {
@@ -104,6 +121,7 @@
       border: 1px solid $c-light-grey;
       border-radius: 4px;
       outline: none;
+      margin-right: 5px;
 
       &::placeholder {
         @extend %caption1;
@@ -123,6 +141,10 @@
         background: $c-primary;
         color: white;
       }
+    }
+
+    @include media (425px) {
+      margin-bottom: 30px;
     }
   }
 
@@ -153,6 +175,7 @@
       top: 26px;
       left: auto;
       right: auto;
+      bottom: 50px;
     }
     transition: .2s;
 
@@ -164,6 +187,34 @@
       color: white;
       @extend %button;
       margin-right: 12px;
+    }
+
+    @include media (425px) {
+      margin-top: 16px;
+    }
+  }
+
+  @include media (768px) {
+    width: 100%;
+    box-shadow: none;
+    overflow: auto;
+
+    h2 {
+      margin-top: 20px;
+    }
+  }
+
+  @include media (550px) {
+    padding: {
+      left: 20px;
+      right: 20px;
+    }
+  }
+
+  @include media (375px) {
+    padding: {
+      left: 15px;
+      right: 15px;
     }
   }
 }
