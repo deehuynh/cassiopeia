@@ -1,4 +1,16 @@
 import Link from "next/link"
+import Image from "next/image"
+
+const productsAPI = [
+  {
+    name: 'White Lilies and Gerberas', price: '54', oldPrice: '',
+    thumbnail: '/5cdd463408a93217111334_xbpxkx.webp'
+  },
+  {
+    name: 'Red Roses and White Lilies', price: '99', oldPrice: '',
+    thumbnail: '/5d84dc1a631b2292689077_nihv8m.webp'
+  }
+];
 
 export default function Cart (props) {
   return (
@@ -6,7 +18,6 @@ export default function Cart (props) {
       <h2>
         Your cart
       </h2>
-      <Item />
       <Item />
       <Promocode />
       <OrderTotal />
@@ -16,22 +27,32 @@ export default function Cart (props) {
 }
 
 function Item () {
-  return (
-    <div className="cart-modal__item">
-      <div className="cart-modal__avatar"></div>
-      <div className="cart-modal__infor">
-        <div>
-          <span>Name</span>
-          <span>Price</span>
+  const listItem = [];
+  productsAPI.forEach((item, index) => {
+    listItem.push(
+      <div key={index} className="cart-modal__item">
+        <div className="cart-modal__avatar">
+          <Image src={item.thumbnail} width={100} height={100} alt="thumbnail" />
         </div>
+        <div className="cart-modal__infor">
+          <div>
+            <span>{item.name}</span>
+            <span>${item.price}</span>
+          </div>
 
-        <div>
-          <img src="/svgs/minus-btn.svg" alt="minus button" />
-          <span>N</span>
-          <img src="/svgs/plus-btn.svg" alt="plus button" />
+          <div>
+            <img src="/svgs/minus-btn.svg" alt="minus button" />
+            <span>1</span>
+            <img src="/svgs/plus-btn.svg" alt="plus button" />
+          </div>
         </div>
       </div>
-    </div>
+    );
+  });
+  return (
+    <>
+      {listItem}
+    </>
   )
 }
 
