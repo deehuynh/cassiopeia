@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
 import {useRef} from "react"
 import handleShow from "../function/handleShow";
@@ -10,6 +11,8 @@ export default function Header (props) {
   const openNavRef = useRef(null);
   const closeNavRef = useRef(null);
   const searchBtnRef = useRef(null);
+  const openCartRef = useRef(null);
+  const closeCartRef = useRef(null);
 
   return (
     <header className="header">
@@ -71,11 +74,25 @@ export default function Header (props) {
         </div>
         <div className="header__cart">
           <img
+            className="show"
+            ref={openCartRef}
             onClick={()=>{
               handleShow(props.cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
               preventBodyScroll(false);
+              handleShowButton(openCartRef, closeCartRef, 'show', 'hiden');
             }}
             src="/svgs/cart.svg" alt="cart icon" 
+          />
+
+          <img
+            className="hiden"
+            ref={closeCartRef}
+            onClick={()=>{
+              handleShow(props.cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
+              preventBodyScroll(false);
+              handleShowButton(closeCartRef, openCartRef, 'show', 'hiden');
+            }}
+            src="/svgs/close.svg" alt="cart icon" 
           />
         </div>
       </div>
