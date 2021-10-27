@@ -5,12 +5,22 @@
   &__group {
     width: 250px;
     @include flex(0,flex-end,center);
+
+    img {
+      width: 21px;
+    }
   }
 
   &__cart {
     @include flex();
     margin-left: 20px;
     @include button-icon(1);
+
+    @include media (1024px) {
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 
   &__search {
