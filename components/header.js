@@ -71,7 +71,10 @@ export default function Header (props) {
         </div>
         <div className="header__cart">
           <img
-            onClick={()=>{handleShow(props.cartRef, 'cart-modal__hidden', 'cart-modal')}}
+            onClick={()=>{
+              handleShow(props.cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
+              preventBodyScroll(false);
+            }}
             src="/svgs/cart.svg" alt="cart icon" 
           />
         </div>
