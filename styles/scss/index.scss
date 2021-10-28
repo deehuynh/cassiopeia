@@ -28,3 +28,9 @@ $c-active: #595CFF;
   'header','nav','m-search','footer',
   'home','content','splidejs','cart-modal',
   'modal-container';
+
+.lock-body {
+  @include media (768px) {
+    overflow: hidden;
+  }
+}
