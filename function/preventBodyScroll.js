@@ -1,7 +1,7 @@
 export default function preventBodyScroll (toggle) {
   if (toggle === true) {
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('lock-body');
   } else {
-    document.body.style.overflow = 'auto';
+    document.body.classList.remove('lock-body');
   }
 }
