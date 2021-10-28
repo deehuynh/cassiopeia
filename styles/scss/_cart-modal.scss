@@ -127,6 +127,14 @@
         @extend %caption1;
         @include placeholder('Inter', black);
       }
+
+      @include media (768px) {
+        width: 400px;
+      }
+
+      @include media (550px) {
+        width: 268px;
+      }
     }
 
     &-btn {
