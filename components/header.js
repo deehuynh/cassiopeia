@@ -78,7 +78,7 @@ export default function Header (props) {
             ref={openCartRef}
             onClick={()=>{
               handleShow(props.cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
-              preventBodyScroll(false);
+              preventBodyScroll(true);
               handleShowButton(openCartRef, closeCartRef, 'show', 'hiden');
             }}
             src="/svgs/cart.svg" alt="cart icon" 
