@@ -31,6 +31,8 @@ $c-active: #595CFF;
 
 .lock-body {
   @include media (768px) {
+    @include block(100%);
     overflow: hidden;
+    position: fixed;
   }
 }
