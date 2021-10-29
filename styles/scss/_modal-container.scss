@@ -1,4 +1,6 @@
 .modal-container {
-  position: relative;
-  @include frame(1160px, auto, center);
+  @include media (768px, 'min') {
+    position: relative;
+    @include frame(1160px, auto, center);
+  }
 }
