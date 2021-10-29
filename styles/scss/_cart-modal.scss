@@ -7,7 +7,7 @@
     height: auto;
 
     @include media (768px) {
-      height: calc(100vh - 51.86px);
+      height: calc(100% - 51.86px);
     }
   }
 
@@ -22,7 +22,7 @@
     right: 60px;
   }
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
   transition: height .3s;
   box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
 
@@ -205,7 +205,6 @@
   @include media (768px) {
     width: 100%;
     box-shadow: none;
-    overflow: auto;
 
     h2 {
       margin-top: 20px;
