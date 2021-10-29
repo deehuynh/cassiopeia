@@ -5,7 +5,7 @@ import { useRef } from "react"
 import Meta from "./meta"
 import Header from "./header"
 import Nav from "./navigation"
-import Cart from "./cart-modal"
+import ModalContainer from "./modal-container"
 import MobileSearch from "./mobile-search"
 import Footer from "./footer"
 
@@ -21,8 +21,8 @@ export default function Layout ({ children }) {
         navRef={navRef} searchRef={searchRef}
         cartRef={cartRef}
       />
+      <ModalContainer cartRef={cartRef} />
       <Nav navRef={navRef} />
-      <Cart cartRef={cartRef} />
       <MobileSearch searchRef={searchRef} />
 
       <section className="content">
