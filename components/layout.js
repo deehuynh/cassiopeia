@@ -6,7 +6,6 @@ import Meta from "./meta"
 import Header from "./header"
 import Nav from "./navigation"
 import MobileSearch from "./mobile-search"
-import ModalContainer from "./modal-container"
 import Footer from "./footer"
 
 export default function Layout ({ children }) {
@@ -19,9 +18,6 @@ export default function Layout ({ children }) {
       <Meta />
       <Header 
         navRef={navRef} searchRef={searchRef}
-        cartRef={cartRef}
-      />
-      <ModalContainer
         cartRef={cartRef}
       />
       <Nav navRef={navRef} />
