@@ -9,7 +9,11 @@ const productsAPI = [
   {
     name: 'Red Roses and White Lilies', price: '99', oldPrice: '',
     thumbnail: '/5d84dc1a631b2292689077_nihv8m.webp'
-  }
+  },
+  {
+    name: 'Chrysanthemums and Roses', price: '44', oldPrice: '',
+    thumbnail: '/5d19dc8cc0983744838000_xc256j.webp'
+  },
 ];
 
 export default function Cart (props) {
