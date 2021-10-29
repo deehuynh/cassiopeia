@@ -37,9 +37,9 @@
 
     width: 100%;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     background-color: white;
-    overflow: hidden;
+    overflow: auto;
     transition: height .3s;
 
     &__tab {
@@ -67,6 +67,7 @@
       display: block;
       padding: 12px 20px;
       background-color: #f9f9f9;
+      box-sizing: border-box;
 
       span {
         margin-left: 7px;
