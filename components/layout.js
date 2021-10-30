@@ -13,16 +13,18 @@ export default function Layout ({ children }) {
   const searchRef = useRef(null);
   const navRef = useRef(null);
   const cartRef = useRef(null);
+  const openNavRef = useRef(null);
+  const closeNavRef = useRef(null);
 
   return (
     <div className="layout">
       <Meta />
       <Header 
         navRef={navRef} searchRef={searchRef}
-        cartRef={cartRef}
+        cartRef={cartRef} closeNavRef={closeNavRef} openNavRef={openNavRef}
       />
       <ModalContainer cartRef={cartRef} />
-      <Nav navRef={navRef} />
+      <Nav navRef={navRef} closeNavRef={closeNavRef} openNavRef={openNavRef} />
       <MobileSearch searchRef={searchRef} />
 
       <section className="content">
