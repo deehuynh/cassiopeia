@@ -8,11 +8,11 @@ import effectOneButton from "../function/effectOneButton";
 
 export default function Header (props) {
   const refContainer = useRef(null);
-  const openNavRef = useRef(null);
-  const closeNavRef = useRef(null);
+  const openNavRef = props.openNavRef;
   const searchBtnRef = useRef(null);
   const openCartRef = useRef(null);
   const closeCartRef = useRef(null);
+  const closeNavRef = props.closeNavRef;
 
   return (
     <header className="header">
