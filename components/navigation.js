@@ -1,5 +1,7 @@
+// next api
 import Link from "next/link"
 import { useRouter } from "next/router";
+// functions
 import preventBodyScroll from "../function/preventBodyScroll";
 
 const elements = [
@@ -11,8 +13,11 @@ const elements = [
 ];
 
 export default function Nav (props) {
+  // accessing the route object
   const router = useRouter();
+  // data storage variable
   const tabs = [];
+  // data fetching
   elements.forEach((item, index) => {
     const activeClassName = router.pathname === item.url ? ' nav__tab--active' : '';
     tabs.push(
