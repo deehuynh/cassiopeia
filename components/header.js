@@ -1,18 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link"
 import {useRef} from "react"
+// next api
+import Link from "next/link"
+// functions
 import handleShow from "../function/handleShow";
 import handleShowButton from "../function/handleShowButton"
 import preventBodyScroll from "../function/preventBodyScroll";
 import effectOneButton from "../function/effectOneButton";
 
 export default function Header (props) {
-  const refContainer = useRef(null);
+  // nav ref container
+  const navRef = props.navRef;
   const openNavRef = props.openNavRef;
+  const closeNavRef = props.closeNavRef;
+  // search ref containers
+  const mSearchRef = props.searchRef;
+  const searchRef = useRef(null);
   const searchBtnRef = useRef(null);
+  // cart ref containers
+  const cartRef = props.cartRef;
   const openCartRef = useRef(null);
   const closeCartRef = useRef(null);
-  const closeNavRef = props.closeNavRef;
 
   return (
     <header className="header">
@@ -20,13 +28,14 @@ export default function Header (props) {
         <img src="/svgs/location.svg" alt="location icon" />
         <span>Vietnam</span>
       </div>
+
       <div className="header__menu">
         <img
           className='show'
           ref={openNavRef}
           onClick={
             ()=>{
-              handleShow(props.navRef, 'nav nav--hiden', 'nav nav--show');
+              handleShow(navRef, 'nav nav--hiden', 'nav nav--show');
               handleShowButton(openNavRef, closeNavRef, 'show', 'hiden');
               preventBodyScroll(true);
             }
@@ -38,22 +47,24 @@ export default function Header (props) {
           className='hiden'
           ref={closeNavRef}
           onClick={()=>{
-            handleShow(props.navRef, 'nav nav--hiden', 'nav nav--show');
+            handleShow(navRef, 'nav nav--hiden', 'nav nav--show');
             handleShowButton(closeNavRef, openNavRef, 'show', 'hiden');
             preventBodyScroll(false);
           }}
           src="/svgs/close.svg" alt="close menu" 
         />
       </div>
+
       <div className="header__logo">
         <Link href="/">
           <a><img src="/svgs/logo.svg" alt="Logo" /></a>
         </Link>
       </div>
+
       <div className="header__group">
         <div className="header__search">
           <input
-            ref={refContainer}
+            ref={searchRef}
             className='header__search--hiden'
             type="text" defaultValue='' placeholder='Search' 
           />
@@ -62,22 +73,23 @@ export default function Header (props) {
             onClick={
               () => {
                 handleShow(
-                  refContainer, 'header__search--hiden', 'header__search--show'
+                  searchRef, 'header__search--hiden', 'header__search--show'
                 );
                 handleShow(
-                  props.searchRef, 'm-search__hiden', 'm-search'
+                  mSearchRef, 'm-search__hiden', 'm-search'
                 );
                 effectOneButton(searchBtnRef, 'header__search-btn--opacity');
               }
             } 
             src="/svgs/search.svg" alt="search icon" />
         </div>
+
         <div className="header__cart">
           <img
             className="show"
             ref={openCartRef}
             onClick={()=>{
-              handleShow(props.cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
+              handleShow(cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
               preventBodyScroll(true);
               handleShowButton(openCartRef, closeCartRef, 'show', 'hiden');
             }}
@@ -88,7 +100,7 @@ export default function Header (props) {
             className="hiden"
             ref={closeCartRef}
             onClick={()=>{
-              handleShow(props.cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
+              handleShow(cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
               preventBodyScroll(false);
               handleShowButton(closeCartRef, openCartRef, 'show', 'hiden');
             }}
