@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { useRouter } from "next/router";
 import preventBodyScroll from "../function/preventBodyScroll";
 
 const elements = [
@@ -10,8 +11,10 @@ const elements = [
 ];
 
 export default function Nav (props) {
+  const router = useRouter();
   const tabs = [];
   elements.forEach((item, index) => {
+    const activeClassName = router.pathname === item.url ? ' nav__tab--active' : '';
     tabs.push(
       <Link key={index} href={item.url}>
         <a 
@@ -23,7 +26,7 @@ export default function Nav (props) {
               preventBodyScroll(false);
             }
           } 
-          className='nav__tab'
+          className={`nav__tab` + activeClassName}
         >{item.name}</a>
       </Link>
     );
