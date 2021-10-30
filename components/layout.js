@@ -1,6 +1,5 @@
 //import hooks
 import { useRef } from "react"
-
 // import component
 import Meta from "./meta"
 import Header from "./header"
@@ -10,6 +9,7 @@ import MobileSearch from "./mobile-search"
 import Footer from "./footer"
 
 export default function Layout ({ children }) {
+  // global ref containers
   const searchRef = useRef(null);
   const navRef = useRef(null);
   const cartRef = useRef(null);
@@ -19,13 +19,24 @@ export default function Layout ({ children }) {
   return (
     <div className="layout">
       <Meta />
+
       <Header 
-        navRef={navRef} searchRef={searchRef}
-        cartRef={cartRef} closeNavRef={closeNavRef} openNavRef={openNavRef}
+        navRef={navRef} closeNavRef={closeNavRef} openNavRef={openNavRef}
+        searchRef={searchRef}
+        cartRef={cartRef} 
       />
-      <ModalContainer cartRef={cartRef} />
-      <Nav navRef={navRef} closeNavRef={closeNavRef} openNavRef={openNavRef} />
-      <MobileSearch searchRef={searchRef} />
+
+      <ModalContainer 
+        cartRef={cartRef} 
+      />
+
+      <Nav 
+        navRef={navRef} closeNavRef={closeNavRef} openNavRef={openNavRef} 
+      />
+      
+      <MobileSearch
+        searchRef={searchRef}
+      />
 
       <section className="content">
         {children}
