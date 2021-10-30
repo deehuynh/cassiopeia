@@ -58,6 +58,10 @@
       &:nth-last-child(2) {
         border-bottom: 1px solid rgba(0,0,0, 0.09);
       }
+
+      &--active {
+        font-weight: 700;
+      }
     }
 
     &__location {
