@@ -1,4 +1,5 @@
 import Link from "next/link"
+import preventBodyScroll from "../function/preventBodyScroll";
 
 const elements = [
   {name: 'Flowers', url: '/flowers'},
@@ -13,7 +14,17 @@ export default function Nav (props) {
   elements.forEach((item, index) => {
     tabs.push(
       <Link key={index} href={item.url}>
-        <a className='nav__tab'>{item.name}</a>
+        <a 
+          onClick={
+            () => {
+              props.navRef.current.className = "nav nav--hiden";
+              props.closeNavRef.current.className = "hiden";
+              props.openNavRef.current.className = "show";
+              preventBodyScroll(false);
+            }
+          } 
+          className='nav__tab'
+        >{item.name}</a>
       </Link>
     );
   });
