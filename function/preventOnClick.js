@@ -4,7 +4,7 @@
 export default function preventOnClick (firstRef, secondRef) {
   // [content, open, close]
   if (firstRef.length !== 2) {
-    firstRef[0].current.className = "hiden";
+    firstRef[0].contentRef.current.className = firstRef[0].hidden;
     firstRef[1].current.className = "show";
     firstRef[2].current.className = "hiden";
   } else {
@@ -17,7 +17,7 @@ export default function preventOnClick (firstRef, secondRef) {
   }
 
   if (secondRef.length !== 2) {
-    secondRef[0].current.className = "hiden";
+    secondRef[0].contentRef.current.className = secondRef[0].hidden;
     secondRef[1].current.className = "show";
     secondRef[2].current.className = "hiden";
   } else {
