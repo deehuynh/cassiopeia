@@ -12,10 +12,10 @@
   &__container {
     @include block(100%, auto);
     @include flex(0, space-between);
-    overflow-x: scroll;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    // overflow-x: scroll;
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
   }
 
   &__item {
