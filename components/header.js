@@ -8,6 +8,7 @@ import handleShowButton from "../function/handleShowButton"
 import preventBodyScroll from "../function/preventBodyScroll";
 import effectOneButton from "../function/effectOneButton";
 import preventOnClick from "../function/preventOnClick";
+import handleBackHome from "../function/handleBackHome";
 
 export default function Header (props) {
   // nav ref container
@@ -64,7 +65,26 @@ export default function Header (props) {
 
       <div className="header__logo">
         <Link href="/">
-          <a><img src="/svgs/logo.svg" alt="Logo" /></a>
+          <a>
+            <img 
+              onClick={()=>{
+                handleBackHome(
+                  [
+                    [{
+                      contentRef: navRef, openRef: openNavRef,
+                      closeRef: closeNavRef, hidden: 'nav nav--hiden'
+                    }], [{
+                      contentRef: mSearchRef, btnRef: searchBtnRef , hidden: 'm-search__hiden'
+                    }], [{
+                      contentRef: cartRef, openRef: openCartRef,
+                      closeRef: closeCartRef, hidden: 'cart-modal cart-modal__hidden'
+                    }]
+                  ]
+                ); preventBodyScroll(false);
+              }}
+              src="/svgs/logo.svg" alt="Logo" 
+            />
+          </a>
         </Link>
       </div>
 
