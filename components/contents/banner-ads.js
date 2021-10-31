@@ -191,6 +191,7 @@ export default function BannerAds () {
             type: 'loop',
             perPage: 1,
             autoplay: true,
+            arrows: false
           }}
         >
           {slideBanner}
