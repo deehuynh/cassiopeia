@@ -41,7 +41,9 @@ export default function Header (props) {
               preventBodyScroll(true);
               preventOnClick(
                 [{searchRef: '', mSearchRef: mSearchRef}, searchBtnRef],
-                [cartRef, openCartRef, closeCartRef]
+                [{
+                  contentRef: cartRef, hidden: 'cart-modal cart-modal__hidden'
+                }, openCartRef, closeCartRef]
               );
             }
           }
@@ -86,8 +88,12 @@ export default function Header (props) {
                 effectOneButton(searchBtnRef, 'header__search-btn--opacity');
                 preventBodyScroll(false);
                 preventOnClick(
-                  [navRef, openNavRef, closeNavRef],
-                  [cartRef, openCartRef, closeCartRef]
+                  [{
+                    contentRef: navRef, hidden: 'nav nav--hiden'
+                  }, openNavRef, closeNavRef],
+                  [{
+                    contentRef: cartRef, hidden: 'cart-modal cart-modal__hidden'
+                  }, openCartRef, closeCartRef]
                 );
               }
             } 
@@ -103,7 +109,9 @@ export default function Header (props) {
               preventBodyScroll(true);
               handleShowButton(openCartRef, closeCartRef, 'show', 'hiden');
               preventOnClick(
-                [navRef, openNavRef, closeNavRef], 
+                [{
+                  contentRef: navRef, hidden: 'nav nav--hiden'
+                }, openNavRef, closeNavRef],
                 [{searchRef: searchRef, mSearchRef: mSearchRef}, searchBtnRef]
               );
             }}
