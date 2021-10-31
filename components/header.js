@@ -39,7 +39,10 @@ export default function Header (props) {
               handleShow(navRef, 'nav nav--hiden', 'nav nav--show');
               handleShowButton(openNavRef, closeNavRef, 'show', 'hiden');
               preventBodyScroll(true);
-              preventOnClick([mSearchRef, searchBtnRef], [cartRef, openCartRef, closeCartRef]);
+              preventOnClick(
+                [{searchRef: '', mSearchRef: mSearchRef}, searchBtnRef],
+                [cartRef, openCartRef, closeCartRef]
+              );
             }
           }
           src="/svgs/menu.svg" alt="menu"
@@ -99,7 +102,10 @@ export default function Header (props) {
               handleShow(cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
               preventBodyScroll(true);
               handleShowButton(openCartRef, closeCartRef, 'show', 'hiden');
-              preventOnClick([navRef, openNavRef, closeNavRef], [mSearchRef, searchBtnRef]);
+              preventOnClick(
+                [navRef, openNavRef, closeNavRef], 
+                [{searchRef: searchRef, mSearchRef: mSearchRef}, searchBtnRef]
+              );
             }}
             src="/svgs/cart.svg" alt="cart icon" 
           />
