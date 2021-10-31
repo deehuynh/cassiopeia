@@ -7,6 +7,7 @@ import handleShow from "../function/handleShow";
 import handleShowButton from "../function/handleShowButton"
 import preventBodyScroll from "../function/preventBodyScroll";
 import effectOneButton from "../function/effectOneButton";
+import preventOnClick from "../function/preventOnClick";
 
 export default function Header (props) {
   // nav ref container
@@ -38,6 +39,7 @@ export default function Header (props) {
               handleShow(navRef, 'nav nav--hiden', 'nav nav--show');
               handleShowButton(openNavRef, closeNavRef, 'show', 'hiden');
               preventBodyScroll(true);
+              preventOnClick([mSearchRef, searchBtnRef], [cartRef, openCartRef, closeCartRef]);
             }
           }
           src="/svgs/menu.svg" alt="menu"
@@ -79,6 +81,11 @@ export default function Header (props) {
                   mSearchRef, 'm-search__hiden', 'm-search'
                 );
                 effectOneButton(searchBtnRef, 'header__search-btn--opacity');
+                preventBodyScroll(false);
+                preventOnClick(
+                  [navRef, openNavRef, closeNavRef],
+                  [cartRef, openCartRef, closeCartRef]
+                );
               }
             } 
             src="/svgs/search.svg" alt="search icon" />
@@ -92,6 +99,7 @@ export default function Header (props) {
               handleShow(cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
               preventBodyScroll(true);
               handleShowButton(openCartRef, closeCartRef, 'show', 'hiden');
+              preventOnClick([navRef, openNavRef, closeNavRef], [mSearchRef, searchBtnRef]);
             }}
             src="/svgs/cart.svg" alt="cart icon" 
           />
