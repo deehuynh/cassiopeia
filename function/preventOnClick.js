@@ -9,7 +9,7 @@ export default function preventOnClick (firstRef, secondRef) {
     firstRef[2].current.className = "hiden";
   } else {
     if (firstRef[0].searchRef !== '') {
-      firstRef[0].searchRef.current.className = "hiden";
+      firstRef[0].searchRef.current.className = "header__search--hiden";
     }
     firstRef[0].mSearchRef.current.className = "hiden";
     // [content, buttonRef]
@@ -22,7 +22,7 @@ export default function preventOnClick (firstRef, secondRef) {
     secondRef[2].current.className = "hiden";
   } else {
     if (secondRef[0].searchRef !== '') {
-      secondRef[0].searchRef.current.className = "hiden";
+      secondRef[0].searchRef.current.className = "header__search--hiden";
     }
     secondRef[0].mSearchRef.current.className = "hiden";
     // [content, buttonRef]
