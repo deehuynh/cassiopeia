@@ -3,21 +3,28 @@
 
 export default function preventOnClick (firstRef, secondRef) {
   // [content, open, close]
-  firstRef[0].current.className = "hiden";
-  secondRef[0].current.className = "hiden";
-
   if (firstRef.length !== 2) {
+    firstRef[0].current.className = "hiden";
     firstRef[1].current.className = "show";
     firstRef[2].current.className = "hiden";
   } else {
+    if (firstRef[0].searchRef !== '') {
+      firstRef[0].searchRef.current.className = "hiden";
+    }
+    firstRef[0].mSearchRef.current.className = "hiden";
     // [content, buttonRef]
     firstRef[1].current.className = "header__search-btn";
   }
 
   if (secondRef.length !== 2) {
+    secondRef[0].current.className = "hiden";
     secondRef[1].current.className = "show";
     secondRef[2].current.className = "hiden";
   } else {
+    if (secondRef[0].searchRef !== '') {
+      secondRef[0].searchRef.current.className = "hiden";
+    }
+    secondRef[0].mSearchRef.current.className = "hiden";
     // [content, buttonRef]
     secondRef[1].current.className = "header__search-btn";
   }
