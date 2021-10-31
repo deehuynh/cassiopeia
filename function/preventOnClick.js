@@ -11,7 +11,7 @@ export default function preventOnClick (firstRef, secondRef) {
     if (firstRef[0].searchRef !== '') {
       firstRef[0].searchRef.current.className = "header__search--hiden";
     }
-    firstRef[0].mSearchRef.current.className = "hiden";
+    firstRef[0].mSearchRef.current.className = "m-search__hiden";
     // [content, buttonRef]
     firstRef[1].current.className = "header__search-btn";
   }
@@ -24,7 +24,7 @@ export default function preventOnClick (firstRef, secondRef) {
     if (secondRef[0].searchRef !== '') {
       secondRef[0].searchRef.current.className = "header__search--hiden";
     }
-    secondRef[0].mSearchRef.current.className = "hiden";
+    secondRef[0].mSearchRef.current.className = "m-search__hiden";
     // [content, buttonRef]
     secondRef[1].current.className = "header__search-btn";
   }
