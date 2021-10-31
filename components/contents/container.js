@@ -29,7 +29,8 @@ export default function Container (props) {
         options={{
           type: 'slide',
           width: '100%',
-          perPage: 4,
+          fixedWidth: '260px',
+          gap: '40px',
           perMove: 1,
           pagination: false
         }}
