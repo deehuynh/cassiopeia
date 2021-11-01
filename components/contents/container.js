@@ -49,6 +49,7 @@ export default function Container (props) {
           width: '100%',
           fixedWidth: '260px',
           gap: '40px',
+          perPage: 4, // fix error: next arrow not disabled
           perMove: 1,
           pagination: false,
           breakpoints: {
