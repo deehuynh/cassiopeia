@@ -50,7 +50,13 @@ export default function Container (props) {
           fixedWidth: '260px',
           gap: '40px',
           perMove: 1,
-          pagination: false
+          pagination: false,
+          breakpoints: {
+            1200: {
+              fixedWidth: '24%',
+              gap: '1.33%'
+            }
+          }
         }}
       >
         {listItem}
