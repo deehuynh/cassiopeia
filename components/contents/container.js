@@ -59,11 +59,13 @@ export default function Container (props) {
             },
             620: {
               fixedWidth: '32%',
-              gap: '1.8%'
+              gap: '1.8%',
+              perPage: 3
             },
             425: {
               fixedWidth: '49%',
-              gap: '2%'
+              gap: '2%',
+              perPage: 2
             }
           }
         }}
