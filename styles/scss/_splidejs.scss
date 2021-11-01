@@ -19,3 +19,25 @@
     height: 6px!important;
   }
 }
+
+// Home product
+.content-item__arrows {
+  @include media (425px) {
+    display: none;
+  }
+}
+
+.content-item__arrow {
+  position: absolute;
+  top: -73px;
+
+  &--pre {
+    width: 33.5px;
+    right: 33.5px;
+  }
+
+  &--next {
+    width: 33.5px;
+    right: 0;
+  }
+}
