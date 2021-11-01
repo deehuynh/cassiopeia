@@ -23,15 +23,23 @@ export default function Container (props) {
     );
   }
 
+  const preButton = () => {
+    return (
+      <button className="splide__arrow content-item__arrow content-item__arrow--pre">
+        <img src="/svgs/line-left-arrow-black.svg" alt="arrow" />
+      </button>
+    )
+  }
+
   return (
     <div className={`content__container` + className}>
       <Splide
         renderControls={ () => (
-          <div className="splide__arrows content-item__arrows">
-            <button className="content-item__arrow content-item__arrow--pre">
+          <div className="splide__arrows">
+            <button className="splide__arrow content-item__arrow splide__arrow--prev content-item__arrow--pre">
               <img src="/svgs/line-left-arrow-black.svg" alt="arrow" />
             </button>
-            <button className="content-item__arrow content-item__arrow--next">
+            <button className="splide__arrow content-item__arrow splide__arrow--next content-item__arrow--next">
               <img src="/svgs/line-right-arrow-black.svg" alt="arrow" />
             </button>
           </div>
