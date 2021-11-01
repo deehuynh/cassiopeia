@@ -21,23 +21,22 @@
 }
 
 // Home product
-.content-item__arrows {
-  @include media (425px) {
-    display: none;
-  }
-}
-
 .content-item__arrow {
-  position: absolute;
-  top: -73px;
+  top: -70px!important;
+  opacity: 1!important;
+  background-color: transparent!important;
+  border: 0!important;
+  transform: none!important;
+  height: auto!important;
 
   &--pre {
-    width: 33.5px;
-    right: 33.5px;
+    width: 21px!important;
+    right: 44px!important;
+    left: auto!important;
   }
 
   &--next {
-    width: 33.5px;
-    right: 0;
+    width: 23px!important;
+    right: 0!important;
   }
 }
