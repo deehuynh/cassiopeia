@@ -26,6 +26,16 @@ export default function Container (props) {
   return (
     <div className={`content__container` + className}>
       <Splide
+        renderControls={ () => (
+          <div className="splide__arrows content-item__arrows">
+            <button className="content-item__arrow content-item__arrow--pre">
+              <img src="/svgs/line-left-arrow-black.svg" alt="arrow" />
+            </button>
+            <button className="content-item__arrow content-item__arrow--next">
+              <img src="/svgs/line-right-arrow-black.svg" alt="arrow" />
+            </button>
+          </div>
+        ) }
         options={{
           type: 'slide',
           width: '100%',
