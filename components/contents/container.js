@@ -55,6 +55,14 @@ export default function Container (props) {
             1200: {
               fixedWidth: '24%',
               gap: '1.33%'
+            },
+            620: {
+              fixedWidth: '32%',
+              gap: '1.8%'
+            },
+            425: {
+              fixedWidth: '49%',
+              gap: '2%'
             }
           }
         }}
