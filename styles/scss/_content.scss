@@ -29,8 +29,8 @@
     }
 
     @include media (1200px) {
-      width: 24%;
-      margin-right: 1.33%;
+      width: 100%;
+      // margin-right: 1.33%;
     }
 
     @include media (900px) {
