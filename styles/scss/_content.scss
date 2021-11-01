@@ -30,7 +30,6 @@
 
     @include media (1200px) {
       width: 100%;
-      // margin-right: 1.33%;
     }
 
     @include media (900px) {
@@ -54,8 +53,6 @@
     }
 
     @include media (620px) {
-      width: 32%;
-      margin-right: 1.8%;
       height: 300px;
     }
 
@@ -64,8 +61,6 @@
     }
 
     @include media (425px) {
-      width: 49%;
-      margin-right: 2%;
       height: 300px;
     }
 
@@ -83,6 +78,10 @@
     @include block(260px);
     user-select: none;
     @include flex(column, center);
+
+    @include media (1200px) {
+      width: 100%;
+    }
 
     &:hover {
       cursor: pointer;
@@ -106,6 +105,24 @@
         font-weight: 600;
       }
     }
+
+    @include media (1024px) {
+      h3 {
+        font-size: 20px;
+        margin-left: 50px;
+      }
+
+      p {
+        margin-top: 0px;
+        span {
+          margin-left: 50px;
+          margin-right: 40px;
+          font-size: 13px;
+        }
+      }
+    }
+
+    
   }
 
   &__thumbnail {
