@@ -29,6 +29,10 @@
   transform: none!important;
   height: auto!important;
 
+  &[disabled] {
+    opacity: .2!important;
+  }
+
   &--pre {
     width: 21px!important;
     right: 44px!important;
