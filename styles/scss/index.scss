@@ -26,11 +26,11 @@ $c-active: #595CFF;
 // Importing the styles of the layout components
 @import 
   'header','nav','m-search','footer',
-  'home','content';
+  'home','content','product-detail';
 // Import partials
 @import 
   'splidejs','cart-modal','modal-container',
-  'breadcrumb';
+  'breadcrumb','filter-bar','products-container';
 
 .lock-body {
   @include media (768px) {
