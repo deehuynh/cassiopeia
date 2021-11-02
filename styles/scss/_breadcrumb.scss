@@ -23,6 +23,7 @@
     }
 
     &:last-child {
+      cursor: text;
       font-weight: 600;
       &::after {
         content: '';
@@ -32,5 +33,15 @@
     &:hover:not(&:last-child) {
       text-decoration: underline;
     }
+  }
+
+  @include media (768px) {
+    height: 40px;
+    margin-top: 0;
+  }
+
+  @include media (768px) {
+    height: 30px;
+    margin-top: 10px;
   }
 }

@@ -71,6 +71,11 @@
     @include media (350px) {
       height: 260px;
     }
+
+    &--mgr-0 {
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
   }
 
   &__see-more-item {
@@ -287,6 +292,23 @@
         }
       }
     }
+  }
+}
+
+.content__page-name {
+  margin-top: 20px;
+  @extend %H1;
+  margin-bottom: 40px;
+
+  @include media (768px) {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+
+  @include media (425px) {
+    font-size: 20px;
+    margin-bottom: 5px;
   }
 }
 
