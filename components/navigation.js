@@ -15,11 +15,13 @@ const elements = [
 export default function Nav (props) {
   // accessing the route object
   const router = useRouter();
+  // router query
+  const queryParam = router.query;
   // data storage variable
   const tabs = [];
   // data fetching
   elements.forEach((item, index) => {
-    const activeClassName = router.pathname === item.url ? ' nav__tab--active' : '';
+    const activeClassName = queryParam.page && '/' + queryParam.page === item.url || router.pathname === item.url ? ' nav__tab--active' : '';
     tabs.push(
       <Link key={index} href={item.url}>
         <a 
