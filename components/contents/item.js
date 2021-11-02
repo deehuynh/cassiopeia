@@ -6,6 +6,9 @@ export default function Item (props) {
   const prName = props.name ? props.name : '';
   const prPrice = props.price ? '$ ' + props.price : '';
   const prOldPrice = props.oldPrice  ? '$' + props.oldPrice : '';
+  // added className
+  const addedClass = props.className ? ' ' + props.className : '';
+
   if (props.seeMore) {
     return (
       <div className="content__see-more-item">
@@ -19,7 +22,7 @@ export default function Item (props) {
   }
 
   return (
-    <div className="content__item">
+    <div className={`content__item` + addedClass}>
       <div className="content__thumbnail">
         {
           thumbnail && thumbnail !== '' ? (
