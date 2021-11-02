@@ -23,11 +23,14 @@ $c-warning: #FFBC2C;
 $c-negative: #EE7764;
 $c-active: #595CFF;
 
-// Import partials
+// Importing the styles of the layout components
 @import 
   'header','nav','m-search','footer',
-  'home','content','splidejs','cart-modal',
-  'modal-container';
+  'home','content';
+// Import partials
+@import 
+  'splidejs','cart-modal','modal-container',
+  'breadcrumb';
 
 .lock-body {
   @include media (768px) {
