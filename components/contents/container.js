@@ -23,14 +23,6 @@ export default function Container (props) {
     );
   }
 
-  const preButton = () => {
-    return (
-      <button className="splide__arrow content-item__arrow content-item__arrow--pre">
-        <img src="/svgs/line-left-arrow-black.svg" alt="arrow" />
-      </button>
-    )
-  }
-
   return (
     <div className={`content__container` + className}>
       <Splide
