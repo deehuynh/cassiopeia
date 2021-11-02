@@ -3,28 +3,9 @@ import Link from "next/link"
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 
-
-const adsAPI = [
-  {
-    type: 'primary', background: '/cass15_mrg4hb.jpg',
-    title: '40% off',
-    description: 'Best deals this week. Fresh flowers, plants and gifts',
-    btnTitle: 'Shop now',
-    url:'/'
-  }, {
-    type: 'secondary', title: 'Nice little gifts',
-    description: 'for loved ones',
-    background: '/cass23_gfwimt.png', btnTitle: 'View now',
-    url:'/'
-  }, {
-    type: 'secondary', title: 'Plants',
-    description: 'for home comfort',
-    background: '/cass31_esdbjz.png', btnTitle: 'View now',
-    url:'/'
-  }
-];
-
-export default function BannerAds () {
+export default function BannerAds (props) {
+  // ads data
+  const adsAPI = props.adsAPI;
   const slideBanner = [];
   const prBanner = [];
   const sndBanner = [];
