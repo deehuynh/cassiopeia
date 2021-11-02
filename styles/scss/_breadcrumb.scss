@@ -1,0 +1,36 @@
+.breadcrumb {
+  @include block(100%, 51.86px);
+  @include flex(0,0,center);
+  margin: {
+    top: 10.5px;
+  }
+
+  &__tab {
+    @extend %caption1;
+    margin: {
+      right: 12px;
+    }
+    text-decoration: none;
+    user-select: none;
+    color: black;
+
+    &::after {
+      content: '/';
+      display: inline-block;
+      margin: {
+        left: 12px;
+      }
+    }
+
+    &:last-child {
+      font-weight: 600;
+      &::after {
+        content: '';
+      }
+    }
+
+    &:hover:not(&:last-child) {
+      text-decoration: underline;
+    }
+  }
+}
