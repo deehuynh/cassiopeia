@@ -1,0 +1,61 @@
+.filter-bar {
+  @include flex(0,space-between, center);
+  padding: {
+    bottom: 20px;
+  }
+  box-sizing: border-box;
+  border-bottom: 1px solid $c-light-grey;
+  margin-bottom: 40px;
+
+  &__group {
+    width: calc(100% - 70px);
+    @include flex(0,0,center);
+  }
+
+  &__dropdown {
+    width: 132px;
+    position: relative;
+
+    div {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+
+      span {
+        margin-right: 14px;
+        @extend %body2;
+      }
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+  }
+
+  &__total {
+    width: 70px;
+    text-align: right;
+    @extend %body1;
+  }
+
+  &__button, &__close-button {
+    display: none;
+  }
+
+  @include media (768px) {
+    border-bottom: none;
+    padding-bottom: 0;
+    &__group {
+      display: none;
+    }
+
+    &__total {
+      text-align: left;
+    }
+
+    &__button {
+      display: block;
+      margin-top: 5px;
+    }
+  }
+}
