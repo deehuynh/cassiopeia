@@ -7,9 +7,7 @@ export default function Plants () {
     <div className="plants">
       <Title>Plants | Cassiopeia | Flower store</Title>
 
-      <div className="plants">
-        <BreadCrumb tabName={{url: '/plants', name: 'Plants'}} />
-      </div>
+      <BreadCrumb tabName={{url: '/plants', name: 'Plants'}} />
     </div>
   )
 }
