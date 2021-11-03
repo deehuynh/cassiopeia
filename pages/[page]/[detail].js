@@ -1,9 +1,27 @@
 // next api
-import Image from "next/image";
+import Image from "next/image"
 // components
-import BreadCrumb from "../../components/contents/breadcrumb";
+import BreadCrumb from "../../components/contents/breadcrumb"
+import Container from "../../components/contents/slide-container"
+import Headline from "../../components/contents/title"
 
 export default function DetailPage () {
+  const recomandedPr = [
+    {
+      name: 'White Lilies and Gerberas', price: '54', oldPrice: '',
+      thumbnail: '/5cdd463408a93217111334_xbpxkx.webp'
+    },
+    {
+      name: 'Red Roses and White Lilies', price: '99', oldPrice: '',
+      thumbnail: '/5d84dc1a631b2292689077_nihv8m.webp'
+    },
+    {
+      name: 'Chrysanthemums and Roses', price: '44', oldPrice: '',
+      thumbnail: '/5d19dc8cc0983744838000_xc256j.webp'
+    },
+    {name: 'Roses and Lilies', price: '69', oldPrice: '82', thumbnail: '/5d84d46e1fe63737087781_eztymk.webp'},
+    {name: 'Lilies And Roses', price: '39', oldPrice: '50', thumbnail: '/5d84d53800517236157520_awcivk.webp'}
+  ];
   return (
     <div className="product-detail">
       <BreadCrumb />
@@ -12,6 +30,9 @@ export default function DetailPage () {
         <ImagesContainer />
         <InforContainer />
       </div>
+
+      <Headline>You may like</Headline>
+      <Container prAPI={recomandedPr} />
     </div>
   )
 }
@@ -49,30 +70,65 @@ function ImagesContainer () {
 }
 
 function InforContainer () {
+  // component partials
+  const PrName = ({children}) => <div className="product-detail__name">{children}</div>;
+  const PrPrice = ({name,price, oldPrice}) => (
+    <div className="product-detail__price">
+      <div className="product-detail__m-name">
+        {name}
+      </div>
+
+      <div>
+        <span>${price}</span>
+        <span>${oldPrice}</span>
+      </div>
+    </div>
+  );
+  const PrCounter = () => (
+    <div className="product-detail__count">
+      <div className="product-detail__label">Count:</div>
+      <div className="product-detail__count--counter">
+        <img src="/svgs/plus-i.svg" alt="plus" />
+        <span>N</span>
+        <img src="/svgs/minus-i.svg" alt="minus" />
+      </div>
+    </div>
+  );
+  const PrColorSelecter = () => (
+    <div className="product-detail__color">
+      <div className="product-detail__label">Color:</div>
+      <div className="product-detail__color-select">
+        <span></span>
+        <span className="product-detail__color--selected"></span>
+        <span></span>
+      </div>
+    </div>
+  );
+  const PrButtonGroup = () => (
+    <div className="product-detail__button-group">
+      <div className="product-detail__order-btn">Order now</div>
+      <div className="product-detail__cart-btn">
+        <img src="/svgs/cart-btn-square.svg" alt="add to cart" />
+      </div>
+    </div>
+  );
+  const PrListContent = ({children}) => (
+    <div className="product-detail__list-content">
+      <span>{children}</span>
+      <img src="/svgs/plus-dropdown.svg" alt="plus" />
+    </div>
+  );
+
   return (
     <div className="product-detail__infor">
-      <div className="product-detail__name">Name</div>
-      <div className="product-detail__price">
-        <span>price</span>
-        <span>old price</span>
-      </div>
-      <div className="product-detail__count">
-        <div className="product-detail__label">Count:</div>
-        <div className="product-detail__count--counter">
-          <img src="/svgs/plus-i.svg" alt="plus" />
-          <span>N</span>
-          <img src="/svgs/minus-i.svg" alt="minus" />
-        </div>
-      </div>
-      <div className="product-detail__color">
-        <div className="product-detail__label">Color:</div>
-      </div>
-      <div className="product-detail__button-group">
-        <div className="product-detail__order-btn">Order now</div>
-        <div className="product-detail__cart-btn">
-          <img src="/svgs/cart-btn-square.svg" alt="add to cart" />
-        </div>
-      </div>
+      <PrName>Rose</PrName>
+      <PrPrice name="Rose" price={38} oldPrice={30} />
+      <PrCounter />
+      <PrColorSelecter />
+      <PrButtonGroup />
+      <PrListContent>Bouquet contents</PrListContent>
+      <PrListContent>Details</PrListContent>
+      <PrListContent>Delivery & Pay policy</PrListContent>
     </div>
   )
 }
