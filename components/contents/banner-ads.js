@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/dist/css/splide.min.css';
 
 export default function BannerAds (props) {
   // ads data
