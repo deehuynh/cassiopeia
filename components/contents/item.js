@@ -37,7 +37,7 @@ export default function Item (props) {
 
         <div className="content__thumbnail-overlay">
           <img src="/svgs/cart-btn.svg" alt="cart btn" />
-          <Link href="/">
+          <Link href="/flowers/1">
             <a><img src="/svgs/view-btn.svg" alt="view detail" /></a>
           </Link>
         </div>
