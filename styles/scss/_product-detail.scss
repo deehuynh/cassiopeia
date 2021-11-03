@@ -212,28 +212,6 @@
   }
 
   @include media (768px) {
-    &__button-group {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      z-index: 2;
-      margin-bottom: 0;
-      background-color: white;
-      width: 100%;
-      padding: {
-        top: 5px;
-        bottom: 15px;
-        left: 20px;
-        right: 20px;
-      }
-      box-sizing: border-box;
-      column-gap: 0;
-      justify-content: space-between;
-    }
-    &__order-btn {
-      width: 700px;
-      margin-right: 20px;
-    }
     &__images {
       width: calc(100% + 40px);
       margin-left: -20px;
@@ -301,12 +279,16 @@
     }
 
     &__m-name {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     &__price {
       span:first-child {
-        font-size: 18px;
+        font-size: 17px;
+        margin-right: 10px;
+      }
+      span:last-child {
+        font-size: 16px;
       }
     }
   }
@@ -315,6 +297,18 @@
     &__images {
       width: calc(100% + 30px);
       margin-left: -15px;
+    }
+
+    &__order-btn {
+      height: 50px;
+    }
+
+    &__cart-btn {
+      @include block(50px);
+
+      img {
+        height: 100%;
+      }
     }
   }
 }
