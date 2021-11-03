@@ -2,10 +2,24 @@
   &__container {
     @include flex(0,space-between);
     margin-top: 26px;
+    margin-bottom: 100px;
+
+    @include media (1024px) {
+      margin-bottom: 80px;
+    }
+
+    @include media (900px) {
+      margin-bottom: 70px;
+    }
+
+    @include media (768px) {
+      flex-direction: column;
+    }
   }
 
   &__images {
     @include block(568px, auto);
+    margin-right: 20px;
 
     &-container {
       @include block(568px);
@@ -14,11 +28,23 @@
       background-color: $c-snow;
       margin-bottom: 30px;
     }
+
+    @include media (1024px) {
+      width: 60%;
+
+      &-container {
+        @include block(100%, auto);
+      }
+    }
   }
 
   &__label-bar {
     @include block(506px, 46px);
     @include flex(0,space-between,center);
+
+    @include media (1024px) {
+      width: 100%;
+    }
   }
 
   &__label {
@@ -33,11 +59,18 @@
 
   &__infor {
     @include block(523px, auto);
+    @include media (1024px) {
+      width: 40%;
+    }
   }
 
   &__name {
     @extend %H3;
     margin-bottom: 20px;
+  }
+
+  &__m-name {
+    display: none;
   }
 
   &__price {
@@ -77,6 +110,211 @@
         opacity: .5;
         cursor: pointer;
       }
+    }
+  }
+
+  &__color {
+    margin-bottom: 53px;
+    &-select {
+      @include flex(0,0,center);
+
+      span {
+        display: inline-block;
+        @include block(34px);
+        margin-right: 20px;
+        background-color: $c-pale-grey;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid $c-pale-grey;
+
+        &:hover {
+          border-color: $c-light-grey;
+        }
+      }
+    }
+
+    &--selected {
+      border: 2px solid $c-primary!important;
+    }
+  }
+
+  &__button-group {
+    @include flex(0,0,center);
+    column-gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  &__order-btn {
+    @include block(309px, 56px);
+    @include flex(0,center,center);
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    @extend %button;
+    user-select: none;
+
+    &:hover {
+      cursor: pointer;
+      opacity: .8;
+    }
+  }
+
+  &__cart-btn {
+    @include block(56px);
+    @include flex(0,center,center);
+    cursor: pointer;
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  &__list-content {
+    @include block(100%, 56px);
+    @include flex(0,space-between,center);
+    border-bottom: 1px solid $c-light-grey;
+
+    &:hover {
+      cursor: pointer;
+      opacity: .6;
+    }
+
+    span {
+      @extend %body2;
+    }
+
+    img {
+      margin-right: 5px;
+    }
+  }
+
+  @include media (850px) {
+    &__price, &__count {
+      margin-bottom: 30px;
+    }
+    &__color {
+      margin-bottom: 40px;
+    }
+    &__button-group {
+      margin-bottom: 20px;
+    }
+  }
+
+  @include media (800px) {
+    &__price, &__count {
+      margin-bottom: 20px;
+    }
+    &__color {
+      margin-bottom: 35px;
+    }
+    &__button-group {
+      margin-bottom: 15px;
+    }
+  }
+
+  @include media (768px) {
+    &__button-group {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      margin-bottom: 0;
+      background-color: white;
+      width: 100%;
+      padding: {
+        top: 5px;
+        bottom: 15px;
+        left: 20px;
+        right: 20px;
+      }
+      box-sizing: border-box;
+      column-gap: 0;
+      justify-content: space-between;
+    }
+    &__order-btn {
+      width: 700px;
+      margin-right: 20px;
+    }
+    &__images {
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      &-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+
+    &__price {
+      @include flex(0,space-between,center);
+      padding-bottom: 20px;
+
+      span:first-child {
+        font-size: 20px;
+        margin-right: 15px;
+      }
+    }
+
+    &__color-select {
+      span {
+        &:hover {
+          border-color: transparent;
+        }
+      }
+    }
+
+    &__count--counter {
+      span {
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      img {
+        @include block(30px);
+      }
+    }
+
+    &__infor {
+      width: 100%;
+    }
+
+    &__label-bar {
+      display: none;
+    }
+
+    &__list-content, &__label {
+      font-weight: 500;
+    }
+
+    &__name {
+      display: none;
+    }
+
+    &__m-name {
+      display: block;
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+
+  @include media (425px) {
+    &__images-container {
+      padding: 20px;
+    }
+
+    &__m-name {
+      font-size: 20px;
+    }
+
+    &__price {
+      span:first-child {
+        font-size: 18px;
+      }
+    }
+  }
+
+  @include media (375px) {
+    &__images {
+      width: calc(100% + 30px);
+      margin-left: -15px;
     }
   }
 }
