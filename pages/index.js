@@ -2,7 +2,7 @@ import Title from "../components/title"
 // import components
 import BannerAds from "../components/contents/banner-ads"
 import Headline from "../components/contents/title"
-import Container from "../components/contents/container"
+import Container from "../components/contents/slide-container"
 
 export default function Home ({allProductsData, adsData}) {
   return (
