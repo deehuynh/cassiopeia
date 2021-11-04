@@ -1,9 +1,13 @@
 // next api
 import Image from "next/image"
+// hooks
+import { useRef } from "react"
 // components
 import BreadCrumb from "../../components/contents/breadcrumb"
 import Container from "../../components/contents/slide-container"
 import Headline from "../../components/contents/title"
+// functions
+import handleShowButton from "../../function/handleShowButton"
 
 export default function DetailPage () {
   const recomandedPr = [
@@ -70,6 +74,8 @@ function ImagesContainer () {
 }
 
 function InforContainer () {
+  const openDropdownRef = useRef(null);
+  const closeDropdownRef = useRef(null);
   // component partials
   const PrName = ({children}) => <div className="product-detail__name">{children}</div>;
   const PrPrice = ({name,price, oldPrice}) => (
@@ -112,10 +118,19 @@ function InforContainer () {
       </div>
     </div>
   );
-  const PrListContent = ({children}) => (
+  const PrListContent = ({title, content}) => (
     <div className="product-detail__list-content">
-      <span>{children}</span>
-      <img src="/svgs/plus-dropdown.svg" alt="plus" />
+      <div 
+        className="product-detail__list-button"
+      >
+        <span>{title}</span>
+        <img ref={openDropdownRef} className="show" src="/svgs/plus-dropdown.svg" alt="plus" />
+        <img ref={closeDropdownRef} className="hiden" src="/svgs/minus-dropdown.svg" alt="minus" />
+      </div>
+
+      <div 
+        className="product-detail__list-children product-detail__list-children--hidden"
+      >{content}</div>
     </div>
   );
 
@@ -126,9 +141,18 @@ function InforContainer () {
       <PrCounter />
       <PrColorSelecter />
       <PrButtonGroup />
-      <PrListContent>Bouquet contents</PrListContent>
-      <PrListContent>Details</PrListContent>
-      <PrListContent>Delivery & Pay policy</PrListContent>
+      <PrListContent
+        title='Bouquet contents'
+      />
+      <PrListContent
+        title='Details'
+      />
+      <PrListContent
+        title='Delivery & Pay policy'
+        content='Each bouquet is unique and is prepared 
+        by an expert florist and our customer service team 
+        is at your service to ensure the best experience possible.'
+      />
     </div>
   )
 }
