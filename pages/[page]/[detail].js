@@ -85,6 +85,11 @@ function InforContainer () {
   closeDropdownRef.current = [1,2,3].map(
     (index) => closeDropdownRef.current[index] = React.createRef()
   );
+  // multiple content button
+  const contentRef = useRef([]);
+  contentRef.current = [1,2,3].map(
+    (index) => contentRef.current[index] = React.createRef()
+  );
   // component partials
   const PrName = ({children}) => <div className="product-detail__name">{children}</div>;
   const PrPrice = ({name,price, oldPrice}) => (
@@ -127,10 +132,10 @@ function InforContainer () {
       </div>
     </div>
   );
-  const PrListContent = ({title, content, openDropdownRef, closeDropdownRef}) => (
+  const PrListContent = ({title, content, openDropdownRef, closeDropdownRef,contentRef}) => (
     <div className="product-detail__list-content">
       <div
-        onClick={()=>{handleShowChildButton(openDropdownRef, closeDropdownRef)}}
+        onClick={()=>{handleShowChildButton(openDropdownRef, closeDropdownRef, contentRef)}}
         className="product-detail__list-button"
       >
         <span>{title}</span>
@@ -139,6 +144,7 @@ function InforContainer () {
       </div>
 
       <div 
+        ref={contentRef}
         className="product-detail__list-children product-detail__list-children--hidden"
       >{content}</div>
     </div>
@@ -146,8 +152,8 @@ function InforContainer () {
 
   // array contents of buttons
   const listContentButton = [
-    {title: 'Bouquet contens', content: ''},
-    {title: 'Details', content: ''},
+    {title: 'Bouquet contents', content: 'No content yet'},
+    {title: 'Details', content: 'No content yet'},
     {
       title: 'Delivery & Pay policy',
       content: 'Each bouquet is unique and is prepared by an expert florist and our customer service team is at your service to ensure the best experience possible.'
@@ -168,6 +174,7 @@ function InforContainer () {
               key={index}
               openDropdownRef={openDropdownRef.current[index]}
               closeDropdownRef={closeDropdownRef.current[index]}
+              contentRef={contentRef.current[index]}
               title={item.title}
               content={item.content}
             />
