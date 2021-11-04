@@ -1,3 +1,4 @@
+import React from "react"
 // next api
 import Image from "next/image"
 // hooks
@@ -74,8 +75,16 @@ function ImagesContainer () {
 }
 
 function InforContainer () {
-  const openDropdownRef = useRef(null);
-  const closeDropdownRef = useRef(null);
+  // multiple openDropdownRefs
+  const openDropdownRef = useRef([]);
+  openDropdownRef.current = [1,2,3].map(
+    (index) => openDropdownRef.current[index] = React.createRef()
+  );
+  // multiple closeDropdownRefs
+  const closeDropdownRef = useRef([]);
+  closeDropdownRef.current = [1,2,3].map(
+    (index) => closeDropdownRef.current[index] = React.createRef()
+  );
   // component partials
   const PrName = ({children}) => <div className="product-detail__name">{children}</div>;
   const PrPrice = ({name,price, oldPrice}) => (
@@ -118,9 +127,9 @@ function InforContainer () {
       </div>
     </div>
   );
-  const PrListContent = ({title, content}) => (
+  const PrListContent = ({title, content, openDropdownRef, closeDropdownRef}) => (
     <div className="product-detail__list-content">
-      <div 
+      <div
         onClick={()=>{handleShowChildButton(openDropdownRef, closeDropdownRef)}}
         className="product-detail__list-button"
       >
@@ -135,6 +144,16 @@ function InforContainer () {
     </div>
   );
 
+  // array contents of buttons
+  const listContentButton = [
+    {title: 'Bouquet contens', content: ''},
+    {title: 'Details', content: ''},
+    {
+      title: 'Delivery & Pay policy',
+      content: 'Each bouquet is unique and is prepared by an expert florist and our customer service team is at your service to ensure the best experience possible.'
+    },
+  ];
+
   return (
     <div className="product-detail__infor">
       <PrName>Rose</PrName>
@@ -142,18 +161,19 @@ function InforContainer () {
       <PrCounter />
       <PrColorSelecter />
       <PrButtonGroup />
-      <PrListContent
-        title='Bouquet contents'
-      />
-      <PrListContent
-        title='Details'
-      />
-      <PrListContent
-        title='Delivery & Pay policy'
-        content='Each bouquet is unique and is prepared 
-        by an expert florist and our customer service team 
-        is at your service to ensure the best experience possible.'
-      />
+      {
+        listContentButton.map(
+          (item, index) => (
+            <PrListContent
+              key={index}
+              openDropdownRef={openDropdownRef.current[index]}
+              closeDropdownRef={closeDropdownRef.current[index]}
+              title={item.title}
+              content={item.content}
+            />
+          )
+        )
+      }
     </div>
   )
 }
