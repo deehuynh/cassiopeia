@@ -169,14 +169,7 @@
   }
 
   &__list-content {
-    @include block(100%, 56px);
-    @include flex(0,space-between,center);
     border-bottom: 1px solid $c-light-grey;
-
-    &:hover {
-      cursor: pointer;
-      opacity: .6;
-    }
 
     span {
       @extend %body2;
@@ -185,6 +178,29 @@
     img {
       margin-right: 5px;
     }
+  }
+
+  &__list-button {
+    @include block(100%, 56px);
+    @include flex(0,space-between,center);
+
+    &:hover {
+      cursor: pointer;
+      opacity: .6;
+    }
+  }
+
+  &__list-children {
+    &--hidden {
+      height: 0;
+      margin-bottom: 0;
+    }
+
+    height: auto;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: 300;
+    overflow: hidden;
   }
 
   @include media (850px) {
