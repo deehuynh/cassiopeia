@@ -188,6 +188,8 @@
       cursor: pointer;
       opacity: .6;
     }
+
+    user-select: none;
   }
 
   &__list-children {
