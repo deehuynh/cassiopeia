@@ -7,7 +7,7 @@ import BreadCrumb from "../../components/contents/breadcrumb"
 import Container from "../../components/contents/slide-container"
 import Headline from "../../components/contents/title"
 // functions
-import handleShowButton from "../../function/handleShowButton"
+import handleShowChildButton from "../../function/handleShowChildButton"
 
 export default function DetailPage () {
   const recomandedPr = [
@@ -121,6 +121,7 @@ function InforContainer () {
   const PrListContent = ({title, content}) => (
     <div className="product-detail__list-content">
       <div 
+        onClick={()=>{handleShowChildButton(openDropdownRef, closeDropdownRef)}}
         className="product-detail__list-button"
       >
         <span>{title}</span>
