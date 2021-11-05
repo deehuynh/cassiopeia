@@ -243,6 +243,12 @@
       &-container {
         text-align: center;
         margin-bottom: 20px;
+        padding: {
+          top: 20px;
+          bottom: 10px;
+          left: 200px;
+          right: 200px;
+        }
       }
     }
 
@@ -298,9 +304,36 @@
     }
   }
 
+  @include media (650px) {
+    &__images-container {
+      padding: {
+        left: 150px;
+        right: 150px;
+      }
+    }
+  }
+
+  @include media (550px) {
+    &__images-container {
+      padding: {
+        left: 120px;
+        right: 120px;
+      }
+    }
+  }
+
+  @include media (470px) {
+    &__images-container {
+      padding: {
+        left: 90px;
+        right: 90px;
+      }
+    }
+  }
+
   @include media (425px) {
     &__images-container {
-      padding: 20px;
+      padding: 20px 40px;
     }
 
     &__m-name {
