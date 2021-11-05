@@ -2,6 +2,18 @@
   @include flex(0,0,0,wrap);
   column-gap: 40px;
 
+  @include media (1200px) {
+    column-gap: 1.33%;
+  }
+
+  @include media (620px) {
+    column-gap: 1.8%;
+  }
+
+  @include media (425px) {
+    column-gap: 2%;
+  }
+
   &__seemore {
     width: 100%;
     text-align: center;
