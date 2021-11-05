@@ -72,9 +72,26 @@
       height: 260px;
     }
 
-    &--mgr-0 {
+    &--restyled {
       margin-right: 0;
       margin-bottom: 40px;
+
+      @include media (1200px) {
+        width: 24%;
+        margin-bottom: 30px;
+      }
+
+      @include media (1100px) {
+        margin-bottom: 0;
+      }
+
+      @include media (620px) {
+        width: 32%;
+      }
+
+      @include media (425px) {
+        width: 49%;
+      }
     }
   }
 
