@@ -9,7 +9,7 @@ export default function ProductsContainer ({allProducts}) {
     products.push(
       <Item 
         key={index}
-        className='content__item--mgr-0'
+        className='content__item--restyled'
         thumbnail={item.thumbnail}
         name={item.name}
         price={item.price}
