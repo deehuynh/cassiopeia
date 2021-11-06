@@ -21,8 +21,8 @@ export default function Header (props) {
   const searchBtnRef = useRef(null);
   // cart ref containers
   const cartRef = props.cartRef;
-  const openCartRef = useRef(null);
-  const closeCartRef = useRef(null);
+  const openCartRef = props.openCartRef;
+  const closeCartRef = props.closeCartRef;
 
   return (
     <header className="header">
