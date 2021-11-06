@@ -2,6 +2,7 @@
 import Title from "../components/title"
 // components
 import BreadCrumb from "../components/contents/breadcrumb"
+import PageName from "../components/contents/page-name"
 
 export default function Checkout () {
   return (
@@ -9,6 +10,7 @@ export default function Checkout () {
       <Title>Checkout | Cassiopeia | Flower store</Title>
 
       <BreadCrumb />
+      <PageName>Checkout</PageName>
     </div>
   )
 }
