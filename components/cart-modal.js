@@ -1,5 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
+// functions
+import preventBodyScroll from "../function/preventBodyScroll";
 
 const productsAPI = [
   {
@@ -25,7 +27,11 @@ export default function Cart (props) {
       <Item />
       <Promocode />
       <OrderTotal />
-      <CheckoutButton />
+      <CheckoutButton
+        cartRef={props.cartRef}
+        openCartRef={props.openCartRef}
+        closeCartRef={props.closeCartRef}
+      />
     </div>
   )
 }
@@ -85,11 +91,19 @@ function OrderTotal () {
   )
 }
 
-function CheckoutButton () {
+function CheckoutButton ({cartRef, openCartRef, closeCartRef}) {
   return (
     <Link href="/checkout">
       <a>
-        <div className="cart-modal__checkout-btn">
+        <div 
+          onClick={()=>{
+            cartRef.current.className = "cart-modal cart-modal__hidden";
+            openCartRef.current.className = "show";
+            closeCartRef.current.className = "hiden";
+            preventBodyScroll(false);
+          }}
+          className="cart-modal__checkout-btn"
+        >
           <span>Checkout</span>
           <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
         </div>
