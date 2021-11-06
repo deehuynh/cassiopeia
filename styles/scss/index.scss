@@ -30,7 +30,8 @@ $c-active: #595CFF;
 // Import partials
 @import 
   'splidejs','cart-modal','modal-container',
-  'breadcrumb','filter-bar','products-container';
+  'breadcrumb','filter-bar','products-container',
+  'checkout';
 
 .lock-body {
   @include media (768px) {
