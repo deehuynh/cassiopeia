@@ -18,6 +18,7 @@ export default function BreadCrumb (props) {
     {name: 'Flowers', path: 'flowers'},
     {name: 'Plants', path: 'plants'},
     {name: 'Gifts', path: 'gifts'},
+    {name: 'Checkout', path: 'checkout'},
   ];
   // comparing pathname
   names.forEach((item)=>{
