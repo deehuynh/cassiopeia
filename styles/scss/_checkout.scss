@@ -2,4 +2,8 @@
   &__container {
     @include flex();
   }
+
+  &__col {
+    width: 50%;
+  }
 }
