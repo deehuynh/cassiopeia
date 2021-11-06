@@ -11,6 +11,10 @@ export default function Checkout () {
 
       <BreadCrumb />
       <PageName>Checkout</PageName>
+      <div className="checkout__container">
+        <div className="checkout__col">1</div>
+        <div className="checkout__col">2</div>
+      </div>
     </div>
   )
 }
