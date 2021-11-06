@@ -87,7 +87,7 @@ function OrderTotal () {
 
 function CheckoutButton () {
   return (
-    <Link href="/">
+    <Link href="/checkout">
       <a>
         <div className="cart-modal__checkout-btn">
           <span>Checkout</span>
