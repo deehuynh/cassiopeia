@@ -3,7 +3,11 @@
     @include flex();
   }
 
-  &__col {
-    width: 50%;
+  &__content {
+    width: 489px;
+  }
+
+  &__order {
+    @include block(440px, auto);
   }
 }
