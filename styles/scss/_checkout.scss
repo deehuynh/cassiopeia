@@ -1,6 +1,6 @@
 .checkout {
   &__container {
-    @include flex();
+    @include flex(0,space-between);
   }
 
   &__content {
@@ -9,5 +9,11 @@
 
   &__order {
     @include block(440px, auto);
+    padding: 20px;
+    box-sizing: border-box;
+
+    &-name {
+      @extend %H4;
+    }
   }
 }
