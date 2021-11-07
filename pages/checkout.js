@@ -8,13 +8,19 @@ export default function Checkout () {
   // component partials
   const OrderContainer = () => {
     return (
-      <div className="checkout__order"></div>
+      <div className="checkout__order">
+        <div className="checkout__order-name">
+          Order total <span>(1)</span>
+        </div>
+      </div>
     )
   }
 
-  const CheckoutContent = () => {
+  const CheckoutContent = ({children}) => {
     return (
-      <div className="checkout__content"></div>
+      <div className="checkout__content">
+        {children}
+      </div>
     )
   }
 
