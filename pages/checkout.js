@@ -91,6 +91,12 @@ const OrderContainer = ({listItem}) => {
 }
 
 const CheckoutContent = ({children}) => {
+  const CheckoutProgress = () => {
+    return (
+      <div className="checkout__progress"></div>
+    )
+  }
+  
   return (
     <div className="checkout__content">
       {children}
