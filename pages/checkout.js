@@ -15,6 +15,7 @@ export default function Checkout ({productsAPI}) {
           Order total <span>(1)</span>
         </div>
         {listItem}
+        <CheckoutField />
       </div>
     )
   }
@@ -23,6 +24,22 @@ export default function Checkout ({productsAPI}) {
     return (
       <div className="checkout__content">
         {children}
+      </div>
+    )
+  }
+
+  const CheckoutField = () => {
+    return (
+      <div className="checkout__field-container">
+        <div className="checkout__field">
+          <span>Shipping</span>
+          <span>FREE</span>
+        </div>
+
+        <div className="checkout__field">
+          <span>Order total</span>
+          <span>$00.00</span>
+        </div>
       </div>
     )
   }
