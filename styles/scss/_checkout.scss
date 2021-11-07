@@ -20,4 +20,60 @@
       margin-bottom: 40px;
     }
   }
+
+  &__item {
+    @include flex();
+    margin-bottom: 40px;
+
+    @include media (425px) {
+      margin-bottom: 20px;
+    }
+
+    &-avatar {
+      @include block(100px);
+      background: #F0F0F5;
+    }
+
+    &-infor {
+      width: calc(100% - 100px);
+      @include flex(column);
+      padding-left: 20px;
+      box-sizing: border-box;
+  
+      div:first-child {
+        @include flex(0,space-between,center);
+        margin-bottom: 15px;
+  
+        span {
+          &:first-child {
+            @extend %body1;
+          }
+  
+          &:last-child {
+            @extend %H5;
+          }
+        }
+      }
+  
+      div:last-child {
+        @include flex(0,0,center);
+  
+        span {
+          margin: {
+            left: 24px;
+            right: 24px;
+          }
+          @extend %button;
+        }
+  
+        img {
+          user-select: none;
+          &:hover {
+            cursor: pointer;
+            opacity: .5;
+          }
+        }
+      }
+    }
+  }
 }
