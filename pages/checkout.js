@@ -30,7 +30,7 @@ export default function Checkout ({productsAPI}) {
       <BreadCrumb />
       <PageName>Checkout</PageName>
       <div className="checkout__container">
-        <CheckoutContent>1</CheckoutContent>
+        <CheckoutContent />
         <OrderContainer listItem={listItem} />
       </div>
     </div>
@@ -90,16 +90,16 @@ const OrderContainer = ({listItem}) => {
   )
 }
 
-const CheckoutContent = ({children}) => {
+const CheckoutContent = () => {
   const CheckoutProgress = () => {
     return (
       <div className="checkout__progress"></div>
     )
   }
-  
+
   return (
     <div className="checkout__content">
-      {children}
+      <CheckoutProgress />
     </div>
   )
 }
