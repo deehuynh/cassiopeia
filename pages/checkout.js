@@ -33,7 +33,7 @@ export default function Checkout ({productsAPI}) {
         <div className="checkout__item-avatar">
           <Image src={props.thumbnail} width={100} height={100} alt="thumbnail" />
         </div>
-        <div className="cart-modal__infor">
+        <div className="checkout__item-infor">
           <div>
             <span>{props.name}</span>
             <span>${props.price}</span>
