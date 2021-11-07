@@ -76,4 +76,23 @@
       }
     }
   }
+
+  &__field {
+    @include flex(0,space-between);
+    padding: {
+      top: 18px;
+      bottom: 14px;
+    }
+    box-sizing: border-box;
+    border-top: 1px solid $c-pale-grey;
+    span {
+      &:first-child {
+        @extend %body2;
+      }
+
+      &:last-child {
+        @extend %button;
+      }
+    }
+  }
 }
