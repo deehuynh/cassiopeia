@@ -7,66 +7,6 @@ import BreadCrumb from "../components/contents/breadcrumb"
 import PageName from "../components/contents/page-name"
 
 export default function Checkout ({productsAPI}) {
-  // component partials
-  const OrderContainer = ({listItem}) => {
-    const countTotalItems = listItem.length;
-    return (
-      <div className="checkout__order">
-        <div className="checkout__order-name">
-          Order total <span>({countTotalItems})</span>
-        </div>
-        {listItem}
-        <CheckoutField />
-      </div>
-    )
-  }
-
-  const CheckoutContent = ({children}) => {
-    return (
-      <div className="checkout__content">
-        {children}
-      </div>
-    )
-  }
-
-  const CheckoutField = () => {
-    return (
-      <div className="checkout__field-container">
-        <div className="checkout__field">
-          <span>Shipping</span>
-          <span>FREE</span>
-        </div>
-
-        <div className="checkout__field">
-          <span>Order total</span>
-          <span>$00.00</span>
-        </div>
-      </div>
-    )
-  }
-
-  const Item = (props) => {
-    return (
-      <div className="checkout__item">
-        <div className="checkout__item-avatar">
-          <Image src={props.thumbnail} width={100} height={100} alt="thumbnail" />
-        </div>
-        <div className="checkout__item-infor">
-          <div>
-            <span>{props.name}</span>
-            <span>${props.price}</span>
-          </div>
-
-          <div>
-            <img src="/svgs/minus-btn.svg" alt="minus button" />
-            <span>1</span>
-            <img src="/svgs/plus-btn.svg" alt="plus button" />
-          </div>
-        </div>
-      </div>
-    )
-  }
-
   // data storaged variable
   const listItem = [];
   // handle API
@@ -93,6 +33,67 @@ export default function Checkout ({productsAPI}) {
         <CheckoutContent>1</CheckoutContent>
         <OrderContainer listItem={listItem} />
       </div>
+    </div>
+  )
+}
+
+const Item = (props) => {
+  return (
+    <div className="checkout__item">
+      <div className="checkout__item-avatar">
+        <Image src={props.thumbnail} width={100} height={100} alt="thumbnail" />
+      </div>
+      <div className="checkout__item-infor">
+        <div>
+          <span>{props.name}</span>
+          <span>${props.price}</span>
+        </div>
+
+        <div>
+          <img src="/svgs/minus-btn.svg" alt="minus button" />
+          <span>1</span>
+          <img src="/svgs/plus-btn.svg" alt="plus button" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const OrderContainer = ({listItem}) => {
+  // total items
+  const countTotalItems = listItem.length;
+  // component partials
+  const CheckoutField = () => {
+    return (
+      <div className="checkout__field-container">
+        <div className="checkout__field">
+          <span>Shipping</span>
+          <span>FREE</span>
+        </div>
+
+        <div className="checkout__field">
+          <span>Order total</span>
+          <span>$00.00</span>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="checkout__order">
+      <div className="checkout__order-name">
+        Order total <span>({countTotalItems})</span>
+      </div>
+      {listItem}
+      <CheckoutField />
+    </div>
+  )
+}
+
+const CheckoutContent = ({children}) => {
+  return (
+    <div className="checkout__content">
+      {children}
     </div>
   )
 }
