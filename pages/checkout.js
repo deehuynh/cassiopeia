@@ -9,10 +9,11 @@ import PageName from "../components/contents/page-name"
 export default function Checkout ({productsAPI}) {
   // component partials
   const OrderContainer = ({listItem}) => {
+    const countTotalItems = listItem.length;
     return (
       <div className="checkout__order">
         <div className="checkout__order-name">
-          Order total <span>(1)</span>
+          Order total <span>({countTotalItems})</span>
         </div>
         {listItem}
         <CheckoutField />
