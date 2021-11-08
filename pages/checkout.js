@@ -112,7 +112,7 @@ const CheckoutContent = () => {
       <div className="checkout__progress">
         {
           listButtons.map((item, index)=>(
-            <ProgressButton key={index} number={item.stage} name={item.title} />
+            <ProgressButton key={index} stage={item.stage} title={item.title} />
           ))
         }
       </div>
