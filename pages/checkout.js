@@ -101,19 +101,36 @@ const CheckoutContent = () => {
     ];
     const ProgressButton = ({stage, title}) => {
       return (
-        <div className="checkout__progress-btn checkout__progress-btn--finished">
+        <div className="checkout__progress-btn checkout__progress-btn--current">
           <div className="finished">{stage}</div>
           <span>{title}</span>
         </div>
       )
     }
 
+    const ProgressLine = () => {
+      return (
+        <div className="checkout__progress-line"></div>
+      )
+    }
+
     return (
       <div className="checkout__progress">
         {
-          listButtons.map((item, index)=>(
-            <ProgressButton key={index} stage={item.stage} title={item.title} />
-          ))
+          listButtons.map((item, index)=>{
+            if (index === 2) {
+              return (
+                <ProgressButton key={index} stage={item.stage} title={item.title} />
+              )
+            }
+
+            return (
+              <>
+                <ProgressButton key={index} stage={item.stage} title={item.title} />
+                <ProgressLine />
+              </>
+            )
+          })
         }
       </div>
     )
