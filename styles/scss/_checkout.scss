@@ -10,6 +10,7 @@
 
   &__progress {
     @include block(100%, 24px);
+    @include flex();
 
     &-btn {
       @include flex(0,0,center);
@@ -17,6 +18,16 @@
       div {
         @include block(24px);
         @include flex(0,center,center);
+        border: 1px solid $c-grey;
+        border-radius: 50%;
+        @extend %caption1;
+        color: $c-grey;
+        margin-right: 8px;
+      }
+
+      span {
+        @extend %body1;
+        color: $c-grey;
       }
     }
   }
