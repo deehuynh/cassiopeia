@@ -91,9 +91,31 @@ const OrderContainer = ({listItem}) => {
 }
 
 const CheckoutContent = () => {
+  // Progress component
   const CheckoutProgress = () => {
+    // list button
+    const listButtons = [
+      {stage: 1, title: 'Contacts'},
+      {stage: 2, title: 'Shipping'},
+      {stage: 3, title: 'Payment'},
+    ];
+    const ProgressButton = ({stage, title}) => {
+      return (
+        <div className="checkout__progress-btn">
+          <div>{stage}</div>
+          <span>{title}</span>
+        </div>
+      )
+    }
+
     return (
-      <div className="checkout__progress"></div>
+      <div className="checkout__progress">
+        {
+          listButtons.map((item, index)=>(
+            <ProgressButton key={index} number={item.stage} name={item.title} />
+          ))
+        }
+      </div>
     )
   }
 
