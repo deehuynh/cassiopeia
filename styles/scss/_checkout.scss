@@ -46,6 +46,14 @@
       @include media (768px) {
         width: 12%;
       }
+
+      @include media (470px) {
+        width: 8%;
+      }
+
+      @include media (425px) {
+        width: 6%;
+      }
     }
 
     &-btn {
@@ -60,11 +68,17 @@
         color: $c-grey;
         margin-right: 8px;
         box-sizing: border-box;
+
+        
       }
 
       span {
         @extend %body1;
         color: $c-grey;
+
+        @include media (425px) {
+          font-size: 14px;
+        }
       }
 
       // progress state
