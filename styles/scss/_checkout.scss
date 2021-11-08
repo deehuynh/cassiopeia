@@ -10,7 +10,16 @@
 
   &__progress {
     @include block(100%, 24px);
-    @include flex();
+    @include flex(0,space-between,center);
+
+    &-line {
+      @include block(60px, 2px);
+      background-color: $c-pale-grey;
+
+      &--finished {
+        background-color: black;
+      }
+    }
 
     &-btn {
       @include flex(0,0,center);
@@ -35,8 +44,23 @@
       &--finished {
         div {
           background-color: $c-primary;
-          border: 1px solid $c-primary;
+          border-color: $c-primary;
           color: white;
+        }
+
+        span {
+          color: $c-primary;
+        }
+      }
+
+      &--current {
+        div {
+          border-color: $c-primary;
+          color: black;
+        }
+
+        span {
+          color: black;
         }
       }
     }
