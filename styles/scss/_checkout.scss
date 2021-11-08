@@ -2,10 +2,18 @@
   margin-bottom: 50px;
   &__container {
     @include flex(0,space-between);
+
+    @include media (768px) {
+      flex-direction: column;
+    }
   }
 
   &__content {
     width: 489px;
+
+    @include media (1024px) {
+      margin-right: 20px;
+    }
   }
 
   &__progress {
@@ -13,11 +21,23 @@
     @include flex(0,space-between,center);
 
     &-line {
-      @include block(60px, 2px);
+      @include block(12%, 2px);
       background-color: $c-pale-grey;
 
       &--finished {
         background-color: black;
+      }
+
+      @include media (900px) {
+        width: 10%;
+      }
+
+      @include media (820px) {
+        width: 8%;
+      }
+
+      @include media (768px) {
+        width: 12%;
       }
     }
 
