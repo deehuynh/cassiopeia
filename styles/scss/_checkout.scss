@@ -72,6 +72,12 @@
         @include media (375px) {
           @include block(22px);
         }
+
+        @include media (345px) {
+          @include block(21px);
+          margin-right: 5px;
+          font-size: 11px;
+        }
       }
 
       span {
@@ -84,6 +90,10 @@
 
         @include media (375px) {
           font-size: 13px;
+        }
+
+        @include media (345px) {
+          font-size: 12px;
         }
       }
 
