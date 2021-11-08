@@ -102,7 +102,7 @@ const CheckoutContent = () => {
     const ProgressButton = ({stage, title}) => {
       return (
         <div className="checkout__progress-btn">
-          <div>{stage}</div>
+          <div className="finished">{stage}</div>
           <span>{title}</span>
         </div>
       )
