@@ -8,6 +8,19 @@
     width: 489px;
   }
 
+  &__progress {
+    @include block(100%, 24px);
+
+    &-btn {
+      @include flex(0,0,center);
+
+      div {
+        @include block(24px);
+        @include flex(0,center,center);
+      }
+    }
+  }
+
   &__order {
     @include block(440px, auto);
     padding: 20px;
