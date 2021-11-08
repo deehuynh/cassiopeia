@@ -23,6 +23,14 @@
         @extend %caption1;
         color: $c-grey;
         margin-right: 8px;
+        box-sizing: border-box;
+
+        // progress state
+        &.finished {
+          background-color: $c-primary;
+          border: 1px solid $c-primary;
+          color: white;
+        }
       }
 
       span {
