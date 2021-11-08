@@ -69,7 +69,9 @@
         margin-right: 8px;
         box-sizing: border-box;
 
-        
+        @include media (375px) {
+          @include block(22px);
+        }
       }
 
       span {
@@ -78,6 +80,10 @@
 
         @include media (425px) {
           font-size: 14px;
+        }
+
+        @include media (375px) {
+          font-size: 13px;
         }
       }
 
