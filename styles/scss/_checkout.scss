@@ -14,6 +14,13 @@
     @include media (1024px) {
       margin-right: 20px;
     }
+
+    @include media (768px) {
+      max-width: 489px;
+      width: auto;
+      margin-bottom: 20px;
+      margin-right: 0;
+    }
   }
 
   &__progress {
@@ -96,6 +103,10 @@
     &-name {
       @extend %H4;
       margin-bottom: 40px;
+    }
+
+    @include media (768px) {
+      width: 100%;
     }
   }
 
