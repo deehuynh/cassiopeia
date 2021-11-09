@@ -138,9 +138,39 @@ const CheckoutContent = () => {
     )
   }
 
+  // Button group components
+  const ButtonGroup = () => {
+    // Next button
+    const NextButton = ({name}) => {
+      return (
+        <div className="checkout__button-next">
+          <span>{name}</span>
+          <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
+        </div>
+      )
+    }
+    // Previous button
+    const PreButton = () => {
+      return (
+        <div className="checkout__button-pre">
+          <img src="/svgs/line-left-arrow-black.svg" alt="left arrow" />
+          <span>Back step</span>
+        </div>
+      )
+    }
+
+    return (
+      <div className="checkout__button-group">
+        <NextButton />
+        <PreButton />
+      </div>
+    )
+  }
+
   return (
     <div className="checkout__content">
       <CheckoutProgress />
+      <ButtonGroup />
     </div>
   )
 }
