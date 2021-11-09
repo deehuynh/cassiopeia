@@ -158,10 +158,17 @@ const CheckoutContent = () => {
 
   // Button group components
   const ButtonGroup = () => {
+    const handlerStages = () => {
+      if (buttonStates === 'contacts') {
+        setButtonStates('shipping');
+      } else if (buttonStates === 'shipping') {
+        setButtonStates('payment');
+      }
+    }
     // Next button
     const NextButton = ({name = 'Shipping'}) => {
       return (
-        <div className="checkout__button-next">
+        <div className="checkout__button-next" onClick={handlerStages}>
           <span>{name}</span>
           <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
         </div>
