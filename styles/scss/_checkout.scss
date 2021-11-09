@@ -42,6 +42,10 @@
         margin-left: 11px;
         @extend %button;
       }
+
+      &--current {
+        opacity: 1;
+      }
     }
 
     &-next {
