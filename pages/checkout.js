@@ -158,17 +158,25 @@ const CheckoutContent = () => {
 
   // Button group components
   const ButtonGroup = () => {
-    const handlerStages = () => {
+    const handlerNextStage = () => {
       if (buttonStates === 'contacts') {
         setButtonStates('shipping');
       } else if (buttonStates === 'shipping') {
         setButtonStates('payment');
       }
     }
+
+    const handlerPreStage = () => {
+      if (buttonStates === 'shipping') {
+        setButtonStates('contacts');
+      } else if (buttonStates === 'payment') {
+        setButtonStates('shipping');
+      }
+    }
     // Next button
     const NextButton = ({name = 'Shipping'}) => {
       return (
-        <div className="checkout__button-next" onClick={handlerStages}>
+        <div className="checkout__button-next" onClick={handlerNextStage}>
           <span>{name}</span>
           <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
         </div>
@@ -177,7 +185,7 @@ const CheckoutContent = () => {
     // Previous button
     const PreButton = () => {
       return (
-        <div className="checkout__button-pre">
+        <div className="checkout__button-pre" onClick={handlerPreStage}>
           <img src="/svgs/line-left-arrow-black.svg" alt="left arrow" />
           <span>Back step</span>
         </div>
