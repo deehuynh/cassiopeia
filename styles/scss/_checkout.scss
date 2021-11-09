@@ -23,8 +23,22 @@
     }
   }
 
-  &__button-group {
-    @include flex(0,space-between, center);
+  &__button {
+    &-group {
+      @include flex(0,space-between, center);
+    }
+
+    &-pre {
+      @include flex(0,0,center);
+      user-select: none;
+      cursor: pointer;
+      opacity: .5;
+
+      span {
+        margin-left: 11px;
+        @extend %button;
+      }
+    }
   }
 
   &__progress {
