@@ -6,7 +6,7 @@ import Title from "../components/title"
 import BreadCrumb from "../components/contents/breadcrumb"
 import PageName from "../components/contents/page-name"
 // react
-import React from "react";
+import React, { useState } from "react";
 
 export default function Checkout ({productsAPI}) {
   // data storaged variable
@@ -93,6 +93,8 @@ const OrderContainer = ({listItem}) => {
 }
 
 const CheckoutContent = () => {
+  // button states
+  const [buttonStates, setButtonStates] = useState('contacts');
   // Progress component
   const CheckoutProgress = () => {
     // list button
@@ -191,12 +193,14 @@ const CheckoutContent = () => {
     )
   }
 
-  return (
-    <div className="checkout__content">
-      <CheckoutProgress />
-      <ButtonGroup />
-    </div>
-  )
+  if (buttonStates === 'contacts') {
+    return (
+      <div className="checkout__content">
+        <CheckoutProgress />
+        <ButtonGroup />
+      </div>
+    )
+  }
 }
 
 export async function getStaticProps () {
