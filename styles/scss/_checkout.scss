@@ -39,6 +39,26 @@
         @extend %button;
       }
     }
+
+    &-next {
+      @include block(174px, 46px);
+      @include flex(0,center,center);
+      user-select: none;
+      cursor: pointer;
+      background-color: black;
+      border-radius: 8px;
+
+      &:hover {
+        opacity: .8;
+        transition: .2s;
+      }
+
+      span {
+        margin-right: 11px;
+        @extend %button2;
+        color: white;
+      }
+    }
   }
 
   &__progress {
