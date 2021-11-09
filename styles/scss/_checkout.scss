@@ -23,6 +23,10 @@
     }
   }
 
+  &__button-group {
+    @include flex(0,space-between, center);
+  }
+
   &__progress {
     @include block(100%, 24px);
     @include flex(0,space-between,center);
