@@ -26,6 +26,10 @@
   &__button {
     &-group {
       @include flex(0,space-between, center);
+      padding: {
+        top: 20px;
+      }
+      box-sizing: border-box
     }
 
     &-pre {
