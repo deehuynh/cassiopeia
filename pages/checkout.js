@@ -5,6 +5,8 @@ import Title from "../components/title"
 // components
 import BreadCrumb from "../components/contents/breadcrumb"
 import PageName from "../components/contents/page-name"
+// react
+import React from "react";
 
 export default function Checkout ({productsAPI}) {
   // data storaged variable
@@ -125,10 +127,10 @@ const CheckoutContent = () => {
             }
 
             return (
-              <>
-                <ProgressButton key={index} stage={item.stage} title={item.title} />
+              <React.Fragment key={index}>
+                <ProgressButton stage={item.stage} title={item.title} />
                 <ProgressLine />
-              </>
+              </React.Fragment>
             )
           })
         }
