@@ -161,8 +161,8 @@ const CheckoutContent = () => {
 
     return (
       <div className="checkout__button-group">
-        <NextButton />
         <PreButton />
+        <NextButton />
       </div>
     )
   }
