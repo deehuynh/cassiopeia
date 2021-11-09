@@ -141,7 +141,7 @@ const CheckoutContent = () => {
   // Button group components
   const ButtonGroup = () => {
     // Next button
-    const NextButton = ({name}) => {
+    const NextButton = ({name = 'Shipping'}) => {
       return (
         <div className="checkout__button-next">
           <span>{name}</span>
