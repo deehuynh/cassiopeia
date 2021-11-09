@@ -197,6 +197,27 @@ const CheckoutContent = () => {
     return (
       <div className="checkout__content">
         <CheckoutProgress />
+        <CheckoutContacts />
+        <ButtonGroup />
+      </div>
+    )
+  }
+
+  if (buttonStates === 'shipping') {
+    return (
+      <div className="checkout__content">
+        <CheckoutProgress />
+        <CheckoutShipping />
+        <ButtonGroup />
+      </div>
+    )
+  }
+
+  if (buttonStates === 'payment') {
+    return (
+      <div className="checkout__content">
+        <CheckoutProgress />
+        <CheckoutPayment />
         <ButtonGroup />
       </div>
     )
