@@ -97,15 +97,16 @@ const CheckoutContent = () => {
   const [buttonStates, setButtonStates] = useState('contacts');
   // Progress component
   const CheckoutProgress = () => {
+    let currentStageClass = '';
     // list button
     const listButtons = [
       {stage: 1, title: 'Contacts'},
       {stage: 2, title: 'Shipping'},
       {stage: 3, title: 'Payment'},
     ];
-    const ProgressButton = ({stage, title}) => {
+    const ProgressButton = ({stage, title, addedClass}) => {
       return (
-        <div className="checkout__progress-btn checkout__progress-btn--current">
+        <div className={`checkout__progress-btn` + addedClass}>
           <div className="finished">{stage}</div>
           <span>{title}</span>
         </div>
@@ -122,15 +123,30 @@ const CheckoutContent = () => {
       <div className="checkout__progress">
         {
           listButtons.map((item, index)=>{
+            if (item.stage === 1 && buttonStates === 'contacts') {
+              currentStageClass = ' checkout__progress-btn--current'
+            } else if (item.stage === 2 && buttonStates === 'shipping') {
+              currentStageClass = ' checkout__progress-btn--current'
+            } else if (item.stage === 3 && buttonStates === 'payment') {
+              currentStageClass = ' checkout__progress-btn--current'
+            } else {
+              currentStageClass = '';
+            }
+
             if (index === 2) {
               return (
-                <ProgressButton key={index} stage={item.stage} title={item.title} />
+                <ProgressButton
+                  key={index} stage={item.stage} title={item.title}
+                  addedClass={currentStageClass} 
+                />
               )
             }
 
             return (
               <React.Fragment key={index}>
-                <ProgressButton stage={item.stage} title={item.title} />
+                <ProgressButton 
+                  stage={item.stage} title={item.title} addedClass={currentStageClass} 
+                />
                 <ProgressLine />
               </React.Fragment>
             )
