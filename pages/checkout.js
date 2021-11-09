@@ -166,6 +166,30 @@ const CheckoutContent = () => {
       </div>
     )
   }
+  // Contacts component
+  const CheckoutContacts = () => {
+    return (
+      <div className="checkout__contacts">
+        contacts
+      </div>
+    )
+  }
+  // Contacts component
+  const CheckoutShipping = () => {
+    return (
+      <div className="checkout__shipping">
+        shipping
+      </div>
+    )
+  }
+  // Contacts component
+  const CheckoutPayment = () => {
+    return (
+      <div className="checkout__payment">
+        payment
+      </div>
+    )
+  }
 
   return (
     <div className="checkout__content">
