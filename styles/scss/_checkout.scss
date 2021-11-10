@@ -28,6 +28,7 @@
     margin-top: 80px;
 
     &-delivery {
+      @include flex(0,0,center);
       height: 60px;
       border-radius: 4px;
       border: 1px solid $c-pale-grey;
@@ -39,6 +40,7 @@
         span {
           &:first-child {
             @extend %body2;
+            margin-bottom: 2px;
           }
 
           &:last-child {
