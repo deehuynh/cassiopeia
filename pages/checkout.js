@@ -215,6 +215,14 @@ const CheckoutContent = () => {
         <div className="checkout__shipping-delivery">
           <div></div>
           <div>
+            <span>Pick up</span>
+            <span>Today, pick up is available in 2 stores</span>
+          </div>
+        </div>
+
+        <div className="checkout__shipping-delivery">
+          <div></div>
+          <div>
             <span></span>
             <span></span>
           </div>
