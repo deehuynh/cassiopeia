@@ -227,6 +227,8 @@ const CheckoutContent = () => {
             <span>About 2 days</span>
           </div>
         </div>
+
+        <p>Delivery address</p>
       </div>
     )
   }
