@@ -35,6 +35,16 @@
 
       div:last-child {
         @include flex(column);
+
+        span {
+          &:first-child {
+            @extend %body2;
+          }
+
+          &:last-child {
+            @extend %caption1;
+          }
+        }
       }
     }
 
