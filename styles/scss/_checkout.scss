@@ -63,6 +63,7 @@
   &__button {
     &-group {
       @include flex(0,space-between, center);
+      width: 435px;
       padding: {
         top: 20px;
       }
