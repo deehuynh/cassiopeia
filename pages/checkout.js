@@ -211,7 +211,7 @@ const CheckoutContent = () => {
   const CheckoutShipping = () => {
     return (
       <div className="checkout__shipping">
-        shipping
+        <p>Delivery method</p>
       </div>
     )
   }
