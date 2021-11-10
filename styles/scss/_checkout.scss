@@ -24,12 +24,20 @@
   }
 
   &__shipping {
-    width: 460px;
+    width: 435px;
     margin-top: 80px;
+
+    &-delivery {
+      height: 60px;
+    }
 
     p {
       @extend %body1;
-      margin: 0;
+      font-weight: 500;
+      margin: {
+        top: 0;
+        bottom: 20px;
+      }
     }
   }
 
