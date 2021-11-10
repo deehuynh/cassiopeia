@@ -23,6 +23,10 @@
     }
   }
 
+  &__shipping {
+    width: 460px;
+  }
+
   &__button {
     &-group {
       @include flex(0,space-between, center);
