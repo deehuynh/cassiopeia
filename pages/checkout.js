@@ -223,8 +223,8 @@ const CheckoutContent = () => {
         <div className="checkout__shipping-delivery">
           <div></div>
           <div>
-            <span></span>
-            <span></span>
+            <span>Courier</span>
+            <span>About 2 days</span>
           </div>
         </div>
       </div>
