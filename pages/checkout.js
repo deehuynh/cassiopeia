@@ -213,7 +213,9 @@ const CheckoutContent = () => {
       <div className="checkout__shipping">
         <p>Delivery method</p>
         <div className="checkout__shipping-delivery">
-          <div></div>
+          <div>
+            <input type="radio" />
+          </div>
           <div>
             <span>Pick up</span>
             <span>Today, pick up is available in 2 stores</span>
@@ -221,7 +223,9 @@ const CheckoutContent = () => {
         </div>
 
         <div className="checkout__shipping-delivery">
-          <div></div>
+          <div>
+            <input type="radio" />
+          </div>
           <div>
             <span>Courier</span>
             <span>About 2 days</span>
