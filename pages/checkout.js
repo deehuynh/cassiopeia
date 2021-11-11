@@ -214,7 +214,7 @@ const CheckoutContent = () => {
         <p>Delivery method</p>
         <div className="checkout__shipping-delivery">
           <div>
-            <input type="radio" />
+            <img src="/svgs/radio-unchecked.svg" alt="radio" />
           </div>
           <div>
             <span>Pick up</span>
@@ -224,7 +224,7 @@ const CheckoutContent = () => {
 
         <div className="checkout__shipping-delivery">
           <div>
-            <input type="radio" />
+            <img src="/svgs/radio-checked.svg" alt="radio" />
           </div>
           <div>
             <span>Courier</span>
