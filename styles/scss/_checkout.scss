@@ -47,6 +47,12 @@
       @include block(135px, 40px);
       background-color: $c-snow;
       border-radius: 4px;
+      text-indent: 16px;
+      outline: none;
+      border: none;
+      font-family: 'Inter';
+      font-size: 12px;
+      font-weight: 500;
     }
 
     &-delivery {
