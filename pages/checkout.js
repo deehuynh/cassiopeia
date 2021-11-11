@@ -222,7 +222,7 @@ const CheckoutContent = () => {
           </div>
         </div>
 
-        <div className="checkout__shipping-delivery">
+        <div className="checkout__shipping-delivery checkout__shipping-delivery--checked">
           <div>
             <img src="/svgs/radio-checked.svg" alt="radio" />
           </div>
