@@ -33,6 +33,7 @@
       border-radius: 4px;
       border: 1px solid $c-pale-grey;
       margin-bottom: 20px;
+      cursor: pointer;
 
       div:last-child {
         @include flex(column);
