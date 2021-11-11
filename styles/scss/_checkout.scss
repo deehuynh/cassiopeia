@@ -54,6 +54,10 @@
           }
         }
       }
+
+      &--checked {
+        border-color: black;
+      }
     }
 
     p {
