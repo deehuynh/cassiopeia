@@ -29,7 +29,16 @@
 
     &-address {
       input {
-        @include input;
+        @include block(280px, 40px);
+        background-color: $c-snow;
+        border-radius: 4px;
+        border: none;
+        text-indent: 13px;
+        font-family: 'Inter';
+        font-size: 12px;
+        font-weight: 500;
+        outline: none;
+        box-sizing: border-box;
       }
     }
 
