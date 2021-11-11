@@ -25,7 +25,13 @@
 
   &__shipping {
     width: 435px;
-    margin-top: 80px;
+    margin-top: 60px;
+
+    &-address {
+      input {
+        @include input;
+      }
+    }
 
     &-delivery {
       @include flex(0,0,center);
@@ -67,6 +73,8 @@
         top: 0;
         bottom: 20px;
       }
+      padding-top: 20px;
+      box-sizing: border-box;
     }
   }
 
