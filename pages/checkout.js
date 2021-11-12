@@ -277,7 +277,10 @@ const CheckoutContent = () => {
     return (
       <div className="checkout__shipping">
         <p>Delivery method</p>
-        <div className="checkout__shipping-delivery">
+        <div
+          className="checkout__shipping-delivery"
+          onClick={()=>{setDeliveryMethodState('pickup')}}
+        >
           <div>
             <img src="/svgs/radio-unchecked.svg" alt="radio" />
           </div>
@@ -287,7 +290,10 @@ const CheckoutContent = () => {
           </div>
         </div>
 
-        <div className="checkout__shipping-delivery checkout__shipping-delivery--checked">
+        <div
+          className="checkout__shipping-delivery checkout__shipping-delivery--checked"
+          onClick={()=>{setDeliveryMethodState('courier')}}
+        >
           <div>
             <img src="/svgs/radio-checked.svg" alt="radio" />
           </div>
