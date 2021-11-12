@@ -95,8 +95,6 @@ const OrderContainer = ({listItem}) => {
 const CheckoutContent = () => {
   // button states
   const [buttonStates, setButtonStates] = useState('contacts');
-  // delivery method state
-  const [deliveryMothodState, setDeliveryMethodState] = useState('Courier');
   // Progress component
   const CheckoutProgress = () => {
     let currentStageClass = '';
@@ -237,6 +235,9 @@ const CheckoutContent = () => {
   }
   // Contacts component
   const CheckoutShipping = () => {
+    // delivery method state
+    const [deliveryMothodState, setDeliveryMethodState] = useState('Courier');
+    
     return (
       <div className="checkout__shipping">
         <p>Delivery method</p>
