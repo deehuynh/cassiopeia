@@ -26,6 +26,18 @@
   &__contacts {
     width: 435px;
     margin-top: 60px;
+    margin-bottom: 20px;
+
+    p {
+      @extend %body1;
+      font-weight: 500;
+      margin: {
+        top: 0;
+        bottom: 20px;
+      }
+      padding-top: 20px;
+      box-sizing: border-box;
+    }
 
     input {
       border-radius: 4px;
@@ -36,6 +48,22 @@
       font-weight: 500;
       outline: none;
       box-sizing: border-box;
+    }
+
+    &-gender {
+      @include flex(0,0,center);
+      font-size: 14px;
+      span {
+        margin-right: 20px;
+      }
+
+      label {
+        font-weight: 500;
+      }
+
+      input {
+        margin-right: 10px;
+      }
     }
 
     &-infor {
