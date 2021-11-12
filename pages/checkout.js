@@ -243,6 +243,15 @@ const CheckoutContent = () => {
         </div>
 
         <p>Date & time</p>
+        <div className="checkout__shipping-address">
+          <select>
+            <option value="Hanoi">Hanoi</option>
+          </select>
+
+          <select>
+            <option value="Hanoi">Hanoi</option>
+          </select>
+        </div>
       </div>
     )
   }
