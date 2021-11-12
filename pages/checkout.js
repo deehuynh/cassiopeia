@@ -212,7 +212,18 @@ const CheckoutContent = () => {
   const CheckoutContacts = () => {
     return (
       <div className="checkout__contacts">
-        contacts
+        <div className="checkout__contacts-infor">
+          <div className="checkout__contacts-name">
+            <input type="text" placeholder='Full name' />
+          </div>
+          <div className="checkout__contacts-phone">
+            <input type="text" placeholder='Phone number' />
+          </div>
+        </div>
+
+        <div className="checkout__contacts-gender">
+          <span>Gender</span>
+        </div>
       </div>
     )
   }
