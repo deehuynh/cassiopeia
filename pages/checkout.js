@@ -236,10 +236,10 @@ const CheckoutContent = () => {
   // Contacts component
   const CheckoutShipping = () => {
     // delivery method state
-    const [deliveryMothodState, setDeliveryMethodState] = useState('courier');
+    const [deliveryMethodState, setDeliveryMethodState] = useState('courier');
     // delivery method
     const CheckoutDeliveryMothod = () => {
-      if (deliveryMothodState === 'pickup') {
+      if (deliveryMethodState === 'pickup') {
         return (
           <>
             <p>Available stores</p>
@@ -278,11 +278,19 @@ const CheckoutContent = () => {
       <div className="checkout__shipping">
         <p>Delivery method</p>
         <div
-          className="checkout__shipping-delivery"
+          className={
+            deliveryMethodState === 'pickup' ?
+            'checkout__shipping-delivery checkout__shipping-delivery--checked' :
+            'checkout__shipping-delivery'
+          }
           onClick={()=>{setDeliveryMethodState('pickup')}}
         >
           <div>
-            <img src="/svgs/radio-unchecked.svg" alt="radio" />
+            {
+              deliveryMethodState === 'pickup' ?
+              <img src="/svgs/radio-checked.svg" alt="radio" /> :
+              <img src="/svgs/radio-unchecked.svg" alt="radio" />
+            }
           </div>
           <div>
             <span>Pick up</span>
@@ -291,11 +299,19 @@ const CheckoutContent = () => {
         </div>
 
         <div
-          className="checkout__shipping-delivery checkout__shipping-delivery--checked"
+          className={
+            deliveryMethodState === 'courier' ?
+            'checkout__shipping-delivery checkout__shipping-delivery--checked' :
+            'checkout__shipping-delivery'
+          }
           onClick={()=>{setDeliveryMethodState('courier')}}
         >
           <div>
-            <img src="/svgs/radio-checked.svg" alt="radio" />
+            {
+              deliveryMethodState === 'courier' ?
+              <img src="/svgs/radio-checked.svg" alt="radio" /> :
+              <img src="/svgs/radio-unchecked.svg" alt="radio" />
+            }
           </div>
           <div>
             <span>Courier</span>
