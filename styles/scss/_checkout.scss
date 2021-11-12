@@ -27,6 +27,23 @@
     width: 435px;
     margin-top: 60px;
 
+    &-pickup {
+      @include flex(0,space-between,center);
+
+      input {
+        @include block(280px, 40px);
+        background-color: $c-snow;
+        border-radius: 4px;
+        border: none;
+        text-indent: 13px;
+        font-family: 'Inter';
+        font-size: 12px;
+        font-weight: 500;
+        outline: none;
+        box-sizing: border-box;
+      }
+    }
+
     &-address {
       @include flex(0,space-between,center);
       margin-bottom: 20px;
