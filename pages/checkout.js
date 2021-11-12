@@ -241,6 +241,8 @@ const CheckoutContent = () => {
 
           <input type="text" defaultValue='100 Le Duan Street' placeholder='Address...' spellCheck="false" />
         </div>
+
+        <p>Date & time</p>
       </div>
     )
   }
