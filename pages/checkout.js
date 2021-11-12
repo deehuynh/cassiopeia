@@ -243,12 +243,9 @@ const CheckoutContent = () => {
         </div>
 
         <p>Date & time</p>
-        <div className="checkout__shipping-date">
-          <input type="text" placeholder='dd/mm/yyyy' defaultValue='10/12/2022' />
-
-          <select>
-            <option value="Hanoi">Hanoi</option>
-          </select>
+        <div className="checkout__shipping-pickup">
+          <input className='checkout__shipping-date' type="text" placeholder='dd/mm/yyyy' defaultValue='10/12/2022' />
+          <input className='checkout__shipping-time' type="text" placeholder='00:00' defaultValue='9.00 am' />
         </div>
       </div>
     )
