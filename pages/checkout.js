@@ -236,8 +236,44 @@ const CheckoutContent = () => {
   // Contacts component
   const CheckoutShipping = () => {
     // delivery method state
-    const [deliveryMothodState, setDeliveryMethodState] = useState('Courier');
-    
+    const [deliveryMothodState, setDeliveryMethodState] = useState('courier');
+    // delivery method
+    const CheckoutDeliveryMothod = () => {
+      if (deliveryMothodState === 'pickup') {
+        return (
+          <>
+            <p>Available stores</p>
+            <div className="checkout__shipping-store">
+              <select>
+                <option value="">120 Nguyen Thai Hoc Street, Pham Ngu Lao Ward, Hoang Mai district, Ha Noi</option>
+                <option value="">233 Cong Hoa Street, 13 Ward, Tan Binh district, HCM city</option>
+              </select>
+            </div>
+  
+            <p>Date & time of receipt</p>
+            <div className="checkout__shipping-pickup">
+              <input className='checkout__shipping-date' type="text" placeholder='dd/mm/yyyy' defaultValue='10/12/2022' />
+              <input className='checkout__shipping-time' type="text" placeholder='00:00' defaultValue='9.00 am' />
+            </div>
+          </>
+        )
+      }
+
+      return (
+        <>
+          <p>Delivery address</p>
+          <div className="checkout__shipping-address">
+            <select>
+              <option value="Hanoi">Ha Noi</option>
+              <option value="HCM city">HCM city</option>
+            </select>
+
+            <input type="text" defaultValue='100 Le Duan Street' placeholder='Address...' spellCheck="false" />
+          </div>
+        </>
+      )
+    }
+
     return (
       <div className="checkout__shipping">
         <p>Delivery method</p>
@@ -261,29 +297,7 @@ const CheckoutContent = () => {
           </div>
         </div>
 
-        <p>Delivery address</p>
-        <div className="checkout__shipping-address">
-          <select>
-            <option value="Hanoi">Ha Noi</option>
-            <option value="HCM city">HCM city</option>
-          </select>
-
-          <input type="text" defaultValue='100 Le Duan Street' placeholder='Address...' spellCheck="false" />
-        </div>
-
-        <p>Available stores</p>
-        <div className="checkout__shipping-store">
-          <select>
-            <option value="">120 Nguyen Thai Hoc Street, Pham Ngu Lao Ward, Hoang Mai district, Ha Noi</option>
-            <option value="">233 Cong Hoa Street, 13 Ward, Tan Binh district, HCM city</option>
-          </select>
-        </div>
-
-        <p>Date & time of receipt</p>
-        <div className="checkout__shipping-pickup">
-          <input className='checkout__shipping-date' type="text" placeholder='dd/mm/yyyy' defaultValue='10/12/2022' />
-          <input className='checkout__shipping-time' type="text" placeholder='00:00' defaultValue='9.00 am' />
-        </div>
+        <CheckoutDeliveryMothod />
       </div>
     )
   }
