@@ -245,7 +245,7 @@ const CheckoutContent = () => {
         <p>Available stores</p>
         <div className="checkout__shipping-store">
           <select>
-            <option value="">120 Nguyen Thai Hoc street, Hoang Mai district, Ha Noi</option>
+            <option value="">120 Nguyen Thai Hoc street, Pham Ngu Lao Ward, Hoang Mai district, Ha Noi</option>
             <option value=""></option>
           </select>
         </div>
