@@ -29,7 +29,7 @@
 
     &-store {
       select {
-        @include block(135px, 40px);
+        width: 100%!important;
       }
     }
 
