@@ -99,6 +99,7 @@ const CheckoutContent = () => {
   const CheckoutProgress = () => {
     let currentStageClass = '';
     let finishedStageClass = '';
+    let finishedLineClass = '';
     // list button
     const listButtons = [
       {stage: 1, title: 'Contacts'},
@@ -114,9 +115,9 @@ const CheckoutContent = () => {
       )
     }
 
-    const ProgressLine = () => {
+    const ProgressLine = ({addedClass}) => {
       return (
-        <div className="checkout__progress-line"></div>
+        <div className={`checkout__progress-line` + addedClass}></div>
       )
     }
 
@@ -127,11 +128,13 @@ const CheckoutContent = () => {
             if (item.stage === 1 && buttonStates === 'contacts') {
               currentStageClass = ' checkout__progress-btn--current'
             } else if (item.stage === 2 && buttonStates === 'shipping') {
-              currentStageClass = ' checkout__progress-btn--current'
+              finishedLineClass = '';
+              currentStageClass = ' checkout__progress-btn--current';
             } else if (item.stage === 3 && buttonStates === 'payment') {
               currentStageClass = ' checkout__progress-btn--current'
             } else if (buttonStates !== 'contacts') {
               finishedStageClass = ' checkout__progress-btn--finished';
+              finishedLineClass = ' checkout__progress-line--finished';
               currentStageClass = '';
             } else {
               currentStageClass = '';
@@ -152,7 +155,7 @@ const CheckoutContent = () => {
                   stage={item.stage} title={item.title}
                   addedClass={currentStageClass !== '' ? currentStageClass : finishedStageClass} 
                 />
-                <ProgressLine />
+                <ProgressLine addedClass={finishedLineClass} />
               </React.Fragment>
             )
           })
