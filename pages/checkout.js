@@ -192,8 +192,9 @@ const CheckoutContent = () => {
     }
     // Previous button
     const PreButton = () => {
+      const addedClass = buttonStates !== 'contacts' ? ' checkout__button-pre--current' : '';
       return (
-        <div className="checkout__button-pre" onClick={handlerPreStage}>
+        <div className={`checkout__button-pre` + addedClass} onClick={handlerPreStage}>
           <img src="/svgs/line-left-arrow-black.svg" alt="left arrow" />
           <span>Back step</span>
         </div>
