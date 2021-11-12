@@ -98,6 +98,7 @@ const CheckoutContent = () => {
   // Progress component
   const CheckoutProgress = () => {
     let currentStageClass = '';
+    let finishedStageClass = '';
     // list button
     const listButtons = [
       {stage: 1, title: 'Contacts'},
@@ -129,6 +130,9 @@ const CheckoutContent = () => {
               currentStageClass = ' checkout__progress-btn--current'
             } else if (item.stage === 3 && buttonStates === 'payment') {
               currentStageClass = ' checkout__progress-btn--current'
+            } else if (buttonStates !== 'contacts') {
+              finishedStageClass = ' checkout__progress-btn--finished';
+              currentStageClass = '';
             } else {
               currentStageClass = '';
             }
@@ -145,7 +149,8 @@ const CheckoutContent = () => {
             return (
               <React.Fragment key={index}>
                 <ProgressButton 
-                  stage={item.stage} title={item.title} addedClass={currentStageClass} 
+                  stage={item.stage} title={item.title}
+                  addedClass={currentStageClass !== '' ? currentStageClass : finishedStageClass} 
                 />
                 <ProgressLine />
               </React.Fragment>
