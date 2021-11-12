@@ -27,6 +27,12 @@
     width: 435px;
     margin-top: 60px;
 
+    &-store {
+      select {
+        @include block(135px, 40px);
+      }
+    }
+
     &-pickup {
       @include flex(0,space-between,center);
 
