@@ -243,10 +243,8 @@ const CheckoutContent = () => {
         </div>
 
         <p>Date & time</p>
-        <div className="checkout__shipping-address">
-          <select>
-            <option value="Hanoi">Hanoi</option>
-          </select>
+        <div className="checkout__shipping-date">
+          <input type="text" placeholder='dd/mm/yyyy' defaultValue='10/12/2022' />
 
           <select>
             <option value="Hanoi">Hanoi</option>
