@@ -29,6 +29,7 @@
 
     &-address {
       @include flex(0,space-between,center);
+      margin-bottom: 20px;
       input {
         @include block(280px, 40px);
         background-color: $c-snow;
