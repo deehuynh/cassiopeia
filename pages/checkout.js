@@ -242,6 +242,8 @@ const CheckoutContent = () => {
           <input type="text" defaultValue='100 Le Duan Street' placeholder='Address...' spellCheck="false" />
         </div>
 
+        <p>Available stores</p>
+
         <p>Date & time of receipt</p>
         <div className="checkout__shipping-pickup">
           <input className='checkout__shipping-date' type="text" placeholder='dd/mm/yyyy' defaultValue='10/12/2022' />
