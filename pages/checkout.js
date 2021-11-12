@@ -182,10 +182,11 @@ const CheckoutContent = () => {
       }
     }
     // Next button
-    const NextButton = ({name = 'Shipping'}) => {
+    const NextButton = () => {
+      const name = buttonStates === 'shipping' ? 'Payment' : 'Shipping';
       return (
         <div className="checkout__button-next" onClick={handlerNextStage}>
-          <span>{name}</span>
+          <span>{name === 'Shipping' && buttonStates === 'payment' ? 'Submit' : name}</span>
           <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
         </div>
       )
