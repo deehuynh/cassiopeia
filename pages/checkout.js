@@ -243,6 +243,7 @@ const CheckoutContent = () => {
         </div>
 
         <p>Available stores</p>
+        <div className="checkout__shipping-store"></div>
 
         <p>Date & time of receipt</p>
         <div className="checkout__shipping-pickup">
