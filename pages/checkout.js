@@ -235,7 +235,7 @@ const CheckoutContent = () => {
         <p>Delivery address</p>
         <div className="checkout__shipping-address">
           <select>
-            <option value="Hanoi">Hanoi</option>
+            <option value="Hanoi">Ha Noi</option>
             <option value="HCM city">HCM city</option>
           </select>
 
@@ -243,7 +243,12 @@ const CheckoutContent = () => {
         </div>
 
         <p>Available stores</p>
-        <div className="checkout__shipping-store"></div>
+        <div className="checkout__shipping-store">
+          <select>
+            <option value="">120 Nguyen Thai Hoc street, Hoang Mai district, Ha Noi</option>
+            <option value=""></option>
+          </select>
+        </div>
 
         <p>Date & time of receipt</p>
         <div className="checkout__shipping-pickup">
