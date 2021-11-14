@@ -273,7 +273,7 @@ const CheckoutContent = () => {
               <option value="HCM city">HCM city</option>
             </select>
 
-            <input type="text" defaultValue='100 Le Duan Street' placeholder='Address...' spellCheck="false" />
+            <input type="text" defaultValue='' placeholder='Address...' spellCheck="false" />
           </div>
         </>
       )
