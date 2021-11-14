@@ -129,6 +129,7 @@
     &-address {
       @include flex(0,space-between,center);
       margin-bottom: 20px;
+      position: relative;
       input {
         @include block(280px, 40px);
         background-color: $c-snow;
@@ -140,6 +141,21 @@
         font-weight: 500;
         outline: none;
         box-sizing: border-box;
+      }
+
+      span {
+        position: absolute;
+        left: 110px;
+        @include block(20px);
+        background-color: $c-snow;
+        &::after {
+          content: '';
+          position: absolute;
+          top: 6.5px;
+          border-width: 4px;
+          border-style: solid;
+          border-color: #303030 transparent transparent transparent;
+        }
       }
     }
 
