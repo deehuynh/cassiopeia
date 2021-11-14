@@ -252,8 +252,8 @@ const CheckoutContent = () => {
   
             <p>Date & time of receipt</p>
             <div className="checkout__shipping-pickup">
-              <input className='checkout__shipping-date' type="text" placeholder='dd/mm/yyyy' defaultValue='10/12/2022' />
-              <input className='checkout__shipping-time' type="text" placeholder='00:00' defaultValue='9.00 am' />
+              <input className='checkout__shipping-date' type="text" placeholder='dd/mm/yyyy' defaultValue='' />
+              <input className='checkout__shipping-time' type="text" placeholder='00:00' defaultValue='' />
             </div>
           </>
         )
