@@ -338,7 +338,12 @@ const CheckoutContent = () => {
 
         <div className="checkout__payment-method">
           <img src="/svgs/radio-checked.svg" alt="radio" />
-          <span>Payment on delivery</span>
+          <span>Payment on Delivery</span>
+        </div>
+
+        <div className="checkout__payment-method">
+          <img src="/svgs/radio-checked.svg" alt="radio" />
+          <span>Online Payment</span>
         </div>
       </div>
     )
