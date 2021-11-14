@@ -335,6 +335,11 @@ const CheckoutContent = () => {
     return (
       <div className="checkout__payment">
         <p>Payment method</p>
+
+        <div className="checkout__payment-method">
+          <img src="/svgs/radio-checked.svg" alt="radio" />
+          <span>Payment on delivery</span>
+        </div>
       </div>
     )
   }
