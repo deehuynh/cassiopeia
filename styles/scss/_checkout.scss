@@ -46,6 +46,8 @@
       box-sizing: border-box;
       border-radius: 4px;
       margin-bottom: 20px;
+      cursor: pointer;
+      user-select: none;
 
       img {
         margin: 0 20px;
@@ -53,6 +55,10 @@
 
       span {
         @extend %body2;
+      }
+
+      &--checked {
+        border: 1px solid black;
       }
     }
   }
