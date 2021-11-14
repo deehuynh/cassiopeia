@@ -337,7 +337,7 @@ const CheckoutContent = () => {
         <p>Payment method</p>
 
         <div className="checkout__payment-method">
-          <img src="/svgs/radio-checked.svg" alt="radio" />
+          <img src="/svgs/radio-unchecked.svg" alt="radio" />
           <span>Payment on Delivery</span>
         </div>
 
