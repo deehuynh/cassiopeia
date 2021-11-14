@@ -27,7 +27,7 @@
     width: 435px;
     margin-top: 60px;
     margin-bottom: 20px;
-    
+
     p {
       @extend %body1;
       font-weight: 500;
@@ -37,6 +37,15 @@
       }
       padding-top: 20px;
       box-sizing: border-box;
+    }
+
+    &-method {
+      @include flex(0,0,center);
+      @include block(100%, 60px);
+      border: 1px solid $c-pale-grey;
+      box-sizing: border-box;
+      border-radius: 4px;
+      margin-bottom: 20px;
     }
   }
 
