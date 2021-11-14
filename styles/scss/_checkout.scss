@@ -91,8 +91,17 @@
     margin-top: 60px;
 
     &-store {
-      select {
-        width: 100%!important;
+      div {
+        @include flex();
+        margin-bottom: 10px;
+        input {
+          cursor: pointer;
+        }
+        span {
+          margin-left: 10px;
+          font-size: 14px;
+          font-weight: 300;
+        }
       }
     }
 
