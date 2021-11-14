@@ -273,6 +273,8 @@ const CheckoutContent = () => {
               <option value="HCM city">HCM city</option>
             </select>
 
+            <span></span>
+
             <input type="text" defaultValue='' placeholder='Address...' spellCheck="false" />
           </div>
         </>
