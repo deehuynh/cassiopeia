@@ -250,7 +250,7 @@ const CheckoutContent = () => {
               </div>
 
               <div>
-                <input type="radio" name="radio" checked />
+                <input type="radio" name="radio" />
                 <span>233 Cong Hoa Street, 13 Ward, Tan Binh district, HCM city</span>
               </div>
             </div>
@@ -334,7 +334,7 @@ const CheckoutContent = () => {
   const CheckoutPayment = () => {
     return (
       <div className="checkout__payment">
-        payment
+        <p>Payment method</p>
       </div>
     )
   }
