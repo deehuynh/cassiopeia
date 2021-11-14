@@ -244,10 +244,15 @@ const CheckoutContent = () => {
           <>
             <p>Available stores</p>
             <div className="checkout__shipping-store">
-              <select>
-                <option value="">120 Nguyen Thai Hoc Street, Pham Ngu Lao Ward, Hoang Mai district, Ha Noi</option>
-                <option value="">233 Cong Hoa Street, 13 Ward, Tan Binh district, HCM city</option>
-              </select>
+              <div>
+                <input type="radio" name="radio" checked />
+                <span>120 Nguyen Thai Hoc Street, Pham Ngu Lao Ward, Hoang Mai district, Ha Noi</span>
+              </div>
+
+              <div>
+                <input type="radio" name="radio" checked />
+                <span>233 Cong Hoa Street, 13 Ward, Tan Binh district, HCM city</span>
+              </div>
             </div>
   
             <p>Date & time of receipt</p>
