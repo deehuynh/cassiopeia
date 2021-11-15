@@ -39,6 +39,17 @@
       box-sizing: border-box;
     }
 
+    &-group {
+      @include flex(0,0,0,wrap);
+      gap: 10px;
+    }
+
+    &-card {
+      @include block(136px, 46px);
+      border-radius: 4px;
+      border: 1px solid $c-pale-grey;
+    }
+
     &-method {
       @include flex(0,0,center);
       @include block(100%, 60px);
