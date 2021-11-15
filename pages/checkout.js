@@ -332,6 +332,9 @@ const CheckoutContent = () => {
   }
   // Payment component
   const CheckoutPayment = () => {
+    // payment method state
+    const [paymentState, setPaymentState] = useState(true);
+
     const creditCards = [
       {name: 'visa card', image: '/payment-card-visa_xbmobu.png'},
       {name: 'master card', image: '/payment-card-master_hk7o4r.png'},
@@ -345,55 +348,84 @@ const CheckoutContent = () => {
       {name: 'stripe', image: '/payment-card-stripe_odvihl.png'},
     ];
 
+    const CheckoutPaymentMethod = () => {
+      if (paymentState === true) {
+        return (
+          <>
+            <p>Credit cards</p>
+            <div className="checkout__payment-group">
+              {
+                creditCards.map(
+                  (item, index) => (
+                    <div key={index} className="checkout__payment-card">
+                      <Image 
+                        src={item.image}
+                        width={136}
+                        height={46}
+                        alt={item.name}
+                      />
+                    </div>
+                  )
+                )
+              }
+            </div>
+
+            <p>Online payment gateways</p>
+            <div className="checkout__payment-group">
+              {
+                gateways.map(
+                  (item, index) => (
+                    <div key={index} className="checkout__payment-card">
+                      <Image 
+                        src={item.image}
+                        width={136}
+                        height={46}
+                        alt={item.name}
+                      />
+                    </div>
+                  )
+                )
+              }
+            </div>
+          </>
+        )
+      }
+
+      return <></>
+    }
+
+    const selectPaymentDeliveryClass = paymentState === false ? ' checkout__payment-method--checked' : '';
+    const selectPaymentGatewaysClass = paymentState === true ? ' checkout__payment-method--checked' : '';
+
     return (
       <div className="checkout__payment">
         <p>Payment method</p>
 
-        <div className="checkout__payment-method">
-          <img src="/svgs/radio-unchecked.svg" alt="radio" />
+        <div
+          className={`checkout__payment-method` + selectPaymentDeliveryClass}
+          onClick={()=>{setPaymentState(false)}}
+        >
+          {
+            paymentState === false ?
+            <img src="/svgs/radio-checked.svg" alt="radio" /> :
+            <img src="/svgs/radio-unchecked.svg" alt="radio" />
+          }
           <span>Payment on Delivery</span>
         </div>
 
-        <div className="checkout__payment-method checkout__payment-method--checked">
-          <img src="/svgs/radio-checked.svg" alt="radio" />
+        <div
+          className={`checkout__payment-method` + selectPaymentGatewaysClass}
+          onClick={()=>{setPaymentState(true)}}
+        >
+          {
+            paymentState === true ?
+            <img src="/svgs/radio-checked.svg" alt="radio" /> :
+            <img src="/svgs/radio-unchecked.svg" alt="radio" />
+          }
           <span>Online Payment</span>
         </div>
 
-        <p>Credit cards</p>
-        <div className="checkout__payment-group">
-          {
-            creditCards.map(
-              (item, index) => (
-                <div key={index} className="checkout__payment-card">
-                  <Image 
-                    src={item.image}
-                    width={136}
-                    height={46}
-                    alt={item.name}
-                  />
-                </div>
-              )
-            )
-          }
-        </div>
-
-        <p>Online payment gateways</p>
-        <div className="checkout__payment-group">
-          {
-            gateways.map(
-              (item, index) => (
-                <div key={index} className="checkout__payment-card">
-                  <Image 
-                    src={item.image}
-                    width={136}
-                    height={46}
-                    alt={item.name}
-                  />
-                </div>
-              )
-            )
-          }
-        </div>
+        <CheckoutPaymentMethod />
       </div>
     )
   }
