@@ -45,9 +45,16 @@
     }
 
     &-card {
-      @include block(136px, 46px);
+      max-width: 136px;
+      max-height: 46px;
       border-radius: 4px;
       border: 1px solid $c-pale-grey;
+      overflow: hidden;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+      }
     }
 
     &-method {
