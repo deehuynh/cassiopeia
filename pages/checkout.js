@@ -347,6 +347,13 @@ const CheckoutContent = () => {
         </div>
 
         <p>Credit card</p>
+        <div className="checkout__payment-group">
+          <div className="checkout__payment-card"></div>
+          <div className="checkout__payment-card"></div>
+          <div className="checkout__payment-card"></div>
+          <div className="checkout__payment-card"></div>
+          <div className="checkout__payment-card"></div>
+        </div>
       </div>
     )
   }
