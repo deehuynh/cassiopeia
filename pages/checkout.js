@@ -6,7 +6,7 @@ import Title from "../components/title"
 import BreadCrumb from "../components/contents/breadcrumb"
 import PageName from "../components/contents/page-name"
 // react
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 
 export default function Checkout ({productsAPI, creditCards, gateways}) {
   // data storaged variable
