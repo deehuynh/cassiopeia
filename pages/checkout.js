@@ -346,12 +346,13 @@ const CheckoutContent = () => {
           <span>Online Payment</span>
         </div>
 
-        <p>Credit card</p>
+        <p>Credit cards</p>
         <div className="checkout__payment-group">
           <div className="checkout__payment-card"></div>
-          <div className="checkout__payment-card"></div>
-          <div className="checkout__payment-card"></div>
-          <div className="checkout__payment-card"></div>
+        </div>
+
+        <p>Online payment gateways</p>
+        <div className="checkout__payment-group">
           <div className="checkout__payment-card"></div>
         </div>
       </div>
