@@ -334,11 +334,13 @@ const CheckoutContent = () => {
   const CheckoutPayment = () => {
     // payment method state
     const [paymentState, setPaymentState] = useState(true);
+    // select payment state
+    const [selectPaymentState, setSelectPaymentState] = useState('');
 
     const creditCards = [
-      {name: 'visa card', image: '/payment-card-visa_xbmobu.png'},
-      {name: 'master card', image: '/payment-card-master_hk7o4r.png'},
-      {name: 'american express', image: '/payment-card-american_wfurcp.png'},
+      {name: 'visa', image: '/payment-card-visa_xbmobu.png'},
+      {name: 'master', image: '/payment-card-master_hk7o4r.png'},
+      {name: 'american-express', image: '/payment-card-american_wfurcp.png'},
       {name: 'jcb', image: '/payment-card-jcb_qb5auz.png'},
       {name: 'discover', image: '/payment-card-discover_jhud7f.png'},
     ];
@@ -347,6 +349,8 @@ const CheckoutContent = () => {
       {name: 'paypal', image: '/payment-gateway-paypal_hp0gag.png'},
       {name: 'stripe', image: '/payment-card-stripe_odvihl.png'},
     ];
+
+    console.log(selectPaymentState);
 
     const CheckoutPaymentMethod = () => {
       if (paymentState === true) {
@@ -357,7 +361,11 @@ const CheckoutContent = () => {
               {
                 creditCards.map(
                   (item, index) => (
-                    <div key={index} className="checkout__payment-card">
+                    <div 
+                      id={item.name} key={index}
+                      className={`checkout__payment-card` + selectPaymentState === item.name ? ' checkout__payment-card--selected' : 'checkout__payment-card'}
+                      onClick={()=>{setSelectPaymentState(item.name)}}
+                    >
                       <Image 
                         src={item.image}
                         width={136}
