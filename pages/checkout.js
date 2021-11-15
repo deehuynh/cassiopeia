@@ -233,7 +233,7 @@ const CheckoutContent = () => {
       </div>
     )
   }
-  // Contacts component
+  // Shipping component
   const CheckoutShipping = () => {
     // delivery method state
     const [deliveryMethodState, setDeliveryMethodState] = useState('courier');
@@ -330,8 +330,16 @@ const CheckoutContent = () => {
       </div>
     )
   }
-  // Contacts component
+  // Payment component
   const CheckoutPayment = () => {
+    const creditCards = [
+      {name: 'visa card', image: '/payment-card-visa_xbmobu.png'},
+      {name: 'master card', image: '/payment-card-master_hk7o4r.png'},
+      {name: 'american express', image: '/payment-card-american_wfurcp.png'},
+      {name: 'jcb', image: '/payment-card-jcb_qb5auz.png'},
+      {name: 'discover', image: '/payment-card-discover_jhud7f.png'},
+    ];
+
     return (
       <div className="checkout__payment">
         <p>Payment method</p>
@@ -348,7 +356,20 @@ const CheckoutContent = () => {
 
         <p>Credit cards</p>
         <div className="checkout__payment-group">
-          <div className="checkout__payment-card"></div>
+          {
+            creditCards.map(
+              (item, index) => (
+                <div key={index} className="checkout__payment-card">
+                  <Image 
+                    src={item.image}
+                    width={136}
+                    height={46}
+                    alt={item.name}
+                  />
+                </div>
+              )
+            )
+          }
         </div>
 
         <p>Online payment gateways</p>
