@@ -8,7 +8,7 @@ import PageName from "../components/contents/page-name"
 // react
 import React, { useState } from "react";
 
-export default function Checkout ({productsAPI}) {
+export default function Checkout ({productsAPI, creditCards, gateways}) {
   // data storaged variable
   const listItem = [];
   // handle API
@@ -32,7 +32,7 @@ export default function Checkout ({productsAPI}) {
       <BreadCrumb />
       <PageName>Checkout</PageName>
       <div className="checkout__container">
-        <CheckoutContent />
+        <CheckoutContent creditCards={creditCards} gateways={gateways} />
         <OrderContainer listItem={listItem} />
       </div>
     </div>
@@ -92,7 +92,7 @@ const OrderContainer = ({listItem}) => {
   )
 }
 
-const CheckoutContent = () => {
+const CheckoutContent = ({creditCards, gateways}) => {
   // button states
   const [buttonStates, setButtonStates] = useState('contacts');
   // Progress component
@@ -331,24 +331,11 @@ const CheckoutContent = () => {
     )
   }
   // Payment component
-  const CheckoutPayment = () => {
+  const CheckoutPayment = ({creditCards, gateways}) => {
     // payment method state
     const [paymentState, setPaymentState] = useState(true);
     // select payment state
     const [selectPaymentState, setSelectPaymentState] = useState('');
-
-    const creditCards = [
-      {name: 'visa', image: '/payment-card-visa_xbmobu.png'},
-      {name: 'master', image: '/payment-card-master_hk7o4r.png'},
-      {name: 'american-express', image: '/payment-card-american_wfurcp.png'},
-      {name: 'jcb', image: '/payment-card-jcb_qb5auz.png'},
-      {name: 'discover', image: '/payment-card-discover_jhud7f.png'},
-    ];
-
-    const gateways = [
-      {name: 'paypal', image: '/payment-gateway-paypal_hp0gag.png'},
-      {name: 'stripe', image: '/payment-card-stripe_odvihl.png'},
-    ];
 
     console.log(selectPaymentState);
 
@@ -363,7 +350,7 @@ const CheckoutContent = () => {
                   (item, index) => (
                     <div 
                       id={item.name} key={index}
-                      className={`checkout__payment-card` + selectPaymentState === item.name ? ' checkout__payment-card--selected' : 'checkout__payment-card'}
+                      className={`checkout__payment-card` + selectPaymentState === 'visa' ? ' checkout__payment-card--selected' : 'checkout__payment-card'}
                       onClick={()=>{setSelectPaymentState(item.name)}}
                     >
                       <Image 
@@ -462,7 +449,7 @@ const CheckoutContent = () => {
     return (
       <div className="checkout__content">
         <CheckoutProgress />
-        <CheckoutPayment />
+        <CheckoutPayment creditCards={creditCards} gateways={gateways} />
         <ButtonGroup />
       </div>
     )
@@ -485,7 +472,20 @@ export async function getStaticProps () {
     },
   ];
 
+  const creditCards = [
+    {name: 'visa', image: '/payment-card-visa_xbmobu.png'},
+    {name: 'master', image: '/payment-card-master_hk7o4r.png'},
+    {name: 'american-express', image: '/payment-card-american_wfurcp.png'},
+    {name: 'jcb', image: '/payment-card-jcb_qb5auz.png'},
+    {name: 'discover', image: '/payment-card-discover_jhud7f.png'},
+  ];
+
+  const gateways = [
+    {name: 'paypal', image: '/payment-gateway-paypal_hp0gag.png'},
+    {name: 'stripe', image: '/payment-card-stripe_odvihl.png'},
+  ];
+
   return {
-    props: {productsAPI}
+    props: {productsAPI, creditCards, gateways}
   }
 }
