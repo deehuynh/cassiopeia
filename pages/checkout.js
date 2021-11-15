@@ -340,6 +340,11 @@ const CheckoutContent = () => {
       {name: 'discover', image: '/payment-card-discover_jhud7f.png'},
     ];
 
+    const gateways = [
+      {name: 'paypal', image: '/payment-gateway-paypal_hp0gag.png'},
+      {name: 'stripe', image: '/payment-card-stripe_odvihl.png'},
+    ];
+
     return (
       <div className="checkout__payment">
         <p>Payment method</p>
@@ -374,7 +379,20 @@ const CheckoutContent = () => {
 
         <p>Online payment gateways</p>
         <div className="checkout__payment-group">
-          <div className="checkout__payment-card"></div>
+          {
+            gateways.map(
+              (item, index) => (
+                <div key={index} className="checkout__payment-card">
+                  <Image 
+                    src={item.image}
+                    width={136}
+                    height={46}
+                    alt={item.name}
+                  />
+                </div>
+              )
+            )
+          }
         </div>
       </div>
     )
