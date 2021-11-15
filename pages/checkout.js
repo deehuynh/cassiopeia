@@ -345,6 +345,8 @@ const CheckoutContent = () => {
           <img src="/svgs/radio-checked.svg" alt="radio" />
           <span>Online Payment</span>
         </div>
+
+        <p>Credit card</p>
       </div>
     )
   }
