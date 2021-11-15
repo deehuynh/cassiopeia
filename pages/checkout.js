@@ -335,7 +335,16 @@ const CheckoutContent = ({creditCards, gateways}) => {
     // payment method state
     const [paymentState, setPaymentState] = useState(true);
     // select payment state
-    const [selectPaymentState, setSelectPaymentState] = useState('');
+    const [selectPaymentState, dispatch] = useReducer(reducer, '');
+
+    const reducer = (state, action) => {
+      switch (action.type) {
+        case 'case':
+          return '';
+        default:
+          throw new Error();
+      }
+    }
 
     const CheckoutPaymentMethod = () => {
       if (paymentState === true) {
