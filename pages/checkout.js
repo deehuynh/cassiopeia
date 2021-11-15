@@ -337,8 +337,6 @@ const CheckoutContent = ({creditCards, gateways}) => {
     // select payment state
     const [selectPaymentState, setSelectPaymentState] = useState('');
 
-    console.log(selectPaymentState);
-
     const CheckoutPaymentMethod = () => {
       if (paymentState === true) {
         return (
@@ -350,7 +348,7 @@ const CheckoutContent = ({creditCards, gateways}) => {
                   (item, index) => (
                     <div 
                       id={item.name} key={index}
-                      className={`checkout__payment-card` + selectPaymentState === 'visa' ? ' checkout__payment-card--selected' : 'checkout__payment-card'}
+                      className='checkout__payment-card'
                       onClick={()=>{setSelectPaymentState(item.name)}}
                     >
                       <Image 
