@@ -330,21 +330,23 @@ const CheckoutContent = ({creditCards, gateways}) => {
       </div>
     )
   }
+
+  const paymentReducer = (state, action) => {
+    switch (action.type) {
+      case 'selectPayment':
+        console.log(state);
+        return action.confirm;
+      default:
+        throw new Error();
+    }
+  }
+
   // Payment component
   const CheckoutPayment = ({creditCards, gateways}) => {
     // payment method state
     const [paymentState, setPaymentState] = useState(true);
     // select payment state
-    const [selectPaymentState, dispatch] = useReducer(reducer, '');
-
-    const reducer = (state, action) => {
-      switch (action.type) {
-        case 'case':
-          return '';
-        default:
-          throw new Error();
-      }
-    }
+    const [selectPaymentState, dispatch] = useReducer(paymentReducer, '');
 
     const CheckoutPaymentMethod = () => {
       if (paymentState === true) {
@@ -358,7 +360,7 @@ const CheckoutContent = ({creditCards, gateways}) => {
                     <div 
                       id={item.name} key={index}
                       className='checkout__payment-card'
-                      onClick={()=>{setSelectPaymentState(item.name)}}
+                      onClick={()=> dispatch({type: 'selectPayment', confirm: item.name})}
                     >
                       <Image 
                         src={item.image}
