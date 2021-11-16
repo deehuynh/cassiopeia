@@ -37,8 +37,7 @@
     }
 
     @include media (768px) {
-      max-width: 489px;
-      width: auto;
+      width: 100%;
       margin-bottom: 20px;
       margin-right: 0;
     }
