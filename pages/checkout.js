@@ -6,7 +6,7 @@ import Title from "../components/title"
 import BreadCrumb from "../components/contents/breadcrumb"
 import PageName from "../components/contents/page-name"
 // react
-import React, { useState, useReducer } from "react";
+import React, { useState } from "react";
 
 export default function Checkout ({productsAPI, creditCards, gateways}) {
   // data storaged variable
@@ -331,22 +331,12 @@ const CheckoutContent = ({creditCards, gateways}) => {
     )
   }
 
-  const paymentReducer = (state, action) => {
-    switch (action.type) {
-      case 'selectPayment':
-        console.log(state);
-        return action.confirm;
-      default:
-        throw new Error();
-    }
-  }
-
   // Payment component
   const CheckoutPayment = ({creditCards, gateways}) => {
     // payment method state
     const [paymentState, setPaymentState] = useState(true);
     // select payment state
-    const [selectPaymentState, dispatch] = useReducer(paymentReducer, '');
+    const [selectPaymentState, setSelectPaymentState] = useState('');
 
     const CheckoutPaymentMethod = () => {
       if (paymentState === true) {
@@ -358,9 +348,9 @@ const CheckoutContent = ({creditCards, gateways}) => {
                 creditCards.map(
                   (item, index) => (
                     <div 
-                      id={item.name} key={index}
-                      className='checkout__payment-card'
-                      onClick={()=> dispatch({type: 'selectPayment', confirm: item.name})}
+                      key={index}
+                      className={selectPaymentState === item.name ? 'checkout__payment-card checkout__payment-card--selected' : 'checkout__payment-card'}
+                      onClick={()=>{setSelectPaymentState(item.name)}}
                     >
                       <Image 
                         src={item.image}
@@ -379,7 +369,11 @@ const CheckoutContent = ({creditCards, gateways}) => {
               {
                 gateways.map(
                   (item, index) => (
-                    <div key={index} className="checkout__payment-card">
+                    <div 
+                      key={index}
+                      className={selectPaymentState === item.name ? 'checkout__payment-card checkout__payment-card--selected' : 'checkout__payment-card'}
+                      onClick={()=>{setSelectPaymentState(item.name)}}
+                    >
                       <Image 
                         src={item.image}
                         width={136}
