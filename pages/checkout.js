@@ -1,5 +1,6 @@
 // next api
 import Image from "next/image"
+import Link from "next/link"
 // head tags
 import Title from "../components/title"
 // components
@@ -37,12 +38,18 @@ export default function Checkout ({productsAPI, creditCards, gateways}) {
       {
         finishedPaymentState === false ? (
           <div className="checkout__container">
-            <CheckoutContent creditCards={creditCards} gateways={gateways} />
+            <CheckoutContent 
+              creditCards={creditCards} gateways={gateways}
+              setFinishPaymentState={setFinishPaymentState} 
+            />
             <OrderContainer listItem={listItem} />
           </div>
         ) : (
           <div className="checkout__submited">
-            Submited
+            <span>Submited</span>
+            <Link href="/">
+              <a>Come back home</a>
+            </Link>
           </div>
         )
       }
@@ -103,7 +110,7 @@ const OrderContainer = ({listItem}) => {
   )
 }
 
-const CheckoutContent = ({creditCards, gateways}) => {
+const CheckoutContent = ({creditCards, gateways, setFinishPaymentState}) => {
   // button states
   const [buttonStates, setButtonStates] = useState('contacts');
   // Progress component
@@ -182,6 +189,8 @@ const CheckoutContent = ({creditCards, gateways}) => {
         setButtonStates('shipping');
       } else if (buttonStates === 'shipping') {
         setButtonStates('payment');
+      } else if (buttonStates === 'payment') {
+        setFinishPaymentState(true);
       }
     }
 
