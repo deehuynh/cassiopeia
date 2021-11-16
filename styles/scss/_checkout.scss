@@ -482,6 +482,11 @@
         }
       }
     }
+
+    @include media (768px) {
+      max-width: 489px;
+      margin-top: 10px;
+    }
   }
 
   &__order {
