@@ -104,6 +104,10 @@
         border: 1px solid black;
       }
     }
+
+    @include media (900px) {
+      width: 100%;
+    }
   }
 
   &__contacts {
@@ -166,6 +170,10 @@
       input {
         @include block(100%, 50px);
       }
+    }
+
+    @include media (900px) {
+      width: 100%;
     }
   }
 
@@ -343,6 +351,12 @@
         margin-right: 11px;
         @extend %button2;
         color: white;
+      }
+    }
+
+    @include media (900px) {
+      &-group {
+        width: 100%;
       }
     }
   }
