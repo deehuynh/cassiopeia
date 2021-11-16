@@ -107,6 +107,11 @@
 
     @include media (900px) {
       width: 100%;
+
+      &-card {
+        width: 30%;
+        max-width: none;
+      }
     }
   }
 
