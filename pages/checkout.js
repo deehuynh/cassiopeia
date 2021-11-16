@@ -46,7 +46,7 @@ export default function Checkout ({productsAPI, creditCards, gateways}) {
           </div>
         ) : (
           <div className="checkout__submited">
-            <span>Submited</span>
+            <span>Submited <img src="/svgs/checked.svg" alt="check" /></span>
             <Link href="/">
               <a>Come back home</a>
             </Link>
