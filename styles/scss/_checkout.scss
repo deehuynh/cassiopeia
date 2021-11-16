@@ -306,6 +306,25 @@
       padding-top: 20px;
       box-sizing: border-box;
     }
+
+    @include media (900px) {
+      width: 100%;
+
+      select {
+        width: 30%;
+        margin-right: 10px;
+      }
+
+      &-address {
+        input {
+          width: 70%;
+        }
+
+        span {
+          display: none;
+        }
+      }
+    }
   }
 
   &__button {
