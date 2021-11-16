@@ -183,6 +183,10 @@
     @include media (900px) {
       width: 100%;
     }
+
+    @include media (768px) {
+      margin-top: 30px;
+    }
   }
 
   &__shipping {
