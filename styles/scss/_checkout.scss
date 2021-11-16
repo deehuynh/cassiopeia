@@ -11,15 +11,20 @@
   &__submited {
     span {
       display: block;
-      margin-bottom: 40px;
+      margin: 40px 0;
+
+      img {
+        @include block(12px);
+        margin-left: 10px;
+      }
     }
 
     a {
       display: inline-block;
-      @include link(0,black);
+      color: black;
 
       &:hover {
-        text-decoration: underline;
+        opacity: .5;
       }
     }
   }
