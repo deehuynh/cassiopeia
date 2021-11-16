@@ -8,6 +8,22 @@
     }
   }
 
+  &__submited {
+    span {
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    a {
+      display: inline-block;
+      @include link(0,black);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   &__content {
     width: 489px;
 
