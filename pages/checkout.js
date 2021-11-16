@@ -9,6 +9,8 @@ import PageName from "../components/contents/page-name"
 import React, { useState } from "react";
 
 export default function Checkout ({productsAPI, creditCards, gateways}) {
+  // finished payment state
+  const [finishedPaymentState, setFinishPaymentState] = useState(false);
   // data storaged variable
   const listItem = [];
   // handle API
@@ -31,10 +33,19 @@ export default function Checkout ({productsAPI, creditCards, gateways}) {
 
       <BreadCrumb />
       <PageName>Checkout</PageName>
-      <div className="checkout__container">
-        <CheckoutContent creditCards={creditCards} gateways={gateways} />
-        <OrderContainer listItem={listItem} />
-      </div>
+
+      {
+        finishedPaymentState === false ? (
+          <div className="checkout__container">
+            <CheckoutContent creditCards={creditCards} gateways={gateways} />
+            <OrderContainer listItem={listItem} />
+          </div>
+        ) : (
+          <div className="checkout__submited">
+            Submited
+          </div>
+        )
+      }
     </div>
   )
 }
