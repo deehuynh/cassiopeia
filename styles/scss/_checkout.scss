@@ -411,6 +411,17 @@
         width: 100%;
       }
     }
+
+    @include media (425px) {
+      &-next {
+        width: 140px;
+        height: 40px;
+      }
+
+      &-pre {
+        height: 40px;
+      }
+    }
   }
 
   &__progress {
