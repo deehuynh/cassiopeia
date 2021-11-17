@@ -43,7 +43,7 @@ export default function Item (props) {
         </div>
       </div>
 
-      <Link href="/">
+      <Link href="/flowers/1">
         <a className="content__product-name">
           {prName}
         </a>
