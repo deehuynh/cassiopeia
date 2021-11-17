@@ -38,7 +38,7 @@ export default function DetailPage () {
       </div>
 
       <Headline>You may like</Headline>
-      <Container prAPI={recomandedPr} />
+      <Container className="product-detail__recomanded" prAPI={recomandedPr} />
     </div>
   )
 }
