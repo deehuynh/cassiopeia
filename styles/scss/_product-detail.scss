@@ -145,6 +145,7 @@
   }
 
   &__order-btn {
+    display: block;
     @include block(309px, 56px);
     @include flex(0,center,center);
     background-color: black;
@@ -152,6 +153,7 @@
     border-radius: 4px;
     @extend %button;
     user-select: none;
+    text-decoration: none;
 
     &:hover {
       cursor: pointer;
