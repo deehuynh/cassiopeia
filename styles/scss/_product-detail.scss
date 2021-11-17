@@ -17,6 +17,12 @@
     }
   }
 
+  &__recomanded {
+    @include media (350px) {
+      margin-bottom: 20px;
+    }
+  }
+
   &__images {
     @include block(568px, auto);
     margin-right: 20px;
