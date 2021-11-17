@@ -119,7 +119,12 @@
 
       &-card {
         width: 20%;
-        max-width: none;
+      }
+    }
+
+    @include media (600px) {
+      &-card {
+        width: 25%;
       }
     }
   }
