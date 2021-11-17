@@ -127,6 +127,12 @@
         width: 25%;
       }
     }
+
+    @include media (375px) {
+      &-card {
+        width: 30%;
+      }
+    }
   }
 
   &__contacts {
