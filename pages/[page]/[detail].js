@@ -1,6 +1,7 @@
 import React from "react"
 // next api
 import Image from "next/image"
+import Link from "next/link"
 // hooks
 import { useRef } from "react"
 // components
@@ -126,7 +127,9 @@ function InforContainer () {
   );
   const PrButtonGroup = () => (
     <div className="product-detail__button-group">
-      <div className="product-detail__order-btn">Order now</div>
+      <Link href='/checkout'>
+        <a className="product-detail__order-btn">Order now</a>
+      </Link>
       <div className="product-detail__cart-btn">
         <img src="/svgs/cart-btn-square.svg" alt="add to cart" />
       </div>
