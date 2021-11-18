@@ -12,6 +12,7 @@
   }
 
   &__cart {
+    position: relative;
     @include flex();
     margin-left: 20px;
     @include button-icon(1);
