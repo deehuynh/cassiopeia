@@ -31,6 +31,10 @@
       border-radius: 50%;
       top: -25%;
       right: -35%;
+
+      @include media (425px) {
+        @include block(10px);
+      }
     }
   }
 
