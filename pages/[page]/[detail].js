@@ -32,6 +32,7 @@ export default function DetailPage () {
   ];
   return (
     <div className="product-detail">
+      <Title>White Rose | Cassiopeia | Flower Store</Title>
       <BreadCrumb />
 
       <div className="product-detail__container">
