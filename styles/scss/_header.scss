@@ -28,6 +28,8 @@
       position: absolute;
       @include block(20px);
       background-color: red;
+      border-radius: 50%;
+      right: -100%;
     }
   }
 
