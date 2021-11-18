@@ -22,6 +22,12 @@
         opacity: 1;
       }
     }
+
+    &::after {
+      content: '';
+      position: absolute;
+      @include block(20px);
+    }
   }
 
   &__search {
