@@ -27,6 +27,7 @@
       content: '';
       position: absolute;
       @include block(20px);
+      background-color: red;
     }
   }
 
