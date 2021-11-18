@@ -4,6 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 // hooks
 import { useRef } from "react"
+// head tags
+import Title from "../components/title"
 // components
 import BreadCrumb from "../../components/contents/breadcrumb"
 import Container from "../../components/contents/slide-container"
