@@ -26,10 +26,11 @@
     &::after {
       content: '';
       position: absolute;
-      @include block(20px);
+      @include block(12px);
       background-color: red;
       border-radius: 50%;
-      right: -100%;
+      top: -25%;
+      right: -35%;
     }
   }
 
