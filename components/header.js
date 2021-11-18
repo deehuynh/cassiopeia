@@ -121,6 +121,8 @@ export default function Header (props) {
         </div>
 
         <div className="header__cart">
+          <span className="header__cart-order">3</span>
+
           <img
             className="show"
             ref={openCartRef}
