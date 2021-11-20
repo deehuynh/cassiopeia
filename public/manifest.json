@@ -1,6 +1,6 @@
 {
   "short_name": "Cassiopeia",
-  "name": "Cassiopeia - The flowers store",
+  "description": "The beautiful & fresh flower store",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -14,7 +14,8 @@
     }
   ],
   "start_url": ".",
-  "display": "minimal-ui",
+  "display_override": ["window-control-overlay", "minimal-ui"],
+  "display": "standalone",
   "theme_color": "#ffffff",
   "background_color": "#ffffff"
 }
