@@ -11,7 +11,7 @@ function useGetData () {
   useEffect(() => {
     const dbRef = ref(database);
 
-    get()
+    get().then().catch();
   })
 
   return productsArray;
