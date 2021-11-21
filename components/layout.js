@@ -1,5 +1,5 @@
 //import hooks
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 // import component
 import Meta from "./meta"
 import Header from "./header"
@@ -7,6 +7,9 @@ import Nav from "./navigation"
 import ModalContainer from "./modal-container"
 import MobileSearch from "./mobile-search"
 import Footer from "./footer"
+// firebase analytics
+import { analytics } from "../firebase"
+import { logEvent } from "firebase/analytics"
 
 export default function Layout ({ children }) {
   // global ref containers
@@ -19,6 +22,12 @@ export default function Layout ({ children }) {
   const navRef = useRef(null);
   const openNavRef = useRef(null);
   const closeNavRef = useRef(null);
+
+  useEffect(()=>{
+    if (analytics) {
+      logEvent(analytics, 'notification_received');
+    }
+  });
 
   return (
     <div className="layout">
