@@ -1,7 +1,7 @@
 // react api
 import { useEffect, useState } from "react"
 // firebase
-import { database } from "../firebase"
+import { dbRef } from "../firebase"
 import { ref, get, child } from "firebase/database"
 
 function useGetData () {
@@ -9,9 +9,9 @@ function useGetData () {
   const [productsArray, setProductsArray] = useState([]);
 
   useEffect(() => {
-    const dbRef = ref(database);
-
-    get().then().catch();
+    get(child(dbRef, primaryKey)).then((snapshot) => {
+      
+    }).catch();
   })
 
   return productsArray;
