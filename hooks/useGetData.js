@@ -10,7 +10,11 @@ function useGetData () {
 
   useEffect(() => {
     get(child(dbRef, primaryKey)).then((snapshot) => {
-      
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+      } else {
+        console.log("No data available");
+      }
     }).catch();
   })
 
