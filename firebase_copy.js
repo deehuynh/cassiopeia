@@ -23,4 +23,6 @@ if (typeof window !== "undefined") {
 
 export const analytics = isWindow === true ? getAnalytics(app) : null
 
-export const database = isWindow === true ? getDatabase(app) : null
+const database = isWindow === true ? getDatabase(app) : null
+
+export const dbRef = database ? ref(database) : null;
