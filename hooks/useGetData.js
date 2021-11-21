@@ -15,7 +15,9 @@ function useGetData () {
       } else {
         console.log("No data available");
       }
-    }).catch();
+    }).catch((error) => {
+        console.error(error);
+    });
   })
 
   return productsArray;
