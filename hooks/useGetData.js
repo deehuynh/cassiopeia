@@ -2,14 +2,16 @@
 import { useEffect, useState } from "react"
 // firebase
 import { database } from "../firebase"
-import { ref } from "firebase/database"
+import { ref, get, child } from "firebase/database"
 
 function useGetData () {
   // product list state
   const [productsArray, setProductsArray] = useState([]);
 
   useEffect(() => {
-    
+    const dbRef = ref(database);
+
+    get()
   })
 
   return productsArray;
