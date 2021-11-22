@@ -144,7 +144,7 @@ function InforContainer ({prDetail}) {
 
       <div>
         <span>${prPrice}</span>
-        <span>${prOldPrice}</span>
+        <span>{prOldPrice ? `$` + prOldPrice : ''}</span>
       </div>
     </div>
   );
