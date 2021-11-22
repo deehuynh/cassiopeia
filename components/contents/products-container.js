@@ -5,7 +5,7 @@ export default function ProductsContainer ({allProducts}) {
   // data storaged variable
   const products = [];
   // data fetching
-  allProducts && allProducts.forEach((item, index) => {
+  allProducts && allProducts.reverse().forEach((item, index) => {
     products.push(
       <Item 
         key={index}
@@ -23,7 +23,7 @@ export default function ProductsContainer ({allProducts}) {
       {products}
 
       {
-        allProducts && allProducts.length > 8 ? (
+        allProducts && allProducts.length > 3 ? (
           <SeeMore />
         ) : ''
       }
