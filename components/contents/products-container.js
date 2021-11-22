@@ -5,7 +5,7 @@ import Item from "../contents/item"
 
 export default function ProductsContainer ({allProducts}) {
   // pagination state
-  const [limitPr, setLimitPr] = useState(8);
+  const [limitPr, setLimitPr] = useState(4);
   // data storaged variable
   const products = [];
   // data fetching
@@ -39,7 +39,7 @@ export default function ProductsContainer ({allProducts}) {
 
 function SeeMore ({limitPr, setLimitPr}) {
   const handlePagination = () => {
-    setLimitPr(limitPr + 8);
+    setLimitPr(limitPr + 4);
   }
 
   return (
