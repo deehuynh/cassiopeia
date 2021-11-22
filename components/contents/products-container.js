@@ -9,7 +9,7 @@ export default function ProductsContainer ({allProducts}) {
   // data storaged variable
   const products = [];
   // data fetching
-  allProducts && allProducts.reverse().forEach((item, index) => {
+  allProducts && allProducts.forEach((item, index) => {
     if (index < limitPr) {
       products.push(
         <Item 
@@ -24,6 +24,7 @@ export default function ProductsContainer ({allProducts}) {
       );
     }
   });
+  
   return (
     <div className="products-container">
       {products}
