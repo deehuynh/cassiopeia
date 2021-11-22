@@ -13,7 +13,8 @@ import Headline from "../../components/contents/title"
 // functions
 import handleShowChildButton from "../../function/handleShowChildButton"
 
-export default function DetailPage () {
+export default function DetailPage ({prs}) {
+  console.log(prs);
   const recomandedPr = [
     {
       name: 'White Lilies and Gerberas', price: '54', oldPrice: '',
@@ -30,6 +31,7 @@ export default function DetailPage () {
     {name: 'Roses and Lilies', price: '69', oldPrice: '82', thumbnail: '/5d84d46e1fe63737087781_eztymk.webp'},
     {name: 'Lilies And Roses', price: '39', oldPrice: '50', thumbnail: '/5d84d53800517236157520_awcivk.webp'}
   ];
+
   return (
     <div className="product-detail">
       <Title>White Rose | Cassiopeia | Flower Store</Title>
@@ -44,6 +46,40 @@ export default function DetailPage () {
       <Container className="product-detail__recomanded" prAPI={recomandedPr} />
     </div>
   )
+}
+
+export async function getStaticPaths() {
+  const res = await fetch(`https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/.json`)
+  const allData = await res.json()
+
+  // pre-render based on page
+  const paths = []
+  const pageNameArr = Object.keys(allData)
+  pageNameArr.forEach((pageName)=>{
+    if (pageName === "flowers") {
+      allData[pageName].forEach((item)=>{
+        paths.push({
+          params: {
+            page: pageName,
+            detail: item.id,
+          }
+        })
+      })
+    }
+  })
+
+  return {paths, fallback: false}
+}
+
+export async function getStaticProps({params}) {
+  const res = await fetch(`https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/${params.page}/${params.detail}.json`)
+  const prs = await res.json()
+
+  return {
+    props: {
+      prs
+    }
+  }
 }
 
 function ImagesContainer () {
