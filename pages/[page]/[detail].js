@@ -81,12 +81,12 @@ export async function getStaticProps({params}) {
   }
 }
 
-function ImagesContainer () {
+function ImagesContainer ({avatarImage}) {
   return (
     <div className="product-detail__images">
       <div className="product-detail__images-container">
         <Image 
-          src='5d19dc8cc0983744838000_xc256j.webp'
+          src={avatarImage}
           width={568}
           height={568}
           alt='image'
