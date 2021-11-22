@@ -14,7 +14,6 @@ import Headline from "../../components/contents/title"
 import handleShowChildButton from "../../function/handleShowChildButton"
 
 export default function DetailPage ({prs}) {
-  console.log(prs);
   const recomandedPr = [
     {
       name: 'White Lilies and Gerberas', price: '54', oldPrice: '',
@@ -38,7 +37,7 @@ export default function DetailPage ({prs}) {
       <BreadCrumb />
 
       <div className="product-detail__container">
-        <ImagesContainer />
+        <ImagesContainer avatarImage={prs.thumbnail} />
         <InforContainer />
       </div>
 
