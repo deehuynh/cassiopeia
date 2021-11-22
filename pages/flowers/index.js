@@ -7,6 +7,7 @@ import FilterBar from "../../components/contents/filter-bar"
 import ProductsContainer from "../../components/contents/products-container"
 
 export default function Flowers ({allFilters, allProducts}) {
+
   return (
     <div className="flowers">
       <Title>Flowers | Cassiopeia | Flower store</Title>
@@ -59,7 +60,7 @@ export async function getStaticProps() {
     },
   ];
 
-  const allProducts = [
+  const allProductsT = [
     {
       name: 'White Lilies and Gerberas', price: '54', oldPrice: '',
       thumbnail: '/5cdd463408a93217111334_xbpxkx.webp'
@@ -75,6 +76,15 @@ export async function getStaticProps() {
     {name: 'Roses and Lilies', price: '69', oldPrice: '82', thumbnail: '/5d84d46e1fe63737087781_eztymk.webp'},
     {name: 'Lilies And Roses', price: '39', oldPrice: '50', thumbnail: '/5d84d53800517236157520_awcivk.webp'}
   ];
+
+  const res = await fetch(`https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/flowers.json`);
+  const allProducts = await res.json();
+
+  if (!allProducts) {
+    return {
+      notFound: true,
+    }
+  }
 
   return {
     props: {
