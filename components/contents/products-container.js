@@ -5,7 +5,7 @@ import Item from "../contents/item"
 
 export default function ProductsContainer ({allProducts}) {
   // pagination state
-  const [limitPr, setLimitPr] = useState(4);
+  const [limitPr, setLimitPr] = useState(8);
   // data storaged variable
   const products = [];
   // data fetching
@@ -29,17 +29,21 @@ export default function ProductsContainer ({allProducts}) {
       {products}
 
       {
-        allProducts && allProducts.length > 3 ? (
-          <SeeMore />
-        ) : ''
+        allProducts && allProducts.length === products.length ? '' : (
+          <SeeMore limitPr={limitPr} setLimitPr={setLimitPr} />
+        )
       }
     </div>
   )
 }
 
-function SeeMore () {
+function SeeMore ({limitPr, setLimitPr}) {
+  const handlePagination = () => {
+    setLimitPr(limitPr + 8);
+  }
+
   return (
-    <div className="products-container__seemore">
+    <div onClick={handlePagination} className="products-container__seemore">
       <span>See more</span>
     </div>
   )
