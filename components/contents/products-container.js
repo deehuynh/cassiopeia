@@ -9,6 +9,7 @@ export default function ProductsContainer ({allProducts}) {
     products.push(
       <Item 
         key={index}
+        id={index}
         className='content__item--restyled'
         thumbnail={item.thumbnail}
         name={item.name}
