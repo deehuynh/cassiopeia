@@ -38,7 +38,7 @@ export default function DetailPage ({prs}) {
 
       <div className="product-detail__container">
         <ImagesContainer avatarImage={prs.thumbnail} />
-        <InforContainer />
+        <InforContainer prDetail={prs} />
       </div>
 
       <Headline>You may like</Headline>
@@ -113,7 +113,12 @@ function ImagesContainer ({avatarImage}) {
   )
 }
 
-function InforContainer () {
+function InforContainer ({prDetail}) {
+  // data varialble
+  const prName = prDetail.name;
+  const prPrice = prDetail.price;
+  const prOldPrice = prDetail.oldPrice;
+
   // multiple openDropdownRefs
   const openDropdownRef = useRef([]);
   openDropdownRef.current = [1,2,3].map(
@@ -131,15 +136,15 @@ function InforContainer () {
   );
   // component partials
   const PrName = ({children}) => <div className="product-detail__name">{children}</div>;
-  const PrPrice = ({name,price, oldPrice}) => (
+  const PrPrice = () => (
     <div className="product-detail__price">
       <div className="product-detail__m-name">
-        {name}
+        {prName}
       </div>
 
       <div>
-        <span>${price}</span>
-        <span>${oldPrice}</span>
+        <span>${prPrice}</span>
+        <span>${prOldPrice}</span>
       </div>
     </div>
   );
@@ -203,8 +208,8 @@ function InforContainer () {
 
   return (
     <div className="product-detail__infor">
-      <PrName>Rose</PrName>
-      <PrPrice name="Rose" price={38} oldPrice={30} />
+      <PrName>{prName}</PrName>
+      <PrPrice />
       <PrCounter />
       <PrColorSelecter />
       <PrButtonGroup />
