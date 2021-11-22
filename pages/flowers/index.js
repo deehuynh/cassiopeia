@@ -61,9 +61,10 @@ export async function getStaticProps() {
   ];
 
   const res = await fetch(`https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/flowers.json`);
-  const allProducts = await res.json();
+  const data = await res.json();
+  const allProducts = data.reverse();
 
-  if (!allProducts) {
+  if (!data) {
     return {
       notFound: true,
     }
