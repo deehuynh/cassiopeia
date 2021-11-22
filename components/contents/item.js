@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function Item (props) {
+  const id = props.id;
   const thumbnail = props.thumbnail;
   const prName = props.name ? props.name : '';
   const prPrice = props.price ? '$ ' + props.price : '';
@@ -37,13 +38,13 @@ export default function Item (props) {
 
         <div className="content__thumbnail-overlay">
           <img src="/svgs/cart-btn.svg" alt="cart btn" />
-          <Link href="/flowers/1">
+          <Link href={`/flowers/` + id}>
             <a><img src="/svgs/view-btn.svg" alt="view detail" /></a>
           </Link>
         </div>
       </div>
 
-      <Link href="/flowers/1">
+      <Link href={`/flowers/${id}`}>
         <a className="content__product-name">
           {prName}
         </a>
