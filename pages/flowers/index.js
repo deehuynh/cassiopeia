@@ -7,7 +7,7 @@ import FilterBar from "../../components/contents/filter-bar"
 import ProductsContainer from "../../components/contents/products-container"
 
 export default function Flowers ({allFilters, allProducts}) {
-
+  
   return (
     <div className="flowers">
       <Title>Flowers | Cassiopeia | Flower store</Title>
