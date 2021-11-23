@@ -16,3 +16,49 @@ export default function Plants () {
     </div>
   )
 }
+
+export async function getStaticProps() {
+  const allFilters = [
+    {
+      name: 'Sort by',
+      children: {
+        name: 'low to high',
+        name: 'high to low',
+      }
+    }, {
+        name: 'Color',
+        children: {
+          name: 'Red',
+          name: 'Pink',
+          name: 'White',
+        }
+    }, {
+        name: 'Price',
+        children: {
+          name: 'Under 10$',
+          name: '10$ - 50$',
+          name: '50$ - 100$',
+          name: 'Over 100$',
+        }
+    }, {
+        name: 'Type',
+        children: {
+          name: 'Rose',
+          name: 'Lily'
+        }
+    }, {
+        name: 'Occasion',
+        children: {
+          name: 'wedding',
+          name: 'happy birthday',
+          name: 'event',
+        }
+    },
+  ];
+
+  return {
+    props: {
+      allFilters
+    }
+  }
+}
