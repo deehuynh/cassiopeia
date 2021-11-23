@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-export default function FilterBar ({allFilters, countPr}) {
+export default function FilterBar ({allFilters, countPr = '0'}) {
   const dropdowns = [];
   allFilters && allFilters.forEach((item, index) => {
     dropdowns.push(
