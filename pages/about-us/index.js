@@ -10,7 +10,8 @@ export default function AboutUs () {
     <div className="about-us">
       <Title>About us | Cassiopeia | Flower store</Title>
 
-      About us
+      <BreadCrumb tabName={{url: '/about-us', name: 'About us'}} />
+      <PageName>About us</PageName>
     </div>
   )
 }
