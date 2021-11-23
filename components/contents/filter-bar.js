@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-export default function FilterBar ({allFilters}) {
+export default function FilterBar ({allFilters, countPr}) {
   const dropdowns = [];
   allFilters && allFilters.forEach((item, index) => {
     dropdowns.push(
@@ -13,7 +13,7 @@ export default function FilterBar ({allFilters}) {
   return (
     <div className="filter-bar">
       <div className="filter-bar__group">{dropdowns}</div>
-      <div className="filter-bar__total">24 items</div>
+      <div className="filter-bar__total">{countPr}</div>
       <div className="filter-bar__button">
         <img src="/svgs/filter-btn.svg" alt="fitler button" />
       </div>
