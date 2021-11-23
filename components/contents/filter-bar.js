@@ -13,7 +13,7 @@ export default function FilterBar ({allFilters, countPr}) {
   return (
     <div className="filter-bar">
       <div className="filter-bar__group">{dropdowns}</div>
-      <div className="filter-bar__total">{countPr}</div>
+      <div className="filter-bar__total">{countPr + textCountPr}</div>
       <div className="filter-bar__button">
         <img src="/svgs/filter-btn.svg" alt="fitler button" />
       </div>
