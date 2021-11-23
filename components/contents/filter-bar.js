@@ -10,6 +10,8 @@ export default function FilterBar ({allFilters, countPr}) {
       />
     );
   });
+  const textCountPr = countPr < 2 ? ' item' : ' items';
+
   return (
     <div className="filter-bar">
       <div className="filter-bar__group">{dropdowns}</div>
