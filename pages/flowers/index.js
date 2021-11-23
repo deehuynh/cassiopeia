@@ -16,7 +16,7 @@ export default function Flowers ({allFilters, allProducts}) {
 
       <BreadCrumb />
       <PageName>Flowers</PageName>
-      <FilterBar allFilters={allFilters} />
+      <FilterBar allFilters={allFilters} countPr={countPr} />
 
       <ProductsContainer allProducts={allProducts} />
     </div>
