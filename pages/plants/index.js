@@ -11,6 +11,8 @@ export default function Plants () {
       <Title>Plants | Cassiopeia | Flower store</Title>
 
       <BreadCrumb tabName={{url: '/plants', name: 'Plants'}} />
+      <PageName>Plants</PageName>
+      <FilterBar allFilters={allFilters} />
     </div>
   )
 }
