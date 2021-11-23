@@ -7,6 +7,8 @@ import FilterBar from "../../components/contents/filter-bar"
 import ProductsContainer from "../../components/contents/products-container"
 
 export default function Flowers ({allFilters, allProducts}) {
+  // count products
+  const countPr = allProducts && allProducts.length;
   
   return (
     <div className="flowers">
