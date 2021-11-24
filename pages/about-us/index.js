@@ -15,8 +15,18 @@ export default function AboutUs () {
       <PageName>About us</PageName>
 
       <div className="about-us__container">
+        <AboutUsContent />
         <Gallery addedClass='about-us__gallery' />
       </div>
+    </div>
+  )
+}
+
+// the children components of the about us component
+function AboutUsContent () {
+  return (
+    <div className="about-us__content">
+
     </div>
   )
 }
