@@ -34,4 +34,18 @@
       width: 100%;
     }
   }
+
+  @include media (425px) {
+    &__content {
+      p {
+        margin: {
+          bottom: 10px;
+        }
+      }
+    }
+
+    &__gallery {
+      margin-top: 10px;
+    }
+  }
 }
