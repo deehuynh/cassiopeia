@@ -1,5 +1,27 @@
 .about-us {
   &__container {
     @include flex();
+    column-gap: 4%;
+    margin: {
+      bottom: 20px;
+    }
+  }
+
+  &__content {
+    width: 42%;
+
+    p {
+      margin: {
+        top: 0;
+        bottom: 20px;
+      }
+      @extend %body1;
+      font-weight: 300;
+    }
+  }
+
+  &__gallery {
+    width: 54%;
+    height: auto;
   }
 }
