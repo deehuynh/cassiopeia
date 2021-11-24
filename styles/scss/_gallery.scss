@@ -1,3 +1,22 @@
 .gallery {
   @include flex();
+  gap: 2%;
+
+  &__group1 {
+    width: 56%;
+    @include flex(column);
+    row-gap: 8px;
+
+    &-1 {
+      width: 100%;
+      @include flex();
+      column-gap: 1.5%;
+    }
+  }
+
+  &__group2 {
+    width: 42%;
+    @include flex(column);
+    row-gap: 1%;
+  }
 }
