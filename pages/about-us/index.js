@@ -4,6 +4,7 @@ import Title from "../../components/title"
 import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
 import FilterBar from "../../components/contents/filter-bar"
+import Gallery from "../../components/contents/gallery"
 
 export default function AboutUs () {
   return (
@@ -12,6 +13,10 @@ export default function AboutUs () {
 
       <BreadCrumb tabName={{url: '/about-us', name: 'About us'}} />
       <PageName>About us</PageName>
+
+      <div className="about-us__container">
+        <Gallery addedClass='about-us__gallery' />
+      </div>
     </div>
   )
 }
