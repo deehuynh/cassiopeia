@@ -24,4 +24,14 @@
     width: 54%;
     height: auto;
   }
+
+  @include media (768px) {
+    &__container {
+      flex-direction: column;
+    }
+
+    &__content, &__gallery {
+      width: 100%;
+    }
+  }
 }
