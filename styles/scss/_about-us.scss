@@ -1,0 +1,5 @@
+.about-us {
+  &__container {
+    @include flex();
+  }
+}
