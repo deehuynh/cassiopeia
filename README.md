@@ -1,25 +1,24 @@
-# The Nextjs App | Cassiopeia - Flower Store
+# The Nextjs App | Cassiopeia - Flower Store - Online Florist
 
 This is a flowers retail store
+
+## Status
+
+The project is processing
 
 ## About the product
 
 Type of website: E-commerce
+Responsive: any devices
 
 ## Technology
 
-- React
-- Nextjs
-- HTML5, CSS3, JS
+- Reactjs
+- Nextjs (Pre-rendering: Static Generation)
+- HTML5, SASS(SCSS)
+- Javascript
+- Firebase (Hosting, Realtime Database, Analytics, Admin SDK and REST API)
 
 ## Design
 
 The design file taken from: https://www.behance.net/gallery/96992647/Cassiopeia-Flower-store-Free-UI-kit (thank you Alice Samokhina for free ui kit)
-
-## Clone
-
-Package
-
-```
-npm i sass
-```
