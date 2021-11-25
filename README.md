@@ -1,4 +1,4 @@
-# The Nextjs App | Cassiopeia - Flower Store - Online Florist
+# The Nextjs App | Cassiopeia - Flower Store
 
 This is a flowers retail store
 
@@ -6,9 +6,14 @@ This is a flowers retail store
 
 The project is processing
 
+## Live website
+
+https://dh-cassiopeia.web.app/
+
 ## About the product
 
 Type of website: E-commerce
+
 Responsive: any devices
 
 ## Technology
