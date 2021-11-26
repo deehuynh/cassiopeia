@@ -32,17 +32,17 @@ export async function getStaticProps() {
       title: '40% off',
       description: 'Best deals this week. Fresh flowers, plants and gifts',
       btnTitle: 'Shop now',
-      url:'/'
+      url:'/flowers'
     }, {
       type: 'secondary', title: 'Nice little gifts',
       description: 'for loved ones',
       background: '/cass23_gfwimt.png', btnTitle: 'View now',
-      url:'/'
+      url:'/gifts'
     }, {
       type: 'secondary', title: 'Plants',
       description: 'for home comfort',
       background: '/cass31_esdbjz.png', btnTitle: 'View now',
-      url:'/'
+      url:'/plants'
     }
   ]
 
