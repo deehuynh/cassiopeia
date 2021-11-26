@@ -17,6 +17,7 @@ export default function ProductsContainer ({allProducts}) {
           id={item.id}
           className='content__item--restyled'
           thumbnail={item.thumbnail}
+          imageType={item.imageType}
           name={item.name}
           price={item.price}
           oldPrice={item.oldPrice}
