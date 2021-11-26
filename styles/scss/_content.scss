@@ -19,7 +19,6 @@
   }
 
   &__item {
-    flex-shrink: 0;
     @include block(260px, 366px);
     user-select: none;
     margin-right: 40px;
@@ -96,10 +95,12 @@
   }
 
   &__see-more-item {
-    flex-shrink: 0;
+    display: block;
     @include block(260px);
-    user-select: none;
     @include flex(column, center);
+    user-select: none;
+    color: black;
+    text-decoration: none;
 
     @include media (1200px) {
       width: 100%;
