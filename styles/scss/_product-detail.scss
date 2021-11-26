@@ -29,10 +29,13 @@
 
     &-container {
       @include block(568px);
-      padding: 50px;
       box-sizing: border-box;
       background-color: $c-snow;
       margin-bottom: 30px;
+
+      &--pd {
+        padding: 50px;
+      }
     }
 
     @include media (1024px) {
@@ -251,11 +254,14 @@
       &-container {
         text-align: center;
         margin-bottom: 20px;
-        padding: {
-          top: 20px;
-          bottom: 10px;
-          left: 200px;
-          right: 200px;
+
+        &--pd {
+          padding: {
+            top: 20px;
+            bottom: 10px;
+            left: 200px;
+            right: 200px;
+          }
         }
       }
     }
@@ -314,34 +320,42 @@
 
   @include media (650px) {
     &__images-container {
-      padding: {
-        left: 150px;
-        right: 150px;
+      &--pd {
+        padding: {
+          left: 150px;
+          right: 150px;
+        }
       }
     }
   }
 
   @include media (550px) {
     &__images-container {
-      padding: {
-        left: 120px;
-        right: 120px;
+      &--pd {
+        padding: {
+          left: 120px;
+          right: 120px;
+        }
       }
     }
   }
 
   @include media (470px) {
     &__images-container {
-      padding: {
-        left: 90px;
-        right: 90px;
+      &--pd {
+        padding: {
+          left: 90px;
+          right: 90px;
+        }
       }
     }
   }
 
   @include media (425px) {
     &__images-container {
-      padding: 20px 40px;
+      &--pd {
+        padding: 20px 40px;
+      }
     }
 
     &__m-name {
