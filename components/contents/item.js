@@ -14,13 +14,15 @@ export default function Item (props) {
 
   if (props.seeMore) {
     return (
-      <div className="content__see-more-item">
-        <h3>Catalog</h3>
-        <p>
-          <span>See more</span> 
-          <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
-        </p>
-      </div>
+      <Link href="/flowers">
+        <a className="content__see-more-item">
+          <h3>Catalog</h3>
+          <p>
+            <span>See more</span> 
+            <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
+          </p>
+        </a>
+      </Link>
     )
   }
 
