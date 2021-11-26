@@ -232,7 +232,6 @@
     @include block(100%, 260px);
     overflow: hidden;
     background-color: #f8f8f8;
-    padding: 15px;
     box-sizing: border-box;
     margin-bottom: 20px;
     position: relative;
@@ -240,6 +239,10 @@
     @include media (1200px) {
       height: auto;
       padding: 5.5%;
+    }
+
+    &--pd {
+      padding: 15px;
     }
 
     &-overlay {
