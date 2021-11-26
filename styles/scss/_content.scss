@@ -235,14 +235,17 @@
     box-sizing: border-box;
     margin-bottom: 20px;
     position: relative;
-
-    @include media (1200px) {
-      height: auto;
-      padding: 5.5%;
-    }
+    text-align: center;
 
     &--pd {
       padding: 15px;
+    }
+
+    @include media (1200px) {
+      height: auto;
+      &--pd {
+        padding: 5.5%;
+      }
     }
 
     &-overlay {
