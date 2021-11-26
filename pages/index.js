@@ -4,7 +4,7 @@ import BannerAds from "../components/contents/banner-ads"
 import Headline from "../components/contents/title"
 import Container from "../components/contents/slide-container"
 
-export default function Home ({allProductsData, adsData}) {
+export default function Home ({latestProducts, adsData}) {
   return (
     <>
       <Title>Cassiopeia | Flower Store</Title>
@@ -12,32 +12,19 @@ export default function Home ({allProductsData, adsData}) {
       <div className="home">
         <BannerAds adsAPI={adsData} />
         <Headline>New</Headline>
-        <Container className="home__container" prAPI={allProductsData} />
+        <Container className="home__container" prAPI={latestProducts} />
 
         <Headline>Relevant</Headline>
-        <Container className="home__container" prAPI={allProductsData} />
+        <Container className="home__container" prAPI={latestProducts} />
       </div>
     </>
   )
 }
 
 export async function getStaticProps() {
-  const allProductsData = [
-    {
-      name: 'White Lilies and Gerberas', price: '54', oldPrice: '',
-      thumbnail: '/5cdd463408a93217111334_xbpxkx.webp'
-    },
-    {
-      name: 'Red Roses and White Lilies', price: '99', oldPrice: '',
-      thumbnail: '/5d84dc1a631b2292689077_nihv8m.webp'
-    },
-    {
-      name: 'Chrysanthemums and Roses', price: '44', oldPrice: '',
-      thumbnail: '/5d19dc8cc0983744838000_xc256j.webp'
-    },
-    {name: 'Roses and Lilies', price: '69', oldPrice: '82', thumbnail: '/5d84d46e1fe63737087781_eztymk.webp'},
-    {name: 'Lilies And Roses', price: '39', oldPrice: '50', thumbnail: '/5d84d53800517236157520_awcivk.webp'}
-  ];
+  const res = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/flowers.json')
+  const allProductsData = await res.json()
+  const latestProducts = allProductsData.reverse().slice(0,5)
 
   const adsData = [
     {
@@ -57,11 +44,11 @@ export async function getStaticProps() {
       background: '/cass31_esdbjz.png', btnTitle: 'View now',
       url:'/'
     }
-  ];
+  ]
 
   return {
     props: {
-      allProductsData,
+      latestProducts,
       adsData
     }
   }
