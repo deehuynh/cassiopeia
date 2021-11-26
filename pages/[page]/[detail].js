@@ -118,6 +118,7 @@ function InforContainer ({prDetail}) {
   const prName = prDetail.name;
   const prPrice = prDetail.price;
   const prOldPrice = prDetail.oldPrice;
+  const prIncludes = prDetail.includes === "" ? "No content yet" : prDetail.includes;
 
   // multiple openDropdownRefs
   const openDropdownRef = useRef([]);
@@ -192,14 +193,24 @@ function InforContainer ({prDetail}) {
       <div 
         ref={contentRef}
         className="product-detail__list-children product-detail__list-children--hidden"
-      >{content}</div>
+      >
+        {
+          Array.isArray(content) === true ? content.map((item, index) => {
+            if (content.length === index + 1) {
+              return item;
+            }
+
+            return item + ", "
+          }) : content
+        }
+      </div>
     </div>
   );
 
   // array contents of buttons
   const listContentButton = [
     {title: 'Bouquet contents', content: 'No content yet'},
-    {title: 'Details', content: 'No content yet'},
+    {title: 'Includes', content: prIncludes},
     {
       title: 'Delivery & Pay policy',
       content: 'Each bouquet is unique and is prepared by an expert florist and our customer service team is at your service to ensure the best experience possible.'
