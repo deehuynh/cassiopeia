@@ -7,8 +7,10 @@ export default function Item (props) {
   const prName = props.name ? props.name : '';
   const prPrice = props.price ? '$ ' + props.price : '';
   const prOldPrice = props.oldPrice  ? '$' + props.oldPrice : '';
+  const imageType = props.imageType;
   // added className
   const addedClass = props.className ? ' ' + props.className : '';
+  const thumbnailAddedClass = imageType === "transparent" ? ' content__thumbnail--pd' : '';
 
   if (props.seeMore) {
     return (
@@ -24,7 +26,7 @@ export default function Item (props) {
 
   return (
     <div className={`content__item` + addedClass}>
-      <div className="content__thumbnail">
+      <div className={"content__thumbnail" + thumbnailAddedClass}>
         {
           thumbnail && thumbnail !== '' ? (
             <Image
