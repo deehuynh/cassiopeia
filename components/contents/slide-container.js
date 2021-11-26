@@ -8,6 +8,7 @@ export default function Container (props) {
     listItem.push(
       <SplideSlide key={index}>
         <Item 
+          id={item.id}
           name={item.name} thumbnail={item.thumbnail} price={item.price}
           imageType={item.imageType}
           oldPrice={item.oldPrice}
