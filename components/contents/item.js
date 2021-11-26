@@ -31,8 +31,8 @@ export default function Item (props) {
           thumbnail && thumbnail !== '' ? (
             <Image
               src={thumbnail}
-              width={260}
-              height={260}
+              width={480}
+              height={480}
               alt='flower thumbnail'
             />
           ) : ''
