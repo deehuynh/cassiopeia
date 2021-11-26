@@ -37,7 +37,7 @@ export default function DetailPage ({prs}) {
       <BreadCrumb />
 
       <div className="product-detail__container">
-        <ImagesContainer avatarImage={prs.thumbnail} />
+        <ImagesContainer avatarImage={prs.thumbnail} imageType={prs.imageType} />
         <InforContainer prDetail={prs} />
       </div>
 
@@ -81,10 +81,12 @@ export async function getStaticProps({params}) {
   }
 }
 
-function ImagesContainer ({avatarImage}) {
+function ImagesContainer ({avatarImage, imageType}) {
+  const addedClass = imageType === "transparent" ? " product-detail__images-container--pd" : ''
+
   return (
     <div className="product-detail__images">
-      <div className="product-detail__images-container">
+      <div className={"product-detail__images-container" + addedClass}>
         <Image 
           src={avatarImage}
           width={568}
