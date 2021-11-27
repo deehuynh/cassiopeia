@@ -7,13 +7,16 @@ import FilterBar from "../../components/contents/filter-bar"
 import ProductsContainer from "../../components/contents/products-container"
 
 export default function Plants ({allFilters, allProducts}) {
+  // count products
+  const countPr = allProducts && allProducts.length;
+
   return (
     <div className="plants">
       <Title>Plants | Cassiopeia | Flower store</Title>
 
       <BreadCrumb tabName={{url: '/plants', name: 'Plants'}} />
       <PageName>Plants</PageName>
-      <FilterBar allFilters={allFilters} />
+      <FilterBar allFilters={allFilters} countPr={countPr} />
       <ProductsContainer page="plants" allProducts={allProducts} />
     </div>
   )
