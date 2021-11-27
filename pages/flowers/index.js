@@ -18,7 +18,7 @@ export default function Flowers ({allFilters, allProducts}) {
       <PageName>Flowers</PageName>
       <FilterBar allFilters={allFilters} countPr={countPr} />
 
-      <ProductsContainer allProducts={allProducts} />
+      <ProductsContainer page="flowers" allProducts={allProducts} />
     </div>
   )
 }
