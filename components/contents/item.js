@@ -36,6 +36,7 @@ export default function Item (props) {
               src={thumbnail}
               width={480}
               height={480}
+              layout="responsive"
               alt='flower thumbnail'
             />
           ) : ''
