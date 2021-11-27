@@ -55,7 +55,9 @@ export async function getStaticPaths() {
   const paths = []
   const pageNameArr = Object.keys(allData)
   pageNameArr.forEach((pageName)=>{
-    if (pageName === "flowers") {
+    // the json data have a lot of keys, they includes the pages.
+    // So we have to check the product page which have detail product
+    if (pageName === "flowers" || "plants") {
       allData[pageName].forEach((item)=>{
         paths.push({
           params: {
