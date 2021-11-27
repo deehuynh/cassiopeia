@@ -93,6 +93,7 @@ function ImagesContainer ({avatarImage, imageType}) {
           src={avatarImage}
           width={568}
           height={568}
+          layout="responsive"
           alt='image'
         />
       </div>
