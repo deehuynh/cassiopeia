@@ -4,8 +4,9 @@ import Title from "../../components/title"
 import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
 import FilterBar from "../../components/contents/filter-bar"
+import ProductsContainer from "../../components/contents/products-container"
 
-export default function Plants ({allFilters}) {
+export default function Plants ({allFilters, allPlants}) {
   return (
     <div className="plants">
       <Title>Plants | Cassiopeia | Flower store</Title>
@@ -13,6 +14,7 @@ export default function Plants ({allFilters}) {
       <BreadCrumb tabName={{url: '/plants', name: 'Plants'}} />
       <PageName>Plants</PageName>
       <FilterBar allFilters={allFilters} />
+      <ProductsContainer allProducts={allPlants} />
     </div>
   )
 }
