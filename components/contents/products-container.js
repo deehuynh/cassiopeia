@@ -3,7 +3,7 @@ import { useState } from "react";
 // components
 import Item from "../contents/item"
 
-export default function ProductsContainer ({allProducts}) {
+export default function ProductsContainer ({allProducts, page}) {
   // pagination state
   const [limitPr, setLimitPr] = useState(4);
   // data storaged variable
@@ -15,6 +15,7 @@ export default function ProductsContainer ({allProducts}) {
         <Item 
           key={index}
           id={item.id}
+          page={page}
           className='content__item--restyled'
           thumbnail={item.thumbnail}
           imageType={item.imageType ? item.imageType : ""}
