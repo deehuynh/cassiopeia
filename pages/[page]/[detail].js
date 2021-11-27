@@ -33,8 +33,8 @@ export default function DetailPage ({prs}) {
 
   return (
     <div className="product-detail">
-      <Title>White Rose | Cassiopeia | Flower Store</Title>
-      <BreadCrumb />
+      <Title>{prs.name} | Cassiopeia | Flower Store</Title>
+      <BreadCrumb detailTab={prs.name} />
 
       <div className="product-detail__container">
         <ImagesContainer avatarImage={prs.thumbnail} imageType={prs.imageType ? prs.imageType : ""} />
