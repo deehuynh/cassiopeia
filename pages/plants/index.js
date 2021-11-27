@@ -6,7 +6,7 @@ import PageName from "../../components/contents/page-name"
 import FilterBar from "../../components/contents/filter-bar"
 import ProductsContainer from "../../components/contents/products-container"
 
-export default function Plants ({allFilters, allPlants}) {
+export default function Plants ({allFilters, allProducts}) {
   return (
     <div className="plants">
       <Title>Plants | Cassiopeia | Flower store</Title>
@@ -14,7 +14,7 @@ export default function Plants ({allFilters, allPlants}) {
       <BreadCrumb tabName={{url: '/plants', name: 'Plants'}} />
       <PageName>Plants</PageName>
       <FilterBar allFilters={allFilters} />
-      <ProductsContainer allProducts={allPlants} />
+      <ProductsContainer allProducts={allProducts} />
     </div>
   )
 }
@@ -58,9 +58,14 @@ export async function getStaticProps() {
     },
   ];
 
+  const res = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/plants.json');
+  const allPlants = await res.json()
+  const allProducts = allPlants.reverse()
+
   return {
     props: {
-      allFilters
+      allFilters,
+      allProducts
     }
   }
 }
