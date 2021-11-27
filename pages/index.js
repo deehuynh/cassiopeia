@@ -12,10 +12,10 @@ export default function Home ({latestProducts, adsData}) {
       <div className="home">
         <BannerAds adsAPI={adsData} />
         <Headline>New</Headline>
-        <Container className="home__container" prAPI={latestProducts} />
+        <Container className="home__container" page="flowers" prAPI={latestProducts} />
 
         <Headline>Relevant</Headline>
-        <Container className="home__container" prAPI={latestProducts} />
+        <Container className="home__container" page="flowers" prAPI={latestProducts} />
       </div>
     </>
   )
