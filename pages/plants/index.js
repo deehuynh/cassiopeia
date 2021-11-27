@@ -14,7 +14,7 @@ export default function Plants ({allFilters, allProducts}) {
       <BreadCrumb tabName={{url: '/plants', name: 'Plants'}} />
       <PageName>Plants</PageName>
       <FilterBar allFilters={allFilters} />
-      <ProductsContainer allProducts={allProducts} />
+      <ProductsContainer page="plants" allProducts={allProducts} />
     </div>
   )
 }
