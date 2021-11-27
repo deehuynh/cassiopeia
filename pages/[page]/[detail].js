@@ -37,7 +37,7 @@ export default function DetailPage ({prs}) {
       <BreadCrumb />
 
       <div className="product-detail__container">
-        <ImagesContainer avatarImage={prs.thumbnail} imageType={prs.imageType} />
+        <ImagesContainer avatarImage={prs.thumbnail} imageType={prs.imageType ? prs.imageType : ""} />
         <InforContainer prDetail={prs} />
       </div>
 
@@ -120,7 +120,7 @@ function InforContainer ({prDetail}) {
   const prName = prDetail.name;
   const prPrice = prDetail.price;
   const prOldPrice = prDetail.oldPrice;
-  const prIncludes = prDetail.includes === "" ? "No content yet" : prDetail.includes;
+  const prIncludes = prDetail.includes && prDetail.includes !== "" ? prDetail.includes : "No content yet";
 
   // multiple openDropdownRefs
   const openDropdownRef = useRef([]);
