@@ -13,6 +13,7 @@
     text-decoration: none;
     user-select: none;
     color: black;
+    white-space: nowrap;
 
     &::after {
       content: '/';
@@ -25,6 +26,8 @@
     &:last-child {
       cursor: text;
       font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
       &::after {
         content: '';
       }
