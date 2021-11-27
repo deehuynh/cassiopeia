@@ -8,6 +8,7 @@ export default function Item (props) {
   const prPrice = props.price ? '$ ' + props.price : '';
   const prOldPrice = props.oldPrice  ? '$' + props.oldPrice : '';
   const imageType = props.imageType;
+  const page = props.page;
   // added className
   const addedClass = props.className ? ' ' + props.className : '';
   const thumbnailAddedClass = imageType === "transparent" ? ' content__thumbnail--pd' : '';
@@ -42,13 +43,13 @@ export default function Item (props) {
 
         <div className="content__thumbnail-overlay">
           <img src="/svgs/cart-btn.svg" alt="cart btn" />
-          <Link href={`/flowers/` + id}>
+          <Link href={`/${page}/${id}`}>
             <a><img src="/svgs/view-btn.svg" alt="view detail" /></a>
           </Link>
         </div>
       </div>
 
-      <Link href={`/flowers/${id}`}>
+      <Link href={`/${page}/${id}`}>
         <a className="content__product-name">
           {prName}
         </a>
