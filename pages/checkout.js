@@ -376,6 +376,7 @@ const CheckoutContent = ({creditCards, gateways, setFinishPaymentState}) => {
                         src={item.image}
                         width={136}
                         height={46}
+                        layout="responsive"
                         alt={item.name}
                       />
                     </div>
@@ -398,6 +399,7 @@ const CheckoutContent = ({creditCards, gateways, setFinishPaymentState}) => {
                         src={item.image}
                         width={136}
                         height={46}
+                        layout="responsive"
                         alt={item.name}
                       />
                     </div>
