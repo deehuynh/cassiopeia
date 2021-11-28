@@ -15,7 +15,7 @@ export default function Item (props) {
 
   if (props.seeMore) {
     return (
-      <Link href="/flowers">
+      <Link href={`/${page}`}>
         <a className="content__see-more-item">
           <h3>Catalog</h3>
           <p>
