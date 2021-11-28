@@ -2,6 +2,9 @@
 import Title from "../../components/title"
 // component
 import Breadcrumb from "../../components/contents/breadcrumb"
+import PageName from "../../components/contents/page-name"
+import Headline from "../../components/contents/title"
+import Container from "../../components/contents/slide-container"
 
 export default function Disconts () {
   return (
@@ -9,6 +12,9 @@ export default function Disconts () {
       <Title>Disconts | Cassiopeia | Flower store</Title>
 
       <Breadcrumb />
+      <PageName>Disconts</PageName>
+
+      <Headline>Special offers</Headline>
     </div>
   )
 }
