@@ -66,7 +66,7 @@ export async function getStaticProps({params}) {
   const getFlowersData = await fetch(`https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/${pageName}.json`)
   const flowersData = await getFlowersData.json()
   // relevantPrApi() returns relevantFlowers data
-  const relevantFlowers = relevantPrApi(flowersData)
+  const relevantFlowers = relevantPrApi(flowersData, params.detail)
 
   return {
     props: {
