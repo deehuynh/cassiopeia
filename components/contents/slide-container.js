@@ -21,7 +21,10 @@ export default function Container (props) {
   if (listItem.length > 3) {
     listItem.push(
       <SplideSlide key={listItem.length}>
-        <Item seeMore />
+        <Item 
+          seeMore
+          page={props.page} 
+        />
       </SplideSlide>
     );
   }
