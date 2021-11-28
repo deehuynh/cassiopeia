@@ -12,25 +12,10 @@ import Container from "../../components/contents/slide-container"
 import Headline from "../../components/contents/title"
 // functions
 import handleShowChildButton from "../../function/handleShowChildButton"
+// handle api function
+import relevantPrApi from "../../api/relevantPrApi"
 
-export default function DetailPage ({prs}) {
-  const recomandedPr = [
-    {
-      name: 'White Lilies and Gerberas', price: '54', oldPrice: '',
-      thumbnail: '/5cdd463408a93217111334_xbpxkx.webp'
-    },
-    {
-      name: 'Red Roses and White Lilies', price: '99', oldPrice: '',
-      thumbnail: '/5d84dc1a631b2292689077_nihv8m.webp'
-    },
-    {
-      name: 'Chrysanthemums and Roses', price: '44', oldPrice: '',
-      thumbnail: '/5d19dc8cc0983744838000_xc256j.webp'
-    },
-    {name: 'Roses and Lilies', price: '69', oldPrice: '82', thumbnail: '/5d84d46e1fe63737087781_eztymk.webp'},
-    {name: 'Lilies And Roses', price: '39', oldPrice: '50', thumbnail: '/5d84d53800517236157520_awcivk.webp'}
-  ];
-
+export default function DetailPage ({prs, relevantFlowers, page}) {
   return (
     <div className="product-detail">
       <Title>{prs.name} | Cassiopeia | Flower Store</Title>
@@ -42,7 +27,7 @@ export default function DetailPage ({prs}) {
       </div>
 
       <Headline>You may like</Headline>
-      <Container className="product-detail__recomanded" prAPI={recomandedPr} />
+      <Container className="product-detail__recomanded" page={page} prAPI={relevantFlowers} />
     </div>
   )
 }
@@ -73,12 +58,21 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({params}) {
-  const res = await fetch(`https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/${params.page}/${params.detail}.json`)
+  const pageName = params.page
+  const res = await fetch(`https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/${pageName}/${params.detail}.json`)
   const prs = await res.json()
+
+  // handle relevant product function
+  const getFlowersData = await fetch(`https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/${pageName}.json`)
+  const flowersData = await getFlowersData.json()
+  // relevantPrApi() returns relevantFlowers data
+  const relevantFlowers = relevantPrApi(flowersData)
 
   return {
     props: {
-      prs
+      prs,
+      relevantFlowers,
+      page: pageName
     }
   }
 }
