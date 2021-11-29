@@ -34,9 +34,26 @@ export async function getStaticProps() {
   const resAllData = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/.json')
   const getAllData = await resAllData.json()
   // function gets random key of array
-  const getRandomPr = (page) => (
-    getAllData[page][Math.floor(Math.random()*getAllData[page].length)]
-  )
+  const getRandomPr = (page) => {
+    if (page !== "flowers") {
+      return getAllData[page][Math.floor(Math.random()*getAllData[page].length)]
+    } else {
+      // get flowers that is not in latest prs
+      let getRandomPrTmp = []
+      while (getRandomPrTmp.length < 1) {
+        const randomFlower = getAllData[page][Math.floor(Math.random()*getAllData[page].length)]
+        if (
+          (randomFlower.id !== latestProducts[0].id) && (randomFlower.id !== latestProducts[1].id) &&
+          (randomFlower.id !== latestProducts[2].id) && (randomFlower.id !== latestProducts[3].id) &&
+          (randomFlower.id !== latestProducts[4].id)
+        ) {
+          getRandomPrTmp = randomFlower
+        }
+      }
+
+      return getRandomPrTmp
+    }
+  }
   // function gets two random products
   const getTwoRandomPr = (page) => {
     const twoRandomPrs = []
