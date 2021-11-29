@@ -1,5 +1,7 @@
 // head tag's title
 import Title from "../../components/title"
+// next api
+import Image from "next/image"
 // component
 import Breadcrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
@@ -37,6 +39,22 @@ export async function getStaticProps() {
 
 function Events () {
   return (
-    <div className="disconts__events"></div>
+    <div className="disconts__events">
+
+    </div>
+  )
+}
+
+function EventsImageGroup ({children}) {
+  return (
+    <div className="disconts__events-image-group">
+      {children}
+    </div>
+  )
+}
+
+function EventsImage () {
+  return (
+    <div className="disconts__events-image"></div>
   )
 }
