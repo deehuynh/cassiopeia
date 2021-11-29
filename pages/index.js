@@ -22,9 +22,39 @@ export default function Home ({latestProducts, adsData}) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/flowers.json')
-  const allProductsData = await res.json()
+  // fetch all flowers
+  const resAllFlowers = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/flowers.json')
+  const allProductsData = await resAllFlowers.json()
+  // get latest flowers
   const latestProducts = allProductsData.reverse().slice(0,5)
+  // fetch all database
+  const resAllData = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/.json')
+  const getAllData = await resAllData.json()
+  // length of data
+  const flowersLength = getAllData.flowers.length
+  const plantsLength = getAllData.plants.length
+  const giftsLength = getAllData.gifts.length
+  const allDataLength = flowersLength + plantsLength + giftsLength
+  // function gets random key of array
+  const getRandomPr = (page) => (
+    getAllData[page][Math.floor(Math.random()*getAllData[page].length)]
+  )
+  // get two random flower products
+  const randomFlowers = []
+  while (randomFlowers.length < 2) {
+    if (flowersLength < 2) {
+      break
+    }
+    const randomPr = getRandomPr("flowers")
+    if (randomFlowers.length === 0) {
+      randomFlowers.push(randomPr)
+    } else {
+      if (randomFlowers[0] !== randomPr) {
+        randomFlowers.push(randomPr)
+      }
+    }
+  }
+  console.log(randomFlowers)
 
   const adsData = [
     {
