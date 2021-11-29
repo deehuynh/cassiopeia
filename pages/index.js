@@ -39,22 +39,31 @@ export async function getStaticProps() {
   const getRandomPr = (page) => (
     getAllData[page][Math.floor(Math.random()*getAllData[page].length)]
   )
-  // get two random flower products
-  const randomFlowers = []
-  while (randomFlowers.length < 2) {
-    if (flowersLength < 2) {
-      break
-    }
-    const randomPr = getRandomPr("flowers")
-    if (randomFlowers.length === 0) {
-      randomFlowers.push(randomPr)
-    } else {
-      if (randomFlowers[0] !== randomPr) {
-        randomFlowers.push(randomPr)
+  // function gets two random products
+  const getTwoRandomPr = (page) => {
+    const twoRandomPrs = []
+    while (twoRandomPrs.length < 2) {
+      // less than 2 products, end result will be empty
+      if (getAllData[page].length < 2) {
+        break
+      }
+      // getting random pr
+      const randomPr = getRandomPr(page)
+      // getting first pr
+      if (twoRandomPrs.length === 0) {
+        twoRandomPrs.push(randomPr)
+      } else {
+        // the second pr must different the first pr
+        if (twoRandomPrs[0] !== randomPr) {
+          twoRandomPrs.push(randomPr)
+        }
       }
     }
+
+    return twoRandomPrs
   }
-  console.log(randomFlowers)
+
+  console.log(getTwoRandomPr("plants"))
 
   const adsData = [
     {
