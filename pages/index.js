@@ -15,7 +15,10 @@ export default function Home ({latestProducts, adsData, relevantProducts}) {
         <Container className="home__container" page="flowers" prAPI={latestProducts} />
 
         <Headline>Relevant</Headline>
-        <Container className="home__container" page="flowers" prAPI={relevantProducts} />
+        <Container
+          className="home__container" page="relevant"
+          prAPI={relevantProducts} unSeeMore
+        />
       </div>
     </>
   )
