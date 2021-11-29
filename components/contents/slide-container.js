@@ -5,11 +5,21 @@ export default function Container (props) {
   const className = props.className && props.className !== '' ? ' ' + props.className : '';
   const listItem = [];
   props.prAPI && props.prAPI.forEach((item, index) => {
+    let page = props.page;
+    if (props.page === "relevant") {
+      if ((index === 0) || (index === 1)) {
+        page = "flowers"
+      } else if ((index === 2) || (index === 3)) {
+        page = "plants"
+      } else {
+        page = "gifts"
+      }
+    }
     listItem.push(
       <SplideSlide key={index}>
         <Item 
           id={item.id}
-          page={props.page}
+          page={page}
           name={item.name} thumbnail={item.thumbnail} price={item.price}
           imageType={item.imageType}
           oldPrice={item.oldPrice}
@@ -18,7 +28,7 @@ export default function Container (props) {
     );
   });
 
-  if (listItem.length > 3) {
+  if (listItem.length > 3 && !props.unSeeMore) {
     listItem.push(
       <SplideSlide key={listItem.length}>
         <Item 
