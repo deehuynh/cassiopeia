@@ -15,7 +15,9 @@ export default function Disconts ({offerPrs}) {
       <PageName>Disconts</PageName>
 
       <Headline>Special offers</Headline>
-      <Container page="flowers" prAPI={offerPrs} />
+      <Container page="flowers" prAPI={offerPrs} unSeeMore />
+
+      <Headline>Events</Headline>
     </div>
   )
 }
