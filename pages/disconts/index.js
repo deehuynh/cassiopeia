@@ -18,6 +18,7 @@ export default function Disconts ({offerPrs}) {
       <Container page="flowers" prAPI={offerPrs} unSeeMore />
 
       <Headline>Events</Headline>
+      <Events />
     </div>
   )
 }
@@ -32,4 +33,10 @@ export async function getStaticProps() {
       offerPrs
     }
   }
+}
+
+function Events () {
+  return (
+    <div className="disconts__events"></div>
+  )
 }
