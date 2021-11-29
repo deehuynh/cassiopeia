@@ -15,7 +15,7 @@ export default function Home ({latestProducts, adsData, relevantProducts}) {
         <Container className="home__container" page="flowers" prAPI={latestProducts} />
 
         <Headline>Relevant</Headline>
-        <Container className="home__container" page="flowers" prAPI={latestProducts} />
+        <Container className="home__container" page="flowers" prAPI={relevantProducts} />
       </div>
     </>
   )
@@ -30,11 +30,6 @@ export async function getStaticProps() {
   // fetch all database
   const resAllData = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/.json')
   const getAllData = await resAllData.json()
-  // length of data
-  const flowersLength = getAllData.flowers.length
-  const plantsLength = getAllData.plants.length
-  const giftsLength = getAllData.gifts.length
-  const allDataLength = flowersLength + plantsLength + giftsLength
   // function gets random key of array
   const getRandomPr = (page) => (
     getAllData[page][Math.floor(Math.random()*getAllData[page].length)]
@@ -67,7 +62,10 @@ export async function getStaticProps() {
   // relevantProducts data
   const relevantProducts = []
   pages.forEach((page) => {
-    relevantProducts.push(getTwoRandomPr(page))
+    const twoPrsArr = getTwoRandomPr(page)
+    if (twoPrsArr.length !== 0) {
+      relevantProducts.push(twoPrsArr[0], twoPrsArr[1])
+    }
   })
 
   const adsData = [
