@@ -4,13 +4,13 @@ import BannerAds from "../components/contents/banner-ads"
 import Headline from "../components/contents/title"
 import Container from "../components/contents/slide-container"
 
-export default function Home ({latestProducts, adsData, relevantProducts}) {
+export default function Home ({latestProducts, banners, relevantProducts}) {
   return (
     <>
       <Title>Cassiopeia | Flower Store</Title>
 
       <div className="home">
-        <BannerAds adsAPI={adsData} />
+        <BannerAds adsAPI={banners} />
         <Headline>New</Headline>
         <Container className="home__container" page="flowers" prAPI={latestProducts} />
 
@@ -25,6 +25,9 @@ export default function Home ({latestProducts, adsData, relevantProducts}) {
 }
 
 export async function getStaticProps() {
+  // fetch banner data
+  const resBanner = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/banner.json')
+  const banners = await resBanner.json()
   // fetch all flowers
   const resAllFlowers = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/flowers.json')
   const allProductsData = await resAllFlowers.json()
@@ -88,30 +91,10 @@ export async function getStaticProps() {
     }
   })
 
-  const adsData = [
-    {
-      type: 'primary', background: '/cass15_mrg4hb.jpg',
-      title: '40% off',
-      description: 'Best deals this week. Fresh flowers, plants and gifts',
-      btnTitle: 'Shop now',
-      url:'/flowers'
-    }, {
-      type: 'secondary', title: 'Nice little gifts',
-      description: 'for loved ones',
-      background: '/cass23_gfwimt.png', btnTitle: 'View now',
-      url:'/gifts'
-    }, {
-      type: 'secondary', title: 'Plants',
-      description: 'for home comfort',
-      background: '/cass31_esdbjz.png', btnTitle: 'View now',
-      url:'/plants'
-    }
-  ]
-
   return {
     props: {
       latestProducts,
-      adsData,
+      banners,
       relevantProducts
     }
   }
