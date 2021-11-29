@@ -4,7 +4,7 @@ import BannerAds from "../components/contents/banner-ads"
 import Headline from "../components/contents/title"
 import Container from "../components/contents/slide-container"
 
-export default function Home ({latestProducts, adsData}) {
+export default function Home ({latestProducts, adsData, relevantProducts}) {
   return (
     <>
       <Title>Cassiopeia | Flower Store</Title>
@@ -62,8 +62,13 @@ export async function getStaticProps() {
 
     return twoRandomPrs
   }
-
-  console.log(getTwoRandomPr("plants"))
+  
+  const pages = ["flowers", "plants", "gifts"]
+  // relevantProducts data
+  const relevantProducts = []
+  pages.forEach((page) => {
+    relevantProducts.push(getTwoRandomPr(page))
+  })
 
   const adsData = [
     {
@@ -88,7 +93,8 @@ export async function getStaticProps() {
   return {
     props: {
       latestProducts,
-      adsData
+      adsData,
+      relevantProducts
     }
   }
 }
