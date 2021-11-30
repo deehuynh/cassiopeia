@@ -12,6 +12,10 @@
       @extend %H5;
     }
 
+    &-image {
+      width: 100%;
+    }
+
     &-image-group {
       &1 {
         width: 43%;
@@ -20,23 +24,12 @@
         &-1 {
           @include flex();
           column-gap: 2%;
-
-          .disconts__events-image {
-            width: 49%;
-          }
         }
       }
 
       &2 {
         width: 55%;
         @include flex();
-
-        .disconts__events-image {
-          &:first-child {
-            @include block(100%, 200px);
-            background-color: whitesmoke;
-          }
-        }
       }
     }
   }
