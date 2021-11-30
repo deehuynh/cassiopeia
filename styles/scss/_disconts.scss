@@ -1,3 +1,5 @@
 .disconts {
-  
+  &__events {
+    @include flex()
+  }
 }
