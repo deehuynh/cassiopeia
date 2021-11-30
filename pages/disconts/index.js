@@ -71,6 +71,8 @@ function Events () {
             height={1700}
           />
         </EventsImageGroup>
+
+        <EventsCaption direction='vertical'>happy birthday</EventsCaption>
       </EventsImageGroup>
     </div>
   )
@@ -100,9 +102,10 @@ function EventsImage ({objectFit = 'fill',
   )
 }
 
-function EventsCaption ({children}) {
+function EventsCaption ({children, direction = ''}) {
+  const addedClass = direction === 'vertical' ? " disconts__events-caption--vertical" : ''
   return (
-    <div className="disconts__events-caption">
+    <div className={"disconts__events-caption" + addedClass}>
       {children}
     </div>
   )
