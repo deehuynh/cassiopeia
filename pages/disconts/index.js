@@ -73,6 +73,24 @@ function Events () {
         </EventsImageGroup>
 
         <EventsCaption direction='vertical'>happy birthday</EventsCaption>
+
+        <EventsImageGroup order='2-2'>
+          <EventsImage 
+            src="/31781897_10155755686363277_2831750321405952000_n.jpg_rzkgeb.jpg"
+          />
+
+          <EventsCaption>
+            Happy Mother&#39;s Day
+          </EventsCaption>
+
+          <EventsImage 
+            src="/31899025_10155755691763277_2010388124407955456_n.jpg_yeh6hh.jpg"
+          />
+
+          <EventsCaption>
+            Have The Sweetest
+          </EventsCaption>
+        </EventsImageGroup>
       </EventsImageGroup>
     </div>
   )
