@@ -64,12 +64,13 @@ function Events () {
       </EventsImageGroup>
 
       <EventsImageGroup order='2'>
-        <EventsImage
-          src="/245932573_10158593016973277_7071505578099386214_n.jpg_ziizxm.jpg"
-          width={1080}
-          height={1350}
-        />
-        <EventsImage />
+        <EventsImageGroup order='2-1'>
+          <EventsImage
+            src="/47687127_10156201330158277_7041504890727694336_n.jpg_nlhh6d.jpg"
+            width={1133}
+            height={1700}
+          />
+        </EventsImageGroup>
       </EventsImageGroup>
     </div>
   )
