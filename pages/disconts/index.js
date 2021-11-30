@@ -41,6 +41,15 @@ function Events () {
   return (
     <div className="disconts__events">
       <EventsImageGroup order='1'>
+        <EventsImage
+          src="/49153883_10156234250588277_759211318690447360_n.jpg_fsdolu.jpg"
+          width={1700}
+          height={1133}
+        />
+        <EventsImage />
+      </EventsImageGroup>
+
+      <EventsImageGroup order='2'>
         <EventsImage />
         <EventsImage />
       </EventsImageGroup>
@@ -56,8 +65,25 @@ function EventsImageGroup ({children, order = ''}) {
   )
 }
 
-function EventsImage () {
+function EventsImage ({
+  src = "/49153883_10156234250588277_759211318690447360_n.jpg_fsdolu.jpg", width = 1000, height = 1000}) {
   return (
-    <div className="disconts__events-image"></div>
+    <div className="disconts__events-image">
+      <Image 
+        src={src}
+        width={width}
+        height={height}
+        layout='responsive'
+        alt='gallery'
+      />
+    </div>
+  )
+}
+
+function EventsCaption ({caption}) {
+  return (
+    <div className="disconts__events-caption">
+      {caption}
+    </div>
   )
 }
