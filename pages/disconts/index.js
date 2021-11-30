@@ -49,7 +49,10 @@ function Events () {
         <EventsCaption>
           Merry Christmas
         </EventsCaption>
-        <EventsImage />
+        <EventsImageGroup order='1-1'>
+          <EventsImage />
+          <EventsImage />
+        </EventsImageGroup>
       </EventsImageGroup>
 
       <EventsImageGroup order='2'>
