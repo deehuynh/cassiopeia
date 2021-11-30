@@ -3,6 +3,15 @@
     @include flex();
     column-gap: 2%;
 
+    &-caption {
+      padding: {
+        top: 10px;
+        bottom: 10px;
+      }
+      text-align: center;
+      @extend %H5;
+    }
+
     &-image-group {
       &1 {
         width: 43%;
