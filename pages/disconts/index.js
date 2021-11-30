@@ -40,14 +40,17 @@ export async function getStaticProps() {
 function Events () {
   return (
     <div className="disconts__events">
-
+      <EventsImageGroup order='1'>
+        <EventsImage />
+        <EventsImage />
+      </EventsImageGroup>
     </div>
   )
 }
 
-function EventsImageGroup ({children}) {
+function EventsImageGroup ({children, order = ''}) {
   return (
-    <div className="disconts__events-image-group">
+    <div className={"disconts__events-image-group" + order}>
       {children}
     </div>
   )
