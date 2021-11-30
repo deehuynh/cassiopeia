@@ -40,10 +40,15 @@
 
       &2 {
         width: 55%;
-        @include flex();
+        @include flex(0,space-between);
 
         &-1 {
           width: 55.8%;
+        }
+
+        &-2 {
+          width: 36%;
+          margin-left: 2px;
         }
       }
     }
