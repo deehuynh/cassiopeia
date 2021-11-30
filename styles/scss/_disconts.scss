@@ -17,10 +17,12 @@
         width: 43%;
         @include flex(column);
 
-        .disconts__events-image {
-          &:nth-child(1) {
-            @include block(100%, auto);
-            background-color: whitesmoke;
+        &-1 {
+          @include flex();
+          column-gap: 2%;
+
+          .disconts__events-image {
+            width: 49%;
           }
         }
       }
