@@ -46,6 +46,9 @@ function Events () {
           width={1700}
           height={1133}
         />
+        <EventsCaption>
+          Merry Christmas
+        </EventsCaption>
         <EventsImage />
       </EventsImageGroup>
 
@@ -80,10 +83,10 @@ function EventsImage ({
   )
 }
 
-function EventsCaption ({caption}) {
+function EventsCaption ({children}) {
   return (
     <div className="disconts__events-caption">
-      {caption}
+      {children}
     </div>
   )
 }
