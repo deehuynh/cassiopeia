@@ -30,6 +30,10 @@
       &2 {
         width: 55%;
         @include flex();
+
+        &-1 {
+          width: 55.8%;
+        }
       }
     }
   }
