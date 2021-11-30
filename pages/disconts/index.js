@@ -50,13 +50,25 @@ function Events () {
           Merry Christmas
         </EventsCaption>
         <EventsImageGroup order='1-1'>
-          <EventsImage />
-          <EventsImage />
+          <EventsImage
+            src="/81186265_10157037095808277_5708839241006448640_n.jpg_w2p957.jpg"
+          />
+          <EventsImage
+            src="/48367677_10156211834773277_3135315457381236736_n.jpg_p22k4w.jpg"
+          />
+          <EventsImage
+            src="/76730117_10156963515298277_4845485651266633728_n.png_wqtjya.png"
+            objectFit="cover"
+          />
         </EventsImageGroup>
       </EventsImageGroup>
 
       <EventsImageGroup order='2'>
-        <EventsImage />
+        <EventsImage
+          src="/245932573_10158593016973277_7071505578099386214_n.jpg_ziizxm.jpg"
+          width={1080}
+          height={1350}
+        />
         <EventsImage />
       </EventsImageGroup>
     </div>
@@ -71,7 +83,7 @@ function EventsImageGroup ({children, order = ''}) {
   )
 }
 
-function EventsImage ({
+function EventsImage ({objectFit = 'fill',
   src = "/49153883_10156234250588277_759211318690447360_n.jpg_fsdolu.jpg", width = 1000, height = 1000}) {
   return (
     <div className="disconts__events-image">
@@ -80,6 +92,7 @@ function EventsImage ({
         width={width}
         height={height}
         layout='responsive'
+        objectFit={objectFit}
         alt='gallery'
       />
     </div>
