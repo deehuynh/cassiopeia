@@ -1,5 +1,32 @@
 .disconts {
   &__events {
-    @include flex()
+    @include flex();
+    column-gap: 2%;
+
+    &-image-group {
+      &1 {
+        width: 43%;
+        @include flex(column);
+
+        .disconts__events-image {
+          &:nth-child(1) {
+            @include block(100%, auto);
+            background-color: whitesmoke;
+          }
+        }
+      }
+
+      &2 {
+        width: 55%;
+        @include flex();
+
+        .disconts__events-image {
+          &:first-child {
+            @include block(100%, 200px);
+            background-color: whitesmoke;
+          }
+        }
+      }
+    }
   }
 }
