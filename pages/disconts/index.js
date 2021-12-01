@@ -36,9 +36,13 @@ export async function getStaticProps() {
   // fetch offer products
   pages.forEach((page) => {
     getAllData[page].forEach((item) => {
-      
+      if (item.offer && item.offer !== "") {
+        offerPrs.push(item)
+      }
     })
   })
+
+  console.log(offerPrs)
 
   return {
     props: {
