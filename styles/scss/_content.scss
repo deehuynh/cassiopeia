@@ -19,6 +19,7 @@
   }
 
   &__item-offer-stock {
+    @include flex(0,0,center);
     // position
     position: absolute;
     bottom: 10px;
@@ -34,6 +35,49 @@
     padding: 5px 20px;
     // border style
     border-radius: 5px 0 0 5px;
+
+    span {
+      position: relative;
+      @include block(8px);
+      background-color: white;
+      border-radius: 50%;
+      margin-left: -10px;
+      margin-right: 10px;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "";
+        display: block;
+        @include block(4px);
+        border-radius: 50%;
+        background-color: green;
+      }
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "";
+        display: block;
+        @include block(10px);
+        border-radius: 50%;
+        opacity: .5;
+        background-color: lime;
+        animation: spread-a .5s linear infinite;
+      }
+
+      @keyframes spread-a {
+        from {
+          @include block(0px);
+        } to {
+          @include block(15px);
+        }
+      }
+    }
 
     @include media (1024px) {
       font-size: 12px;
@@ -58,6 +102,11 @@
 
     @include media (360px) {
       font-size: 8px;
+
+      span {
+        margin-left: -12px;
+        margin-right: 8px;
+      }
     }
   }
 
