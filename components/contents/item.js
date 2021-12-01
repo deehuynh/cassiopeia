@@ -66,6 +66,6 @@ export default function Item (props) {
 
 function OfferStock () {
   return (
-    <div className="item__offer-stock"></div>
+    <div className="content__item-offer-stock"></div>
   )
 }
