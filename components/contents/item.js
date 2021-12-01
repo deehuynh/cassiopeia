@@ -7,7 +7,7 @@ export default function Item (props) {
   const prName = props.name ? props.name : '';
   const prPrice = props.price ? '$ ' + props.price : '';
   const prOldPrice = props.oldPrice  ? '$' + props.oldPrice : '';
-  const offer = props.offer;
+  const offer = props.offer ? props.offer : "";
   const imageType = props.imageType;
   const page = props.page;
   // added className
