@@ -26,9 +26,19 @@ export default function Disconts ({offerPrs}) {
 }
 
 export async function getStaticProps() {
-  const resOfferPrs = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/flowers.json')
-  const getAllOfferPrs = await resOfferPrs.json()
-  const offerPrs = getAllOfferPrs.slice(0,5)
+  // fetch all database
+  const resAllData = await fetch('https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/.json')
+  const getAllData = await resAllData.json()
+  // pages
+  const pages = ["flowers", "plants", "gifts"]
+  // offer products
+  const offerPrs = []
+  // fetch offer products
+  pages.forEach((page) => {
+    getAllData[page].forEach((item) => {
+      
+    })
+  })
 
   return {
     props: {
