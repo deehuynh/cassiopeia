@@ -34,6 +34,31 @@
     padding: 5px 20px;
     // border style
     border-radius: 5px 0 0 5px;
+
+    @include media (1024px) {
+      font-size: 12px;
+    }
+
+    @include media (900px) {
+      font-size: 10px;
+    }
+
+    @include media (768px) {
+      font-size: 8px;
+      font-weight: 400;
+    }
+
+    @include media (500px) {
+      font-size: 6px;
+    }
+
+    @include media (425px) {
+      font-size: 9px;
+    }
+
+    @include media (360px) {
+      font-size: 8px;
+    }
   }
 
   &__item {
