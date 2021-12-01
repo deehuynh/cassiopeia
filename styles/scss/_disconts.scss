@@ -1,5 +1,14 @@
 .disconts {
   margin-bottom: 40px;
+
+  &__container {
+    margin-bottom: 60px;
+
+    @include media (1024px) {
+      margin-bottom: 20px;
+    }
+  }
+
   &__events {
     @include flex();
     column-gap: 2%;
