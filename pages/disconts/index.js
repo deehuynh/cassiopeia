@@ -42,8 +42,6 @@ export async function getStaticProps() {
     })
   })
 
-  console.log(offerPrs)
-
   return {
     props: {
       offerPrs
