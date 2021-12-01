@@ -7,6 +7,7 @@ export default function Item (props) {
   const prName = props.name ? props.name : '';
   const prPrice = props.price ? '$ ' + props.price : '';
   const prOldPrice = props.oldPrice  ? '$' + props.oldPrice : '';
+  const offer = props.offer ? props.offer : ""
   const imageType = props.imageType;
   const page = props.page;
   // added className
@@ -29,6 +30,14 @@ export default function Item (props) {
 
   return (
     <div className={`content__item` + addedClass}>
+      {
+        offer !== "" ? (
+          <OfferStock>
+            {offer}
+          </OfferStock>
+        ) : ''
+      }
+
       <div className={"content__thumbnail" + thumbnailAddedClass}>
         {
           thumbnail && thumbnail !== '' ? (
@@ -64,8 +73,10 @@ export default function Item (props) {
   )
 }
 
-function OfferStock () {
+function OfferStock ({children}) {
   return (
-    <div className="content__item-offer-stock"></div>
+    <div className="content__item-offer-stock">
+      {children}
+    </div>
   )
 }
