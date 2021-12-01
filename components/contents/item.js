@@ -78,6 +78,7 @@ export default function Item (props) {
 function OfferStock ({children}) {
   return (
     <div className="content__item-offer-stock">
+      <span></span>
       {children}
     </div>
   )
