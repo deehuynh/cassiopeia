@@ -63,3 +63,9 @@ export default function Item (props) {
     </div>
   )
 }
+
+function OfferStock () {
+  return (
+    <div className="item__offer-stock"></div>
+  )
+}
