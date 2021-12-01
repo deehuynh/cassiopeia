@@ -18,6 +18,12 @@
     // }
   }
 
+  &__item-offer-stock {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
   &__item {
     @include block(260px, 366px);
     user-select: none;
@@ -230,6 +236,7 @@
   }
 
   &__thumbnail {
+    position: relative;
     @include block(100%, 260px);
     overflow: hidden;
     background-color: #f8f8f8;
