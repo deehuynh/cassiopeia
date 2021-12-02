@@ -1,9 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react"
 // next api
 import Image from "next/image"
 import Link from "next/link"
 // hooks
-import { useRef } from "react"
+import { useRef, useReducer } from "react"
 // head tags
 import Title from "../../components/title"
 // components
@@ -14,8 +15,15 @@ import Headline from "../../components/contents/title"
 import handleShowChildButton from "../../function/handleShowChildButton"
 // handle api function
 import relevantPrApi from "../../api/relevantPrApi"
+// reducers
+import detailProductReducer from "../../reducers/detail-pr-reducer"
 
 export default function DetailPage ({prs, relevantFlowers, page}) {
+  const initState = {
+    "amount": 1
+  }
+  const [prState, dispatch] = useReducer(detailProductReducer, initState)
+
   return (
     <div className="product-detail">
       <Title>{prs.name} | Cassiopeia | Flower Store</Title>
@@ -23,7 +31,7 @@ export default function DetailPage ({prs, relevantFlowers, page}) {
 
       <div className="product-detail__container">
         <ImagesContainer avatarImage={prs.thumbnail} imageType={prs.imageType ? prs.imageType : ""} />
-        <InforContainer prDetail={prs} />
+        <InforContainer prDetail={prs} prState={prState} dispatch={dispatch} />
       </div>
 
       <Headline>You may like</Headline>
@@ -112,7 +120,23 @@ function ImagesContainer ({avatarImage, imageType}) {
   )
 }
 
-function InforContainer ({prDetail}) {
+function InforContainer ({prDetail, prState, dispatch}) {
+  // product state
+  const prAmount = prState.amount
+
+  // dispatch
+  const increaseAmountPr = () => {
+    dispatch({
+      type: 'increase_amount_pr'
+    })
+  }
+
+  const decreaseAmountPr = () => {
+    dispatch({
+      type: 'increase_amount_pr'
+    })
+  }
+
   // data varialble
   const prName = prDetail.name;
   const prPrice = prDetail.price;
@@ -152,8 +176,11 @@ function InforContainer ({prDetail}) {
     <div className="product-detail__count">
       <div className="product-detail__label">Count:</div>
       <div className="product-detail__count--counter">
-        <img src="/svgs/plus-i.svg" alt="plus" />
-        <span>N</span>
+        <img 
+          src="/svgs/plus-i.svg" alt="plus" 
+          onClick={increaseAmountPr}
+        />
+        <span>{prAmount}</span>
         <img src="/svgs/minus-i.svg" alt="minus" />
       </div>
     </div>
