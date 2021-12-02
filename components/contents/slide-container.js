@@ -6,7 +6,7 @@ export default function Container (props) {
   const listItem = [];
   props.prAPI && props.prAPI.forEach((item, index) => {
     let page = props.page;
-    if (props.page === "relevant") {
+    if (page === "relevant") {
       if ((index === 0) || (index === 1)) {
         page = "flowers"
       } else if ((index === 2) || (index === 3)) {
@@ -15,6 +15,11 @@ export default function Container (props) {
         page = "gifts"
       }
     }
+
+    if (page === "disconts") {
+      page = item.page
+    }
+    
     listItem.push(
       <SplideSlide key={index}>
         <Item 
