@@ -18,7 +18,7 @@ export default function Disconts ({offerPrs}) {
 
       <Headline>Special offers</Headline>
       <Container 
-        className="disconts__container" page="flowers"
+        className="disconts__container" page="disconts"
         prAPI={offerPrs} unSeeMore showOfferStock />
 
       <Headline>Events</Headline>
@@ -39,7 +39,7 @@ export async function getStaticProps() {
   pages.forEach((page) => {
     getAllData[page].forEach((item) => {
       if (item.offer && item.offer !== "") {
-        offerPrs.push(item)
+        offerPrs.push({...item, "page": page})
       }
     })
   })
