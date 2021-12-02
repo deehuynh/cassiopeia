@@ -133,7 +133,7 @@ function InforContainer ({prDetail, prState, dispatch}) {
 
   const decreaseAmountPr = () => {
     dispatch({
-      type: 'increase_amount_pr'
+      type: 'decrease_amount_pr'
     })
   }
 
@@ -177,11 +177,14 @@ function InforContainer ({prDetail, prState, dispatch}) {
       <div className="product-detail__label">Count:</div>
       <div className="product-detail__count--counter">
         <img 
+          src="/svgs/minus-i.svg" alt="minus" 
+          onClick={decreaseAmountPr}
+        />
+        <span>{prAmount}</span>
+        <img 
           src="/svgs/plus-i.svg" alt="plus" 
           onClick={increaseAmountPr}
         />
-        <span>{prAmount}</span>
-        <img src="/svgs/minus-i.svg" alt="minus" />
       </div>
     </div>
   );
