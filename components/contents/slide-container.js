@@ -23,7 +23,7 @@ export default function Container (props) {
           name={item.name} thumbnail={item.thumbnail} price={item.price}
           imageType={item.imageType}
           oldPrice={item.oldPrice}
-          offer={item.offer ? item.offer : ""}
+          offer={item.offer && props.showOfferStock ? item.offer : ""}
         />
       </SplideSlide>
     );
