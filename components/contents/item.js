@@ -28,8 +28,6 @@ export default function Item (props) {
     )
   }
 
-  console.log(offer)
-
   return (
     <div className={`content__item` + addedClass}>
       <div className={"content__thumbnail" + thumbnailAddedClass}>
