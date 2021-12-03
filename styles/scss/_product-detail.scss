@@ -111,13 +111,17 @@
       @include flex(0,0,center);
 
       span {
-        margin: 0 27px;
+        width: 64px;
         @extend %button;
+        text-align: center;
       }
 
-      img:hover {
-        opacity: .5;
-        cursor: pointer;
+      img {
+        user-select: none;
+        &:hover {
+          opacity: .5;
+          cursor: pointer;
+        }
       }
     }
   }
