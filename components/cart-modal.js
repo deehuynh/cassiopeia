@@ -58,9 +58,13 @@ function Item ({storagedItems}) {
           </div>
 
           <div>
-            <img src="/svgs/minus-btn.svg" alt="minus button" />
+            <img
+              src="/svgs/minus-btn.svg" alt="minus button" 
+            />
             <span>{item.amount}</span>
-            <img src="/svgs/plus-btn.svg" alt="plus button" />
+            <img 
+              src="/svgs/plus-btn.svg" alt="plus button" 
+            />
           </div>
         </div>
       </div>
