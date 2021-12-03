@@ -22,14 +22,23 @@ export default function Cart (props) {
       <h2>
         Your cart
       </h2>
-      <Item storagedItems={storagedItems} />
-      <Promocode />
-      <OrderTotal />
-      <CheckoutButton
-        cartRef={props.cartRef}
-        openCartRef={props.openCartRef}
-        closeCartRef={props.closeCartRef}
-      />
+
+      {
+        storagedItems === null || storagedItems.length === 0 ? 
+          <h5>Your cart is empty</h5>
+        : (
+          <>
+            <Item storagedItems={storagedItems} />
+            <Promocode />
+            <OrderTotal />
+            <CheckoutButton
+              cartRef={props.cartRef}
+              openCartRef={props.openCartRef}
+              closeCartRef={props.closeCartRef}
+            />
+          </>
+        )
+      }
     </div>
   )
 }
