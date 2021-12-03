@@ -1,30 +1,28 @@
+// react api
+import { useEffect, useState } from "react";
+// next api
 import Link from "next/link"
 import Image from "next/image"
 // functions
 import preventBodyScroll from "../function/preventBodyScroll";
 
-const productsAPI = [
-  {
-    name: 'White Lilies and Gerberas', price: '54', oldPrice: '',
-    thumbnail: '/5cdd463408a93217111334_xbpxkx.webp'
-  },
-  {
-    name: 'Red Roses and White Lilies', price: '99', oldPrice: '',
-    thumbnail: '/5d84dc1a631b2292689077_nihv8m.webp'
-  },
-  {
-    name: 'Chrysanthemums and Roses', price: '44', oldPrice: '',
-    thumbnail: '/5d19dc8cc0983744838000_xc256j.webp'
-  },
-];
-
 export default function Cart (props) {
+  // get localStorage cart
+  const [storagedItems, setStoragedItems] = useState([])
+
+  useEffect(() => {
+    // rendering on the server, can't find localStorage
+    if (typeof window !== 'undefined') {
+      setStoragedItems(JSON.parse(localStorage.getItem('cart')))
+    }
+  }, [])
+
   return (
     <div ref={props.cartRef} className="cart-modal cart-modal__hidden">
       <h2>
         Your cart
       </h2>
-      <Item />
+      <Item storagedItems={storagedItems} />
       <Promocode />
       <OrderTotal />
       <CheckoutButton
@@ -36,9 +34,9 @@ export default function Cart (props) {
   )
 }
 
-function Item () {
+function Item ({storagedItems}) {
   const listItem = [];
-  productsAPI.forEach((item, index) => {
+  storagedItems.forEach((item, index) => {
     listItem.push(
       <div key={index} className="cart-modal__item">
         <div className="cart-modal__avatar">
