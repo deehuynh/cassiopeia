@@ -17,6 +17,8 @@ import handleShowChildButton from "../../function/handleShowChildButton"
 import relevantPrApi from "../../api/relevantPrApi"
 // reducers
 import detailProductReducer from "../../reducers/detail-pr-reducer"
+// handle localStorage function
+import handleAddToCart from "../../localStorage/handleAddToCart"
 
 export default function DetailPage ({prs, relevantFlowers, page}) {
   const initState = {
@@ -203,7 +205,10 @@ function InforContainer ({prDetail, prState, dispatch}) {
       <Link href='/checkout'>
         <a className="product-detail__order-btn">Order now</a>
       </Link>
-      <div className="product-detail__cart-btn">
+      <div
+        className="product-detail__cart-btn"
+        onClick={() => {handleAddToCart(prDetail)}}
+      >
         <img src="/svgs/cart-btn-square.svg" alt="add to cart" />
       </div>
     </div>
