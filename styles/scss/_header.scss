@@ -24,6 +24,7 @@
     }
 
     &-order {
+      display: none;
       position: absolute;
       @include block(12px);
       background-color: red;
