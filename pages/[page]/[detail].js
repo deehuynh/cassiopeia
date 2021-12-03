@@ -207,7 +207,7 @@ function InforContainer ({prDetail, prState, dispatch}) {
       </Link>
       <div
         className="product-detail__cart-btn"
-        onClick={() => {handleAddToCart(prDetail)}}
+        onClick={() => {handleAddToCart({...prDetail, amount: prAmount})}}
       >
         <img src="/svgs/cart-btn-square.svg" alt="add to cart" />
       </div>
