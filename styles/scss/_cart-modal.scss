@@ -52,6 +52,13 @@
     }
   }
 
+  h5 {
+    @extend %H5;
+    margin-bottom: 60px;
+    text-align: center;
+    color: #606060;
+  }
+
   &__item {
     @include flex();
     margin-bottom: 40px;
