@@ -25,7 +25,10 @@ export default function Cart (props) {
 
       {
         storagedItems === null || storagedItems.length === 0 ? 
-          <h5>Your cart is empty</h5>
+          <div className="cart-modal__empty-cart">
+            <h5>Your cart is empty</h5>
+            <p>Next step: add a product to your cart</p>
+          </div>
         : (
           <>
             <Item storagedItems={storagedItems} />
