@@ -52,11 +52,19 @@
     }
   }
 
-  h5 {
-    @extend %H5;
+  &__empty-cart {
     margin-bottom: 60px;
     text-align: center;
-    color: #606060;
+
+    h5 {
+      @extend %H5;
+      color: #606060;
+    }
+
+    p {
+      font-size: 14px;
+      color: $c-positive;
+    }
   }
 
   &__item {
