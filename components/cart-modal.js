@@ -32,6 +32,7 @@ export default function Cart (props) {
         : (
           <>
             <Item storagedItems={storagedItems} />
+            <RemoveAll />
             <Promocode />
             <OrderTotal />
             <CheckoutButton
@@ -77,6 +78,16 @@ function Item ({storagedItems}) {
     <>
       {listItem}
     </>
+  )
+}
+
+function RemoveAll () {
+  return (
+    <div className="cart-modal__remove-all">
+      <span>
+        Remove all
+      </span>
+    </div>
   )
 }
 
