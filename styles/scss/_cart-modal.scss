@@ -192,7 +192,7 @@
   &__checkout-btn {
     @include block(221px, 46px);
     @include flex(0,center,center);
-    @include button($c-primary, 8px);
+    @include button(black, 8px);
     margin: {
       top: 26px;
       left: auto;
@@ -202,7 +202,7 @@
     transition: .2s;
 
     &:hover {
-      background-color: $c-secondary;
+      opacity: .7;
     }
 
     span {
