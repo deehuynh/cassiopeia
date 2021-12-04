@@ -123,6 +123,25 @@
     }
   }
 
+  &__remove-all {
+    margin: {
+      top: -10px;
+      bottom: 30px;
+    }
+
+    span {
+      user-select: none;
+      color: $c-primary;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:hover {
+        color: $c-secondary;
+      }
+    }
+  }
+
   &__promocode {
     @include flex(0,space-between);
     margin-bottom: 40px;
