@@ -82,9 +82,18 @@ function Item ({storagedItems}) {
 }
 
 function RemoveAll () {
+  // remove all items in the cart
+  const hanldeRemove = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('cart')
+    }
+  }
+
   return (
     <div className="cart-modal__remove-all">
-      <span>
+      <span
+        onClick={hanldeRemove}
+      >
         Remove all
       </span>
     </div>
