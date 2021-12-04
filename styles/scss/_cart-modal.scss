@@ -140,6 +140,12 @@
         color: $c-secondary;
       }
     }
+
+    @include media (425px) {
+      margin: {
+        top: 0;
+      }
+    }
   }
 
   &__promocode {
