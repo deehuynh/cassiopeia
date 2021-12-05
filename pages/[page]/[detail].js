@@ -19,6 +19,9 @@ import relevantPrApi from "../../api/relevantPrApi"
 import detailProductReducer from "../../reducers/detail-pr-reducer"
 // handle localStorage function
 import handleAddToCart from "../../localStorage/handleAddToCart"
+// redux
+import { useDispatch } from "react-redux"
+import { addToCart } from "../../redux/cartSlice"
 
 export default function DetailPage ({prs, relevantFlowers, page}) {
   const initState = {
@@ -123,6 +126,8 @@ function ImagesContainer ({avatarImage, imageType}) {
 }
 
 function InforContainer ({prDetail, prState, dispatch}) {
+  // use redux
+  const reduxDispatch = useDispatch()
   // product state
   const prAmount = prState.amount
 
@@ -207,7 +212,7 @@ function InforContainer ({prDetail, prState, dispatch}) {
       </Link>
       <div
         className="product-detail__cart-btn"
-        onClick={() => {handleAddToCart({...prDetail, amount: prAmount})}}
+        onClick={() => reduxDispatch(addToCart({...prDetail, amount: prAmount}))}
       >
         <img src="/svgs/cart-btn-square.svg" alt="add to cart" />
       </div>
