@@ -1,25 +1,14 @@
-// react api
-import { useEffect, useState } from "react"
 // next api
 import Link from "next/link"
 import Image from "next/image"
-// redux toolkit api
-import { configureStore } from "@reduxjs/toolkit"
 // functions
 import preventBodyScroll from "../function/preventBodyScroll"
-// redux logic
-import { cartSlice } from "../redux/cartSlice"
+// use redux
+import { useSelector } from "react-redux"
 
 export default function Cart (props) {
-  // get localStorage cart
-  const [storagedItems, setStoragedItems] = useState([])
-
-  useEffect(() => {
-    // rendering on the server, can't find localStorage
-    if (typeof window !== 'undefined') {
-      setStoragedItems(JSON.parse(localStorage.getItem('cart')))
-    }
-  }, [])
+  // get cart store
+  const cartData = useSelector(state => state.cart)
 
   return (
     <div ref={props.cartRef} className="cart-modal cart-modal__hidden">
@@ -28,14 +17,14 @@ export default function Cart (props) {
       </h2>
 
       {
-        storagedItems === null || storagedItems.length === 0 ? 
+        cartData.length === 0 ? 
           <div className="cart-modal__empty-cart">
             <h5>Your cart is empty</h5>
             <p>Next step: add a product to your cart</p>
           </div>
         : (
           <>
-            <Item storagedItems={storagedItems} />
+            <Item storagedItems={cartData} />
             <RemoveAll />
             <Promocode />
             <OrderTotal />
