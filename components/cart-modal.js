@@ -1,10 +1,14 @@
 // react api
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 // next api
 import Link from "next/link"
 import Image from "next/image"
+// redux toolkit api
+import { configureStore } from "@reduxjs/toolkit"
 // functions
-import preventBodyScroll from "../function/preventBodyScroll";
+import preventBodyScroll from "../function/preventBodyScroll"
+// redux logic
+import { cartSlice } from "../redux/cartSlice"
 
 export default function Cart (props) {
   // get localStorage cart
