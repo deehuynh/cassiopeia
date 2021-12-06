@@ -4,7 +4,8 @@ import Image from "next/image"
 // functions
 import preventBodyScroll from "../function/preventBodyScroll"
 // use redux
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { removeAll } from "../redux/cartSlice"
 
 export default function Cart (props) {
   // get cart store
@@ -75,17 +76,17 @@ function Item ({storagedItems}) {
 }
 
 function RemoveAll () {
+  // redux dispatch
+  const dispatch = useDispatch()
   // remove all items in the cart
-  const hanldeRemove = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('cart')
-    }
+  const handleRemoveAll = () => {
+    dispatch(removeAll())
   }
 
   return (
     <div className="cart-modal__remove-all">
       <span
-        onClick={hanldeRemove}
+        onClick={handleRemoveAll}
       >
         Remove all
       </span>
