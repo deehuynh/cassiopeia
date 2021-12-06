@@ -24,9 +24,9 @@
     }
 
     &-order {
-      display: none;
       position: absolute;
-      @include block(12px);
+      @include flex(0,center,center);
+      @include block(15px);
       background-color: red;
       border-radius: 50%;
       top: -25%;
@@ -34,7 +34,7 @@
       font-size: 10px;
       color: white;
       text-align: center;
-      line-height: 12px;
+      font-weight: 600;
 
       @include media (425px) {
         @include block(10px);
