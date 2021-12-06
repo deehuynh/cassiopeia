@@ -125,9 +125,13 @@ export default function Header (props) {
         </div>
 
         <div className="header__cart">
-          <span className="header__cart-order">
-            {totalCart}
-          </span>
+          {
+            totalCart === 0 ? '' : (
+              <span className="header__cart-order">
+                {totalCart}
+              </span>
+            )
+          }
 
           <img
             className="show"
