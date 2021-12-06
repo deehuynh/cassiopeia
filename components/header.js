@@ -9,8 +9,12 @@ import preventBodyScroll from "../function/preventBodyScroll";
 import effectOneButton from "../function/effectOneButton";
 import preventOnClick from "../function/preventOnClick";
 import handleBackHome from "../function/handleBackHome";
+// redux cart store
+import { useSelector } from "react-redux";
 
 export default function Header (props) {
+  // handle cart store
+  const totalCart = useSelector(state => state.cart.length)
   // nav ref container
   const navRef = props.navRef;
   const openNavRef = props.openNavRef;
@@ -121,7 +125,9 @@ export default function Header (props) {
         </div>
 
         <div className="header__cart">
-          <span className="header__cart-order">3</span>
+          <span className="header__cart-order">
+            {totalCart}
+          </span>
 
           <img
             className="show"
