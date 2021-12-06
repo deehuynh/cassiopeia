@@ -17,8 +17,6 @@ import handleShowChildButton from "../../function/handleShowChildButton"
 import relevantPrApi from "../../api/relevantPrApi"
 // reducers
 import detailProductReducer from "../../reducers/detail-pr-reducer"
-// handle localStorage function
-import handleAddToCart from "../../localStorage/handleAddToCart"
 // redux
 import { useDispatch } from "react-redux"
 import { addToCart } from "../../redux/cartSlice"
