@@ -157,6 +157,7 @@ export default function Header (props) {
             ref={closeCartRef}
             onClick={()=>{
               handleShow(cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
+              handleShow(orderCartRef, 'hiden','header__cart-order');
               preventBodyScroll(false);
               handleShowButton(closeCartRef, openCartRef, 'show', 'hiden');
             }}
