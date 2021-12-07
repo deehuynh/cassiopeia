@@ -126,20 +126,22 @@ export default function Header (props) {
         </div>
 
         <div className="header__cart">
-          {
-            totalCart === 0 ? '' : (
-              <span ref={orderCartRef} className="header__cart-order">
-                {totalCart}
-              </span>
-            )
-          }
+          <span ref={orderCartRef} className="show">
+            {
+              totalCart === 0 ? '' : (
+                <span className="header__cart-order">
+                  {totalCart}
+                </span>
+              )
+            }
+          </span>
 
           <img
             className="show"
             ref={openCartRef}
             onClick={()=>{
               handleShow(cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
-              handleShow(orderCartRef, 'hiden','header__cart-order');
+              handleShow(orderCartRef, 'hiden','show');
               preventBodyScroll(true);
               handleShowButton(openCartRef, closeCartRef, 'show', 'hiden');
               preventOnClick(
@@ -157,6 +159,7 @@ export default function Header (props) {
             ref={closeCartRef}
             onClick={()=>{
               handleShow(cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
+              handleShow(orderCartRef, 'hiden','show');
               preventBodyScroll(false);
               handleShowButton(closeCartRef, openCartRef, 'show', 'hiden');
             }}
