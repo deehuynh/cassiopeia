@@ -11,13 +11,15 @@ import PageName from "../components/contents/page-name"
 // redux
 import { useSelector } from "react-redux"
 
-export default function Checkout ({productsAPI, creditCards, gateways}) {
+export default function Checkout ({creditCards, gateways}) {
+  // get order items from redux cart store
+  const orderItems = useSelector(state => state.cart)
   // finished payment state
   const [finishedPaymentState, setFinishPaymentState] = useState(false);
   // data storaged variable
   const listItem = [];
   // handle API
-  productsAPI && productsAPI.forEach(
+  orderItems.forEach(
     (item, index) => {
       listItem.push(
         <Item 
