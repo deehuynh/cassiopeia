@@ -27,6 +27,7 @@ export default function Header (props) {
   const cartRef = props.cartRef;
   const openCartRef = props.openCartRef;
   const closeCartRef = props.closeCartRef;
+  const orderCartRef = useRef(null);
 
   return (
     <header className="header">
@@ -127,7 +128,7 @@ export default function Header (props) {
         <div className="header__cart">
           {
             totalCart === 0 ? '' : (
-              <span className="header__cart-order">
+              <span ref={orderCartRef} className="header__cart-order">
                 {totalCart}
               </span>
             )
