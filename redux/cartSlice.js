@@ -11,7 +11,8 @@ export const cartSlice = createSlice({
     addToCart: (state, action) => {
       if (typeof window !== 'undefined') {
         // check duplicate item condition
-        const duplicateItem = state.find(item => item.id === action.payload.id)
+        const duplicateItem = state.find(
+          item => (item.id === action.payload.id) && (item.page === action.payload.page))
 
         // don't add duplicate item
         if (!duplicateItem) {
