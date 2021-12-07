@@ -37,8 +37,7 @@
       font-weight: 600;
 
       @include media (425px) {
-        @include block(10px);
-        line-height: 10px;
+        @include block(12px);
         font-size: 9px;
         top: -20%;
         right: -25%;
