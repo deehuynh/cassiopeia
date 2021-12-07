@@ -1,13 +1,15 @@
 // next api
 import Image from "next/image"
 import Link from "next/link"
+// react
+import React, { useState } from "react";
 // head tags
 import Title from "../components/title"
 // components
 import BreadCrumb from "../components/contents/breadcrumb"
 import PageName from "../components/contents/page-name"
-// react
-import React, { useState } from "react";
+// redux
+import { useSelector } from "react-redux"
 
 export default function Checkout ({productsAPI, creditCards, gateways}) {
   // finished payment state
