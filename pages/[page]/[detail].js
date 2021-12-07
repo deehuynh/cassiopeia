@@ -34,7 +34,7 @@ export default function DetailPage ({prs, relevantFlowers, page}) {
 
       <div className="product-detail__container">
         <ImagesContainer avatarImage={prs.thumbnail} imageType={prs.imageType ? prs.imageType : ""} />
-        <InforContainer prDetail={prs} prState={prState} dispatch={dispatch} />
+        <InforContainer prDetail={prs} page={page} prState={prState} dispatch={dispatch} />
       </div>
 
       <Headline>You may like</Headline>
@@ -123,7 +123,7 @@ function ImagesContainer ({avatarImage, imageType}) {
   )
 }
 
-function InforContainer ({prDetail, prState, dispatch}) {
+function InforContainer ({prDetail, page, prState, dispatch}) {
   // use redux
   const reduxDispatch = useDispatch()
   // product state
@@ -210,7 +210,7 @@ function InforContainer ({prDetail, prState, dispatch}) {
       </Link>
       <div
         className="product-detail__cart-btn"
-        onClick={() => reduxDispatch(addToCart({...prDetail, amount: prAmount}))}
+        onClick={() => reduxDispatch(addToCart({...prDetail, amount: prAmount, page: page}))}
       >
         <img src="/svgs/cart-btn-square.svg" alt="add to cart" />
       </div>
