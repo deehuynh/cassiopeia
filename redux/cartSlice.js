@@ -10,8 +10,14 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       if (typeof window !== 'undefined') {
-        state.push(action.payload)
-        localStorage.setItem('cart', JSON.stringify(state))
+        // check duplicate item condition
+        const duplicateItem = state.find(item => item.id === action.payload.id)
+
+        // don't add duplicate item
+        if (!duplicateItem) {
+          state.push(action.payload)
+          localStorage.setItem('cart', JSON.stringify(state))
+        }
       }
     },
 
