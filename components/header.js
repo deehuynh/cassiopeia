@@ -129,7 +129,21 @@ export default function Header (props) {
           <span ref={orderCartRef} className="show">
             {
               totalCart === 0 ? '' : (
-                <span className="header__cart-order">
+                <span 
+                  className="header__cart-order"
+                  onClick={()=>{
+                    handleShow(cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
+                    handleShow(orderCartRef, 'hiden','show');
+                    preventBodyScroll(true);
+                    handleShowButton(openCartRef, closeCartRef, 'show', 'hiden');
+                    preventOnClick(
+                      [{
+                        contentRef: navRef, hidden: 'nav nav--hiden'
+                      }, openNavRef, closeNavRef],
+                      [{searchRef: searchRef, mSearchRef: mSearchRef}, searchBtnRef]
+                    );
+                  }}
+                >
                   {totalCart}
                 </span>
               )
