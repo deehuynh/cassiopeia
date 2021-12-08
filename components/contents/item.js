@@ -1,7 +1,12 @@
+// next
 import Image from "next/image"
 import Link from "next/link"
+// redux
+import { useDispatch } from "react-redux"
+import { addToCart } from "../../redux/cartSlice"
 
 export default function Item (props) {
+  // props
   const id = props.id;
   const thumbnail = props.thumbnail;
   const prName = props.name ? props.name : '';
@@ -13,6 +18,14 @@ export default function Item (props) {
   // added className
   const addedClass = props.className ? ' ' + props.className : '';
   const thumbnailAddedClass = imageType === "transparent" ? ' content__thumbnail--pd' : '';
+  // redux
+  const dispatch = useDispatch()
+  // add item to cart function
+  const handleAddToCart = () => dispatch(addToCart({
+    ...props.item,
+    page: page,
+    amount: 1
+  }))
 
   if (props.seeMore) {
     return (
@@ -44,7 +57,11 @@ export default function Item (props) {
         }
 
         <div className="content__thumbnail-overlay">
-          <img src="/svgs/cart-btn.svg" alt="cart btn" />
+          <img
+            src="/svgs/cart-btn.svg" alt="cart btn" 
+            onClick={handleAddToCart}
+          />
+
           <Link href={`/${page}/${id}`}>
             <a><img src="/svgs/view-btn.svg" alt="view detail" /></a>
           </Link>
