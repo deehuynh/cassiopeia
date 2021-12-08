@@ -18,6 +18,7 @@ export default function Layout ({ children }) {
   const cartRef = useRef(null);
   const openCartRef = useRef(null);
   const closeCartRef = useRef(null);
+  const orderCartRef = useRef(null);
   // nav refs
   const navRef = useRef(null);
   const openNavRef = useRef(null);
@@ -37,10 +38,12 @@ export default function Layout ({ children }) {
         navRef={navRef} closeNavRef={closeNavRef} openNavRef={openNavRef}
         searchRef={searchRef}
         cartRef={cartRef} openCartRef={openCartRef} closeCartRef={closeCartRef}
+        orderCartRef={orderCartRef}
       />
 
       <ModalContainer 
         cartRef={cartRef} openCartRef={openCartRef} closeCartRef={closeCartRef}
+        orderCartRef={orderCartRef}
       />
 
       <Nav 
