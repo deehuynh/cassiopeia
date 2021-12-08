@@ -31,6 +31,7 @@ export default function Container (props) {
           imageType={item.imageType}
           oldPrice={item.oldPrice}
           offer={item.offer && props.showOfferStock ? item.offer : ""}
+          item={item}
         />
       </SplideSlide>
     );
