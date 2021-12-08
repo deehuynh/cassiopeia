@@ -1,5 +1,7 @@
+// components
 import Item from "./item"
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+// splidejs
+import { Splide, SplideSlide } from "@splidejs/react-splide"
 
 export default function Container (props) {
   const className = props.className && props.className !== '' ? ' ' + props.className : '';
