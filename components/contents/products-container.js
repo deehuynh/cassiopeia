@@ -22,6 +22,7 @@ export default function ProductsContainer ({allProducts, page}) {
           name={item.name}
           price={item.price}
           oldPrice={item.oldPrice}
+          item={item}
         />
       );
     }
