@@ -27,7 +27,7 @@ export default function Header (props) {
   const cartRef = props.cartRef;
   const openCartRef = props.openCartRef;
   const closeCartRef = props.closeCartRef;
-  const orderCartRef = useRef(null);
+  const orderCartRef = props.orderCartRef;
 
   return (
     <header className="header">
