@@ -6,7 +6,7 @@ import Image from "next/image"
 import preventBodyScroll from "../function/preventBodyScroll"
 // use redux
 import { useSelector, useDispatch } from "react-redux"
-import { removeAll, increasePrQuantity } from "../redux/cartSlice"
+import { removeAll, increasePrQuantity, decreasePrQuantity } from "../redux/cartSlice"
 
 export default function Cart (props) {
   // get cart store
@@ -62,6 +62,9 @@ function Item ({storagedItems}) {
           <div>
             <img
               src="/svgs/minus-btn.svg" alt="minus button" 
+              onClick={() => dispatch(
+                decreasePrQuantity({id: item.id})
+              )}
             />
             <span>{item.amount}</span>
             <img 
