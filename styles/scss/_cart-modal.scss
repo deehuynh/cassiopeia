@@ -105,6 +105,17 @@
     div:last-child {
       @include flex(0,0,center);
 
+      p {
+        margin: {
+          top: 0;
+          bottom: 0;
+          left: 20px;
+        }
+
+        font-size: 14px;
+        color: red;
+      }
+
       span {
         width: 48px;
         text-align: center;
