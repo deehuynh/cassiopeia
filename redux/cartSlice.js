@@ -27,7 +27,13 @@ export const cartSlice = createSlice({
 
     increasePrQuantity: (state, action) => {
       if (isWindow) {
-        console.log(state)
+        state.forEach((item) => {
+          if (item.id === action.payload.id) {
+            if (item.amount < 10) {
+              item.amount += 1
+            }
+          }
+        })
       }
     },
 
