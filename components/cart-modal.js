@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // next api
 import Link from "next/link"
 import Image from "next/image"
@@ -5,7 +6,7 @@ import Image from "next/image"
 import preventBodyScroll from "../function/preventBodyScroll"
 // use redux
 import { useSelector, useDispatch } from "react-redux"
-import { removeAll } from "../redux/cartSlice"
+import { removeAll, increasePrQuantity } from "../redux/cartSlice"
 
 export default function Cart (props) {
   // get cart store
@@ -43,6 +44,8 @@ export default function Cart (props) {
 }
 
 function Item ({storagedItems}) {
+  const dispatch = useDispatch()
+
   const listItem = [];
   storagedItems.forEach((item, index) => {
     listItem.push(
@@ -63,6 +66,9 @@ function Item ({storagedItems}) {
             <span>{item.amount}</span>
             <img 
               src="/svgs/plus-btn.svg" alt="plus button" 
+              onClick={() => dispatch(
+                increasePrQuantity({id: item.id})
+              )}
             />
           </div>
         </div>
