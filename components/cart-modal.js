@@ -33,6 +33,7 @@ export default function Cart (props) {
               cartRef={props.cartRef}
               openCartRef={props.openCartRef}
               closeCartRef={props.closeCartRef}
+              orderCartRef={props.orderCartRef}
             />
           </>
         )
@@ -119,7 +120,7 @@ function OrderTotal () {
   )
 }
 
-function CheckoutButton ({cartRef, openCartRef, closeCartRef}) {
+function CheckoutButton ({cartRef, openCartRef, closeCartRef, orderCartRef}) {
   return (
     <Link href="/checkout">
       <a>
@@ -128,6 +129,7 @@ function CheckoutButton ({cartRef, openCartRef, closeCartRef}) {
             cartRef.current.className = "cart-modal cart-modal__hidden";
             openCartRef.current.className = "show";
             closeCartRef.current.className = "hiden";
+            orderCartRef.current.className = "show";
             preventBodyScroll(false);
           }}
           className="cart-modal__checkout-btn"
