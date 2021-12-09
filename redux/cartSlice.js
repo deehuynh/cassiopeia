@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+// check localStorage after ssr
+const isWindow = typeof window !== 'undefined'
+
 // get localStorage
 const cartData = typeof window !== 'undefined' && localStorage.getItem('cart') ?
   JSON.parse(localStorage.getItem('cart')) : []
@@ -19,6 +22,12 @@ export const cartSlice = createSlice({
           state.push(action.payload)
           localStorage.setItem('cart', JSON.stringify(state))
         }
+      }
+    },
+
+    increasePrQuantity: (state, action) => {
+      if (isWindow) {
+        console.log(state)
       }
     },
 
