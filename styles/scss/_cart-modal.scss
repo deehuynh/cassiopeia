@@ -106,10 +106,8 @@
       @include flex(0,0,center);
 
       span {
-        margin: {
-          left: 24px;
-          right: 24px;
-        }
+        width: 48px;
+        text-align: center;
         @extend %button;
       }
 
