@@ -48,6 +48,17 @@ function Item ({storagedItems}) {
 
   const listItem = [];
   storagedItems.forEach((item, index) => {
+    const itemQuantity = item.amount > 1 ? true : false
+    // just show this element when item quantity more than 1
+    const totalItemPrice = itemQuantity === true ? (
+      <p>
+        {(Number(item.price) * item.amount).toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        })}
+      </p>
+    ) : ''
+
     listItem.push(
       <div key={index} className="cart-modal__item">
         <div className="cart-modal__avatar">
@@ -73,6 +84,8 @@ function Item ({storagedItems}) {
                 increasePrQuantity({id: item.id})
               )}
             />
+
+            {totalItemPrice}
           </div>
         </div>
       </div>
