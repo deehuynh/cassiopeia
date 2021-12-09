@@ -37,6 +37,18 @@ export const cartSlice = createSlice({
       }
     },
 
+    decreasePrQuantity: (state, action) => {
+      if (isWindow) {
+        state.forEach((item) => {
+          if (item.id === action.payload.id) {
+            if (item.amount > 1) {
+              item.amount -= 1
+            }
+          }
+        })
+      }
+    },
+
     removeAll: (state) => {
       if (typeof window !== 'undefined') {
         // remove array without creating a new array
@@ -48,6 +60,6 @@ export const cartSlice = createSlice({
   }
 })
 
-export const {addToCart, increasePrQuantity, removeAll} = cartSlice.actions
+export const {addToCart, increasePrQuantity, decreasePrQuantity, removeAll} = cartSlice.actions
 
 export default cartSlice.reducer
