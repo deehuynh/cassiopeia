@@ -79,6 +79,27 @@
   &__avatar {
     @include block(100px);
     background: #F0F0F5;
+    position: relative;
+
+    &-overlay {
+      display: none;
+      position: absolute;
+      left: 30%;
+      right: 30%;
+      bottom: 30%;
+      top: 30%;
+      z-index: 1;
+      transition: .3s;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+
+    &:hover &-overlay {
+      @include flex(0,center);
+      cursor: pointer;
+    }
   }
 
   &__infor {
