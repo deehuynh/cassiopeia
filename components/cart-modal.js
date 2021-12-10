@@ -4,6 +4,8 @@ import Link from "next/link"
 import Image from "next/image"
 // functions
 import preventBodyScroll from "../function/preventBodyScroll"
+//handle data functions
+import USDCurrency from "../handle_data_functions/usd-currency"
 // use redux
 import { useSelector, useDispatch } from "react-redux"
 import { removeAll, increasePrQuantity, decreasePrQuantity } from "../redux/cartSlice"
@@ -133,7 +135,7 @@ function OrderTotal () {
       orderItemPrice += Number(item.price) * item.amount
     })
 
-    return orderItemPrice
+    return USDCurrency(orderItemPrice)
   })
 
   return (
@@ -145,7 +147,7 @@ function OrderTotal () {
 
       <div className="cart-modal__field">
         <span>Order total</span>
-        <span>$00.00</span>
+        <span>{orderTotal}</span>
       </div>
     </div>
   )
