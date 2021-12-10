@@ -127,6 +127,15 @@ function Promocode () {
 }
 
 function OrderTotal () {
+  const orderTotal = useSelector(state => {
+    let orderItemPrice = 0
+    state.cart.forEach((item) => {
+      orderItemPrice += Number(item.price) * item.amount
+    })
+
+    return orderItemPrice
+  })
+
   return (
     <div className="cart-modal__order-total">
       <div className="cart-modal__field">
