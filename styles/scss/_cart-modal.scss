@@ -126,8 +126,9 @@
       }
     }
 
-    div:last-child {
+    div:nth-child(2) {
       @include flex(0,0,center);
+      margin-bottom: 15px;
 
       p {
         margin: {
@@ -152,6 +153,23 @@
           cursor: pointer;
           opacity: .5;
         }
+      }
+    }
+
+    div:last-child {
+      span {
+        @include flex(0,0,center);
+        cursor: pointer;
+        font-size: 14px;
+
+        &:hover {
+          opacity: .6;
+        }
+      }
+      
+      img {
+        width: 19px;
+        margin-right: 5px;
       }
     }
   }
