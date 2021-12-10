@@ -94,6 +94,15 @@ function Item ({storagedItems}) {
 
             {totalItemPrice}
           </div>
+
+          <div>
+            <span>
+              <img
+                src="/svgs/delete-i.svg" alt="delete"
+              />
+              remove
+            </span>
+          </div>
         </div>
       </div>
     );
