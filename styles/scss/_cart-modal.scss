@@ -82,14 +82,15 @@
     position: relative;
 
     &-overlay {
-      display: none;
+      @include flex(0,center);
       position: absolute;
-      left: 30%;
-      right: 30%;
-      bottom: 30%;
-      top: 30%;
+      left: 100%;
+      right: 100%;
+      bottom: 100%;
+      top: 100%;
       z-index: 1;
-      transition: .3s;
+      transition: .4s;
+      cursor: pointer;
 
       &:hover {
         opacity: .8;
@@ -97,8 +98,10 @@
     }
 
     &:hover &-overlay {
-      @include flex(0,center);
-      cursor: pointer;
+      left: 30%;
+      right: 30%;
+      bottom: 30%;
+      top: 30%;
     }
   }
 
