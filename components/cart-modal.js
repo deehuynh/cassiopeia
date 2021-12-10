@@ -64,6 +64,9 @@ function Item ({storagedItems}) {
     listItem.push(
       <div key={index} className="cart-modal__item">
         <div className="cart-modal__avatar">
+          <a className="cart-modal__avatar-overlay">
+            <img src="/svgs/view-btn.svg" alt="view detail" />
+          </a>
           <Image src={item.thumbnail} width={100} height={100} alt="thumbnail" />
         </div>
         <div className="cart-modal__infor">
