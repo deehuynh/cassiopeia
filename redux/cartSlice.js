@@ -54,7 +54,15 @@ export const cartSlice = createSlice({
         state.forEach((item, index) => {
           if (item.id === action.payload.id) {
             // if matching item is found then create a new array without it
-            return state = state.splice(index, 1)
+            const newState = state.splice(index, 1);
+            // set localStorage
+            if (index === 0) {
+              localStorage.removeItem('cart')
+            } else {
+              localStorage.setItem('cart', JSON.stringify(newState))
+            }
+            // return and break loop
+            return newState
           }
         })
       }
