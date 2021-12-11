@@ -139,6 +139,16 @@
 
         font-size: 14px;
         color: red;
+
+        @include media (355px) {
+          margin-left: 15px;
+          font-size: 13px;
+        }
+
+        @include media (330px) {
+          margin-left: 10px;
+          font-size: 13px;
+        }
       }
 
       span {
@@ -158,6 +168,28 @@
 
     &-counter {
       @include flex(0,0,center);
+
+      @include media (355px) {
+        img {
+          width: 24px;
+        }
+
+        span {
+          width: 44px;
+          font-size: 13px;
+        }
+      }
+
+      @include media (330px) {
+        img {
+          width: 22px;
+        }
+
+        span {
+          width: 40px;
+          font-size: 13px;
+        }
+      }
     }
 
     &-delete-btn {
@@ -166,6 +198,10 @@
         transition: .2s;
         width: 20px;
       }
+    }
+
+    @include media (330px) {
+      padding-left: 15px;
     }
   }
 
