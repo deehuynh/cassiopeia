@@ -72,36 +72,33 @@ function Item ({storagedItems}) {
           <Image src={item.thumbnail} width={100} height={100} alt="thumbnail" />
         </div>
         <div className="cart-modal__infor">
-          <div>
+          <div className="cart-modal__infor-block-1">
             <span>{item.name}</span>
             <span>${item.price}</span>
           </div>
 
-          <div>
-            <img
-              src="/svgs/minus-btn.svg" alt="minus button" 
-              onClick={() => dispatch(
-                decreasePrQuantity({id: item.id})
-              )}
-            />
-            <span>{item.amount}</span>
-            <img 
-              src="/svgs/plus-btn.svg" alt="plus button" 
-              onClick={() => dispatch(
-                increasePrQuantity({id: item.id})
-              )}
-            />
-
-            {totalItemPrice}
-          </div>
-
-          <div>
-            <span>
+          <div className="cart-modal__infor-block-2">
+            <div className="cart-modal__infor-counter">
               <img
-                src="/svgs/delete-i.svg" alt="delete"
+                src="/svgs/minus-btn.svg" alt="minus button" 
+                onClick={() => dispatch(
+                  decreasePrQuantity({id: item.id})
+                )}
               />
-              remove
-            </span>
+              <span>{item.amount}</span>
+              <img 
+                src="/svgs/plus-btn.svg" alt="plus button" 
+                onClick={() => dispatch(
+                  increasePrQuantity({id: item.id})
+                )}
+              />
+
+              {totalItemPrice}
+            </div>
+
+            <div className="cart-modal__infor-delete-btn">
+              <img src="/svgs/delete-i.svg" alt="delete" />
+            </div>
           </div>
         </div>
       </div>
