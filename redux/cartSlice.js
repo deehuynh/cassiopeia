@@ -49,6 +49,12 @@ export const cartSlice = createSlice({
       }
     },
 
+    removePr: (state, action) => {
+      if (isWindow) {
+        state
+      }
+    },
+
     removeAll: (state) => {
       if (typeof window !== 'undefined') {
         // remove array without creating a new array
@@ -60,6 +66,8 @@ export const cartSlice = createSlice({
   }
 })
 
-export const {addToCart, increasePrQuantity, decreasePrQuantity, removeAll} = cartSlice.actions
+export const {
+  addToCart, increasePrQuantity, decreasePrQuantity, removeAll, removePr
+} = cartSlice.actions
 
 export default cartSlice.reducer
