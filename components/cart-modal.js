@@ -13,6 +13,14 @@ import { removeAll, increasePrQuantity, decreasePrQuantity, removePr } from "../
 export default function Cart (props) {
   // get cart store
   const cartData = useSelector(state => state.cart)
+  // handle close cart function
+  const closeCart = () => {
+    props.cartRef.current.className = "cart-modal cart-modal__hidden";
+    props.openCartRef.current.className = "show";
+    props.closeCartRef.current.className = "hiden";
+    props.orderCartRef.current.className = "show";
+    preventBodyScroll(false);
+  }
 
   return (
     <div ref={props.cartRef} className="cart-modal cart-modal__hidden">
@@ -33,10 +41,7 @@ export default function Cart (props) {
             <Promocode />
             <OrderTotal />
             <CheckoutButton
-              cartRef={props.cartRef}
-              openCartRef={props.openCartRef}
-              closeCartRef={props.closeCartRef}
-              orderCartRef={props.orderCartRef}
+              closeCart={closeCart}
             />
           </>
         )
@@ -167,18 +172,12 @@ function OrderTotal () {
   )
 }
 
-function CheckoutButton ({cartRef, openCartRef, closeCartRef, orderCartRef}) {
+function CheckoutButton ({closeCart}) {
   return (
     <Link href="/checkout">
       <a>
         <div 
-          onClick={()=>{
-            cartRef.current.className = "cart-modal cart-modal__hidden";
-            openCartRef.current.className = "show";
-            closeCartRef.current.className = "hiden";
-            orderCartRef.current.className = "show";
-            preventBodyScroll(false);
-          }}
+          onClick={closeCart}
           className="cart-modal__checkout-btn"
         >
           <span>Checkout</span>
