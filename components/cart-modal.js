@@ -36,7 +36,7 @@ export default function Cart (props) {
           </div>
         : (
           <>
-            <Item storagedItems={cartData} />
+            <Item storagedItems={cartData} closeCart={closeCart} />
             <RemoveAll />
             <Promocode />
             <OrderTotal />
@@ -50,7 +50,7 @@ export default function Cart (props) {
   )
 }
 
-function Item ({storagedItems}) {
+function Item ({storagedItems, closeCart}) {
   const dispatch = useDispatch()
 
   const listItem = [];
@@ -70,7 +70,7 @@ function Item ({storagedItems}) {
       <div key={index} className="cart-modal__item">
         <div className="cart-modal__avatar">
           <Link href={`/${item.page}/${item.id}`}>
-            <a className="cart-modal__avatar-overlay">
+            <a className="cart-modal__avatar-overlay" onClick={closeCart}>
               <img src="/svgs/view-btn.svg" alt="view detail" />
             </a>
           </Link>
