@@ -8,7 +8,7 @@ import preventBodyScroll from "../function/preventBodyScroll"
 import USDCurrency from "../handle_data_functions/usd-currency"
 // use redux
 import { useSelector, useDispatch } from "react-redux"
-import { removeAll, increasePrQuantity, decreasePrQuantity } from "../redux/cartSlice"
+import { removeAll, increasePrQuantity, decreasePrQuantity, removePr } from "../redux/cartSlice"
 
 export default function Cart (props) {
   // get cart store
@@ -97,7 +97,10 @@ function Item ({storagedItems}) {
             </div>
 
             <div className="cart-modal__infor-delete-btn">
-              <img src="/svgs/delete-i.svg" alt="delete" />
+              <img 
+                src="/svgs/delete-i.svg" alt="delete"
+                onClick={() => dispatch(removePr({id: item.id}))}
+              />
             </div>
           </div>
         </div>
