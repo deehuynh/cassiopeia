@@ -163,6 +163,7 @@
     &-delete-btn {
       @include flex(0,0,center);
       img {
+        transition: .2s;
         width: 20px;
       }
     }
