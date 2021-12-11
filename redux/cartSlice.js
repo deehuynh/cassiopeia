@@ -51,7 +51,12 @@ export const cartSlice = createSlice({
 
     removePr: (state, action) => {
       if (isWindow) {
-        state
+        state.forEach((item, index) => {
+          if (item.id === action.payload.id) {
+            // if matching item is found then create a new array without it
+            return state = state.splice(index, 1)
+          }
+        })
       }
     },
 
