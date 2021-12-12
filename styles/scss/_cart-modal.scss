@@ -234,6 +234,17 @@
     @include flex(0,space-between);
     margin-bottom: 40px;
 
+    &-alert {
+      margin: {
+        top: -20px;
+        bottom: 40px;
+      }
+
+      color: $c-negative;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
     input {
       width: 268px;
       padding: 12px 13px;
