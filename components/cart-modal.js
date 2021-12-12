@@ -160,16 +160,24 @@ function Promocode () {
   }
 
   return (
-    <div className="cart-modal__promocode">
-      <input
-        type="text" value={promocode} placeholder='Add promocode'
-        onChange={handleChangePromocode}
-      />
-      <div 
-        className="cart-modal__promocode-btn"
-        onClick={handlePromocode}
-      >Apply</div>
-    </div>
+    <>
+      <div className="cart-modal__promocode">
+        <input
+          type="text" value={promocode} placeholder='Add promocode'
+          onChange={handleChangePromocode}
+        />
+        <div 
+          className="cart-modal__promocode-btn"
+          onClick={handlePromocode}
+        >Apply</div>
+      </div>
+
+      {isPromocode !== null ? (
+        <div className="cart-modal__promocode-alert">
+          {isPromocode}
+        </div>
+      ) : null}
+    </>
   )
 }
 
