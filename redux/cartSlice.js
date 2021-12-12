@@ -57,6 +57,7 @@ export const cartSlice = createSlice({
             const newState = state.splice(index, 1);
             // set localStorage
             if (index === 0) {
+              // get bug: if delete item have index = 0 first, all will be delete
               localStorage.removeItem('cart')
             } else {
               localStorage.setItem('cart', JSON.stringify(newState))
