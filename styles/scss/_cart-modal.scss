@@ -240,9 +240,16 @@
         bottom: 40px;
       }
 
-      color: $c-negative;
       font-size: 14px;
       font-weight: 500;
+
+      &--error {
+        color: $c-negative;
+      }
+
+      &--applied {
+        color: $c-positive;
+      }
     }
 
     input {
