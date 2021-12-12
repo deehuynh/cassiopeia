@@ -11,6 +11,7 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState: cartData,
   reducers: {
+    // add a product to cart
     addToCart: (state, action) => {
       if (typeof window !== 'undefined') {
         // check duplicate item condition
@@ -25,6 +26,12 @@ export const cartSlice = createSlice({
       }
     },
 
+    // add promocode
+    addPromocode: (state, action) => {
+      console.log(state)
+    },
+
+    // increase the number of product
     increasePrQuantity: (state, action) => {
       if (isWindow) {
         state.forEach((item) => {
@@ -37,6 +44,7 @@ export const cartSlice = createSlice({
       }
     },
 
+    // decrease the number of product
     decreasePrQuantity: (state, action) => {
       if (isWindow) {
         state.forEach((item) => {
@@ -81,7 +89,8 @@ export const cartSlice = createSlice({
 })
 
 export const {
-  addToCart, increasePrQuantity, decreasePrQuantity, removeAll, removePr
+  addToCart, increasePrQuantity, decreasePrQuantity, removeAll, removePr,
+  addPromocode
 } = cartSlice.actions
 
 export default cartSlice.reducer
