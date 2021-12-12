@@ -12,7 +12,7 @@
   }
 }
 
-.banner-ads {
+.banner-offer {
   margin-bottom: 80px;
   &__primary {
     position: relative;
@@ -83,7 +83,7 @@
     @extend %H4;
     font-size: 1.125em;
 
-    &.banner-ads__description {
+    &.banner-offer__description {
       left: 48%;
     }
     @include media (800px) {
@@ -179,7 +179,7 @@
   }
 }
 
-.m-banner-ads {
+.m-banner-offer {
   display: none;
 
   @include media (768px) {
