@@ -144,10 +144,14 @@ function RemoveAll () {
 }
 
 function Promocode () {
+  // promocode list
+  const promocodeData = ['10DOLLARSOFF', '50PERCENTOFF']
   // promocode state
   const [promocode, setPromocode] = useState('')
   // check promocode
   const [isPromocode, setIsPromocode] = useState(null)
+  // promocode status color
+  const [statusPromocode, setStatusPromocode] = useState('error')
   // handle change
   const handleChangePromocode = (e) => {
     setPromocode(e.target.value)
@@ -155,9 +159,24 @@ function Promocode () {
   // handle check promocode
   const handlePromocode = () => {
     if (promocode === '') {
-      setIsPromocode('Please enter your promocode')
+      setStatusPromocode('error')
+      setIsPromocode('Please enter your promocode! You can try [10DOLLARSOFF]')
+    } else {
+      for (let i = 0; i < promocodeData.length; i++) {
+        if (promocode === promocodeData[i]) {
+          setStatusPromocode('applied')
+          setIsPromocode('Applied')
+          break
+        } else {
+          setStatusPromocode('error')
+          setIsPromocode('Promocode is not available')
+        }
+      }
     }
   }
+  // added class status color
+  const addedClass = statusPromocode === 'applied' ?
+    ' cart-modal__promocode-alert--applied' : ' cart-modal__promocode-alert--error'
 
   return (
     <>
@@ -173,7 +192,7 @@ function Promocode () {
       </div>
 
       {isPromocode !== null ? (
-        <div className="cart-modal__promocode-alert">
+        <div className={"cart-modal__promocode-alert" + addedClass}>
           {isPromocode}
         </div>
       ) : null}
