@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+// react api
+import { useState } from "react"
 // next api
 import Link from "next/link"
 import Image from "next/image"
@@ -8,7 +10,10 @@ import preventBodyScroll from "../function/preventBodyScroll"
 import USDCurrency from "../handle_data_functions/usd-currency"
 // use redux
 import { useSelector, useDispatch } from "react-redux"
-import { removeAll, increasePrQuantity, decreasePrQuantity, removePr } from "../redux/cartSlice"
+import { 
+  removeAll, increasePrQuantity, decreasePrQuantity, removePr,
+  addPromocode
+} from "../redux/cartSlice"
 
 export default function Cart (props) {
   // get cart store
@@ -139,10 +144,31 @@ function RemoveAll () {
 }
 
 function Promocode () {
+  // promocode state
+  const [promocode, setPromocode] = useState('')
+  // check promocode
+  const [isPromocode, setIsPromocode] = useState(null)
+  // handle change
+  const handleChangePromocode = (e) => {
+    setPromocode(e.target.value)
+  }
+  // handle check promocode
+  const handlePromocode = () => {
+    if (promocode === '') {
+      setIsPromocode('Please enter your promocode')
+    }
+  }
+
   return (
     <div className="cart-modal__promocode">
-      <input type="text" defaultValue='' placeholder='Add promocode' />
-      <div className="cart-modal__promocode-btn">Apply</div>
+      <input
+        type="text" value={promocode} placeholder='Add promocode'
+        onChange={handleChangePromocode}
+      />
+      <div 
+        className="cart-modal__promocode-btn"
+        onClick={handlePromocode}
+      >Apply</div>
     </div>
   )
 }
