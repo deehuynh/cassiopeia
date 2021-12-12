@@ -11,8 +11,8 @@ export default function BannerAds (props) {
   adsAPI.forEach((item, index) => {
     if (item.type === 'primary') {
       prBanner.push(
-        <div key={index} className="banner-ads__primary">
-          <div className="banner-ads__background">
+        <div key={index} className="banner-offer__primary">
+          <div className="banner-offer__background">
             {
               item.background !== '' ? (
                 <Image
@@ -24,7 +24,7 @@ export default function BannerAds (props) {
               ) : ''
             }
           </div>
-          <div className="banner-ads__title">
+          <div className="banner-offer__title">
             {item.title}
           </div>
 
@@ -34,7 +34,7 @@ export default function BannerAds (props) {
             item.btnTitle !== '' ? (
               <Link href={item.url}>
                 <a>
-                  <div className="banner-ads__btn">
+                  <div className="banner-offer__btn">
                     <span>{item.btnTitle}</span>
                     <img src="/svgs/line-right-arrow.svg" alt="right arrow" />
                   </div>
@@ -46,7 +46,7 @@ export default function BannerAds (props) {
       );
     } else if (item.type === 'secondary') {
       sndBanner.push(
-        <div key={index} className="banner-ads__image">
+        <div key={index} className="banner-offer__image">
           {
             item.background !== '' ? (
               <Image
@@ -58,17 +58,17 @@ export default function BannerAds (props) {
             ) : ''
           }
 
-          <div className="banner-ads__title banner-ads__title--light">
+          <div className="banner-offer__title banner-offer__title--light">
             {item.title}
           </div>
 
-          <p className="banner-ads__description">{item.description}</p>
+          <p className="banner-offer__description">{item.description}</p>
 
           {
             item.btnTitle !== '' ? (
               <Link href={item.url}>
                 <a>
-                  <div className="banner-ads__btn banner-ads__btn--light">
+                  <div className="banner-offer__btn banner-offer__btn--light">
                     <span>{item.btnTitle}</span>
                     <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
                   </div>
@@ -85,7 +85,7 @@ export default function BannerAds (props) {
     if (item.type && item.type === 'primary') {
       slideBanner.push(
         <SplideSlide key={index} >
-          <div className="m-banner-ads__slide">
+          <div className="m-banner-offer__slide">
             {
               item.background !== '' ? (
                 <Image 
@@ -97,17 +97,17 @@ export default function BannerAds (props) {
               ) : ''
             }
   
-            <div className="m-banner-ads__title m-banner-ads--spacing">
+            <div className="m-banner-offer__title m-banner-offer--spacing">
               {item.title}
             </div>
   
-            <p className="m-banner-ads__des m-banner-ads--spacing">{item.description}</p>
+            <p className="m-banner-offer__des m-banner-offer--spacing">{item.description}</p>
   
             {
               item.btnTitle !== '' ? (
                 <Link href={item.url}>
                   <a>
-                    <div className="m-banner-ads__btn m-banner-ads--spacing">
+                    <div className="m-banner-offer__btn m-banner-offer--spacing">
                       <span>{item.btnTitle}</span>
                       <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
                     </div>
@@ -121,7 +121,7 @@ export default function BannerAds (props) {
     } else {
       slideBanner.push(
         <SplideSlide key={index} >
-          <div className="m-banner-ads__slide">
+          <div className="m-banner-offer__slide">
             {
               item.background !== '' ? (
                 <Image 
@@ -133,17 +133,17 @@ export default function BannerAds (props) {
               ) : ''
             }
   
-            <div className="m-banner-ads__title">
+            <div className="m-banner-offer__title">
               {item.title}
             </div>
   
-            <p className="m-banner-ads__des">{item.description}</p>
+            <p className="m-banner-offer__des">{item.description}</p>
   
             {
               item.btnTitle !== '' ? (
                 <Link href={item.url}>
                   <a>
-                    <div className="m-banner-ads__btn">
+                    <div className="m-banner-offer__btn">
                       <span>{item.btnTitle}</span>
                       <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
                     </div>
@@ -158,14 +158,14 @@ export default function BannerAds (props) {
   });
   return (
     <>
-      <div className="banner-ads">
+      <div className="banner-offer">
         {prBanner}
-        <div className="banner-ads__secondary">
+        <div className="banner-offer__secondary">
           {sndBanner}
         </div>
       </div>
 
-      <div className="m-banner-ads">
+      <div className="m-banner-offer">
         <Splide
           options = {{
             type: 'loop',
