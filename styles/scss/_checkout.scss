@@ -594,20 +594,15 @@
   
       div:last-child {
         @include flex(0,0,center);
-  
+
         span {
-          margin: {
-            left: 24px;
-            right: 24px;
-          }
-          @extend %button;
-        }
-  
-        img {
-          user-select: none;
-          &:hover {
-            cursor: pointer;
-            opacity: .5;
+          &:last-child {
+            margin: {
+              left: 20px;
+            }
+
+            font-size: 14px;
+            color: red;
           }
         }
       }
