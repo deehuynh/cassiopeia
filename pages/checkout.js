@@ -92,6 +92,14 @@ const Item = (props) => {
 }
 
 const OrderContainer = ({listItem, orderTotal}) => {
+  const orderPriceTotal = useSelector(state => {
+    let orderItemPrice = 0
+    state.cart.forEach((item) => {
+      orderItemPrice += Number(item.price) * item.amount
+    })
+
+    return USDCurrency(orderItemPrice)
+  })
   // component partials
   const CheckoutField = () => {
     return (
@@ -103,7 +111,7 @@ const OrderContainer = ({listItem, orderTotal}) => {
 
         <div className="checkout__field">
           <span>Order total</span>
-          <span>$00.00</span>
+          <span>{orderPriceTotal}</span>
         </div>
       </div>
     )
