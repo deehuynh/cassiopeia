@@ -201,6 +201,7 @@ function Promocode () {
 }
 
 function OrderTotal () {
+  const promocode = null
   const orderTotal = useSelector(state => {
     let orderItemPrice = 0
     state.cart.forEach((item) => {
