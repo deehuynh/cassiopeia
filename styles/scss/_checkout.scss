@@ -596,6 +596,11 @@
         @include flex(0,0,center);
 
         span {
+          &:first-child {
+            font-size: 14px;
+            font-weight: 500;
+          }
+
           &:last-child {
             margin: {
               left: 20px;
