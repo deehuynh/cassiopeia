@@ -250,6 +250,13 @@
       &--applied {
         color: $c-positive;
       }
+
+      @include media (425px) {
+        margin: {
+          top: -10px;
+          bottom: 30px;
+        }
+      }
     }
 
     input {
