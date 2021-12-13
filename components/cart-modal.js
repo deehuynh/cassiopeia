@@ -109,7 +109,7 @@ function Item ({storagedItems, closeCart}) {
             <div className="cart-modal__infor-delete-btn">
               <img 
                 src="/svgs/delete-i.svg" alt="delete"
-                onClick={() => dispatch(removePr({id: item.id}))}
+                onClick={() => dispatch(removePr({id: item.id, page: item.page}))}
               />
             </div>
           </div>
@@ -169,7 +169,7 @@ function Promocode () {
           break
         } else {
           setStatusPromocode('error')
-          setIsPromocode('Promocode is not available')
+          setIsPromocode('Promocode is not available! You can try [50PERCENTOFF]')
         }
       }
     }
