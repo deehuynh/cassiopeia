@@ -18,9 +18,13 @@ export default function Checkout ({creditCards, gateways}) {
   const [finishedPaymentState, setFinishPaymentState] = useState(false);
   // data storaged variable
   const listItem = [];
+  // count order total
+  let orderTotal = 0;
   // handle API
   orderItems.forEach(
     (item, index) => {
+      orderTotal += item.amount 
+
       listItem.push(
         <Item 
           key={index}
@@ -46,7 +50,7 @@ export default function Checkout ({creditCards, gateways}) {
               creditCards={creditCards} gateways={gateways}
               setFinishPaymentState={setFinishPaymentState} 
             />
-            <OrderContainer listItem={listItem} />
+            <OrderContainer listItem={listItem} orderTotal={orderTotal} />
           </div>
         ) : (
           <div className="checkout__submited">
@@ -83,9 +87,7 @@ const Item = (props) => {
   )
 }
 
-const OrderContainer = ({listItem}) => {
-  // total items
-  const countTotalItems = listItem.length;
+const OrderContainer = ({listItem, orderTotal}) => {
   // component partials
   const CheckoutField = () => {
     return (
@@ -106,7 +108,7 @@ const OrderContainer = ({listItem}) => {
   return (
     <div className="checkout__order">
       <div className="checkout__order-name">
-        Order total <span>({countTotalItems})</span>
+        Order total <span>({orderTotal})</span>
       </div>
       {listItem}
       <CheckoutField />
