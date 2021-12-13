@@ -217,6 +217,15 @@ function OrderTotal () {
         <span>FREE</span>
       </div>
 
+      {
+        promocode ? (
+          <div className="cart-modal__field">
+            <span>Promocode</span>
+            <span>{promocode}</span>
+          </div>
+        ) : ''
+      }
+
       <div className="cart-modal__field">
         <span>Order total</span>
         <span>{orderTotal}</span>
