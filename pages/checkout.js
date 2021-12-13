@@ -10,6 +10,8 @@ import BreadCrumb from "../components/contents/breadcrumb"
 import PageName from "../components/contents/page-name"
 // redux
 import { useSelector } from "react-redux"
+// handle data functions
+import USDCurrency from "../handle_data_functions/usd-currency";
 
 export default function Checkout ({creditCards, gateways}) {
   // get order items from redux cart store
@@ -31,6 +33,7 @@ export default function Checkout ({creditCards, gateways}) {
           thumbnail={item.thumbnail}
           price={item.price}
           name={item.name}
+          amount={item.amount}
         />
       );
     }
@@ -66,6 +69,8 @@ export default function Checkout ({creditCards, gateways}) {
 }
 
 const Item = (props) => {
+  const priceTotal = Number(props.price) * props.amount
+
   return (
     <div className="checkout__item">
       <div className="checkout__item-avatar">
@@ -78,9 +83,8 @@ const Item = (props) => {
         </div>
 
         <div>
-          <img src="/svgs/minus-btn.svg" alt="minus button" />
-          <span>1</span>
-          <img src="/svgs/plus-btn.svg" alt="plus button" />
+          <span>Quantity: {props.amount}</span>
+          <span>{USDCurrency(priceTotal)}</span>
         </div>
       </div>
     </div>
