@@ -11,8 +11,7 @@ import USDCurrency from "../handle_data_functions/usd-currency"
 // use redux
 import { useSelector, useDispatch } from "react-redux"
 import { 
-  removeAll, increasePrQuantity, decreasePrQuantity, removePr,
-  addPromocode
+  removeAll, increasePrQuantity, decreasePrQuantity, removePr
 } from "../redux/cartSlice"
 
 export default function Cart (props) {
