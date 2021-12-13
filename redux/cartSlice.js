@@ -55,18 +55,11 @@ export const cartSlice = createSlice({
     removePr: (state, action) => {
       if (isWindow) {
         state.forEach((item, index) => {
-          if (item.id === action.payload.id) {
+          if ((item.id === action.payload.id) && (item.page === action.payload.page)) {
             // if matching item is found then create a new array without it
-            const newState = state.splice(index, 1);
+            state.splice(index, 1)
             // set localStorage
-            if (index === 0) {
-              // get bug: if delete item have index = 0 first, all will be delete
-              localStorage.removeItem('cart')
-            } else {
-              localStorage.setItem('cart', JSON.stringify(newState))
-            }
-            // return and break loop
-            return newState
+            localStorage.setItem('cart', JSON.stringify(state))
           }
         })
       }
