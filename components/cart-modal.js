@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 // react api
-import { useState } from "react"
+import { useState, useEffect } from "react"
 // next api
 import Link from "next/link"
 import Image from "next/image"
@@ -17,6 +17,12 @@ import {
 export default function Cart (props) {
   // get cart store
   const cartData = useSelector(state => state.cart)
+  // error server and client is not match
+  const [isClientSide, setIsClientSide] = useState(false)
+  // two-pass rendering
+  useEffect(() => {
+    setIsClientSide(true)
+  }, [])
   // handle close cart function
   const closeCart = () => {
     props.cartRef.current.className = "cart-modal cart-modal__hidden";
@@ -33,17 +39,17 @@ export default function Cart (props) {
       </h2>
 
       {
-        cartData.length === 0 ? 
+        isClientSide === true && cartData.length === 0 ? 
           <div className="cart-modal__empty-cart">
             <h5>Your cart is empty</h5>
             <p>Next step: add a product to your cart</p>
           </div>
         : (
           <>
-            <Item storagedItems={cartData} closeCart={closeCart} />
+            <Item storagedItems={isClientSide === true ? cartData : []} closeCart={closeCart} />
             <RemoveAll />
             <Promocode />
-            <OrderTotal />
+            <OrderTotal isClientSide={isClientSide} />
             <CheckoutButton
               closeCart={closeCart}
             />
@@ -199,7 +205,7 @@ function Promocode () {
   )
 }
 
-function OrderTotal () {
+function OrderTotal ({isClientSide}) {
   const promocode = null
   const orderTotal = useSelector(state => {
     let orderItemPrice = 0
@@ -228,7 +234,7 @@ function OrderTotal () {
 
       <div className="cart-modal__field">
         <span>Order total</span>
-        <span>{orderTotal}</span>
+        <span>{isClientSide === true ? orderTotal : ''}</span>
       </div>
     </div>
   )
