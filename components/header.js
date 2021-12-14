@@ -126,7 +126,7 @@ export default function Header (props) {
         </div>
 
         <div className="header__cart">
-          <span ref={orderCartRef} className="show">
+          <span ref={orderCartRef} className="show" suppressHydrationWarning={true}>
             {
               totalCart === 0 ? '' : (
                 <span 
