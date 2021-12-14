@@ -88,7 +88,7 @@ export const cartSlice = createSlice({
     removeAll: (state) => {
       if (typeof window !== 'undefined') {
         // remove array without creating a new array
-        state.length = 0
+        state = null
         // remove cart localStorage
         localStorage.removeItem('cart')
       }
