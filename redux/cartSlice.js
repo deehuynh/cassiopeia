@@ -60,7 +60,7 @@ export const cartSlice = createSlice({
     // decrease the number of product
     decreasePrQuantity: (state, action) => {
       if (isWindow) {
-        state.forEach((item) => {
+        state["items"].forEach((item) => {
           if (item.id === action.payload.id) {
             if (item.amount > 1) {
               item.amount -= 1
