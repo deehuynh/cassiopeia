@@ -85,11 +85,12 @@ export const cartSlice = createSlice({
       }
     },
 
-    removeAll: (state) => {
+    removeAll: state => {
       if (typeof window !== 'undefined') {
         // remove cart localStorage
         localStorage.removeItem('cart')
-        state = null
+
+        return null
       }
     }
   }
