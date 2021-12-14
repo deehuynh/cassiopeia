@@ -21,7 +21,7 @@ export const cartSlice = createSlice({
         // don't add duplicate item
         if (!duplicateItem) {
           state.push(action.payload)
-          localStorage.setItem('cart', JSON.stringify(state))
+          localStorage.setItem('cart', JSON.stringify({items: state}))
         }
       }
     },
