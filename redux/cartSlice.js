@@ -27,8 +27,13 @@ export const cartSlice = createSlice({
     },
 
     // add promocode
-    addPromocode: (state) => {
-      console.log(state)
+    addPromocode: (state, action) => {
+      if (isWindow) {
+        if (!state["promocode"]) {
+          state = {...state, promocode: action.promocode}
+          localStorage.setItem('cart', JSON.parse(state))
+        }
+      }
     },
 
     // increase the number of product
