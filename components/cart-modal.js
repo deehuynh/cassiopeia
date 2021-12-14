@@ -16,7 +16,7 @@ import {
 
 export default function Cart (props) {
   // get cart store
-  const cartData = useSelector(state => state.cart.items)
+  const cartData = useSelector(state => state.cart["items"])
   // error server and client is not match
   const [isClientSide, setIsClientSide] = useState(false)
   // two-pass rendering
