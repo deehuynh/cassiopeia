@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 
 export default function Header (props) {
   // handle cart store
-  const totalCart = useSelector(state => state.cart.length)
+  const totalCart = useSelector(state => state.cart ? state.cart["items"].length : 0)
   // nav ref container
   const navRef = props.navRef;
   const openNavRef = props.openNavRef;
