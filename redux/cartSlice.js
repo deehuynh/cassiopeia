@@ -16,8 +16,8 @@ export const cartSlice = createSlice({
       if (isWindow) {
         // first item
         if (state === null) {
-          state = {items: [action.payload]}
-          localStorage.setItem('cart', JSON.stringify(state))
+          localStorage.setItem('cart', JSON.stringify({items: [action.payload]}))
+          return {items: [action.payload]}
         } else {
           // check duplicate item condition
           const duplicateItem = state["items"].find(
@@ -87,10 +87,9 @@ export const cartSlice = createSlice({
 
     removeAll: (state) => {
       if (typeof window !== 'undefined') {
-        // remove array without creating a new array
-        state = null
         // remove cart localStorage
         localStorage.removeItem('cart')
+        state = null
       }
     }
   }
