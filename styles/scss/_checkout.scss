@@ -508,13 +508,13 @@
       // progress state
       &--finished {
         div {
-          background-color: $c-primary;
-          border-color: $c-primary;
+          background-color: black;
+          border-color: black;
           color: white;
         }
 
         span {
-          color: $c-primary;
+          color: black;
         }
       }
 
