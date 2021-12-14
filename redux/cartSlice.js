@@ -26,6 +26,11 @@ export const cartSlice = createSlice({
       }
     },
 
+    // add promocode
+    addPromocode: (state) => {
+      console.log(state)
+    },
+
     // increase the number of product
     increasePrQuantity: (state, action) => {
       if (isWindow) {
@@ -81,7 +86,8 @@ export const cartSlice = createSlice({
 })
 
 export const {
-  addToCart, increasePrQuantity, decreasePrQuantity, removeAll, removePr
+  addToCart, increasePrQuantity, decreasePrQuantity, removeAll, removePr,
+  addPromocode
 } = cartSlice.actions
 
 export default cartSlice.reducer
