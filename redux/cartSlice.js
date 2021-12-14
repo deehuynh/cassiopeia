@@ -4,8 +4,8 @@ import { createSlice } from "@reduxjs/toolkit"
 const isWindow = typeof window !== 'undefined'
 
 // get localStorage
-const cartData = typeof window !== 'undefined' && localStorage.getItem('cart') ?
-  JSON.parse(localStorage.getItem('cart')) : []
+const cartData = isWindow && localStorage.getItem('cart') ?
+  JSON.parse(localStorage.getItem('cart')) : null
 
 export const cartSlice = createSlice({
   name: 'cart',
@@ -13,15 +13,21 @@ export const cartSlice = createSlice({
   reducers: {
     // add a product to cart
     addToCart: (state, action) => {
-      if (typeof window !== 'undefined') {
-        // check duplicate item condition
-        const duplicateItem = state["items"].find(
-          item => (item.id === action.payload.id) && (item.page === action.payload.page))
-
-        // don't add duplicate item
-        if (!duplicateItem) {
-          state["items"].push(action.payload)
+      if (isWindow) {
+        // first item
+        if (state === null) {
+          state = {items: [action.payload]}
           localStorage.setItem('cart', JSON.stringify(state))
+        } else {
+          // check duplicate item condition
+          const duplicateItem = state["items"].find(
+            item => (item.id === action.payload.id) && (item.page === action.payload.page))
+
+          // don't add duplicate item
+          if (!duplicateItem) {
+            state["items"].push(action.payload)
+            localStorage.setItem('cart', JSON.stringify(state))
+          }
         }
       }
     },
