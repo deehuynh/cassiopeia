@@ -15,8 +15,8 @@ import {
 } from "../redux/cartSlice"
 
 export default function Cart (props) {
-  // get cart store
-  const cartData = useSelector(state => state.cart["items"])
+  // get items in cart store
+  const cartData = useSelector(state => state.cart["items"] ? state.cart["items"] : [])
   // error server and client is not match
   const [isClientSide, setIsClientSide] = useState(false)
   // two-pass rendering
@@ -210,7 +210,6 @@ function OrderTotal ({isClientSide}) {
   const orderTotal = useSelector(state => {
     const items = state.cart["items"]
     let orderItemPrice = 0
-    console.log(items)
     items && items.forEach((item) => {
       orderItemPrice += Number(item.price) * item.amount
     })
