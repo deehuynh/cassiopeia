@@ -2,7 +2,7 @@
 import Image from "next/image"
 import Link from "next/link"
 // react
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // head tags
 import Title from "../components/title"
 // components
@@ -14,18 +14,29 @@ import { useSelector } from "react-redux"
 import USDCurrency from "../handle_data_functions/usd-currency";
 
 export default function Checkout ({creditCards, gateways}) {
+  // error server and client is not match
+  const [isClientSide, setIsClientSide] = useState(false)
+  // two-pass rendering
+  useEffect(() => {
+    setIsClientSide(true)
+  }, [])
   // get order items from redux cart store
-  const orderItems = useSelector(state => state.cart)
+  const orderItems = useSelector(state => state.cart ? state.cart["items"] : [])
   // finished payment state
   const [finishedPaymentState, setFinishPaymentState] = useState(false);
   // data storaged variable
   const listItem = [];
   // count order total
   let orderTotal = 0;
+  // count order price total
+  let orderPriceTotal = 0;
   // handle API
-  orderItems.forEach(
+  isClientSide === true && orderItems.forEach(
     (item, index) => {
+      // count total order items
       orderTotal += item.amount 
+      // count total price
+      orderPriceTotal += Number(item.price) * item.amount
 
       listItem.push(
         <Item 
@@ -53,7 +64,10 @@ export default function Checkout ({creditCards, gateways}) {
               creditCards={creditCards} gateways={gateways}
               setFinishPaymentState={setFinishPaymentState} 
             />
-            <OrderContainer listItem={listItem} orderTotal={orderTotal} />
+            <OrderContainer 
+              listItem={listItem} orderTotal={orderTotal}
+              orderPriceTotal={orderPriceTotal}
+            />
           </div>
         ) : (
           <div className="checkout__submited">
@@ -91,15 +105,7 @@ const Item = (props) => {
   )
 }
 
-const OrderContainer = ({listItem, orderTotal}) => {
-  const orderPriceTotal = useSelector(state => {
-    let orderItemPrice = 0
-    state.cart.forEach((item) => {
-      orderItemPrice += Number(item.price) * item.amount
-    })
-
-    return USDCurrency(orderItemPrice)
-  })
+const OrderContainer = ({listItem, orderTotal, orderPriceTotal}) => {
   // component partials
   const CheckoutField = () => {
     return (
@@ -111,7 +117,7 @@ const OrderContainer = ({listItem, orderTotal}) => {
 
         <div className="checkout__field">
           <span>Order total</span>
-          <span>{orderPriceTotal}</span>
+          <span>{USDCurrency(orderPriceTotal)}</span>
         </div>
       </div>
     )
