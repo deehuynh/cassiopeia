@@ -16,7 +16,7 @@ import {
 
 export default function Cart (props) {
   // get items in cart store
-  const cartData = useSelector(state => state.cart["items"] ? state.cart["items"] : [])
+  const cartData = useSelector(state => state.cart ? state.cart["items"] : [])
   // error server and client is not match
   const [isClientSide, setIsClientSide] = useState(false)
   // two-pass rendering
@@ -208,7 +208,7 @@ function Promocode () {
 function OrderTotal ({isClientSide}) {
   const promocode = null
   const orderTotal = useSelector(state => {
-    const items = state.cart["items"]
+    const items = state.cart ? state.cart["items"] : undefined
     let orderItemPrice = 0
     items && items.forEach((item) => {
       orderItemPrice += Number(item.price) * item.amount
