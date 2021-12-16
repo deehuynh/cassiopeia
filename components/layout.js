@@ -14,6 +14,8 @@ import { logEvent } from "firebase/analytics"
 export default function Layout ({ children }) {
   // global ref containers
   const searchRef = useRef(null);
+  // modal container refs
+  const overlayModalRef = useRef(null);
   // cart refs
   const cartRef = useRef(null);
   const openCartRef = useRef(null);
@@ -28,6 +30,17 @@ export default function Layout ({ children }) {
     if (analytics) {
       logEvent(analytics, 'notification_received');
     }
+
+    // close cart modal
+    window.onclick = e => {
+      if (e.target.id === overlayModalRef.current.id) {
+        overlayModalRef.current.className = "modal-container__overlay modal-container__overlay--hidden"
+        openCartRef.current.className = "show"
+        closeCartRef.current.className = "hiden"
+        orderCartRef.current.className = "show"
+        cartRef.current.className = "cart-modal cart-modal__hidden"
+      }
+    }
   });
 
   return (
@@ -39,11 +52,13 @@ export default function Layout ({ children }) {
         searchRef={searchRef}
         cartRef={cartRef} openCartRef={openCartRef} closeCartRef={closeCartRef}
         orderCartRef={orderCartRef}
+        overlayModalRef={overlayModalRef}
       />
 
       <ModalContainer 
         cartRef={cartRef} openCartRef={openCartRef} closeCartRef={closeCartRef}
         orderCartRef={orderCartRef}
+        overlayModalRef={overlayModalRef}
       />
 
       <Nav 
