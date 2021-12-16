@@ -16,6 +16,7 @@
     @include flex();
     margin-left: 20px;
     @include button-icon(1);
+    z-index: 2;
 
     @include media (1024px) {
       &:hover {
