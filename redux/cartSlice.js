@@ -4,8 +4,8 @@ import { createSlice } from "@reduxjs/toolkit"
 const isWindow = typeof window !== 'undefined'
 
 // get localStorage
-const cartData = isWindow && localStorage.getItem('cart') ?
-  JSON.parse(localStorage.getItem('cart')) : null
+const cartData = isWindow && localStorage.getItem('cassiopeia-cart') ?
+  JSON.parse(localStorage.getItem('cassiopeia-cart')) : null
 
 export const cartSlice = createSlice({
   name: 'cart',
@@ -16,7 +16,7 @@ export const cartSlice = createSlice({
       if (isWindow) {
         // first item
         if (state === null) {
-          localStorage.setItem('cart', JSON.stringify({items: [action.payload]}))
+          localStorage.setItem('cassiopeia-cart', JSON.stringify({items: [action.payload]}))
           return {items: [action.payload]}
         } else {
           // check duplicate item condition
@@ -26,7 +26,7 @@ export const cartSlice = createSlice({
           // don't add duplicate item
           if (!duplicateItem) {
             state["items"].push(action.payload)
-            localStorage.setItem('cart', JSON.stringify(state))
+            localStorage.setItem('cassiopeia-cart', JSON.stringify(state))
           }
         }
       }
@@ -36,8 +36,8 @@ export const cartSlice = createSlice({
     addPromocode: (state, action) => {
       if (isWindow) {
         if (!state["promocode"]) {
-          state = {...state, promocode: action.promocode}
-          localStorage.setItem('cart', JSON.parse(state))
+          localStorage.setItem('cassiopeia-cart', JSON.stringify({...state, promocode: action.payload}))
+          return {...state, promocode: action.payload}
         }
       }
     },
@@ -53,7 +53,7 @@ export const cartSlice = createSlice({
           }
         })
 
-        localStorage.setItem('cart', JSON.stringify(state))
+        localStorage.setItem('cassiopeia-cart', JSON.stringify(state))
       }
     },
 
@@ -68,7 +68,7 @@ export const cartSlice = createSlice({
           }
         })
 
-        localStorage.setItem('cart', JSON.stringify(state))
+        localStorage.setItem('cassiopeia-cart', JSON.stringify(state))
       }
     },
 
@@ -79,7 +79,7 @@ export const cartSlice = createSlice({
             // if matching item is found then create a new array without it
             state["items"].splice(index, 1)
             // set localStorage
-            localStorage.setItem('cart', JSON.stringify(state))
+            localStorage.setItem('cassiopeia-cart', JSON.stringify(state))
           }
         })
       }
@@ -88,7 +88,7 @@ export const cartSlice = createSlice({
     removeAll: () => {
       if (typeof window !== 'undefined') {
         // remove cart localStorage
-        localStorage.removeItem('cart')
+        localStorage.removeItem('cassiopeia-cart')
 
         return null
       }
