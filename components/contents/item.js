@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+// react
+import { useRef } from "react"
 // next
 import Image from "next/image"
 import Link from "next/link"
@@ -7,6 +9,8 @@ import { useDispatch } from "react-redux"
 import { addToCart } from "../../redux/cartSlice"
 
 export default function Item (props) {
+  // refs
+  const cartButtonRef = useRef(null)
   // props
   const id = props.id;
   const thumbnail = props.thumbnail;
@@ -22,11 +26,15 @@ export default function Item (props) {
   // redux
   const dispatch = useDispatch()
   // add item to cart function
-  const handleAddToCart = () => dispatch(addToCart({
-    ...props.item,
-    page: page,
-    amount: 1
-  }))
+  const handleAddToCart = () => {
+    dispatch(addToCart({
+      ...props.item,
+      page: page,
+      amount: 1
+    }));
+
+    cartButtonRef.current.className = "content__thumbnail-cart-btn--show"
+  }
 
   if (props.seeMore) {
     return (
@@ -66,7 +74,10 @@ export default function Item (props) {
               src="/svgs/cart-btn.svg" alt="cart btn" 
             />
 
-            <span>
+            <span
+              className="content__thumbnail-cart-btn--hidden"
+              ref={cartButtonRef}
+            >
               <img src="/svgs/check-solid.svg" alt="check icon" />
             </span>
           </div>
