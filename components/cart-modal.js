@@ -11,7 +11,8 @@ import USDCurrency from "../handle_data_functions/usd-currency"
 // use redux
 import { useSelector, useDispatch } from "react-redux"
 import { 
-  removeAll, increasePrQuantity, decreasePrQuantity, removePr
+  removeAll, increasePrQuantity, decreasePrQuantity, removePr,
+  addPromocode
 } from "../redux/cartSlice"
 
 export default function Cart (props) {
@@ -29,6 +30,7 @@ export default function Cart (props) {
     props.openCartRef.current.className = "show";
     props.closeCartRef.current.className = "hiden";
     props.orderCartRef.current.className = "show";
+    props.overlayModalRef.current.className = "modal-container__overlay modal-container__overlay--hidden";
     preventBodyScroll(false);
   }
 
@@ -149,8 +151,15 @@ function RemoveAll () {
 }
 
 function Promocode () {
+  // get cart promocode
+  const cartPromocode = useSelector(state => state.cart ? state.cart["promocode"] : null)
+  // declare dispatch
+  const dispatch = useDispatch()
   // promocode list
-  const promocodeData = ['10DOLLARSOFF', '50PERCENTOFF']
+  const promocodeData = [
+    {name: '10DOLLARSOFF', number: 10},
+    {name: '20DOLLARSOFF', number: 20}
+  ]
   // promocode state
   const [promocode, setPromocode] = useState('')
   // check promocode
@@ -168,13 +177,26 @@ function Promocode () {
       setIsPromocode('Please enter your promocode! You can try [10DOLLARSOFF]')
     } else {
       for (let i = 0; i < promocodeData.length; i++) {
-        if (promocode === promocodeData[i]) {
-          setStatusPromocode('applied')
-          setIsPromocode('Applied')
-          break
+        if (promocode === promocodeData[i]["name"]) {
+          // do not exist promocode
+          if (!cartPromocode) {
+            setStatusPromocode('applied')
+            setIsPromocode('Applied')
+            dispatch(addPromocode(promocodeData[i]))
+            break
+          } else {
+            if (cartPromocode["name"] === promocode) {
+              setStatusPromocode('applied')
+              setIsPromocode('You have used this promocode' + ' [1/1]')
+            } else {
+              setStatusPromocode('applied')
+              setIsPromocode('You have used promocode ' + cartPromocode["name"] + ' [1/1]')
+            }
+            break
+          }
         } else {
           setStatusPromocode('error')
-          setIsPromocode('Promocode is not available! You can try [50PERCENTOFF]')
+          setIsPromocode('Promocode is not available! You can try [20DOLLARSOFF]')
         }
       }
     }
@@ -206,16 +228,23 @@ function Promocode () {
 }
 
 function OrderTotal ({isClientSide}) {
-  const promocode = null
+  // get cart promocode
+  const promocode = useSelector(state => state.cart ? state.cart["promocode"] : null)
+  // handle order total
   const orderTotal = useSelector(state => {
+    // get cart items
     const items = state.cart ? state.cart["items"] : undefined
+    // declare order item price
     let orderItemPrice = 0
+
     items && items.forEach((item) => {
       orderItemPrice += Number(item.price) * item.amount
     })
 
-    return USDCurrency(orderItemPrice)
+    return orderItemPrice
   })
+
+  const promocodeNumber = promocode ? promocode["number"] : 0
 
   return (
     <div className="cart-modal__order-total">
@@ -225,17 +254,22 @@ function OrderTotal ({isClientSide}) {
       </div>
 
       {
-        promocode ? (
+        isClientSide === true && promocode ? (
           <div className="cart-modal__field">
             <span>Promocode</span>
-            <span>{promocode}</span>
+            <span>- {USDCurrency(promocodeNumber)}</span>
           </div>
         ) : ''
       }
 
       <div className="cart-modal__field">
         <span>Order total</span>
-        <span>{isClientSide === true ? orderTotal : ''}</span>
+        <span>
+          {
+            isClientSide === true ? 
+              USDCurrency(orderTotal - promocodeNumber) : ''
+          }
+        </span>
       </div>
     </div>
   )
