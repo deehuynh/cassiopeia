@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // next
 import Image from "next/image"
 import Link from "next/link"
@@ -57,13 +58,23 @@ export default function Item (props) {
         }
 
         <div className="content__thumbnail-overlay">
-          <img
-            src="/svgs/cart-btn.svg" alt="cart btn" 
+          <div 
+            className="content__thumbnail-cart-btn"
             onClick={handleAddToCart}
-          />
+          >
+            <img
+              src="/svgs/cart-btn.svg" alt="cart btn" 
+            />
+
+            <span>
+              <img src="/svgs/check-solid.svg" alt="check icon" />
+            </span>
+          </div>
 
           <Link href={`/${page}/${id}`}>
-            <a><img src="/svgs/view-btn.svg" alt="view detail" /></a>
+            <a className="content__thumbnail-view-btn">
+              <img src="/svgs/view-btn.svg" alt="view detail" />
+            </a>
           </Link>
         </div>
 

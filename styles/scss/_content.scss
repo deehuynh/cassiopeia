@@ -303,6 +303,37 @@
       }
     }
 
+    &-view-btn {
+      margin: 0 15px;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    &-cart-btn {
+      position: relative;
+      margin: 0 15px;
+
+      span {
+        position: absolute;
+        top: 7px;
+        right: 6px;
+        @include flex(0,center,center);
+        @include block(15px);
+        background-color: lime;
+        border-radius: 50%;
+
+        img {
+          width: 55%;
+        }
+      }
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
     &-overlay {
       @include flex(0,center);
       position: absolute;
@@ -311,14 +342,6 @@
       z-index: 1;
       bottom: -60px;
       transition: bottom .3s;
-
-      img {
-        margin: 0 15px;
-
-        &:hover {
-          opacity: .7;
-        }
-      }
     }
 
     &:hover &-overlay {
