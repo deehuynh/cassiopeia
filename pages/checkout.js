@@ -22,6 +22,8 @@ export default function Checkout ({creditCards, gateways}) {
   }, [])
   // get order items from redux cart store
   const orderItems = useSelector(state => state.cart ? state.cart["items"] : [])
+  // get cart promocode
+  const promocode = useSelector(state => state.cart ? state.cart["promocode"] : null)
   // finished payment state
   const [finishedPaymentState, setFinishPaymentState] = useState(false);
   // data storaged variable
@@ -67,6 +69,7 @@ export default function Checkout ({creditCards, gateways}) {
             <OrderContainer 
               listItem={listItem} orderTotal={orderTotal}
               orderPriceTotal={orderPriceTotal}
+              promocode={isClientSide ? promocode : null}
             />
           </div>
         ) : (
@@ -105,7 +108,9 @@ const Item = (props) => {
   )
 }
 
-const OrderContainer = ({listItem, orderTotal, orderPriceTotal}) => {
+const OrderContainer = ({listItem, orderTotal, orderPriceTotal, promocode}) => {
+  // get number of promocode
+  const promocodeNumber = promocode ? promocode["number"] : 0
   // component partials
   const CheckoutField = () => {
     return (
@@ -115,9 +120,18 @@ const OrderContainer = ({listItem, orderTotal, orderPriceTotal}) => {
           <span>FREE</span>
         </div>
 
+        {
+          promocode ? (
+            <div className="checkout__field">
+              <span>Promocode</span>
+              <span>- {USDCurrency(promocodeNumber)}</span>
+            </div>
+          ) : ''
+        }
+
         <div className="checkout__field">
           <span>Order total</span>
-          <span>{USDCurrency(orderPriceTotal)}</span>
+          <span>{USDCurrency(orderPriceTotal - promocodeNumber)}</span>
         </div>
       </div>
     )
