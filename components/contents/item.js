@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 // react
-import { useRef } from "react"
+import { useRef, useEffect } from "react"
 // next
 import Image from "next/image"
 import Link from "next/link"
 // redux
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../../redux/cartSlice"
 
 export default function Item (props) {
@@ -25,16 +25,25 @@ export default function Item (props) {
   const thumbnailAddedClass = imageType === "transparent" ? ' content__thumbnail--pd' : '';
   // redux
   const dispatch = useDispatch()
+  // get localStorage items
+  const cartItems = useSelector(state => state.cart ? state.cart["items"] : [])
   // add item to cart function
   const handleAddToCart = () => {
     dispatch(addToCart({
       ...props.item,
       page: page,
       amount: 1
-    }));
-
-    cartButtonRef.current.className = "content__thumbnail-cart-btn--show"
+    }))
   }
+
+  // handled the effect of the added to cart items
+  useEffect(() => {
+    const itemExists = cartItems.find(item => (item.id === id) && (item.page === page))
+
+    if (itemExists) {
+      cartButtonRef.current.className = "content__thumbnail-cart-btn--show"
+    }
+  })
 
   if (props.seeMore) {
     return (
