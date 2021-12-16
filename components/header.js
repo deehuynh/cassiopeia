@@ -28,6 +28,8 @@ export default function Header (props) {
   const openCartRef = props.openCartRef;
   const closeCartRef = props.closeCartRef;
   const orderCartRef = props.orderCartRef;
+  // modal container refs
+  const overlayModalRef = props.overlayModalRef
 
   return (
     <header className="header">
@@ -51,6 +53,7 @@ export default function Header (props) {
                   contentRef: cartRef, hidden: 'cart-modal cart-modal__hidden'
                 }, openCartRef, closeCartRef]
               );
+              orderCartRef.current.className = "show"
             }
           }
           src="/svgs/menu.svg" alt="menu"
@@ -86,6 +89,7 @@ export default function Header (props) {
                     }]
                   ]
                 ); preventBodyScroll(false);
+                orderCartRef.current.className = "show"
               }}
               src="/svgs/logo.svg" alt="Logo" 
             />
@@ -120,6 +124,7 @@ export default function Header (props) {
                     contentRef: cartRef, hidden: 'cart-modal cart-modal__hidden'
                   }, openCartRef, closeCartRef]
                 );
+                orderCartRef.current.className = "show"
               }
             } 
             src="/svgs/search.svg" alt="search icon" />
@@ -142,6 +147,7 @@ export default function Header (props) {
                       }, openNavRef, closeNavRef],
                       [{searchRef: searchRef, mSearchRef: mSearchRef}, searchBtnRef]
                     );
+                    overlayModalRef.current.className = "modal-container__overlay modal-container__overlay--show"
                   }}
                 >
                   {totalCart}
@@ -156,6 +162,7 @@ export default function Header (props) {
             onClick={()=>{
               handleShow(cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
               handleShow(orderCartRef, 'hiden','show');
+              overlayModalRef.current.className = "modal-container__overlay modal-container__overlay--show"
               preventBodyScroll(true);
               handleShowButton(openCartRef, closeCartRef, 'show', 'hiden');
               preventOnClick(
@@ -174,6 +181,7 @@ export default function Header (props) {
             onClick={()=>{
               handleShow(cartRef, 'cart-modal cart-modal__hidden', 'cart-modal cart-modal__show');
               handleShow(orderCartRef, 'hiden','show');
+              overlayModalRef.current.className = "modal-container__overlay modal-container__overlay--hidden"
               preventBodyScroll(false);
               handleShowButton(closeCartRef, openCartRef, 'show', 'hiden');
             }}
