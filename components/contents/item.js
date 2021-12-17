@@ -39,7 +39,7 @@ export default function Item (props) {
   // handled the effect of the added to cart items
   useEffect(() => {
     const itemExists = cartItems.find(item => (item.id === id) && (item.page === page))
-
+    
     if (itemExists) {
       cartButtonRef.current.className = "content__thumbnail-cart-btn--show"
     }
