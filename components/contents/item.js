@@ -42,6 +42,10 @@ export default function Item (props) {
     
     if (itemExists) {
       cartButtonRef.current.className = "content__thumbnail-cart-btn--show"
+    } else {
+      if (cartButtonRef.current) {
+        cartButtonRef.current.className = "content__thumbnail-cart-btn--hidden"
+      }
     }
   })
 
