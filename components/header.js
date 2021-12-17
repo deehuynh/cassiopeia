@@ -11,6 +11,8 @@ import preventOnClick from "../function/preventOnClick";
 import handleBackHome from "../function/handleBackHome";
 // redux cart store
 import { useSelector } from "react-redux";
+// components
+import SearchInput from "./search-input";
 
 export default function Header (props) {
   // handle cart store
@@ -99,11 +101,7 @@ export default function Header (props) {
 
       <div className="header__group">
         <div className="header__search">
-          <input
-            ref={searchRef}
-            className='header__search--hiden'
-            type="text" defaultValue='' placeholder='Search' 
-          />
+          <SearchInput />
           <img
             ref={searchBtnRef}
             onClick={
