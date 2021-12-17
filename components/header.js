@@ -101,7 +101,7 @@ export default function Header (props) {
 
       <div className="header__group">
         <div className="header__search">
-          <SearchInput />
+          <SearchInput searchRef={searchRef} />
           <img
             ref={searchBtnRef}
             onClick={
