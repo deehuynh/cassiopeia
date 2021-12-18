@@ -1,7 +1,7 @@
 import useSearch from "../hooks/useSearch"
 
 export default function SearchInput ({searchRef}) {
-  const [searchValue, setSearchValue] = useSearch()
+  const {searchValue, handleOnChangeValue, searchedItems} = useSearch()
 
   return (
     <input
@@ -9,7 +9,7 @@ export default function SearchInput ({searchRef}) {
       className='header__search--hiden'
       type="text" placeholder='Search' 
       value={searchValue}
-      onChange={setSearchValue}
+      onChange={handleOnChangeValue}
     />
   )
 }
