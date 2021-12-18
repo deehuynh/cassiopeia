@@ -2,6 +2,9 @@
 import { useState, useEffect, useRef } from "react"
 // api function
 import getAllProducts from "../api/getAllProducts"
+// redux
+import { useDispatch } from "react-redux"
+import { getItems } from "../redux/searchSlice"
 
 function useSearch () {
   // search value state
@@ -14,6 +17,9 @@ function useSearch () {
   const [allProducts, setAllProducts] = useState(null)
   // end products
   const searchedItems = []
+
+  // redux dispatch
+  const dispatch = useDispatch()
 
   // handle onChange value
   const handleOnChangeValue = (e) => {
@@ -57,7 +63,12 @@ function useSearch () {
     })
   }
 
-  return {searchValue, handleOnChangeValue, searchedItems}
+  // store searchedItems to redux
+  useEffect(() => {
+    dispatch(getItems(searchedItems))
+  }, [dispatch, searchedItems])
+
+  return {searchValue, handleOnChangeValue}
 }
 
 export default useSearch
