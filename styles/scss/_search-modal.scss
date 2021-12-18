@@ -1,0 +1,15 @@
+.search-modal {
+  width: 354px;
+  position: absolute;
+  right: 0;
+  z-index: 3;
+  background-color: white;
+  padding: {
+    left: 60px;
+    right: 60px;
+  }
+  box-sizing: border-box;
+  overflow: auto;
+  transition: height .3s;
+  box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
+}
