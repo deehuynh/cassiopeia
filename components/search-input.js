@@ -10,6 +10,7 @@ export default function SearchInput ({searchRef}) {
       type="text" placeholder='Search' 
       value={searchValue}
       onChange={handleOnChangeValue}
+      spellCheck={false}
     />
   )
 }
