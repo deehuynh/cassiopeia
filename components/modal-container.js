@@ -1,4 +1,6 @@
+// modal components
 import Cart from "./cart-modal"
+import SearchModal from "./search-modal"
 
 export default function ModalContainer (props) {
   const overlayRef = props.overlayModalRef
@@ -16,6 +18,8 @@ export default function ModalContainer (props) {
         openCartRef={props.openCartRef} closeCartRef={props.closeCartRef}
         overlayModalRef={overlayRef}
       />
+
+      <SearchModal />
     </div>
   )
 }
