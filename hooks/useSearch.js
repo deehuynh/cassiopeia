@@ -1,4 +1,7 @@
+// react api
 import { useState, useEffect, useRef } from "react"
+// api function
+import getAllProducts from "../api/getAllProducts"
 
 function useSearch () {
   // search value state
@@ -7,8 +10,11 @@ function useSearch () {
   const [searchKey, setSearchKey] = useState('')
   // the value will be persisted on every render by useRef
   const typingTimeout = useRef(null)
-  // all data state
-  const [data, setData] = useState(null)
+  // merge items to an array
+  const [allProducts, setAllProducts] = useState(null)
+  // end products
+  const searchedItems = []
+
   // handle onChange value
   const handleOnChangeValue = (e) => {
     setSearchValue(e.target.value)
@@ -30,18 +36,28 @@ function useSearch () {
       const res = await fetch(url)
       const data = await res.json()
       
-      setData(data)
+      setAllProducts(getAllProducts(data))
     }
 
     fetchAPI()
   }, [])
 
-  if (data) {
-    console.log(data)
-    console.log(searchKey.length)
+  if (allProducts) {
+    let searchKeyLength = searchKey.length
+
+    allProducts.forEach((item) => {
+      // get length of name equal to lenght of searchKey
+      let slicedName = item.name.slice(0, searchKeyLength)
+      // condition: searchKey === name of item
+      let compareItem = slicedName.toLowerCase() === searchKey.toLowerCase()
+
+      if ((searchKeyLength > 0) && (compareItem)) {
+        searchedItems.push(item)
+      }
+    })
   }
 
-  return [searchValue, handleOnChangeValue]
+  return {searchValue, handleOnChangeValue, searchedItems}
 }
 
 export default useSearch
