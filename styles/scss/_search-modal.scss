@@ -4,12 +4,38 @@
   right: 0;
   z-index: 3;
   background-color: white;
-  padding: {
-    left: 60px;
-    right: 60px;
-  }
+  padding: 20px;
   box-sizing: border-box;
   overflow: auto;
   transition: height .3s;
-  box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
+  box-shadow: -5px 10px 35px rgba(90, 92, 102, 0.06);
+
+  &__item {
+    @include flex();
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+
+  &__thumbnail {
+    @include block(100px);
+    background-color: #F0F0F5;
+  }
+
+  &__group {
+    @include flex(column);
+    width: calc(100% - 100px);
+    padding-left: 15px;
+    box-sizing: border-box;
+    color: black;
+    row-gap: 10px;
+  }
+
+  &__name {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  &__price {
+    font-size: 14px;
+  }
 }
