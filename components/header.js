@@ -158,6 +158,7 @@ export default function Header (props) {
                       }, openNavRef, closeNavRef],
                       [{searchRef: searchRef, mSearchRef: mSearchRef}, searchBtnRef]
                     );
+                    handleResetSearchInput();
                     overlayModalRef.current.className = "modal-container__overlay modal-container__overlay--show"
                   }}
                 >
@@ -182,6 +183,7 @@ export default function Header (props) {
                 }, openNavRef, closeNavRef],
                 [{searchRef: searchRef, mSearchRef: mSearchRef}, searchBtnRef]
               );
+              handleResetSearchInput()
             }}
             src="/svgs/cart.svg" alt="cart icon" 
           />
