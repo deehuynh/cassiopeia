@@ -10,7 +10,8 @@ import effectOneButton from "../function/effectOneButton";
 import preventOnClick from "../function/preventOnClick";
 import handleBackHome from "../function/handleBackHome";
 // redux cart store
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setValue, getItems, setSearchKey } from "../redux/searchSlice";
 // components
 import SearchInput from "./search-input";
 
@@ -33,6 +34,15 @@ export default function Header (props) {
   const orderCartRef = props.orderCartRef;
   // modal container refs
   const overlayModalRef = props.overlayModalRef
+
+  // redux dispatch
+  const dispatch = useDispatch()
+  // reset search input function
+  const handleResetSearchInput = () => {
+    dispatch(setValue(''));
+    dispatch(setSearchKey(''));
+    dispatch(getItems([]));
+  }
 
   return (
     <header className="header">
@@ -124,7 +134,8 @@ export default function Header (props) {
                   }, openCartRef, closeCartRef]
                 );
                 orderCartRef.current.className = "show";
-                searchModalRef.current.className="search-modal--hidden"
+                searchModalRef.current.className="search-modal--hidden";
+                handleResetSearchInput()
               }
             } 
             src="/svgs/search.svg" alt="search icon" />
