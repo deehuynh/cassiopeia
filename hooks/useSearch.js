@@ -3,36 +3,33 @@ import { useState, useEffect, useRef } from "react"
 // api function
 import getAllProducts from "../api/getAllProducts"
 // redux
-import { useDispatch } from "react-redux"
-import { getItems } from "../redux/searchSlice"
+import { useDispatch, useSelector } from "react-redux"
+import { getItems, setValue, setSearchKey } from "../redux/searchSlice"
 
 function useSearch () {
-  // search value state
-  const [searchValue, setSearchValue] = useState('')
-  // Unlike searchValue, searchKey is used for submit function
-  const [searchKey, setSearchKey] = useState('')
-  // the value will be persisted on every render by useRef
-  const typingTimeout = useRef(null)
   // merge items to an array
   const [allProducts, setAllProducts] = useState(null)
   // end products
   const searchedItems = []
-
+  // the value will be persisted on every render by useRef
+  const typingTimeout = useRef(null)
   // redux dispatch
   const dispatch = useDispatch()
-
-  // handle onChange value
-  const handleOnChangeValue = (e) => {
-    setSearchValue(e.target.value)
-
+  // get search value
+  const searchValue = useSelector(state => state.search.value)
+  // get searchKey
+  const searchKey = useSelector(state => state.search.searchKey)
+  // handle on change value
+  const handleOnChangeValue = ({target: {value}}) => {
+    // set value
+    dispatch(setValue(value));
     // is typing, reset time to 0
     if (typingTimeout.current) {
       clearTimeout(typingTimeout.current)
     }
-
     // submit after already typing
     typingTimeout.current = setTimeout(() => {
-      setSearchKey(e.target.value)
+      dispatch(setSearchKey(value))
     }, 500)
   }
 
