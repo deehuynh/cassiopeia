@@ -19,7 +19,7 @@ export default function ModalContainer (props) {
         overlayModalRef={overlayRef}
       />
 
-      <SearchModal />
+      <SearchModal searchModalRef={props.searchModalRef} />
     </div>
   )
 }
