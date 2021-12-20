@@ -25,6 +25,7 @@ export default function Header (props) {
   const mSearchRef = props.searchRef;
   const searchRef = useRef(null);
   const searchBtnRef = useRef(null);
+  const searchModalRef = props.searchModalRef;
   // cart ref containers
   const cartRef = props.cartRef;
   const openCartRef = props.openCartRef;
@@ -122,7 +123,8 @@ export default function Header (props) {
                     contentRef: cartRef, hidden: 'cart-modal cart-modal__hidden'
                   }, openCartRef, closeCartRef]
                 );
-                orderCartRef.current.className = "show"
+                orderCartRef.current.className = "show";
+                searchModalRef.current.className="search-modal--hidden"
               }
             } 
             src="/svgs/search.svg" alt="search icon" />
