@@ -10,10 +10,23 @@
   transition: height .3s;
   box-shadow: -5px 10px 35px rgba(90, 92, 102, 0.06);
 
+  &--hidden {
+    display: none;
+  }
+
   &__item {
     @include flex();
     text-decoration: none;
     margin-bottom: 10px;
+    transition: opacity .2s;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &:nth-last-child(2) {
+      margin-bottom: 0;
+    }
   }
 
   &__thumbnail {
@@ -37,5 +50,10 @@
 
   &__price {
     font-size: 14px;
+  }
+
+  &__scroll-btn {
+    display: none;
+    text-align: center;
   }
 }
