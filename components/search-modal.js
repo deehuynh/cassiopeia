@@ -18,7 +18,9 @@ export default function SearchModal ({searchModalRef}) {
 
   // get search value
   const searchValue = useSelector(state => state.search.value)
+  const searchKey = useSelector(state => state.search.searchKey)
   console.log(searchValue)
+  console.log(searchKey)
 
   const handleShowModal = searchItems.length > 0 ? 'search-modal' : 'search-modal--hidden'
 
