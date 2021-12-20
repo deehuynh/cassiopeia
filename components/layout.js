@@ -14,6 +14,7 @@ import { logEvent } from "firebase/analytics"
 export default function Layout ({ children }) {
   // global ref containers
   const searchRef = useRef(null);
+  const searchModalRef = useRef(null);
   // modal container refs
   const overlayModalRef = useRef(null);
   // cart refs
@@ -53,12 +54,14 @@ export default function Layout ({ children }) {
         cartRef={cartRef} openCartRef={openCartRef} closeCartRef={closeCartRef}
         orderCartRef={orderCartRef}
         overlayModalRef={overlayModalRef}
+        searchModalRef={searchModalRef}
       />
 
       <ModalContainer 
         cartRef={cartRef} openCartRef={openCartRef} closeCartRef={closeCartRef}
         orderCartRef={orderCartRef}
         overlayModalRef={overlayModalRef}
+        searchModalRef={searchModalRef}
       />
 
       <Nav 
