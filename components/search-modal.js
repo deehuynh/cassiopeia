@@ -4,7 +4,7 @@ import Link from "next/link"
 // redux
 import { useSelector } from "react-redux"
 
-export default function SearchModal () {
+export default function SearchModal ({searchModalRef}) {
   // get searched items from global store
   const searchItems = useSelector(state => state.search)
   // storage items
@@ -16,12 +16,21 @@ export default function SearchModal () {
     )
   })
 
+  const handleShowModal = searchItems.length > 0 ? 'search-modal' : 'search-modal--hidden'
+
   return (
-    <div className="search-modal">
+    <div ref={searchModalRef} className={handleShowModal}>
       {storagedElements}
+
+      {
+        storagedElements.length !== 0 ? 
+        <div className="search-modal__scroll-btn">
+          <img src="/svgs/top-arrow-i.svg" alt="button" />
+        </div>
+        : ''
+      }
     </div>
-  )
-}
+  )}
 
 function Item ({item}) {
   return (
