@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 
 export default function SearchModal ({searchModalRef}) {
   // get searched items from global store
-  const searchItems = useSelector(state => state.search)
+  const searchItems = useSelector(state => state.search.data)
   // storage items
   const storagedElements = []
   
@@ -15,6 +15,10 @@ export default function SearchModal ({searchModalRef}) {
       <Item key={index} item={item} />
     )
   })
+
+  // get search value
+  const searchValue = useSelector(state => state.search.value)
+  console.log(searchValue)
 
   const handleShowModal = searchItems.length > 0 ? 'search-modal' : 'search-modal--hidden'
 
