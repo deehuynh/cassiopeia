@@ -11,7 +11,7 @@
   box-shadow: -5px 10px 35px rgba(90, 92, 102, 0.06);
 
   &--hidden {
-    display: none;
+    height: 0;
   }
 
   &__item {
@@ -55,5 +55,12 @@
   &__scroll-btn {
     display: none;
     text-align: center;
+  }
+
+  @include media (768px) {
+    width: 100%;
+    height: calc(100% - 89.86px);
+    margin-top: 38px;
+    box-shadow: none;
   }
 }
