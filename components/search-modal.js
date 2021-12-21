@@ -29,19 +29,11 @@ export default function SearchModal ({searchModalRef}) {
     }
   })
 
-  const handleShowModal = searchItems.length > 0 ? 'search-modal' : 'search-modal--hidden'
+  const handleShowModal = searchItems.length > 0 ? 'search-modal search-modal--show' : 'search-modal search-modal--hidden'
 
   return (
     <div ref={searchModalRef} className={handleShowModal}>
       {storagedElements}
-
-      {
-        storagedElements.length !== 0 ? 
-        <div className="search-modal__scroll-btn">
-          <img src="/svgs/top-arrow-i.svg" alt="button" />
-        </div>
-        : ''
-      }
     </div>
   )}
 
