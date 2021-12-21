@@ -66,7 +66,8 @@ export default function Header (props) {
                   contentRef: cartRef, hidden: 'cart-modal cart-modal__hidden'
                 }, openCartRef, closeCartRef]
               );
-              orderCartRef.current.className = "show"
+              orderCartRef.current.className = "show";
+              handleResetSearchInput();
             }
           }
           src="/svgs/menu.svg" alt="menu"
@@ -102,7 +103,8 @@ export default function Header (props) {
                     }]
                   ]
                 ); preventBodyScroll(false);
-                orderCartRef.current.className = "show"
+                orderCartRef.current.className = "show";
+                handleResetSearchInput();
               }}
               src="/svgs/logo.svg" alt="Logo" 
             />
