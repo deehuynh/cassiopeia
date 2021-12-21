@@ -1,8 +1,12 @@
 // next api
 import Image from "next/image"
 import Link from "next/link"
+// react api
+import { useEffect } from "react"
 // redux
 import { useSelector } from "react-redux"
+// functions
+import preventBodyScroll from "../function/preventBodyScroll"
 
 export default function SearchModal ({searchModalRef}) {
   // get searched items from global store
@@ -14,6 +18,15 @@ export default function SearchModal ({searchModalRef}) {
     storagedElements.push(
       <Item key={index} item={item} />
     )
+  })
+
+  // handle prevent body scroll on mobile
+  useEffect(() => {
+    if (searchItems.length > 0) {
+      preventBodyScroll(true)
+    } else {
+      preventBodyScroll(false)
+    }
   })
 
   const handleShowModal = searchItems.length > 0 ? 'search-modal' : 'search-modal--hidden'
