@@ -4,11 +4,22 @@
   right: 0;
   z-index: 3;
   background-color: white;
-  padding: 20px;
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
   box-sizing: border-box;
   overflow: auto;
   transition: height .3s;
   box-shadow: -5px 10px 35px rgba(90, 92, 102, 0.06);
+
+  &--show {
+    height: auto;
+    
+    @include media (768px) {
+      height: calc(100% - 89.86px);
+    }
+  }
 
   &--hidden {
     height: 0;
@@ -24,8 +35,12 @@
       opacity: .7;
     }
 
-    &:nth-last-child(2) {
-      margin-bottom: 0;
+    &:first-child {
+      margin-top: 20px;
+    }
+
+    &:last-child {
+      margin-bottom: 20px;
     }
   }
 
@@ -59,7 +74,6 @@
 
   @include media (768px) {
     width: 100%;
-    height: calc(100% - 89.86px);
     margin-top: 38px;
     box-shadow: none;
   }
