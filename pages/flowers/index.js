@@ -28,8 +28,8 @@ export async function getStaticProps() {
     {
       name: 'Sort by',
       children: [
-        'low to high',
-        'high to low'
+        'Low to high',
+        'High to low'
       ]
     }, {
         name: 'Price',
@@ -38,13 +38,20 @@ export async function getStaticProps() {
           '50$ - 100$', 'Over 100$'
         ]
     }, {
+        name: 'Type',
+        children: [
+          'Roses', 'Lilies',
+          'Gerberas', 'Chrysanthemuns',
+          'Lisianthus', 'Alstroemerias'
+        ]
+    }, {
         name: 'Occasion',
         children: [
-          'wedding',
-          'happy birth day',
-          'christmas'
+          'Wedding',
+          'Birthday',
+          'Christmas'
         ]
-    },
+    }
   ];
 
   const res = await fetch(`https://dh-cassiopeia-default-rtdb.asia-southeast1.firebasedatabase.app/flowers.json`);
