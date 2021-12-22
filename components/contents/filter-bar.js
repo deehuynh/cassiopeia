@@ -85,7 +85,12 @@ function Dropdown ({filterName, filterChildren, childrenRef, handleOpenChildren}
         ref={childrenRef}
         className="filter-bar__children filter-bar__children--hidden"
       >
-        {childrenTabs}
+        <div className="filter-bar__children-arrow"></div>
+        <div className="filter-bar__children-list">
+          <p></p>
+          {childrenTabs}
+          <p></p>
+        </div>
       </div>
     </div>
   )
