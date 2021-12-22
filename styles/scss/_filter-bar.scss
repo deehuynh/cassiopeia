@@ -37,13 +37,14 @@
   &__children {
     position: absolute;
     left: 0;
-    top: 35px;
+    top: 28px;
     z-index: 1;
-    background-color: white;
-    box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
+    background-color: transparent;
+    // box-shadow: 0px 10px 20px rgba(0,0,0,0.07);
+    box-shadow: -5px 30px 52px rgba(90, 92, 102, 0.06);
     border-radius: 8px;
-    transition: max-height .3s;
     overflow: hidden;
+    transition: .3s;
 
     &--hidden {
       max-height: 0;
@@ -51,46 +52,57 @@
 
     &--show {
       max-height: 300px;
-      overflow: visible;
     }
 
-    &::before, &::after {
-      position: absolute;
-      z-index: 3;
-      top: -10px;
-      left: 20px;
-      content: '';
-      display: block;
-      @include block(0px);
-      border-bottom: 10px solid rgba(0, 0, 0, 0.055);
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-    }
-
-    &::after {
-      border-width: 9px;
-      border-bottom-color: white;
-      top: -9px;
-      left: 21.5px;
-    }
-
-    span {
-      display: block;
-      padding: 7px 25px;
+    &-list {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: -5px 10px 28px rgba(90, 92, 102, 0.06);
+      border: 1px solid rgba(0,0,0,0.03);
       box-sizing: border-box;
-      @extend %body2;
 
-      &:first-child {
-        margin-top: 7px;
+      p {
+        margin: 0;
+        height: 7px;
       }
 
-      &:last-child {
-        margin-bottom: 7px;
+      span {
+        display: block;
+        padding: 7px 25px;
+        box-sizing: border-box;
+        @extend %body2;
+  
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(0, 0, 0, 0.035);
+        }
       }
+    }
 
-      &:hover {
-        cursor: pointer;
-        background-color: rgba(0, 0, 0, 0.035)
+    &-arrow {
+      position: relative;
+      z-index: 1;
+      height: 10px;
+
+      &::before, &::after {
+        position: absolute;
+        z-index: 2;
+        top: 1px;
+        left: 20px;
+        content: '';
+        display: block;
+        @include block(0px);
+        border-bottom: 10px solid rgba(0, 0, 0, 0.055);
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        overflow: visible;
+      }
+  
+      &::after {
+        border-width: 10px;
+        border-bottom-color: white;
+        top: 2px;
+        left: 20.5px;
       }
     }
   }
