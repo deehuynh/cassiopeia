@@ -5,6 +5,8 @@ import getAllProducts from "../api/getAllProducts"
 // redux
 import { useDispatch, useSelector } from "react-redux"
 import { getItems, setValue, setSearchKey } from "../redux/searchSlice"
+// functions
+import preventBodyScroll from "../function/preventBodyScroll"
 
 function useSearch () {
   // merge items to an array
@@ -30,6 +32,13 @@ function useSearch () {
     // submit after already typing
     typingTimeout.current = setTimeout(() => {
       dispatch(setSearchKey(value))
+      /*  prevent body scroll on mobile  */
+      // ideas: search-modal prevents body sroll if searchedItems === []
+      // if user removes search text in input === '' then body scroll is available
+      // if user clicks search button at header component then body scroll is available
+      if (value === '') {
+        preventBodyScroll(false)
+      }
     }, 500)
   }
 
