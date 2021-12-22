@@ -18,7 +18,8 @@
   }
 
   &__recomanded {
-    @include media (350px) {
+    margin-bottom: 30px;
+    @include media (768px) {
       margin-bottom: 20px;
     }
   }
