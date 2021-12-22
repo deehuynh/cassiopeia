@@ -1,15 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
+// react api
+import { useRef } from "react";
+
 export default function FilterBar ({allFilters, countPr = '0'}) {
+  // dropdown refs
+  const childrenRef = useRef(null);
+  // storage dropdowns
   const dropdowns = [];
+  // fetch allFilters api
   allFilters && allFilters.forEach((item, index) => {
     dropdowns.push(
       <Dropdown
         key={index}
         filterName={item.name}
         filterChildren={item.children}
+        childrenRef={childrenRef}
       />
     );
   });
+  // total product counter
   const textCountPr = countPr < 2 ? ' item' : ' items';
 
   return (
@@ -27,7 +36,7 @@ export default function FilterBar ({allFilters, countPr = '0'}) {
   )
 }
 
-function Dropdown ({filterName, filterChildren}) {
+function Dropdown ({filterName, filterChildren, childrenRef}) {
   // storage the children tabs
   const childrenTabs = []
   // fetch children tabs
@@ -36,7 +45,7 @@ function Dropdown ({filterName, filterChildren}) {
       <span key={index}>{name}</span>
     )
   })
-  
+
   return (
     <div className="filter-bar__dropdown">
       <div className="filter-bar__tab">
@@ -44,7 +53,10 @@ function Dropdown ({filterName, filterChildren}) {
         <img src="/svgs/dropdown-i.svg" alt="dropdown arrow" />
       </div>
 
-      <div className="filter-bar__children">
+      <div 
+        ref={childrenRef}
+        className="filter-bar__children filter-bar__children--hidden"
+      >
         {childrenTabs}
       </div>
     </div>
