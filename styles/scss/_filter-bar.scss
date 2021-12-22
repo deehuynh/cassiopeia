@@ -15,6 +15,7 @@
   &__dropdown {
     width: 132px;
     position: relative;
+    user-select: none;
   }
 
   &__tab {
@@ -36,20 +37,41 @@
   &__children {
     position: absolute;
     left: 0;
-    top: 30px;
+    top: 35px;
     z-index: 1;
     background-color: white;
-    box-shadow: -2px 10px 42px rgba(90, 92, 102, 0.06);
+    box-shadow: -5px 10px 52px rgba(90, 92, 102, 0.06);
     border-radius: 8px;
-    transition: height .3s;
+    transition: max-height .3s;
     overflow: hidden;
 
     &--hidden {
-      height: 0;
+      max-height: 0;
     }
 
     &--show {
-      height: auto;
+      max-height: 300px;
+      overflow: visible;
+    }
+
+    &::before, &::after {
+      position: absolute;
+      z-index: 3;
+      top: -10px;
+      left: 20px;
+      content: '';
+      display: block;
+      @include block(0px);
+      border-bottom: 10px solid rgba(0, 0, 0, 0.055);
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+
+    &::after {
+      border-width: 9px;
+      border-bottom-color: white;
+      top: -9px;
+      left: 21.5px;
     }
 
     span {
