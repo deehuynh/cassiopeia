@@ -1,12 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 // react api
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 export default function FilterBar ({allFilters, countPr = '0'}) {
   // dropdown refs
-  const childrenRef = useRef(null);
+  const childrenRef = useRef([]);
   // storage dropdowns
   const dropdowns = [];
+  // handle multiple refs
+  useEffect(() => {
+    childrenRef.current = childrenRef.current.slice(0, allFilters.length);
+ }, [allFilters]);
+  // handle open dropdown children tab
+  const handleOpenChildren = (index) => {
+    let currentRefContainer = childrenRef.current[index]
+    let showClass = 'filter-bar__children filter-bar__children--show'
+    let hiddenClass = 'filter-bar__children filter-bar__children--hidden'
+    if (currentRefContainer) {
+      if (currentRefContainer.className !== showClass) {
+        currentRefContainer.className = showClass;
+      } else {
+        currentRefContainer.className = hiddenClass;
+      }
+    }
+  }
   // fetch allFilters api
   allFilters && allFilters.forEach((item, index) => {
     dropdowns.push(
@@ -14,7 +31,8 @@ export default function FilterBar ({allFilters, countPr = '0'}) {
         key={index}
         filterName={item.name}
         filterChildren={item.children}
-        childrenRef={childrenRef}
+        childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
+        handleOpenChildren={() => handleOpenChildren(index)}
       />
     );
   });
@@ -36,7 +54,7 @@ export default function FilterBar ({allFilters, countPr = '0'}) {
   )
 }
 
-function Dropdown ({filterName, filterChildren, childrenRef}) {
+function Dropdown ({filterName, filterChildren, childrenRef, handleOpenChildren}) {
   // storage the children tabs
   const childrenTabs = []
   // fetch children tabs
@@ -48,7 +66,10 @@ function Dropdown ({filterName, filterChildren, childrenRef}) {
 
   return (
     <div className="filter-bar__dropdown">
-      <div className="filter-bar__tab">
+      <div 
+        onClick={handleOpenChildren}
+        className="filter-bar__tab"
+      >
         <span>{filterName}</span>
         <img src="/svgs/dropdown-i.svg" alt="dropdown arrow" />
       </div>
