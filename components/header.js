@@ -136,7 +136,7 @@ export default function Header (props) {
                   }, openCartRef, closeCartRef]
                 );
                 orderCartRef.current.className = "show";
-                searchModalRef.current.className="search-modal--hidden";
+                searchModalRef.current.className="search-modal search-modal--hidden";
                 handleResetSearchInput()
               }
             } 
