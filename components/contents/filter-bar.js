@@ -4,9 +4,9 @@ export default function FilterBar ({allFilters, countPr = '0'}) {
   allFilters && allFilters.forEach((item, index) => {
     dropdowns.push(
       <Dropdown
-       key={index}
-       filterName={item.name}
-       filterChildren={item.children}
+        key={index}
+        filterName={item.name}
+        filterChildren={item.children}
       />
     );
   });
@@ -28,11 +28,24 @@ export default function FilterBar ({allFilters, countPr = '0'}) {
 }
 
 function Dropdown ({filterName, filterChildren}) {
+  // storage the children tabs
+  const childrenTabs = []
+  // fetch children tabs
+  filterChildren.forEach((name, index) => {
+    childrenTabs.push(
+      <span key={index}>{name}</span>
+    )
+  })
+  
   return (
     <div className="filter-bar__dropdown">
-      <div>
+      <div className="filter-bar__tab">
         <span>{filterName}</span>
         <img src="/svgs/dropdown-i.svg" alt="dropdown arrow" />
+      </div>
+
+      <div className="filter-bar__children">
+        {childrenTabs}
       </div>
     </div>
   )
