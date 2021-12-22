@@ -11,6 +11,8 @@ import preventBodyScroll from "../function/preventBodyScroll"
 export default function SearchModal ({searchModalRef}) {
   // get searched items from global store
   const searchItems = useSelector(state => state.search.data)
+  // get search value
+  const searchValue = useSelector(state => state.search.value)
   // storage items
   const storagedElements = []
   
@@ -24,8 +26,6 @@ export default function SearchModal ({searchModalRef}) {
   useEffect(() => {
     if (searchItems.length > 0) {
       preventBodyScroll(true)
-    } else {
-      preventBodyScroll(false)
     }
   })
 
