@@ -12,16 +12,23 @@ export default function FilterBar ({allFilters, countPr = '0'}) {
     childrenRef.current = childrenRef.current.slice(0, allFilters.length);
  }, [allFilters]);
   // handle open dropdown children tab
-  const handleOpenChildren = (index) => {
-    let currentRefContainer = childrenRef.current[index]
+  const handleOpenChildren = (currentIndex) => {
     let showClass = 'filter-bar__children filter-bar__children--show'
     let hiddenClass = 'filter-bar__children filter-bar__children--hidden'
-    if (currentRefContainer) {
-      if (currentRefContainer.className !== showClass) {
-        currentRefContainer.className = showClass;
-      } else {
-        currentRefContainer.className = hiddenClass;
-      }
+    if (childrenRef.current) {
+      childrenRef.current.forEach((element, index) => {
+        // open or close current children tab
+        if (index === currentIndex) {
+          if (element.className !== showClass) {
+            element.className = showClass;
+          } else {
+            element.className = hiddenClass;
+          }
+        } else {
+          // hide other children tabs
+          element.className = 'filter-bar__children filter-bar__children--hidden'
+        }
+      })
     }
   }
   // fetch allFilters api
