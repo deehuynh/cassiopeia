@@ -45,6 +45,7 @@ function Item ({item}) {
     dispatch(setValue(''));
     dispatch(setSearchKey(''));
     dispatch(getItems([]));
+    preventBodyScroll(false);
   }
 
   return (
