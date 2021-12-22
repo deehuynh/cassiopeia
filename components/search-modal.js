@@ -4,7 +4,8 @@ import Link from "next/link"
 // react api
 import { useEffect } from "react"
 // redux
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { setValue, setSearchKey, getItems } from "../redux/searchSlice"
 // functions
 import preventBodyScroll from "../function/preventBodyScroll"
 
@@ -38,23 +39,31 @@ export default function SearchModal ({searchModalRef}) {
   )}
 
 function Item ({item}) {
+  const dispatch = useDispatch()
+  // reset search input when redirect to the detail product
+  const handleResetSearchInput = () => {
+    dispatch(setValue(''));
+    dispatch(setSearchKey(''));
+    dispatch(getItems([]));
+  }
+
   return (
     <Link href={`/${item.page}/${item.id}`}>
-    <a className="search-modal__item">
-      <span className="search-modal__thumbnail">
-        <Image 
-          src={item.thumbnail}
-          width={100}
-          height={100}
-          alt="product thumbnail"
-        />
-      </span>
+      <a onClick={handleResetSearchInput} className="search-modal__item">
+        <span className="search-modal__thumbnail">
+          <Image 
+            src={item.thumbnail}
+            width={100}
+            height={100}
+            alt="product thumbnail"
+          />
+        </span>
 
-      <span className="search-modal__group">
-        <span className="search-modal__name">{item.name}</span>
-        <span className="search-modal__price">${item.price}</span>
-      </span>
-    </a>
-  </Link>
+        <span className="search-modal__group">
+          <span className="search-modal__name">{item.name}</span>
+          <span className="search-modal__price">${item.price}</span>
+        </span>
+      </a>
+    </Link>
   )
 }
