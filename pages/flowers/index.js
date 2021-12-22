@@ -27,38 +27,23 @@ export async function getStaticProps() {
   const allFilters = [
     {
       name: 'Sort by',
-      children: {
-        name: 'low to high',
-        name: 'high to low',
-      }
-    }, {
-        name: 'Color',
-        children: {
-          name: 'Red',
-          name: 'Pink',
-          name: 'White',
-        }
+      children: [
+        'low to high',
+        'high to low'
+      ]
     }, {
         name: 'Price',
-        children: {
-          name: 'Under 10$',
-          name: '10$ - 50$',
-          name: '50$ - 100$',
-          name: 'Over 100$',
-        }
-    }, {
-        name: 'Type',
-        children: {
-          name: 'Rose',
-          name: 'Lily'
-        }
+        children: [
+          'Under 10$', '10$ - 50$',
+          '50$ - 100$', 'Over 100$'
+        ]
     }, {
         name: 'Occasion',
-        children: {
-          name: 'wedding',
-          name: 'happy birthday',
-          name: 'event',
-        }
+        children: [
+          'wedding',
+          'happy birth day',
+          'christmas'
+        ]
     },
   ];
 
