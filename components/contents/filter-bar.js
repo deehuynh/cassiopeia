@@ -1,8 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 // react api
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useReducer } from "react";
 
-export default function FilterBar ({allFilters, countPr = '0'}) {
+const reducer = (state, action) => {
+  console.log(state)
+}
+
+export default function FilterBar ({allFilters, allProducts, countPr = '0'}) {
+  const [products, dispatch] = useReducer(reducer, allProducts)
   // dropdown refs
   const childrenRef = useRef([]);
   // storage dropdowns
@@ -62,13 +67,23 @@ export default function FilterBar ({allFilters, countPr = '0'}) {
 }
 
 function Dropdown ({filterName, filterChildren, childrenRef, handleOpenChildren}) {
+  // default data
+  const sortByDefault = 'Oldest'
+  // active class name
+  const activeClass = 'filter-bar__children--active'
   // storage the children tabs
   const childrenTabs = []
   // fetch children tabs
   filterChildren.forEach((name, index) => {
-    childrenTabs.push(
-      <span key={index}>{name}</span>
-    )
+    if (name === sortByDefault) {
+      childrenTabs.push(
+        <span key={index} className={activeClass}>{name}</span>
+      )
+    } else {
+      childrenTabs.push(
+        <span key={index}>{name}</span>
+      )
+    }
   })
 
   return (
