@@ -54,6 +54,11 @@
       max-height: 300px;
     }
 
+    &--active {
+      font-weight: 500;
+      color: $c-primary;
+    }
+
     &-list {
       background-color: white;
       border-radius: 8px;
