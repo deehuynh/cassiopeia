@@ -16,7 +16,7 @@ export default function Flowers ({allFilters, allProducts}) {
 
       <BreadCrumb />
       <PageName>Flowers</PageName>
-      <FilterBar allFilters={allFilters} countPr={countPr} />
+      <FilterBar allFilters={allFilters} allProducts={allProducts} countPr={countPr} />
 
       <ProductsContainer page="flowers" allProducts={allProducts} />
     </div>
@@ -28,6 +28,8 @@ export async function getStaticProps() {
     {
       name: 'Sort by',
       children: [
+        'Newest',
+        'Oldest',
         'Low to high',
         'High to low'
       ]
