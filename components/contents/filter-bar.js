@@ -53,6 +53,13 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       pageData: allProducts
     })
   )
+  const sortByNewestProducts = () => dispatch(
+    sortBy({
+      sortBy: 'newest',
+      pageName: page,
+      pageData: allProducts
+    })
+  )
   // fetch allFilters api
   allFilters && allFilters.forEach((item, index) => {
     dropdowns.push(
@@ -64,6 +71,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
         handleOpenChildren={() => handleOpenChildren(index)}
         handlePriceLowToHigh={handlePriceLowToHigh}
         handlePriceHighToLow={handlePriceHighToLow}
+        sortByNewestProducts={sortByNewestProducts}
       />
     );
   });
@@ -85,7 +93,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
 
 function Dropdown ({
   filterName, filterChildren, childrenRef, handleOpenChildren,
-  handlePriceLowToHigh, handlePriceHighToLow
+  handlePriceLowToHigh, handlePriceHighToLow, sortByNewestProducts
 }) {
   // default data
   const sortByDefault = 'Oldest'
@@ -107,6 +115,10 @@ function Dropdown ({
       } else if (name === 'High to low') {
         childrenTabs.push(
           <span onClick={handlePriceHighToLow} key={index}>{name}</span>
+        )
+      } else if (name === 'Newest') {
+        childrenTabs.push(
+          <span onClick={sortByNewestProducts} key={index}>{name}</span>
         )
       } else {
         childrenTabs.push(
