@@ -19,7 +19,7 @@ export default function Flowers ({allFilters, allProducts}) {
   const flowersData = useSelector(state => state.pages.flowers)
   // push allProducts to redux store
   useEffect(() => {
-    if (flowersData) {
+    if (flowersData.length !== 0) {
       setProductState(flowersData)
     }
   }, [flowersData])
