@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 // react api
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 // redux api and actions
 import { useDispatch } from "react-redux";
 import { sortBy } from "../../redux/pageSlice";
@@ -38,14 +38,27 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       })
     }
   }
+  // handle close dropdown when click
+  const closeDropdown = () => {
+    if (childrenRef.current) {
+      childrenRef.current.forEach((element) => {
+        if (element.className === 'filter-bar__children filter-bar__children--show') {
+          element.className = 'filter-bar__children filter-bar__children--hidden'
+        }
+      })
+    }
+  }
   // handle sort functions
-  const handlePriceLowToHigh = () => dispatch(
-    sortBy({
-      sortBy: 'priceLowToHigh',
-      pageName: page,
-      pageData: allProducts
-    })
-  )
+  const handlePriceLowToHigh = () => {
+    dispatch(
+      sortBy({
+        sortBy: 'priceLowToHigh',
+        pageName: page,
+        pageData: allProducts
+      })
+    );
+    closeDropdown()
+  }
   const handlePriceHighToLow = () => dispatch(
     sortBy({
       sortBy: 'priceHighToLow',
@@ -104,19 +117,17 @@ function Dropdown ({
   handlePriceLowToHigh, handlePriceHighToLow, sortByNewestProducts,
   sortByOldestProducts
 }) {
-  // default data
-  const sortByDefault = 'Newest'
   // active class name
-  let activeClass = ''
+  const [activeClass, setActiveClass] = useState('filter-bar__children--active')
   // storage the children tabs
   const childrenTabs = []
   // fetch children tabs
   filterChildren.forEach((name, index) => {
-    if (name === sortByDefault) {
+    if (name === 'Newest') {
       childrenTabs.push(
         <span 
           onClick={sortByNewestProducts} key={index} 
-          className='filter-bar__children--active'
+          className={activeClass}
         >{name}</span>
       )
     } else {
