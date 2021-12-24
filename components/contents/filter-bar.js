@@ -60,6 +60,13 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       pageData: allProducts
     })
   )
+  const sortByOldestProducts = () => dispatch(
+    sortBy({
+      sortBy: 'oldest',
+      pageName: page,
+      pageData: allProducts
+    })
+  )
   // fetch allFilters api
   allFilters && allFilters.forEach((item, index) => {
     dropdowns.push(
@@ -72,6 +79,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
         handlePriceLowToHigh={handlePriceLowToHigh}
         handlePriceHighToLow={handlePriceHighToLow}
         sortByNewestProducts={sortByNewestProducts}
+        sortByOldestProducts={sortByOldestProducts}
       />
     );
   });
@@ -93,10 +101,11 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
 
 function Dropdown ({
   filterName, filterChildren, childrenRef, handleOpenChildren,
-  handlePriceLowToHigh, handlePriceHighToLow, sortByNewestProducts
+  handlePriceLowToHigh, handlePriceHighToLow, sortByNewestProducts,
+  sortByOldestProducts
 }) {
   // default data
-  const sortByDefault = 'Oldest'
+  const sortByDefault = 'Newest'
   // active class name
   let activeClass = ''
   // storage the children tabs
@@ -105,7 +114,10 @@ function Dropdown ({
   filterChildren.forEach((name, index) => {
     if (name === sortByDefault) {
       childrenTabs.push(
-        <span key={index} className='filter-bar__children--active'>{name}</span>
+        <span 
+          onClick={sortByNewestProducts} key={index} 
+          className='filter-bar__children--active'
+        >{name}</span>
       )
     } else {
       if (name === 'Low to high') {
@@ -116,9 +128,9 @@ function Dropdown ({
         childrenTabs.push(
           <span onClick={handlePriceHighToLow} key={index}>{name}</span>
         )
-      } else if (name === 'Newest') {
+      } else if (name === 'Oldest') {
         childrenTabs.push(
-          <span onClick={sortByNewestProducts} key={index}>{name}</span>
+          <span onClick={sortByOldestProducts} key={index}>{name}</span>
         )
       } else {
         childrenTabs.push(
