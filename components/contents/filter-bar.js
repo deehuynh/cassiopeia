@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 // redux api and actions
 import { useDispatch } from "react-redux";
-import { orderBy } from "../../redux/pageSlice";
+import { sortBy } from "../../redux/pageSlice";
 
 export default function FilterBar ({allFilters, allProducts, countPr = '0', page}) {
   // redux dispatch
@@ -40,8 +40,8 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
   }
   // handle sort functions
   const handlePriceLowToHigh = () => dispatch(
-    orderBy({
-      orderBy: 'priceLowToHigh',
+    sortBy({
+      sortBy: 'priceLowToHigh',
       pageName: page,
       pageData: allProducts
     })
