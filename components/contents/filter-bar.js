@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 // react api
-import { useRef, useEffect, useReducer } from "react";
+import { useRef, useEffect } from "react";
+// redux api and actions
+import { useDispatch } from "react-redux";
+import { orderBy } from "../../redux/pageSlice";
 
-const reducer = (state, action) => {
-  console.log(state)
-}
-
-export default function FilterBar ({allFilters, allProducts, countPr = '0'}) {
-  const [products, dispatch] = useReducer(reducer, allProducts)
+export default function FilterBar ({allFilters, allProducts, countPr = '0', page}) {
+  // redux dispatch
+  const dispatch = useDispatch();
   // dropdown refs
   const childrenRef = useRef([]);
   // storage dropdowns
@@ -50,6 +50,14 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0'}) {
   });
   // total product counter
   const textCountPr = countPr < 2 ? ' item' : ' items';
+  // handle sort functions
+  const handlePriceLowToHigh = () => dispatch(
+    orderBy({
+      orderBy: 'priceLowToHigh',
+      pageName: page,
+      pageData: allProducts
+    })
+  )
 
   return (
     <div className="filter-bar">
@@ -70,18 +78,19 @@ function Dropdown ({filterName, filterChildren, childrenRef, handleOpenChildren}
   // default data
   const sortByDefault = 'Oldest'
   // active class name
-  const activeClass = 'filter-bar__children--active'
+  let activeClass = ''
   // storage the children tabs
   const childrenTabs = []
   // fetch children tabs
   filterChildren.forEach((name, index) => {
     if (name === sortByDefault) {
       childrenTabs.push(
-        <span key={index} className={activeClass}>{name}</span>
+        <span key={index} className='filter-bar__children--active'>{name}</span>
       )
     } else {
+      activeClass = ''
       childrenTabs.push(
-        <span key={index}>{name}</span>
+        <span className={activeClass} key={index}>{name}</span>
       )
     }
   })
