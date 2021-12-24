@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 // pure functions
-const sortByPrice = (pageData, type) => {
+const sortByPrice = (data, type) => {
+  // fixed error: must to create a copy of the array
+  const pageData = data
   if (type === 'priceLowToHigh') {
     let tmp
     for (let i = 0; i < pageData.length - 1; i++) {
