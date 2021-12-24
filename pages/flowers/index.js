@@ -30,7 +30,11 @@ export default function Flowers ({allFilters, allProducts}) {
 
       <BreadCrumb />
       <PageName>Flowers</PageName>
-      <FilterBar allFilters={allFilters} allProducts={allProducts} countPr={countPr} />
+      <FilterBar 
+        allFilters={allFilters} allProducts={allProducts} 
+        page="flowers"
+        countPr={countPr} 
+      />
 
       <ProductsContainer page="flowers" allProducts={productState} />
     </div>
