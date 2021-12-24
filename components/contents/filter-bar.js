@@ -46,6 +46,13 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       pageData: allProducts
     })
   )
+  const handlePriceHighToLow = () => dispatch(
+    sortBy({
+      sortBy: 'priceHighToLow',
+      pageName: page,
+      pageData: allProducts
+    })
+  )
   // fetch allFilters api
   allFilters && allFilters.forEach((item, index) => {
     dropdowns.push(
@@ -56,6 +63,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
         childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
         handleOpenChildren={() => handleOpenChildren(index)}
         handlePriceLowToHigh={handlePriceLowToHigh}
+        handlePriceHighToLow={handlePriceHighToLow}
       />
     );
   });
@@ -77,7 +85,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
 
 function Dropdown ({
   filterName, filterChildren, childrenRef, handleOpenChildren,
-  handlePriceLowToHigh
+  handlePriceLowToHigh, handlePriceHighToLow
 }) {
   // default data
   const sortByDefault = 'Oldest'
@@ -95,6 +103,10 @@ function Dropdown ({
       if (name === 'Low to high') {
         childrenTabs.push(
           <span onClick={handlePriceLowToHigh} key={index}>{name}</span>
+        )
+      } else if (name === 'High to low') {
+        childrenTabs.push(
+          <span onClick={handlePriceHighToLow} key={index}>{name}</span>
         )
       } else {
         childrenTabs.push(
