@@ -59,27 +59,36 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
     );
     closeDropdown()
   }
-  const handlePriceHighToLow = () => dispatch(
-    sortBy({
-      sortBy: 'priceHighToLow',
-      pageName: page,
-      pageData: allProducts
-    })
-  )
-  const sortByNewestProducts = () => dispatch(
-    sortBy({
-      sortBy: 'newest',
-      pageName: page,
-      pageData: allProducts
-    })
-  )
-  const sortByOldestProducts = () => dispatch(
-    sortBy({
-      sortBy: 'oldest',
-      pageName: page,
-      pageData: allProducts
-    })
-  )
+  const handlePriceHighToLow = () => {
+    dispatch(
+      sortBy({
+        sortBy: 'priceHighToLow',
+        pageName: page,
+        pageData: allProducts
+      })
+    );
+    closeDropdown()
+  }
+  const sortByNewestProducts = () => {
+    dispatch(
+      sortBy({
+        sortBy: 'newest',
+        pageName: page,
+        pageData: allProducts
+      })
+    );
+    closeDropdown()
+  }
+  const sortByOldestProducts = () => {
+    dispatch(
+      sortBy({
+        sortBy: 'oldest',
+        pageName: page,
+        pageData: allProducts
+      })
+    );
+    closeDropdown()
+  }
   // fetch allFilters api
   allFilters && allFilters.forEach((item, index) => {
     dropdowns.push(
