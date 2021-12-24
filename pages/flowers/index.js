@@ -1,3 +1,5 @@
+// react api
+import { useEffect, useState } from "react"
 // the head tag's title
 import Title from "../../components/title"
 // components
@@ -9,6 +11,8 @@ import ProductsContainer from "../../components/contents/products-container"
 export default function Flowers ({allFilters, allProducts}) {
   // count products
   const countPr = allProducts && allProducts.length;
+  // products state
+  const [productState, setProductState] = useState(allProducts);
   
   return (
     <div className="flowers">
@@ -18,7 +22,7 @@ export default function Flowers ({allFilters, allProducts}) {
       <PageName>Flowers</PageName>
       <FilterBar allFilters={allFilters} allProducts={allProducts} countPr={countPr} />
 
-      <ProductsContainer page="flowers" allProducts={allProducts} />
+      <ProductsContainer page="flowers" allProducts={productState} />
     </div>
   )
 }
