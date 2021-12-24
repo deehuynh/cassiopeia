@@ -43,6 +43,20 @@ const sortByPrice = ([...pageData], type) => {
     }
     return pageData
   }
+
+  if (type === 'oldest') {
+    let tmp
+    for (let i = 0; i < pageData.length - 1; i++) {
+      for (let j = i + 1; j < pageData.length; j++) {
+        if (Number(pageData[i].id) > Number(pageData[j].id)) {
+          tmp = pageData[i]
+          pageData[i] = pageData[j]
+          pageData[j] = tmp
+        }
+      }
+    }
+    return pageData
+  }
 }
 
 const pageSlice = createSlice({
