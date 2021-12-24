@@ -12,6 +12,8 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
   const childrenRef = useRef([]);
   // storage dropdowns
   const dropdowns = [];
+  // total product counter
+  const textCountPr = countPr < 2 ? ' item' : ' items';
   // handle multiple refs
   useEffect(() => {
     childrenRef.current = childrenRef.current.slice(0, allFilters.length);
@@ -36,6 +38,14 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       })
     }
   }
+  // handle sort functions
+  const handlePriceLowToHigh = () => dispatch(
+    orderBy({
+      orderBy: 'priceLowToHigh',
+      pageName: page,
+      pageData: allProducts
+    })
+  )
   // fetch allFilters api
   allFilters && allFilters.forEach((item, index) => {
     dropdowns.push(
@@ -45,19 +55,10 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
         filterChildren={item.children}
         childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
         handleOpenChildren={() => handleOpenChildren(index)}
+        handlePriceLowToHigh={handlePriceLowToHigh}
       />
     );
   });
-  // total product counter
-  const textCountPr = countPr < 2 ? ' item' : ' items';
-  // handle sort functions
-  const handlePriceLowToHigh = () => dispatch(
-    orderBy({
-      orderBy: 'priceLowToHigh',
-      pageName: page,
-      pageData: allProducts
-    })
-  )
 
   return (
     <div className="filter-bar">
