@@ -75,7 +75,10 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
   )
 }
 
-function Dropdown ({filterName, filterChildren, childrenRef, handleOpenChildren}) {
+function Dropdown ({
+  filterName, filterChildren, childrenRef, handleOpenChildren,
+  handlePriceLowToHigh
+}) {
   // default data
   const sortByDefault = 'Oldest'
   // active class name
@@ -89,10 +92,15 @@ function Dropdown ({filterName, filterChildren, childrenRef, handleOpenChildren}
         <span key={index} className='filter-bar__children--active'>{name}</span>
       )
     } else {
-      activeClass = ''
-      childrenTabs.push(
-        <span className={activeClass} key={index}>{name}</span>
-      )
+      if (name === 'Low to high') {
+        childrenTabs.push(
+          <span onClick={handlePriceLowToHigh} key={index}>{name}</span>
+        )
+      } else {
+        childrenTabs.push(
+          <span key={index}>{name}</span>
+        )
+      }
     }
   })
 
