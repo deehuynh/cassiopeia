@@ -1,5 +1,7 @@
 // react api
 import { useEffect, useState } from "react"
+// redux
+import { useSelector } from "react-redux"
 // the head tag's title
 import Title from "../../components/title"
 // components
@@ -13,6 +15,14 @@ export default function Flowers ({allFilters, allProducts}) {
   const countPr = allProducts && allProducts.length;
   // products state
   const [productState, setProductState] = useState(allProducts);
+  // get redux data
+  const flowersData = useSelector(state => state.pages.flowers)
+  // push allProducts to redux store
+  useEffect(() => {
+    if (flowersData) {
+      setProductState(flowersData)
+    }
+  }, [flowersData])
   
   return (
     <div className="flowers">
