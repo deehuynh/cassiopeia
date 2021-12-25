@@ -51,7 +51,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
     }
   }
   // handle sort function
-  const handleSortBy = (type) => {
+  const handleSortBy = (type, currentActive) => {
     dispatch(
       sortBy({
         sortBy: type,
@@ -59,7 +59,8 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
         pageData: allProducts
       })
     );
-    closeDropdown()
+    closeDropdown();
+    setActiveTab(currentActive);
   }
   // fetch allFilters api
   allFilters && allFilters.forEach((item, index) => {
@@ -70,10 +71,11 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
         filterChildren={item.children}
         childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
         handleOpenChildren={() => handleOpenChildren(index)}
-        handlePriceLowToHigh={() => handleSortBy('priceLowToHigh')}
-        handlePriceHighToLow={() => handleSortBy('priceHighToLow')}
-        sortByNewestProducts={() => handleSortBy('newest')}
-        sortByOldestProducts={() => handleSortBy('oldest')}
+        handlePriceLowToHigh={(activeTab) => handleSortBy('priceLowToHigh', activeTab)}
+        handlePriceHighToLow={(activeTab) => handleSortBy('priceHighToLow', activeTab)}
+        sortByNewestProducts={(activeTab) => handleSortBy('newest', activeTab)}
+        sortByOldestProducts={(activeTab) => handleSortBy('oldest', activeTab)}
+        activeTab={activeTab}
       />
     );
   });
@@ -94,7 +96,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
 }
 
 function Dropdown ({
-  filterName, filterChildren, childrenRef, handleOpenChildren,
+  filterName, filterChildren, childrenRef, handleOpenChildren, activeTab,
   handlePriceLowToHigh, handlePriceHighToLow, sortByNewestProducts,
   sortByOldestProducts
 }) {
@@ -102,28 +104,39 @@ function Dropdown ({
   const childrenTabs = []
   // fetch children tabs
   filterChildren.forEach((name, index) => {
+    let activeClass = activeTab === name ? 'filter-bar__children--active' : ''
     if (name === 'Newest') {
       childrenTabs.push(
         <span 
-          onClick={sortByNewestProducts} key={index}
+          onClick={() => sortByNewestProducts(name)} key={index}
+          className={activeClass}
         >{name}</span>
       )
     } else {
       if (name === 'Low to high') {
         childrenTabs.push(
-          <span onClick={handlePriceLowToHigh} key={index}>{name}</span>
+          <span 
+            onClick={() => handlePriceLowToHigh(name)}
+            className={activeClass} key={index}
+          >{name}</span>
         )
       } else if (name === 'High to low') {
         childrenTabs.push(
-          <span onClick={handlePriceHighToLow} key={index}>{name}</span>
+          <span 
+            onClick={() => handlePriceHighToLow(name)}
+            className={activeClass} key={index}
+          >{name}</span>
         )
       } else if (name === 'Oldest') {
         childrenTabs.push(
-          <span onClick={sortByOldestProducts} key={index}>{name}</span>
+          <span 
+            onClick={() => sortByOldestProducts(name)}
+            className={activeClass} key={index}
+          >{name}</span>
         )
       } else {
         childrenTabs.push(
-          <span key={index}>{name}</span>
+          <span key={index} className={activeClass}>{name}</span>
         )
       }
     }
