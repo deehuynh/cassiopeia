@@ -1,63 +1,7 @@
+// redux toolkit
 import { createSlice } from "@reduxjs/toolkit"
-
-// pure functions
-const sortByPrice = ([...pageData], type) => {
-  if (type === 'priceLowToHigh') {
-    let tmp
-    for (let i = 0; i < pageData.length - 1; i++) {
-      for (let j = i + 1; j < pageData.length; j++) {
-        if (Number(pageData[i].price) > Number(pageData[j].price)) {
-          tmp = pageData[i]
-          pageData[i] = pageData[j]
-          pageData[j] = tmp
-        }
-      }
-    }
-    return pageData
-  }
-
-  if (type === 'priceHighToLow') {
-    let tmp
-    for (let i = 0; i < pageData.length - 1; i++) {
-      for (let j = i + 1; j < pageData.length; j++) {
-        if (Number(pageData[i].price) < Number(pageData[j].price)) {
-          tmp = pageData[i]
-          pageData[i] = pageData[j]
-          pageData[j] = tmp
-        }
-      }
-    }
-    return pageData
-  }
-
-  if (type === 'newest') {
-    let tmp
-    for (let i = 0; i < pageData.length - 1; i++) {
-      for (let j = i + 1; j < pageData.length; j++) {
-        if (Number(pageData[i].id) < Number(pageData[j].id)) {
-          tmp = pageData[i]
-          pageData[i] = pageData[j]
-          pageData[j] = tmp
-        }
-      }
-    }
-    return pageData
-  }
-
-  if (type === 'oldest') {
-    let tmp
-    for (let i = 0; i < pageData.length - 1; i++) {
-      for (let j = i + 1; j < pageData.length; j++) {
-        if (Number(pageData[i].id) > Number(pageData[j].id)) {
-          tmp = pageData[i]
-          pageData[i] = pageData[j]
-          pageData[j] = tmp
-        }
-      }
-    }
-    return pageData
-  }
-}
+// handle logic functions
+import handleSortBy from "./pure_functions/handleSortBy"
 
 const pageSlice = createSlice({
   name: 'pages',
@@ -71,7 +15,7 @@ const pageSlice = createSlice({
       const pageName = action.payload.pageName
       const pageData = action.payload.pageData
       const sortBy = action.payload.sortBy
-      const handledData = sortByPrice(pageData, sortBy)
+      const handledData = handleSortBy(pageData, sortBy)
 
       return {...state, [pageName]: handledData}
     },
@@ -80,6 +24,12 @@ const pageSlice = createSlice({
       const pageName = action.payload.pageName
       const pageData = action.payload.pageData
       const optionPrice = action.payload.option
+      
+      pageData.forEach((item) => {
+        if (Number(item.price) < 10) {
+          console.log(item.price)
+        }
+      })
     }
   }
 })
