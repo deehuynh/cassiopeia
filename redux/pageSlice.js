@@ -2,6 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 // handle logic functions
 import handleSortBy from "./pure_functions/handleSortBy"
+import handleSelectByPrice from "./pure_functions/handleSelectByPrice"
 
 const pageSlice = createSlice({
   name: 'pages',
@@ -24,12 +25,9 @@ const pageSlice = createSlice({
       const pageName = action.payload.pageName
       const pageData = action.payload.pageData
       const optionPrice = action.payload.option
-      
-      pageData.forEach((item) => {
-        if (Number(item.price) < 10) {
-          console.log(item.price)
-        }
-      })
+      const handledData = handleSelectByPrice(pageData, optionPrice)
+
+      return {...state, [pageName]: handledData}
     }
   }
 })
