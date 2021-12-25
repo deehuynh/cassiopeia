@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { sortBy } from "../../redux/pageSlice";
 
 export default function FilterBar ({allFilters, allProducts, countPr = '0', page}) {
+  // active child tab
+  const [activeTab, setActiveTab] = useState('');
   // redux dispatch
   const dispatch = useDispatch();
   // dropdown refs
@@ -48,41 +50,11 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       })
     }
   }
-  // handle sort functions
-  const handlePriceLowToHigh = () => {
+  // handle sort function
+  const handleSortBy = (type) => {
     dispatch(
       sortBy({
-        sortBy: 'priceLowToHigh',
-        pageName: page,
-        pageData: allProducts
-      })
-    );
-    closeDropdown()
-  }
-  const handlePriceHighToLow = () => {
-    dispatch(
-      sortBy({
-        sortBy: 'priceHighToLow',
-        pageName: page,
-        pageData: allProducts
-      })
-    );
-    closeDropdown()
-  }
-  const sortByNewestProducts = () => {
-    dispatch(
-      sortBy({
-        sortBy: 'newest',
-        pageName: page,
-        pageData: allProducts
-      })
-    );
-    closeDropdown()
-  }
-  const sortByOldestProducts = () => {
-    dispatch(
-      sortBy({
-        sortBy: 'oldest',
+        sortBy: type,
         pageName: page,
         pageData: allProducts
       })
@@ -98,10 +70,10 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
         filterChildren={item.children}
         childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
         handleOpenChildren={() => handleOpenChildren(index)}
-        handlePriceLowToHigh={handlePriceLowToHigh}
-        handlePriceHighToLow={handlePriceHighToLow}
-        sortByNewestProducts={sortByNewestProducts}
-        sortByOldestProducts={sortByOldestProducts}
+        handlePriceLowToHigh={() => handleSortBy('priceLowToHigh')}
+        handlePriceHighToLow={() => handleSortBy('priceHighToLow')}
+        sortByNewestProducts={() => handleSortBy('newest')}
+        sortByOldestProducts={() => handleSortBy('oldest')}
       />
     );
   });
@@ -126,8 +98,6 @@ function Dropdown ({
   handlePriceLowToHigh, handlePriceHighToLow, sortByNewestProducts,
   sortByOldestProducts
 }) {
-  // active class name
-  const [activeClass, setActiveClass] = useState('filter-bar__children--active')
   // storage the children tabs
   const childrenTabs = []
   // fetch children tabs
@@ -135,8 +105,7 @@ function Dropdown ({
     if (name === 'Newest') {
       childrenTabs.push(
         <span 
-          onClick={sortByNewestProducts} key={index} 
-          className={activeClass}
+          onClick={sortByNewestProducts} key={index}
         >{name}</span>
       )
     } else {
