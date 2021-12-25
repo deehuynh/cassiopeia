@@ -74,10 +74,16 @@ const pageSlice = createSlice({
       const handledData = sortByPrice(pageData, sortBy)
 
       return {...state, [pageName]: handledData}
+    },
+
+    selectPrice: (state, action) => {
+      const pageName = action.payload.pageName
+      const pageData = action.payload.pageData
+      const optionPrice = action.payload.option
     }
   }
 })
 
-export const { sortBy } = pageSlice.actions
+export const { sortBy, selectPrice } = pageSlice.actions
 
 export default pageSlice.reducer
