@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 // redux api and actions
 import { useDispatch } from "react-redux";
-import { sortBy } from "../../redux/pageSlice";
+import { sortBy, selectPrice } from "../../redux/pageSlice";
 
 export default function FilterBar ({allFilters, allProducts, countPr = '0', page}) {
   // active child tab
@@ -62,22 +62,62 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
     closeDropdown();
     setActiveTab(currentActive);
   }
+  const handlePrice = (childrenTab) => {
+    dispatch(
+      selectPrice({
+        pageName: page,
+        pageData: allProducts,
+        option: childrenTab
+      })
+    );
+    closeDropdown();
+    setActiveTab(childrenTab);
+  }
   // fetch allFilters api
   allFilters && allFilters.forEach((item, index) => {
-    dropdowns.push(
-      <Dropdown
-        key={index}
-        filterName={item.name}
-        filterChildren={item.children}
-        childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
-        handleOpenChildren={() => handleOpenChildren(index)}
-        handlePriceLowToHigh={(activeTab) => handleSortBy('priceLowToHigh', activeTab)}
-        handlePriceHighToLow={(activeTab) => handleSortBy('priceHighToLow', activeTab)}
-        sortByNewestProducts={(activeTab) => handleSortBy('newest', activeTab)}
-        sortByOldestProducts={(activeTab) => handleSortBy('oldest', activeTab)}
-        activeTab={activeTab}
-      />
-    );
+    if (item.name === 'Sort by') {
+      dropdowns.push(
+        <Dropdown
+          key={index}
+          filterName={item.name}
+          filterChildren={item.children}
+          childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
+          handleOpenChildren={() => handleOpenChildren(index)}
+          handlePriceLowToHigh={(activeTab) => handleSortBy('priceLowToHigh', activeTab)}
+          handlePriceHighToLow={(activeTab) => handleSortBy('priceHighToLow', activeTab)}
+          sortByNewestProducts={(activeTab) => handleSortBy('newest', activeTab)}
+          sortByOldestProducts={(activeTab) => handleSortBy('oldest', activeTab)}
+          activeTab={activeTab}
+        />
+      );
+    } else if (item.name === 'Price') {
+        dropdowns.push(
+          <Dropdown
+            key={index}
+            filterName={item.name}
+            filterChildren={item.children}
+            childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
+            handleOpenChildren={() => handleOpenChildren(index)}
+            handleSelectPrice={(childrenTab) => handlePrice(childrenTab)}
+            activeTab={activeTab}
+          />
+        );
+    } else {
+      dropdowns.push(
+        <Dropdown
+          key={index}
+          filterName={item.name}
+          filterChildren={item.children}
+          childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
+          handleOpenChildren={() => handleOpenChildren(index)}
+          handlePriceLowToHigh={(activeTab) => handleSortBy('priceLowToHigh', activeTab)}
+          handlePriceHighToLow={(activeTab) => handleSortBy('priceHighToLow', activeTab)}
+          sortByNewestProducts={(activeTab) => handleSortBy('newest', activeTab)}
+          sortByOldestProducts={(activeTab) => handleSortBy('oldest', activeTab)}
+          activeTab={activeTab}
+        />
+      );
+    }
   });
 
   return (
@@ -98,7 +138,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
 function Dropdown ({
   filterName, filterChildren, childrenRef, handleOpenChildren, activeTab,
   handlePriceLowToHigh, handlePriceHighToLow, sortByNewestProducts,
-  sortByOldestProducts
+  sortByOldestProducts, handleSelectPrice
 }) {
   // storage the children tabs
   const childrenTabs = []
@@ -131,6 +171,13 @@ function Dropdown ({
         childrenTabs.push(
           <span 
             onClick={() => sortByOldestProducts(name)}
+            className={activeClass} key={index}
+          >{name}</span>
+        )
+      } else if (name === 'Under 10$') {
+        childrenTabs.push(
+          <span 
+            onClick={() => handleSelectPrice(name)}
             className={activeClass} key={index}
           >{name}</span>
         )
