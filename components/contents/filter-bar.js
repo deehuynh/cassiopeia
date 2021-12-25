@@ -7,7 +7,7 @@ import { sortBy } from "../../redux/pageSlice";
 
 export default function FilterBar ({allFilters, allProducts, countPr = '0', page}) {
   // active child tab
-  const [activeTab, setActiveTab] = useState('');
+  const [activeTab, setActiveTab] = useState('Newest');
   // redux dispatch
   const dispatch = useDispatch();
   // dropdown refs
