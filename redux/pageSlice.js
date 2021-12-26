@@ -26,7 +26,7 @@ const pageSlice = createSlice({
       const pageData = action.payload.pageData
       const optionPrice = action.payload.option
       const handledData = handleSelectByPrice(pageData, optionPrice)
-
+      
       return {...state, [pageName]: handledData}
     }
   }
