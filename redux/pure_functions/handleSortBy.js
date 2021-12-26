@@ -1,5 +1,5 @@
 export default function handleSortBy([...pageData], type) {
-  if (type === 'priceLowToHigh') {
+  if (type === 'Low to high') {
     let tmp
     for (let i = 0; i < pageData.length - 1; i++) {
       for (let j = i + 1; j < pageData.length; j++) {
@@ -13,7 +13,7 @@ export default function handleSortBy([...pageData], type) {
     return pageData
   }
 
-  if (type === 'priceHighToLow') {
+  if (type === 'High to low') {
     let tmp
     for (let i = 0; i < pageData.length - 1; i++) {
       for (let j = i + 1; j < pageData.length; j++) {
@@ -27,7 +27,7 @@ export default function handleSortBy([...pageData], type) {
     return pageData
   }
 
-  if (type === 'newest') {
+  if (type === 'Newest') {
     let tmp
     for (let i = 0; i < pageData.length - 1; i++) {
       for (let j = i + 1; j < pageData.length; j++) {
@@ -41,7 +41,7 @@ export default function handleSortBy([...pageData], type) {
     return pageData
   }
 
-  if (type === 'oldest') {
+  if (type === 'Oldest') {
     let tmp
     for (let i = 0; i < pageData.length - 1; i++) {
       for (let j = i + 1; j < pageData.length; j++) {
