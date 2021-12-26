@@ -1,3 +1,7 @@
+// react api
+import { useEffect, useState } from "react"
+// redux
+import { useSelector } from "react-redux"
 // head tag's title
 import Title from "../../components/title"
 // components
@@ -8,6 +12,16 @@ import FilterBar from "../../components/contents/filter-bar"
 
 export default function Gifts ({allFilters, allProducts}) {
   const countPr = allProducts && allProducts.length
+  // products state
+  const [productState, setProductState] = useState(allProducts);
+  // get redux data
+  const giftsData = useSelector(state => state.pages.gifts)
+  // push allProducts to redux store
+  useEffect(() => {
+    if (giftsData.length !== 0) {
+      setProductState(giftsData)
+    }
+  }, [giftsData])
 
   return (
     <div className="gifts">
@@ -15,8 +29,11 @@ export default function Gifts ({allFilters, allProducts}) {
 
       <BreadCrumb />
       <PageName>Gifts</PageName>
-      <FilterBar allFilters={allFilters} countPr={countPr} />
-      <ProductsContainer page="gifts" allProducts={allProducts} />
+      <FilterBar 
+        allFilters={allFilters} countPr={countPr} page="gifts"
+        allProducts={allProducts}
+      />
+      <ProductsContainer page="gifts" allProducts={productState} />
     </div>
   )
 }
