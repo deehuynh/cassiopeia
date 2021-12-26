@@ -171,47 +171,24 @@ function Dropdown ({
           className={activeClass}
         >{name}</span>
       )
+    } else if (filterName === 'Price') {
+      childrenTabs.push(
+        <span 
+          onClick={() => handleSelectPrice(name)}
+          className={activeClass} key={index}
+        >{name}</span>
+      )
+    } else if (filterName === 'Type') {
+      childrenTabs.push(
+        <span 
+          onClick={() => handleSelectType(name)}
+          className={activeClass} key={index}
+        >{name}</span>
+      )
     } else {
-      if (name === 'Under $10') {
-        childrenTabs.push(
-          <span 
-            onClick={() => handleSelectPrice(name)}
-            className={activeClass} key={index}
-          >{name}</span>
-        )
-      } else if (name === '$10 - $50') {
-        childrenTabs.push(
-          <span 
-            onClick={() => handleSelectPrice(name)}
-            className={activeClass} key={index}
-          >{name}</span>
-        )
-      } else if (name === '$50 - $100') {
-        childrenTabs.push(
-          <span 
-            onClick={() => handleSelectPrice(name)}
-            className={activeClass} key={index}
-          >{name}</span>
-        )
-      } else if (name === 'Over $100') {
-        childrenTabs.push(
-          <span 
-            onClick={() => handleSelectPrice(name)}
-            className={activeClass} key={index}
-          >{name}</span>
-        )
-      } else if (filterName === 'Type') {
-        childrenTabs.push(
-          <span 
-            onClick={() => handleSelectType(name)}
-            className={activeClass} key={index}
-          >{name}</span>
-        )
-      } else {
-        childrenTabs.push(
-          <span key={index} className={activeClass}>{name}</span>
-        )
-      }
+      childrenTabs.push(
+        <span key={index} className={activeClass}>{name}</span>
+      )
     }
   })
 
