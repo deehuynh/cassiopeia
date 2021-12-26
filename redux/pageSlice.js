@@ -35,7 +35,6 @@ const pageSlice = createSlice({
       const pageData = action.payload.pageData
       const optionType = action.payload.option
       const endData = []
-      console.log(optionType)
       pageData.forEach((item) => {
         if (item.type !== "") {
           item.type.forEach(type => {
@@ -47,10 +46,26 @@ const pageSlice = createSlice({
       })
       
       return {...state, [pageName]: endData}
+    },
+
+    selectOccasion: (state, action) => {
+      const pageName = action.payload.pageName
+      const pageData = action.payload.pageData
+      const occasion = action.payload.occasion
+      const endData = []
+      pageData.forEach((item) => {
+        if (item.occasion === occasion) {
+          endData.push(item)
+        }
+      })
+      
+      return {...state, [pageName]: endData}
     }
   }
 })
 
-export const { sortBy, selectPrice, selectType } = pageSlice.actions
+export const { 
+  sortBy, selectPrice, selectType, selectOccasion 
+} = pageSlice.actions
 
 export default pageSlice.reducer
