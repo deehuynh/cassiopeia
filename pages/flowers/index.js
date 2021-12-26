@@ -54,8 +54,8 @@ export async function getStaticProps() {
     }, {
         name: 'Price',
         children: [
-          'Under 10$', '10$ - 50$',
-          '50$ - 100$', 'Over 100$'
+          'Under $10', '$10 - $50',
+          '$50 - $100', 'Over $100'
         ]
     }, {
         name: 'Type',
