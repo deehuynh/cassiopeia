@@ -9,7 +9,7 @@ export default function handleSelectByPrice(data, option) {
       }
     })
 
-    return handleSortBy(endData, 'priceLowToHigh')
+    return handleSortBy(endData, 'Low to high')
   } else if (option === "$10 - $50") {
     data.forEach((item) => {
       if ((Number(item.price) >= 10) && (Number(item.price) < 50)) {
@@ -17,7 +17,7 @@ export default function handleSelectByPrice(data, option) {
       }
     })
 
-    return handleSortBy(endData, 'priceLowToHigh')
+    return handleSortBy(endData, 'Low to high')
   } else if (option === "$50 - $100") {
     data.forEach((item) => {
       if ((Number(item.price) >= 50) && (Number(item.price) < 100)) {
@@ -25,7 +25,7 @@ export default function handleSelectByPrice(data, option) {
       }
     })
 
-    return handleSortBy(endData, 'priceLowToHigh')
+    return handleSortBy(endData, 'Low to high')
   } else if (option === "Over $100") {
     data.forEach((item) => {
       if (Number(item.price) > 50) {
@@ -33,6 +33,6 @@ export default function handleSelectByPrice(data, option) {
       }
     })
 
-    return handleSortBy(endData, 'priceLowToHigh')
+    return handleSortBy(endData, 'Low to high')
   }
 }
