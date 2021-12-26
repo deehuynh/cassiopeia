@@ -61,7 +61,7 @@ export async function getStaticProps() {
         name: 'Type',
         children: [
           'Roses', 'Lilies',
-          'Gerberas', 'Chrysanthemuns',
+          'Gerberas', 'Chrysanthemums',
           'Lisianthus', 'Alstroemerias'
         ]
     }, {
