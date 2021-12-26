@@ -51,16 +51,16 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
     }
   }
   // handle sort function
-  const handleSortBy = (type, currentActive) => {
+  const handleSortBy = (childrenTab) => {
     dispatch(
       sortBy({
-        sortBy: type,
+        sortBy: childrenTab,
         pageName: page,
         pageData: allProducts
       })
     );
     closeDropdown();
-    setActiveTab(currentActive);
+    setActiveTab(childrenTab);
   }
   const handlePrice = (childrenTab) => {
     dispatch(
@@ -94,10 +94,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
           filterChildren={item.children}
           childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
           handleOpenChildren={() => handleOpenChildren(index)}
-          handlePriceLowToHigh={(activeTab) => handleSortBy('priceLowToHigh', activeTab)}
-          handlePriceHighToLow={(activeTab) => handleSortBy('priceHighToLow', activeTab)}
-          sortByNewestProducts={(activeTab) => handleSortBy('newest', activeTab)}
-          sortByOldestProducts={(activeTab) => handleSortBy('oldest', activeTab)}
+          handleSortBy={(activeTab) => handleSortBy(activeTab)}
           activeTab={activeTab}
         />
       );
@@ -160,44 +157,22 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
 
 function Dropdown ({
   filterName, filterChildren, childrenRef, handleOpenChildren, activeTab,
-  handlePriceLowToHigh, handlePriceHighToLow, sortByNewestProducts,
-  sortByOldestProducts, handleSelectPrice, handleSelectType
+  handleSortBy, handleSelectPrice, handleSelectType
 }) {
   // storage the children tabs
   const childrenTabs = []
   // fetch children tabs
   filterChildren.forEach((name, index) => {
     let activeClass = activeTab === name ? 'filter-bar__children--active' : ''
-    if (name === 'Newest') {
+    if (filterName === 'Sort by') {
       childrenTabs.push(
         <span 
-          onClick={() => sortByNewestProducts(name)} key={index}
+          onClick={() => handleSortBy(name)} key={index}
           className={activeClass}
         >{name}</span>
       )
     } else {
-      if (name === 'Low to high') {
-        childrenTabs.push(
-          <span 
-            onClick={() => handlePriceLowToHigh(name)}
-            className={activeClass} key={index}
-          >{name}</span>
-        )
-      } else if (name === 'High to low') {
-        childrenTabs.push(
-          <span 
-            onClick={() => handlePriceHighToLow(name)}
-            className={activeClass} key={index}
-          >{name}</span>
-        )
-      } else if (name === 'Oldest') {
-        childrenTabs.push(
-          <span 
-            onClick={() => sortByOldestProducts(name)}
-            className={activeClass} key={index}
-          >{name}</span>
-        )
-      } else if (name === 'Under $10') {
+      if (name === 'Under $10') {
         childrenTabs.push(
           <span 
             onClick={() => handleSelectPrice(name)}
