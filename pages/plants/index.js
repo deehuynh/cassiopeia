@@ -1,3 +1,7 @@
+// react api
+import { useEffect, useState } from "react"
+// redux
+import { useSelector } from "react-redux"
 // the head tag's title
 import Title from "../../components/title"
 // components
@@ -9,6 +13,16 @@ import ProductsContainer from "../../components/contents/products-container"
 export default function Plants ({allFilters, allProducts}) {
   // count products
   const countPr = allProducts && allProducts.length;
+  // products state
+  const [productState, setProductState] = useState(allProducts);
+  // get redux data
+  const plantsData = useSelector(state => state.pages.plants)
+  // push allProducts to redux store
+  useEffect(() => {
+    if (plantsData.length !== 0) {
+      setProductState(plantsData)
+    }
+  }, [plantsData])
 
   return (
     <div className="plants">
@@ -21,7 +35,7 @@ export default function Plants ({allFilters, allProducts}) {
         page="plants"
         countPr={countPr} 
       />
-      <ProductsContainer page="plants" allProducts={allProducts} />
+      <ProductsContainer page="plants" allProducts={productState} />
     </div>
   )
 }
