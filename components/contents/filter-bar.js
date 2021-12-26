@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 // redux api and actions
 import { useDispatch } from "react-redux";
-import { sortBy, selectPrice, selectType } from "../../redux/pageSlice";
+import { sortBy, selectPrice, selectType, selectOccasion } from "../../redux/pageSlice";
 
 export default function FilterBar ({allFilters, allProducts, countPr = '0', page}) {
   // active child tab
@@ -84,6 +84,17 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
     closeDropdown();
     setActiveTab(childrenTab);
   }
+  const handleOccasion = (childrenTab) => {
+    dispatch(
+      selectOccasion({
+        pageName: page,
+        pageData: allProducts,
+        occasion: childrenTab
+      })
+    );
+    closeDropdown();
+    setActiveTab(childrenTab);
+  }
   // fetch allFilters api
   allFilters && allFilters.forEach((item, index) => {
     if (item.name === 'Sort by') {
@@ -122,6 +133,18 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
             activeTab={activeTab}
           />
         );
+    } else if (item.name === 'Occasion') {
+        dropdowns.push(
+          <Dropdown
+            key={index}
+            filterName={item.name}
+            filterChildren={item.children}
+            childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
+            handleOpenChildren={() => handleOpenChildren(index)}
+            selectOccasion={(childrenTab) => handleOccasion(childrenTab)}
+            activeTab={activeTab}
+          />
+        );
     } else {
       dropdowns.push(
         <Dropdown
@@ -157,7 +180,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
 
 function Dropdown ({
   filterName, filterChildren, childrenRef, handleOpenChildren, activeTab,
-  handleSortBy, handleSelectPrice, handleSelectType
+  handleSortBy, handleSelectPrice, handleSelectType, selectOccasion
 }) {
   // storage the children tabs
   const childrenTabs = []
@@ -182,6 +205,13 @@ function Dropdown ({
       childrenTabs.push(
         <span 
           onClick={() => handleSelectType(name)}
+          className={activeClass} key={index}
+        >{name}</span>
+      )
+    } else if (filterName === 'Occasion') {
+      childrenTabs.push(
+        <span 
+          onClick={() => selectOccasion(name)}
           className={activeClass} key={index}
         >{name}</span>
       )
