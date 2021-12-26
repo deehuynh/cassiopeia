@@ -28,10 +28,29 @@ const pageSlice = createSlice({
       const handledData = handleSelectByPrice(pageData, optionPrice)
       
       return {...state, [pageName]: handledData}
+    },
+
+    selectType: (state, action) => {
+      const pageName = action.payload.pageName
+      const pageData = action.payload.pageData
+      const optionType = action.payload.option
+      const endData = []
+      console.log(optionType)
+      pageData.forEach((item) => {
+        if (item.type !== "") {
+          item.type.forEach(type => {
+            if (type === optionType) {
+              endData.push(item)
+            }
+          })
+        }
+      })
+      
+      return {...state, [pageName]: endData}
     }
   }
 })
 
-export const { sortBy, selectPrice } = pageSlice.actions
+export const { sortBy, selectPrice, selectType } = pageSlice.actions
 
 export default pageSlice.reducer
