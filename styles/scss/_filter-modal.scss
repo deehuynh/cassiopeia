@@ -2,4 +2,31 @@
   width: 100%;
   position: absolute;
   z-index: 3;
+  background-color: white;
+  height: calc(100% - 51.86px);
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
+  box-sizing: border-box;
+
+  @include media (375px) {
+    padding: {
+      left: 15px;
+      right: 15px;
+    }
+  }
+
+  &__tab {
+    display: block;
+    @include link;
+    color: black;
+    font-weight: 600;
+    padding: {
+      top: 14px;
+      bottom: 14px;
+    }
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0,0,0, 0.09);
+  }
 }
