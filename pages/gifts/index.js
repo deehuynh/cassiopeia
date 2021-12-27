@@ -57,7 +57,7 @@ export async function getStaticProps() {
     }, {
         name: 'Occasion',
         children: [
-          'Christmas',
+          'Valentine',
           'New year'
         ]
     }
