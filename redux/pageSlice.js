@@ -36,12 +36,16 @@ const pageSlice = createSlice({
       const optionType = action.payload.option
       const endData = []
       pageData.forEach((item) => {
-        if (item.type !== "") {
+        if ((item.type !== "") && (pageName === "flowers")) {
           item.type.forEach(type => {
             if (type === optionType) {
               endData.push(item)
             }
           })
+        } else {
+          if (item.type === optionType) {
+            endData.push(item)
+          }
         }
       })
       
