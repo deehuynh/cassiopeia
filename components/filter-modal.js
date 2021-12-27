@@ -1,10 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 // next api
 import Link from "next/link"
+// react api
+import { useContext } from "react"
+// context store
+import { refContext } from "../contextStore"
 
 export default function FilterModal () {
+  const filterRef = useContext(refContext)
+
   return (
-    <div className="filter-modal">
+    <div ref={filterRef} className="filter-modal filter-modal--hidden">
       <header className="filter-modal__header">
         <div className="filter-modal__close-btn">
           <img src="/svgs/close-btn.svg" alt="close" />
