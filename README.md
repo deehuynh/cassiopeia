@@ -8,7 +8,7 @@ The project is processing
 
 ## Live website
 
-https://dh-cassiopeia.web.app/
+https://cassiopeia.store
 
 ## About the product
 
@@ -18,7 +18,7 @@ Responsive: any devices
 
 ## Technology
 
-- Reactjs
+- Reactjs, Redux Toolkit
 - Nextjs (Pre-rendering: Static Generation)
 - HTML5, SASS(SCSS)
 - Javascript
