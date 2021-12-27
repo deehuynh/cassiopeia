@@ -1,11 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 // react api
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 // redux api and actions
 import { useDispatch } from "react-redux";
 import { sortBy, selectPrice, selectType, selectOccasion } from "../../redux/pageSlice";
+// ref context
+import { refContext } from "../../contextStore";
 
 export default function FilterBar ({allFilters, allProducts, countPr = '0', page}) {
+  // filter Modal ref
+  const filterModalRef = useContext(refContext);
   // active child tab
   const [activeTab, setActiveTab] = useState('Newest');
   // redux dispatch
