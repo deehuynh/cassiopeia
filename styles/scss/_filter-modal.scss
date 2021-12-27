@@ -19,7 +19,7 @@
   }
 
   &__tab {
-    display: block;
+    @include flex(0,space-between, center);
     @include link;
     color: black;
     font-weight: 500;
