@@ -1,6 +1,9 @@
 import handleSortBy from "./handleSortBy"
 
-export default function handleSelectByPrice(data, option) {
+export default function handleSelectByPrice(page, data, option) {
+  const flowersPricing = ["Under $10", "$10 - $50", "$50 - $100", "Over $100"]
+  const plantsPricing = ["Under $20", "$20 - $70", "$70 - $100", "Over $100"]
+  const giftsPricing = ["Under $50", "$50 - $100", "Over $100"]
   const endData = []
   if (option === "Under $10") {
     data.forEach((item) => {
