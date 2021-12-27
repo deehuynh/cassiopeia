@@ -71,6 +71,32 @@ export default function handleSelectByPrice(page, data, option) {
   
       return handleSortBy(endData, 'Low to high')
     }
+  } else if (page === 'gifts') {
+    if (option === "Under $50") {
+      data.forEach((item) => {
+        if (Number(item.price) < 50) {
+          endData.push(item)
+        }
+      })
+  
+      return handleSortBy(endData, 'Low to high')
+    } else if (option === "$50 - $100") {
+      data.forEach((item) => {
+        if ((Number(item.price) >= 50) && (Number(item.price) < 100)) {
+          endData.push(item)
+        }
+      })
+  
+      return handleSortBy(endData, 'Low to high')
+    } else if (option === "Over $100") {
+      data.forEach((item) => {
+        if (Number(item.price) > 100) {
+          endData.push(item)
+        }
+      })
+  
+      return handleSortBy(endData, 'Low to high')
+    }
   }
 
 }
