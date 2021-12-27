@@ -1,6 +1,7 @@
 // modal components
 import Cart from "./cart-modal"
 import SearchModal from "./search-modal"
+import FilterModal from "./filter-modal"
 
 export default function ModalContainer (props) {
   const overlayRef = props.overlayModalRef
@@ -20,6 +21,8 @@ export default function ModalContainer (props) {
       />
 
       <SearchModal searchModalRef={props.searchModalRef} />
+
+      <FilterModal />
     </div>
   )
 }
