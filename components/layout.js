@@ -10,8 +10,6 @@ import Footer from "./footer"
 // firebase analytics
 import { analytics } from "../firebase"
 import { logEvent } from "firebase/analytics"
-// context
-import { refContext } from "../contextStore"
 
 export default function Layout ({ children }) {
   // global ref containers
@@ -28,8 +26,6 @@ export default function Layout ({ children }) {
   const navRef = useRef(null);
   const openNavRef = useRef(null);
   const closeNavRef = useRef(null);
-  // filter refs
-  const filterRef = useRef(null);
 
   useEffect(()=>{
     if (analytics) {
@@ -49,41 +45,38 @@ export default function Layout ({ children }) {
   });
 
   return (
-    <refContext.Provider value={filterRef}>
-      <div className="layout">
-        <Meta />
+    <div className="layout">
+      <Meta />
 
-        <Header 
-          navRef={navRef} closeNavRef={closeNavRef} openNavRef={openNavRef}
-          searchRef={searchRef}
-          cartRef={cartRef} openCartRef={openCartRef} closeCartRef={closeCartRef}
-          orderCartRef={orderCartRef}
-          overlayModalRef={overlayModalRef}
-          searchModalRef={searchModalRef}
-        />
+      <Header 
+        navRef={navRef} closeNavRef={closeNavRef} openNavRef={openNavRef}
+        searchRef={searchRef}
+        cartRef={cartRef} openCartRef={openCartRef} closeCartRef={closeCartRef}
+        orderCartRef={orderCartRef}
+        overlayModalRef={overlayModalRef}
+        searchModalRef={searchModalRef}
+      />
 
-        <ModalContainer 
-          cartRef={cartRef} openCartRef={openCartRef} closeCartRef={closeCartRef}
-          orderCartRef={orderCartRef}
-          overlayModalRef={overlayModalRef}
-          searchModalRef={searchModalRef}
-          filterRef={filterRef}
-        />
+      <ModalContainer 
+        cartRef={cartRef} openCartRef={openCartRef} closeCartRef={closeCartRef}
+        orderCartRef={orderCartRef}
+        overlayModalRef={overlayModalRef}
+        searchModalRef={searchModalRef}
+      />
 
-        <Nav 
-          navRef={navRef} closeNavRef={closeNavRef} openNavRef={openNavRef} 
-        />
-        
-        <MobileSearch
-          searchRef={searchRef}
-        />
+      <Nav 
+        navRef={navRef} closeNavRef={closeNavRef} openNavRef={openNavRef} 
+      />
+      
+      <MobileSearch
+        searchRef={searchRef}
+      />
 
-        <section className="content">
-          {children}
-        </section>
+      <section className="content">
+        {children}
+      </section>
 
-        <Footer />
-      </div>
-    </refContext.Provider>
+      <Footer />
+    </div>
   )
 }
