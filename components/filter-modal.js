@@ -6,9 +6,8 @@ import { useContext } from "react"
 // context store
 import { refContext } from "../contextStore"
 
-export default function FilterModal () {
+export default function FilterModal ({dropdownsModal}) {
   const filterRef = useContext(refContext)
-
   const handleCloseModal = () => {
     filterRef.current.className = "filter-modal filter-modal--hidden"
   }
@@ -21,33 +20,20 @@ export default function FilterModal () {
         </div>
       </header>
 
-      <Link href="/">
-        <a className="filter-modal__tab">
-          <span>Sort by</span>
-          <img src="/svgs/dropdown-i.svg" alt="dropdown arrow" />
-        </a>
-      </Link>
-
-      <Link href="/">
-        <a className="filter-modal__tab">
-          <span>Sort by</span>
-          <img src="/svgs/dropdown-i.svg" alt="dropdown arrow" />
-        </a>
-      </Link>
-
-      <Link href="/">
-        <a className="filter-modal__tab">
-          <span>Sort by</span>
-          <img src="/svgs/dropdown-i.svg" alt="dropdown arrow" />
-        </a>
-      </Link>
-
-      <Link href="/">
-        <a className="filter-modal__tab">
-          <span>Sort by</span>
-          <img src="/svgs/dropdown-i.svg" alt="dropdown arrow" />
-        </a>
-      </Link>
+      {dropdownsModal}
     </div>
+  )
+}
+
+export const DropdownModal = ({
+  filterName, filterChildren, childrenRef, handleOpenChildren, activeTab,
+  handleSortBy, handleSelectPrice, handleSelectType, selectOccasion
+}) => {
+
+  return (
+    <span className="filter-modal__tab">
+      {filterName}
+      <img src="/svgs/dropdown-i.svg" alt="dropdown arrow" />
+    </span>
   )
 }
