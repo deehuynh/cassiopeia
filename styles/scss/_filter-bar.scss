@@ -118,7 +118,7 @@
     @extend %body1;
   }
 
-  &__button, &__close-button {
+  &__button {
     display: none;
   }
 
@@ -136,6 +136,7 @@
     &__button {
       display: block;
       margin-top: 5px;
+      cursor: pointer;
     }
   }
 }
