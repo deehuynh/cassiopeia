@@ -16,6 +16,10 @@
     height: 0;
   }
 
+  &--show {
+    height: 100%;
+  }
+
   @include media (375px) {
     padding: {
       left: 15px;
