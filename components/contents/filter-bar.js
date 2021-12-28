@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+// filter modal on mobile
+import FilterModal from "../filter-modal";
+import { DropdownModal } from "../filter-modal";
 // react api
 import { useRef, useEffect, useState, useContext } from "react";
 // redux api and actions
@@ -18,6 +21,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
   const childrenRef = useRef([]);
   // storage dropdowns
   const dropdowns = [];
+  const dropdownsModal = [];
   // total product counter
   const textCountPr = countPr < 2 ? ' item' : ' items';
   // handle multiple refs
@@ -113,9 +117,33 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
           activeTab={activeTab}
         />
       );
+
+      dropdownsModal.push(
+        <DropdownModal 
+          key={index}
+          filterName={item.name}
+          filterChildren={item.children}
+          childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
+          handleOpenChildren={() => handleOpenChildren(index)}
+          handleSortBy={(activeTab) => handleSortBy(activeTab)}
+          activeTab={activeTab}
+        />
+      )
     } else if (item.name === 'Price') {
         dropdowns.push(
           <Dropdown
+            key={index}
+            filterName={item.name}
+            filterChildren={item.children}
+            childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
+            handleOpenChildren={() => handleOpenChildren(index)}
+            handleSelectPrice={(childrenTab) => handlePrice(childrenTab)}
+            activeTab={activeTab}
+          />
+        );
+
+        dropdownsModal.push(
+          <DropdownModal
             key={index}
             filterName={item.name}
             filterChildren={item.children}
@@ -137,9 +165,33 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
             activeTab={activeTab}
           />
         );
+
+        dropdownsModal.push(
+          <DropdownModal
+            key={index}
+            filterName={item.name}
+            filterChildren={item.children}
+            childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
+            handleOpenChildren={() => handleOpenChildren(index)}
+            handleSelectType={(childrenTab) => handleType(childrenTab)}
+            activeTab={activeTab}
+          />
+        );
     } else if (item.name === 'Occasion') {
         dropdowns.push(
           <Dropdown
+            key={index}
+            filterName={item.name}
+            filterChildren={item.children}
+            childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
+            handleOpenChildren={() => handleOpenChildren(index)}
+            selectOccasion={(childrenTab) => handleOccasion(childrenTab)}
+            activeTab={activeTab}
+          />
+        );
+
+        dropdownsModal.push(
+          <DropdownModal
             key={index}
             filterName={item.name}
             filterChildren={item.children}
@@ -164,6 +216,21 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
           activeTab={activeTab}
         />
       );
+
+      dropdownsModal.push(
+        <DropdownModal
+          key={index}
+          filterName={item.name}
+          filterChildren={item.children}
+          childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
+          handleOpenChildren={() => handleOpenChildren(index)}
+          handlePriceLowToHigh={(activeTab) => handleSortBy('priceLowToHigh', activeTab)}
+          handlePriceHighToLow={(activeTab) => handleSortBy('priceHighToLow', activeTab)}
+          sortByNewestProducts={(activeTab) => handleSortBy('newest', activeTab)}
+          sortByOldestProducts={(activeTab) => handleSortBy('oldest', activeTab)}
+          activeTab={activeTab}
+        />
+      );
     }
   });
 
@@ -172,13 +239,17 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
   }
 
   return (
-    <div className="filter-bar">
-      <div className="filter-bar__group">{dropdowns}</div>
-      <div className="filter-bar__total">{countPr + textCountPr}</div>
-      <div onClick={handleOpenFilterModal} className="filter-bar__button">
-        <img src="/svgs/filter-btn.svg" alt="fitler button" />
+    <>
+      <div className="filter-bar">
+        <div className="filter-bar__group">{dropdowns}</div>
+        <div className="filter-bar__total">{countPr + textCountPr}</div>
+        <div onClick={handleOpenFilterModal} className="filter-bar__button">
+          <img src="/svgs/filter-btn.svg" alt="fitler button" />
+        </div>
       </div>
-    </div>
+
+      <FilterModal dropdownsModal={dropdownsModal} />
+    </>
   )
 }
 
