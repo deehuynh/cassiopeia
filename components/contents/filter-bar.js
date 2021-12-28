@@ -2,23 +2,24 @@
 // filter modal on mobile
 import FilterModal from "../filter-modal";
 import { DropdownModal } from "../filter-modal";
+// functions
+import preventBodyScroll from "../../function/preventBodyScroll"
 // react api
-import { useRef, useEffect, useState, useContext } from "react";
+import { useRef, useEffect, useState } from "react";
 // redux api and actions
 import { useDispatch } from "react-redux";
 import { sortBy, selectPrice, selectType, selectOccasion } from "../../redux/pageSlice";
-// ref context
-import { refContext } from "../../contextStore";
 
 export default function FilterBar ({allFilters, allProducts, countPr = '0', page}) {
   // filter Modal ref
-  const filterModalRef = useContext(refContext);
+  const filterModalRef = useRef(null);
   // active child tab
   const [activeTab, setActiveTab] = useState('Newest');
   // redux dispatch
   const dispatch = useDispatch();
   // dropdown refs
   const childrenRef = useRef([]);
+  const mobileChildrenRef = useRef([]);
   // storage dropdowns
   const dropdowns = [];
   const dropdownsModal = [];
@@ -27,6 +28,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
   // handle multiple refs
   useEffect(() => {
     childrenRef.current = childrenRef.current.slice(0, allFilters.length);
+    mobileChildrenRef.current = mobileChildrenRef.current.slice(0, allFilters.length);
  }, [allFilters]);
   // handle open dropdown children tab
   const handleOpenChildren = (currentIndex) => {
@@ -48,12 +50,42 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       })
     }
   }
+
+  const handleOpenChildrenModal = (currentIndex) => {
+    let showClass = 'filter-modal__children filter-modal__children--show'
+    let hiddenClass = 'filter-modal__children filter-modal__children--hidden'
+    if (mobileChildrenRef.current) {
+      mobileChildrenRef.current.forEach((element, index) => {
+        // open or close current children tab
+        if (index === currentIndex) {
+          if (element.className !== showClass) {
+            element.className = showClass;
+          } else {
+            element.className = hiddenClass;
+          }
+        } else {
+          // hide other children tabs
+          element.className = 'filter-modal__children filter-modal__children--hidden'
+        }
+      })
+    }
+  }
   // handle close dropdown when click
   const closeDropdown = () => {
     if (childrenRef.current) {
       childrenRef.current.forEach((element) => {
         if (element.className === 'filter-bar__children filter-bar__children--show') {
           element.className = 'filter-bar__children filter-bar__children--hidden'
+        }
+      })
+    }
+  }
+
+  const closeDropdownModal = () => {
+    if (mobileChildrenRef.current) {
+      mobileChildrenRef.current.forEach((element) => {
+        if (element.className === 'filter-modal__children filter-modal__children--show') {
+          element.className = 'filter-modal__children filter-modal__children--hidden'
         }
       })
     }
@@ -68,6 +100,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       })
     );
     closeDropdown();
+    closeDropdownModal();
     setActiveTab(childrenTab);
   }
   const handlePrice = (childrenTab) => {
@@ -79,6 +112,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       })
     );
     closeDropdown();
+    closeDropdownModal();
     setActiveTab(childrenTab);
   }
   const handleType = (childrenTab) => {
@@ -90,6 +124,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       })
     );
     closeDropdown();
+    closeDropdownModal();
     setActiveTab(childrenTab);
   }
   const handleOccasion = (childrenTab) => {
@@ -101,6 +136,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
       })
     );
     closeDropdown();
+    closeDropdownModal();
     setActiveTab(childrenTab);
   }
   // fetch allFilters api
@@ -123,8 +159,8 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
           key={index}
           filterName={item.name}
           filterChildren={item.children}
-          childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
-          handleOpenChildren={() => handleOpenChildren(index)}
+          mobileChildrenRef={el => mobileChildrenRef.current ? mobileChildrenRef.current[index] = el : null}
+          handleOpenChildren={() => handleOpenChildrenModal(index)}
           handleSortBy={(activeTab) => handleSortBy(activeTab)}
           activeTab={activeTab}
         />
@@ -147,8 +183,8 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
             key={index}
             filterName={item.name}
             filterChildren={item.children}
-            childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
-            handleOpenChildren={() => handleOpenChildren(index)}
+            mobileChildrenRef={el => mobileChildrenRef.current ? mobileChildrenRef.current[index] = el : null}
+            handleOpenChildren={() => handleOpenChildrenModal(index)}
             handleSelectPrice={(childrenTab) => handlePrice(childrenTab)}
             activeTab={activeTab}
           />
@@ -171,8 +207,8 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
             key={index}
             filterName={item.name}
             filterChildren={item.children}
-            childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
-            handleOpenChildren={() => handleOpenChildren(index)}
+            mobileChildrenRef={el => mobileChildrenRef.current ? mobileChildrenRef.current[index] = el : null}
+            handleOpenChildren={() => handleOpenChildrenModal(index)}
             handleSelectType={(childrenTab) => handleType(childrenTab)}
             activeTab={activeTab}
           />
@@ -195,8 +231,8 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
             key={index}
             filterName={item.name}
             filterChildren={item.children}
-            childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
-            handleOpenChildren={() => handleOpenChildren(index)}
+            mobileChildrenRef={el => mobileChildrenRef.current ? mobileChildrenRef.current[index] = el : null}
+            handleOpenChildren={() => handleOpenChildrenModal(index)}
             selectOccasion={(childrenTab) => handleOccasion(childrenTab)}
             activeTab={activeTab}
           />
@@ -222,8 +258,8 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
           key={index}
           filterName={item.name}
           filterChildren={item.children}
-          childrenRef={el => childrenRef.current ? childrenRef.current[index] = el : null}
-          handleOpenChildren={() => handleOpenChildren(index)}
+          mobileChildrenRef={el => mobileChildrenRef.current ? mobileChildrenRef.current[index] = el : null}
+          handleOpenChildren={() => handleOpenChildrenModal(index)}
           handlePriceLowToHigh={(activeTab) => handleSortBy('priceLowToHigh', activeTab)}
           handlePriceHighToLow={(activeTab) => handleSortBy('priceHighToLow', activeTab)}
           sortByNewestProducts={(activeTab) => handleSortBy('newest', activeTab)}
@@ -235,7 +271,8 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
   });
 
   const handleOpenFilterModal = () => {
-    filterModalRef.current.className = "filter-modal filter-modal--show"
+    filterModalRef.current.className = "filter-modal filter-modal--show";
+    preventBodyScroll(true)
   }
 
   return (
@@ -248,7 +285,7 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
         </div>
       </div>
 
-      <FilterModal dropdownsModal={dropdownsModal} />
+      <FilterModal filterModalRef={filterModalRef} dropdownsModal={dropdownsModal} />
     </>
   )
 }
