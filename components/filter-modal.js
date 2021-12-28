@@ -9,10 +9,14 @@ import { refContext } from "../contextStore"
 export default function FilterModal () {
   const filterRef = useContext(refContext)
 
+  const handleCloseModal = () => {
+    filterRef.current.className = "filter-modal filter-modal--hidden"
+  }
+
   return (
     <div ref={filterRef} className="filter-modal filter-modal--hidden">
       <header className="filter-modal__header">
-        <div className="filter-modal__close-btn">
+        <div onClick={handleCloseModal} className="filter-modal__close-btn">
           <img src="/svgs/close-btn.svg" alt="close" />
         </div>
       </header>
