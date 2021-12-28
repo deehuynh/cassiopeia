@@ -2,6 +2,7 @@
   width: 100%;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 3;
   background-color: white;
   height: 100%;
@@ -19,6 +20,7 @@
 
   &--show {
     height: 100%;
+    overflow: auto;
   }
 
   @include media (375px) {
@@ -43,17 +45,42 @@
     }
   }
 
-  &__tab {
-    @include flex(0,space-between, center);
+  &__group {
     font-size: 15px;
     font-weight: 500;
-    @include link;
     color: black;
+    box-sizing: border-box;
+    user-select: none;
+    border-bottom: 1px solid rgba(0,0,0, 0.06);
+
+    span {
+      display: block;
+      font-size: 14px;
+      padding: {
+        bottom: 12px;
+      }
+    }
+  }
+
+  &__children {
+    overflow: hidden;
+
+    &--hidden {
+      max-height: 0;
+      transition: .3s;
+    }
+
+    &--show {
+      max-height: 300px;
+      transition: .8s;
+    }
+  }
+
+  &__tab {
+    @include flex(0,space-between, center);
     padding: {
       top: 14px;
       bottom: 15px;
     }
-    box-sizing: border-box;
-    border-bottom: 1px solid rgba(0,0,0, 0.06);
   }
 }
