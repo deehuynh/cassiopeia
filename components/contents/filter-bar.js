@@ -167,16 +167,16 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
     }
   });
 
+  const handleOpenFilterModal = () => {
+    filterModalRef.current.className = "filter-modal filter-modal--show"
+  }
+
   return (
     <div className="filter-bar">
       <div className="filter-bar__group">{dropdowns}</div>
       <div className="filter-bar__total">{countPr + textCountPr}</div>
-      <div className="filter-bar__button">
+      <div onClick={handleOpenFilterModal} className="filter-bar__button">
         <img src="/svgs/filter-btn.svg" alt="fitler button" />
-      </div>
-
-      <div className="filter-bar__close-button">
-        <img src="/svgs/close.svg" alt="fitler button" />
       </div>
     </div>
   )
