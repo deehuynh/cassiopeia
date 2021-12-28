@@ -11,6 +11,7 @@
   }
   box-sizing: border-box;
   overflow: hidden;
+  transition: height .3s;
 
   &--hidden {
     height: 0;
