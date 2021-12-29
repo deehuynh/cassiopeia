@@ -15,12 +15,17 @@ export default function Flowers ({allFilters, allProducts}) {
   const countPr = allProducts && allProducts.length;
   // products state
   const [productState, setProductState] = useState(allProducts);
+  // no products found state
+  const [isEmptyData, setIsEmptyData] = useState(false);
   // get redux data
   const flowersData = useSelector(state => state.pages.flowers)
   // push allProducts to redux store
   useEffect(() => {
-    if (flowersData.length !== 0) {
+    if (flowersData === "No products found") {
+      setIsEmptyData(true)
+    } else if (flowersData.length !== 0) {
       setProductState(flowersData)
+      setIsEmptyData(false)
     }
   }, [flowersData])
 
@@ -41,7 +46,10 @@ export default function Flowers ({allFilters, allProducts}) {
         countPr={countPr} 
       />
 
-      <ProductsContainer page="flowers" allProducts={productState} />
+      {
+        isEmptyData === false ? 
+          <ProductsContainer page="flowers" allProducts={productState} /> : ''
+      }
     </div>
   )
 }
