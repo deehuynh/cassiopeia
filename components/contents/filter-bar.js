@@ -82,6 +82,8 @@ export default function FilterBar ({allFilters, allProducts, countPr = '0', page
   }
 
   const closeDropdownModal = () => {
+    filterModalRef.current.className = "filter-modal filter-modal--hidden";
+    preventBodyScroll(false);
     if (mobileChildrenRef.current) {
       mobileChildrenRef.current.forEach((element) => {
         if (element.className === 'filter-modal__children filter-modal__children--show') {
