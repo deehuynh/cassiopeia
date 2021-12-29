@@ -10,6 +10,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     } else if (option === "$10 - $50") {
