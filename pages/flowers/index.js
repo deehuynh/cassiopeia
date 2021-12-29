@@ -23,6 +23,11 @@ export default function Flowers ({allFilters, allProducts}) {
       setProductState(flowersData)
     }
   }, [flowersData])
+
+  // reset page data
+  useEffect(() => {
+    setProductState(allProducts)
+  }, [allProducts])
   
   return (
     <div className="flowers">
