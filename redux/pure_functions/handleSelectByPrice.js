@@ -22,6 +22,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     } else if (option === "$50 - $100") {
@@ -30,6 +34,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     } else if (option === "Over $100") {
@@ -38,6 +46,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     }
@@ -48,6 +60,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     } else if (option === "$20 - $70") {
@@ -56,6 +72,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     } else if (option === "$70 - $100") {
@@ -64,6 +84,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     } else if (option === "Over $100") {
@@ -72,6 +96,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     }
@@ -82,6 +110,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     } else if (option === "$50 - $100") {
@@ -90,6 +122,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     } else if (option === "Over $100") {
@@ -98,6 +134,10 @@ export default function handleSelectByPrice(page, data, option) {
           endData.push(item)
         }
       })
+
+      if (endData.length === 0) {
+        return "No products found"
+      }
   
       return handleSortBy(endData, 'Low to high')
     }
