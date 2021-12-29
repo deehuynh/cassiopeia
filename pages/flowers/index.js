@@ -9,6 +9,7 @@ import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
 import FilterBar from "../../components/contents/filter-bar"
 import ProductsContainer from "../../components/contents/products-container"
+import NoProductsFound from "../../components/contents/no-products-found"
 
 export default function Flowers ({allFilters, allProducts}) {
   // count products
@@ -48,7 +49,8 @@ export default function Flowers ({allFilters, allProducts}) {
 
       {
         isEmptyData === false ? 
-          <ProductsContainer page="flowers" allProducts={productState} /> : ''
+          <ProductsContainer page="flowers" allProducts={productState} /> : 
+          <NoProductsFound />
       }
     </div>
   )
