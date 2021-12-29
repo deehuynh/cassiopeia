@@ -1,3 +1,13 @@
 .no-prs-found {
   @include flex(0,center,center);
+
+  span {
+    padding: {
+      top: 100px;
+      bottom: 180px;
+    }
+
+    font-size: 16px;
+    font-weight: 500;
+  }
 }
