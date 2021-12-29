@@ -22,7 +22,7 @@ export default function Flowers ({allFilters, allProducts}) {
   const flowersData = useSelector(state => state.pages.flowers)
   // push allProducts to redux store
   useEffect(() => {
-    if (flowersData === "No products found") {
+    if (flowersData.error === "No products found") {
       setIsEmptyData(true)
     } else if (flowersData.length !== 0) {
       setProductState(flowersData)
@@ -50,7 +50,7 @@ export default function Flowers ({allFilters, allProducts}) {
       {
         isEmptyData === false ? 
           <ProductsContainer page="flowers" allProducts={productState} /> : 
-          <NoProductsFound />
+          <NoProductsFound text={flowersData.type} />
       }
     </div>
   )
