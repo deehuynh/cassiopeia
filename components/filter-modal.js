@@ -64,8 +64,6 @@ export const DropdownModal = ({
     }
   })
 
-  console.log(mobileChildrenRef)
-
   return (
     <div
       onClick={handleOpenChildren}
