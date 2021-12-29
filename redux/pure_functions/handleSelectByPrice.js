@@ -12,7 +12,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
@@ -24,7 +24,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
@@ -36,7 +36,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
@@ -48,7 +48,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
@@ -62,7 +62,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
@@ -74,7 +74,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
@@ -86,7 +86,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
@@ -98,7 +98,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
@@ -112,7 +112,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
@@ -124,7 +124,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
@@ -136,7 +136,7 @@ export default function handleSelectByPrice(page, data, option) {
       })
 
       if (endData.length === 0) {
-        return "No products found"
+        return {error: "No products found", type: option}
       }
   
       return handleSortBy(endData, 'Low to high')
