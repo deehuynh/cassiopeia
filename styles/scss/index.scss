@@ -32,7 +32,8 @@ $c-active: #595CFF;
 @import 
   'splidejs','cart-modal','modal-container',
   'breadcrumb','filter-bar','products-container',
-  'gallery', 'search-modal', 'filter-modal';
+  'gallery', 'search-modal', 'filter-modal',
+  'no-prs-found';
 
 .lock-body {
   @include media (768px) {
