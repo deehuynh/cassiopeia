@@ -24,6 +24,11 @@ export default function Plants ({allFilters, allProducts}) {
     }
   }, [plantsData])
 
+  // reset page data
+  useEffect(() => {
+    setProductState(allProducts)
+  }, [allProducts])
+
   return (
     <div className="plants">
       <Title>Plants | Cassiopeia | Flower store</Title>
