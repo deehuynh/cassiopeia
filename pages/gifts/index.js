@@ -23,6 +23,11 @@ export default function Gifts ({allFilters, allProducts}) {
     }
   }, [giftsData])
 
+  // reset page data
+  useEffect(() => {
+    setProductState(allProducts)
+  }, [allProducts])
+
   return (
     <div className="gifts">
       <Title>Gifts | Cassiopeia | Flower store</Title>
