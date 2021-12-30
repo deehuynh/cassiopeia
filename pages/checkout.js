@@ -24,8 +24,6 @@ export default function Checkout ({creditCards, gateways}) {
   const orderItems = useSelector(state => state.cart ? state.cart["items"] : [])
   // get cart promocode
   const promocode = useSelector(state => state.cart ? state.cart["promocode"] : null)
-  // finished payment state
-  const [finishedPaymentState, setFinishPaymentState] = useState(false);
   // data storaged variable
   const listItem = [];
   // count order total
@@ -59,28 +57,16 @@ export default function Checkout ({creditCards, gateways}) {
       <BreadCrumb />
       <PageName>Checkout</PageName>
 
-      {
-        finishedPaymentState === false ? (
-          <div className="checkout__container">
-            <CheckoutContent 
-              creditCards={creditCards} gateways={gateways}
-              setFinishPaymentState={setFinishPaymentState} 
-            />
-            <OrderContainer 
-              listItem={listItem} orderTotal={orderTotal}
-              orderPriceTotal={orderPriceTotal}
-              promocode={isClientSide ? promocode : null}
-            />
-          </div>
-        ) : (
-          <div className="checkout__submited">
-            <span>Submited <img src="/svgs/checked.svg" alt="check" /></span>
-            <Link href="/">
-              <a>Come back home</a>
-            </Link>
-          </div>
-        )
-      }
+      <div className="checkout__container">
+        <CheckoutContent
+          creditCards={creditCards} gateways={gateways}
+        />
+        <OrderContainer
+          listItem={listItem} orderTotal={orderTotal}
+          orderPriceTotal={orderPriceTotal}
+          promocode={isClientSide ? promocode : null}
+        />
+      </div>
     </div>
   )
 }
@@ -148,7 +134,7 @@ const OrderContainer = ({listItem, orderTotal, orderPriceTotal, promocode}) => {
   )
 }
 
-const CheckoutContent = ({creditCards, gateways, setFinishPaymentState}) => {
+const CheckoutContent = ({creditCards, gateways}) => {
   // button states
   const [buttonStates, setButtonStates] = useState('contacts');
   // Progress component
@@ -495,6 +481,15 @@ const CheckoutContent = ({creditCards, gateways, setFinishPaymentState}) => {
           <span>Checkout complete!</span>
           <span>Thank you for your order...</span>
         </div>
+
+        <div className="checkout__complete-bill">
+          <p>Name <span>Huynh Trung Nhan</span></p>
+          <p>Gender <span>Male</span></p>
+          <p>Phone number <span>0000 000 000</span></p>
+          <p>Delivery method</p>
+          <p>Delivery address</p>
+          <p>Payment method</p>
+        </div>
       </div>
     )
   }
@@ -534,7 +529,6 @@ const CheckoutContent = ({creditCards, gateways, setFinishPaymentState}) => {
       <div className="checkout__content">
         <CheckoutProgress />
         <CheckoutComplete />
-        <ButtonGroup />
       </div>
     )
   }
