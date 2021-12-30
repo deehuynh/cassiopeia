@@ -65,6 +65,14 @@
         }
       }
     }
+
+    &-bill {
+      padding-top: 20px;
+
+      p {
+        @include flex(0,space-between);
+      }
+    }
   }
 
   &__payment {
