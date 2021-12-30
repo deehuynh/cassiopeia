@@ -66,11 +66,20 @@
       }
     }
 
-    &-bill {
-      padding-top: 20px;
+    &-back {
+      @include flex(0,0,center);
+      margin-top: 70px;
+      margin-bottom: 40px;
+      text-decoration: none;
+      color: black;
 
-      p {
-        @include flex(0,space-between);
+      span {
+        margin-right: 5px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        opacity: .7;
       }
     }
   }
