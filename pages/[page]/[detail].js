@@ -165,6 +165,8 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
   contentRef.current = [1,2,3].map(
     (index) => contentRef.current[index] = React.createRef()
   );
+  // added item to cart ref
+  const addedToCartRef = useRef(null);
   // component partials
   const PrName = ({children}) => <div className="product-detail__name">{children}</div>;
   const PrPrice = () => (
@@ -261,6 +263,12 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
         onClick={() => reduxDispatch(addToCart({...prDetail, amount: prAmount, page: page}))}
       >
         <img src="/svgs/cart-btn-square.svg" alt="add to cart" />
+
+        <span
+          className="product-detail__cart-btn--hidden"
+        >
+          <img src="/svgs/check-solid.svg" alt="added item to cart" />
+        </span>
       </div>
     </div>
   );
