@@ -147,6 +147,7 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
   const prPrice = prDetail.price;
   const prOldPrice = prDetail.oldPrice;
   const prTypes = prDetail.type;
+  const prOccasion = prDetail.occasion;
   const prIncludes = prDetail.includes && prDetail.includes !== "" ? prDetail.includes : "No content yet";
 
   // multiple openDropdownRefs
@@ -225,6 +226,19 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
       </div>
     </div>
   )
+  const PrOccasion = () => {
+    if (prOccasion || prOccasion !== '') {
+      return (
+        <div className="product-detail__occasion">
+          <div className="product-detail__label">
+            Occasion: {prOccasion}
+          </div>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
   const PrButtonGroup = () => (
     <div 
       className="product-detail__button-group"
@@ -285,6 +299,7 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
       <PrPrice />
       <PrCounter />
       <PrTypes />
+      <PrOccasion />
       <PrButtonGroup />
       {
         listContentButton.map(
