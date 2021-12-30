@@ -184,9 +184,33 @@
   &__cart-btn {
     @include block(56px);
     @include flex(0,center,center);
+    position: relative;
     cursor: pointer;
     &:hover {
       opacity: .5;
+    }
+
+    &--hidden {
+      opacity: 0;
+    }
+
+    &--show {
+      opacity: 1;
+    }
+
+    span {
+      @include block(17px);
+      @include flex(0,center,center);
+      position: absolute;
+      top: 8px;
+      right: 7px;
+      background-color: lime;
+      border-radius: 50%;
+      transition: .3s;
+
+      img {
+        width: 55%;
+      }
     }
   }
 
