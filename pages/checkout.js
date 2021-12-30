@@ -149,12 +149,21 @@ const CheckoutContent = ({creditCards, gateways}) => {
       {stage: 3, title: 'Payment'},
     ];
     const ProgressButton = ({stage, title, addedClass}) => {
-      return (
-        <div className={`checkout__progress-btn` + addedClass}>
-          <div className="finished">{stage}</div>
-          <span>{title}</span>
-        </div>
-      )
+      if (buttonStates === 'complete') {
+        return (
+          <div className='checkout__progress-btn  checkout__progress-btn--finished'>
+            <div className="finished">{stage}</div>
+            <span>{title}</span>
+          </div>
+        )
+      } else {
+        return (
+          <div className={`checkout__progress-btn` + addedClass}>
+            <div className="finished">{stage}</div>
+            <span>{title}</span>
+          </div>
+        )
+      }
     }
 
     const ProgressLine = ({addedClass}) => {
@@ -482,14 +491,12 @@ const CheckoutContent = ({creditCards, gateways}) => {
           <span>Thank you for your order...</span>
         </div>
 
-        <div className="checkout__complete-bill">
-          <p>Name <span>Huynh Trung Nhan</span></p>
-          <p>Gender <span>Male</span></p>
-          <p>Phone number <span>0000 000 000</span></p>
-          <p>Delivery method</p>
-          <p>Delivery address</p>
-          <p>Payment method</p>
-        </div>
+        <Link href='/'>
+          <a className="checkout__complete-back">
+            <span>Come back homepage</span>
+            <img src="/svgs/line-right-arrow-black.svg" alt="right arrow" />
+          </a>
+        </Link>
       </div>
     )
   }
