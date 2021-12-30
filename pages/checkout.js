@@ -228,7 +228,7 @@ const CheckoutContent = ({creditCards, gateways, setFinishPaymentState}) => {
       } else if (buttonStates === 'shipping') {
         setButtonStates('payment');
       } else if (buttonStates === 'payment') {
-        setFinishPaymentState(true);
+        setButtonStates('complete');
       }
     }
 
@@ -488,6 +488,12 @@ const CheckoutContent = ({creditCards, gateways, setFinishPaymentState}) => {
     )
   }
 
+  const CheckoutComplete = () => {
+    return (
+      <div className="checkout__complete">dss</div>
+    )
+  }
+
   if (buttonStates === 'contacts') {
     return (
       <div className="checkout__content">
@@ -513,6 +519,16 @@ const CheckoutContent = ({creditCards, gateways, setFinishPaymentState}) => {
       <div className="checkout__content">
         <CheckoutProgress />
         <CheckoutPayment creditCards={creditCards} gateways={gateways} />
+        <ButtonGroup />
+      </div>
+    )
+  }
+
+  if (buttonStates === 'complete') {
+    return (
+      <div className="checkout__content">
+        <CheckoutProgress />
+        <CheckoutComplete />
         <ButtonGroup />
       </div>
     )
