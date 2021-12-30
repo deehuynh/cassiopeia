@@ -205,10 +205,15 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
       </div>
     </div>
   );
+  const PrTextGroup = ({children}) => (
+    <div className="product-detail__text-group">
+      {children}
+    </div>
+  )
   const PrTypes = () => {
     if (prTypes && prTypes !== '') {
       return (
-        <div className="product-detail__types">
+        <div className="product-detail__text">
           <div className="product-detail__label">
             Type{
               Array.isArray(prTypes) === true && prTypes.length > 1 ? 's: ' : ': '
@@ -233,7 +238,7 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
   const PrOccasion = () => {
     if (prOccasion && prOccasion !== '') {
       return (
-        <div className="product-detail__occasion">
+        <div className="product-detail__text">
           <div className="product-detail__label">
             Occasion: {prOccasion}
           </div>
@@ -302,8 +307,10 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
       <PrName>{prName}</PrName>
       <PrPrice />
       <PrCounter />
-      <PrTypes />
-      <PrOccasion />
+      <PrTextGroup>
+        <PrTypes />
+        <PrOccasion />
+      </PrTextGroup>
       <PrButtonGroup />
       {
         listContentButton.map(
