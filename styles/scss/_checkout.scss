@@ -43,6 +43,30 @@
     }
   }
 
+  &__complete {
+    width: 435px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+
+    &-status {
+      @include flex(column);
+      @extend %body1;
+      font-weight: 500;
+      margin: {
+        top: 0;
+        bottom: 20px;
+      }
+      padding-top: 20px;
+      box-sizing: border-box;
+
+      span {
+        &:last-child {
+          text-indent: 20px;
+        }
+      }
+    }
+  }
+
   &__payment {
     width: 435px;
     margin-top: 60px;
