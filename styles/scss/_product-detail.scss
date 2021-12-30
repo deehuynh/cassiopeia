@@ -424,6 +424,10 @@
       img {
         height: 100%;
       }
+
+      span {
+        @include block(15px);
+      }
     }
   }
 }
