@@ -4,7 +4,7 @@ import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 // hooks
-import { useRef, useReducer } from "react"
+import { useRef, useReducer, useEffect } from "react"
 // head tags
 import Title from "../../components/title"
 // components
@@ -18,7 +18,7 @@ import relevantPrApi from "../../api/relevantPrApi"
 // reducers
 import detailProductReducer from "../../reducers/detail-pr-reducer"
 // redux
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addToCart } from "../../redux/cartSlice"
 
 export default function DetailPage ({prs, relevantFlowers, page}) {
@@ -142,7 +142,11 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
     })
   }
 
+  // get localStorage items
+  const cartItems = useSelector(state => state.cart ? state.cart["items"] : [])
+
   // data varialble
+  const prId = prDetail.id;
   const prName = prDetail.name;
   const prPrice = prDetail.price;
   const prOldPrice = prDetail.oldPrice;
@@ -167,6 +171,18 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
   );
   // added item to cart ref
   const addedToCartRef = useRef(null);
+  // auto update added to cart effect
+  useEffect(() => {
+    const itemExists = cartItems.find(item => (item.id === prId) && (item.page === page))
+
+    if (itemExists) {
+      addedToCartRef.current.className = "product-detail__cart-btn--show"
+    } else {
+      if (addedToCartRef.current) {
+        addedToCartRef.current.className = "product-detail__cart-btn--hidden"
+      }
+    }
+  }, [cartItems, page, prId])
   // component partials
   const PrName = ({children}) => <div className="product-detail__name">{children}</div>;
   const PrPrice = () => (
@@ -265,6 +281,7 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
         <img src="/svgs/cart-btn-square.svg" alt="add to cart" />
 
         <span
+          ref={addedToCartRef}
           className="product-detail__cart-btn--hidden"
         >
           <img src="/svgs/check-solid.svg" alt="added item to cart" />
