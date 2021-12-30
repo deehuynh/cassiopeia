@@ -33,6 +33,7 @@ export default function Flowers ({allFilters, allProducts}) {
   // reset page data
   useEffect(() => {
     setProductState(allProducts)
+    setIsEmptyData(false)
   }, [allProducts])
   
   return (
