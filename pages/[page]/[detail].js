@@ -205,29 +205,33 @@ function InforContainer ({prDetail, page, prState, dispatch}) {
       </div>
     </div>
   );
-  const PrTypes = () => (
-    <div className="product-detail__types">
-      <div className="product-detail__label">
-        {
-          prTypes ?
-            `Type${Array.isArray(prTypes) === true && prTypes.length > 1 ? 's' : ''}: ` :
-            ''
-        }
-
-        {
-          Array.isArray(prTypes) === true ? prTypes.map((item, index) => {
-            if (prTypes.length === index + 1) {
-              return item;
+  const PrTypes = () => {
+    if (prTypes && prTypes !== '') {
+      return (
+        <div className="product-detail__types">
+          <div className="product-detail__label">
+            Type{
+              Array.isArray(prTypes) === true && prTypes.length > 1 ? 's: ' : ': '
             }
-
-            return item + ", "
-          }) : prTypes
-        }
-      </div>
-    </div>
-  )
+    
+            {
+              Array.isArray(prTypes) === true ? prTypes.map((item, index) => {
+                if (prTypes.length === index + 1) {
+                  return item;
+                }
+    
+                return item + ", "
+              }) : prTypes
+            }
+          </div>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
   const PrOccasion = () => {
-    if (prOccasion || prOccasion !== '') {
+    if (prOccasion && prOccasion !== '') {
       return (
         <div className="product-detail__occasion">
           <div className="product-detail__label">
