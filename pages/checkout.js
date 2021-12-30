@@ -490,7 +490,12 @@ const CheckoutContent = ({creditCards, gateways, setFinishPaymentState}) => {
 
   const CheckoutComplete = () => {
     return (
-      <div className="checkout__complete">dss</div>
+      <div className="checkout__complete">
+        <div className="checkout__complete-status">
+          <span>Checkout complete!</span>
+          <span>Thank you for your order...</span>
+        </div>
+      </div>
     )
   }
 
