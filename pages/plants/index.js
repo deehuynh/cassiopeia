@@ -9,24 +9,31 @@ import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
 import FilterBar from "../../components/contents/filter-bar"
 import ProductsContainer from "../../components/contents/products-container"
+import NoProductsFound from "../../components/contents/no-products-found"
 
 export default function Plants ({allFilters, allProducts}) {
   // count products
   const countPr = allProducts && allProducts.length;
   // products state
   const [productState, setProductState] = useState(allProducts);
+  // no products found state
+  const [isEmptyData, setIsEmptyData] = useState(false);
   // get redux data
   const plantsData = useSelector(state => state.pages.plants)
   // push allProducts to redux store
   useEffect(() => {
-    if (plantsData.length !== 0) {
+    if (plantsData.error === 'No products found') {
+      setIsEmptyData(true)
+    } else if (plantsData.length !== 0) {
       setProductState(plantsData)
+      setIsEmptyData(false)
     }
   }, [plantsData])
 
   // reset page data
   useEffect(() => {
     setProductState(allProducts)
+    setIsEmptyData(false)
   }, [allProducts])
 
   return (
@@ -40,7 +47,12 @@ export default function Plants ({allFilters, allProducts}) {
         page="plants"
         countPr={countPr} 
       />
-      <ProductsContainer page="plants" allProducts={productState} />
+      
+      {
+        isEmptyData === false ? 
+        <ProductsContainer page="plants" allProducts={productState} /> :
+        <NoProductsFound text={plantsData.type} />
+      }
     </div>
   )
 }
