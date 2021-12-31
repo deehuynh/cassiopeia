@@ -493,6 +493,10 @@ const CheckoutContent = ({creditCards, gateways}) => {
           <span>Thank you for your order...</span>
         </div>
 
+        <div className="checkout__complete-bill">
+          <p>Name <span>Huynh</span></p>
+        </div>
+
         <Link href='/'>
           <a className="checkout__complete-back">
             <span>Come back homepage</span>
