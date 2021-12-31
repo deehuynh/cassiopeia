@@ -509,7 +509,7 @@ const CheckoutContent = ({creditCards, gateways}) => {
   }
 
   const CheckoutComplete = () => {
-    const fullname = useSelector(state => state.checkout.name)
+    const checkoutInfor = useSelector(state => state.checkout)
 
     return (
       <div className="checkout__complete">
@@ -519,7 +519,9 @@ const CheckoutContent = ({creditCards, gateways}) => {
         </div>
 
         <div className="checkout__complete-bill">
-          <p>Name <span>{fullname}</span></p>
+          <p>Full name <span>{checkoutInfor.name}</span></p>
+          <p>Phone number <span>{checkoutInfor.phone}</span></p>
+          <p>Gender <span>{checkoutInfor.gender}</span></p>
         </div>
 
         <Link href='/'>
