@@ -66,6 +66,12 @@
       }
     }
 
+    &-bill {
+      p {
+        @include flex(0,space-between,center);
+      }
+    }
+
     &-back {
       @include flex(0,0,center);
       margin-top: 70px;
