@@ -9,7 +9,8 @@ import Title from "../components/title"
 import BreadCrumb from "../components/contents/breadcrumb"
 import PageName from "../components/contents/page-name"
 // redux
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { onChangeName } from "../redux/checkoutSlice"
 // handle data functions
 import USDCurrency from "../handle_data_functions/usd-currency";
 
@@ -135,12 +136,6 @@ const OrderContainer = ({listItem, orderTotal, orderPriceTotal, promocode}) => {
 }
 
 const CheckoutContent = ({creditCards, gateways}) => {
-  // checkout state
-  const [checkoutState, setCheckoutState] = useState({
-    name: '',
-    phone: '',
-    gender: ''
-  });
   // button states
   const [buttonStates, setButtonStates] = useState('contacts');
   // Progress component
@@ -270,12 +265,18 @@ const CheckoutContent = ({creditCards, gateways}) => {
   }
   // Contacts component
   const CheckoutContacts = () => {
+    const dispatch = useDispatch()
+    const nameValue = useSelector(state => state.checkout.name)
     return (
       <div className="checkout__contacts">
         <p>Fill in your information</p>
         <div className="checkout__contacts-infor">
           <div className="checkout__contacts-name">
-            <input type="text" placeholder='Full name' spellCheck='false' />
+            <input
+              type="text" placeholder='Full name' spellCheck='false'
+              value={nameValue}
+              onChange={(e) => dispatch(onChangeName({value: e.target.value}))}
+            />
           </div>
           <div className="checkout__contacts-phone">
             <input type="text" placeholder='Phone number' spellCheck='false' />
