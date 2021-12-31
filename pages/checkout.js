@@ -135,6 +135,12 @@ const OrderContainer = ({listItem, orderTotal, orderPriceTotal, promocode}) => {
 }
 
 const CheckoutContent = ({creditCards, gateways}) => {
+  // checkout state
+  const [checkoutState, setCheckoutState] = useState({
+    name: '',
+    phone: '',
+    gender: ''
+  });
   // button states
   const [buttonStates, setButtonStates] = useState('contacts');
   // Progress component
