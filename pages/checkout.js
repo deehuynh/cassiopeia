@@ -266,8 +266,7 @@ const CheckoutContent = ({creditCards, gateways}) => {
   // Contacts component
   const CheckoutContacts = () => {
     const dispatch = useDispatch()
-    const nameValue = useSelector(state => state.checkout.name)
-    const phoneValue = useSelector(state => state.checkout.phone)
+    const checkoutState = useSelector(state => state.checkout)
     return (
       <div className="checkout__contacts">
         <p>Fill in your information</p>
@@ -275,14 +274,14 @@ const CheckoutContent = ({creditCards, gateways}) => {
           <div className="checkout__contacts-name">
             <input
               type="text" placeholder='Full name' spellCheck='false'
-              value={nameValue}
+              value={checkoutState.name}
               onChange={(e) => dispatch(onChangeName({value: e.target.value}))}
             />
           </div>
           <div className="checkout__contacts-phone">
             <input 
               type="text" placeholder='Phone number' spellCheck='false'
-              value={phoneValue}
+              value={checkoutState.phone}
               onChange={(e) => dispatch(onChangePhone({value: e.target.value}))}
             />
           </div>
@@ -291,13 +290,21 @@ const CheckoutContent = ({creditCards, gateways}) => {
         <div className="checkout__contacts-gender">
           <span>Gender:</span>
           <label htmlFor="gender-male">Male</label>
-          <input id="gender-male" type="radio" name='radio' value="Male" onClick={
-            (e) => {dispatch(selectGender({value: e.target.value}))}
-          } />
+          <input 
+            id="gender-male" type="radio" name='radio' value="Male" 
+            checked={checkoutState.gender === 'Male' ? true : false}
+            onChange={
+              (e) => {dispatch(selectGender({value: e.target.value}))}
+            } 
+          />
           <label htmlFor="gender-female">Female</label>
-          <input id="gender-female" type="radio" name='radio' value="Female" onClick={
-            (e) => {dispatch(selectGender({value: e.target.value}))}
-          } />
+          <input 
+            id="gender-female" type="radio" name='radio' value="Female" 
+            checked={checkoutState.gender === 'Female' ? true : false}
+            onChange={
+              (e) => {dispatch(selectGender({value: e.target.value}))}
+            } 
+          />
         </div>
       </div>
     )
