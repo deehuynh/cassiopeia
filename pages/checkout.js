@@ -10,7 +10,7 @@ import BreadCrumb from "../components/contents/breadcrumb"
 import PageName from "../components/contents/page-name"
 // redux
 import { useSelector, useDispatch } from "react-redux"
-import { onChangeName, onChangePhone } from "../redux/checkoutSlice"
+import { onChangeName, onChangePhone, selectGender } from "../redux/checkoutSlice"
 // handle data functions
 import USDCurrency from "../handle_data_functions/usd-currency";
 
@@ -291,9 +291,13 @@ const CheckoutContent = ({creditCards, gateways}) => {
         <div className="checkout__contacts-gender">
           <span>Gender:</span>
           <label htmlFor="gender-male">Male</label>
-          <input id="gender-male" type="radio" name='radio' />
+          <input id="gender-male" type="radio" name='radio' value="Male" onClick={
+            (e) => {dispatch(selectGender({value: e.target.value}))}
+          } />
           <label htmlFor="gender-female">Female</label>
-          <input id="gender-female" type="radio" name='radio' />
+          <input id="gender-female" type="radio" name='radio' value="Female" onClick={
+            (e) => {dispatch(selectGender({value: e.target.value}))}
+          } />
         </div>
       </div>
     )
