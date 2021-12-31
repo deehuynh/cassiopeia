@@ -14,10 +14,14 @@ const checkoutSlice = createSlice({
 
     onChangePhone: (state, action) => {
       state.phone = action.payload.value
+    },
+
+    selectGender: (state, action) => {
+      state.gender = action.payload.value
     }
   }
 })
 
-export const { onChangeName, onChangePhone } = checkoutSlice.actions
+export const { onChangeName, onChangePhone, selectGender } = checkoutSlice.actions
 
 export default checkoutSlice.reducer
