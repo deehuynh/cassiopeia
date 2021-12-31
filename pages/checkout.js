@@ -493,6 +493,8 @@ const CheckoutContent = ({creditCards, gateways}) => {
   }
 
   const CheckoutComplete = () => {
+    const fullname = useSelector(state => state.checkout.name)
+
     return (
       <div className="checkout__complete">
         <div className="checkout__complete-status">
@@ -501,7 +503,7 @@ const CheckoutContent = ({creditCards, gateways}) => {
         </div>
 
         <div className="checkout__complete-bill">
-          <p>Name <span>Huynh</span></p>
+          <p>Name <span>{fullname}</span></p>
         </div>
 
         <Link href='/'>
