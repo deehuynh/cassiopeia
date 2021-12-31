@@ -409,6 +409,7 @@ const CheckoutContent = ({creditCards, gateways}) => {
                         src={item.image}
                         width={136}
                         height={46}
+                        loading="eager"
                         layout="responsive"
                         alt={item.name}
                       />
@@ -432,6 +433,7 @@ const CheckoutContent = ({creditCards, gateways}) => {
                         src={item.image}
                         width={136}
                         height={46}
+                        loading="eager"
                         layout="responsive"
                         alt={item.name}
                       />
