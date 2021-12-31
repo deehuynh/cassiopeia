@@ -10,7 +10,7 @@ import BreadCrumb from "../components/contents/breadcrumb"
 import PageName from "../components/contents/page-name"
 // redux
 import { useSelector, useDispatch } from "react-redux"
-import { onChangeName } from "../redux/checkoutSlice"
+import { onChangeName, onChangePhone } from "../redux/checkoutSlice"
 // handle data functions
 import USDCurrency from "../handle_data_functions/usd-currency";
 
@@ -267,6 +267,7 @@ const CheckoutContent = ({creditCards, gateways}) => {
   const CheckoutContacts = () => {
     const dispatch = useDispatch()
     const nameValue = useSelector(state => state.checkout.name)
+    const phoneValue = useSelector(state => state.checkout.phone)
     return (
       <div className="checkout__contacts">
         <p>Fill in your information</p>
@@ -279,7 +280,11 @@ const CheckoutContent = ({creditCards, gateways}) => {
             />
           </div>
           <div className="checkout__contacts-phone">
-            <input type="text" placeholder='Phone number' spellCheck='false' />
+            <input 
+              type="text" placeholder='Phone number' spellCheck='false'
+              value={phoneValue}
+              onChange={(e) => dispatch(onChangePhone({value: e.target.value}))}
+            />
           </div>
         </div>
 
