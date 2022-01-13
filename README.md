@@ -4,7 +4,9 @@ This is a flowers retail store
 
 ## Status
 
-The project is processing
+The project is basically finished
+
+This project will be updated in the near future to research the features of the nextjs
 
 ## Live website
 
