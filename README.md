@@ -29,3 +29,5 @@ Responsive: any devices
 ## Design
 
 The design file taken from: https://www.behance.net/gallery/96992647/Cassiopeia-Flower-store-Free-UI-kit (thank you Alice Samokhina for free ui kit)
+
+![img](https://i.imgur.com/68jiqAB.png)
