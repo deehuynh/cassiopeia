@@ -117,7 +117,7 @@ export default function Footer () {
         </div>
         
         <div className="footer__row-2">
-          &copy; Copyright,  2021. Developed by <a href="https://github.com/deehuynh">DeeHuynh</a>
+          &copy; Copyright,  2022. Developed by <a href="https://github.com/deehuynh">DeeHuynh</a>
         </div>
       </div>
     </footer>
