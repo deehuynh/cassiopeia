@@ -1,4 +1,5 @@
 import Title from "../components/title"
+import Description from "../components/description"
 // import components
 import BannerAds from "../components/contents/banner-ads"
 import Headline from "../components/contents/title"
@@ -8,6 +9,13 @@ export default function Home ({latestProducts, banners, relevantProducts}) {
   return (
     <>
       <Title>Cassiopeia | Flower Store</Title>
+      <Description>
+        The best way to brighten the special day of a friend
+        or loved one is with flowers. But what happens when that
+        special someone is far away? With Cassiopeia it is possible
+        to surprise someone with a lovely bouquet no matter where he
+        or she is in the world.
+      </Description>
 
       <div className="home">
         <BannerAds adsAPI={banners} />
