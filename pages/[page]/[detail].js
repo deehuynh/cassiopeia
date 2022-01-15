@@ -11,8 +11,11 @@ import Title from "../../components/title"
 import BreadCrumb from "../../components/contents/breadcrumb"
 import Container from "../../components/contents/slide-container"
 import Headline from "../../components/contents/title"
+import Description from "../../components/description"
 // functions
 import handleShowChildButton from "../../function/handleShowChildButton"
+// handle data functions
+import handleDescriptionText from "../../handle_data_functions/handle-description"
 // handle api function
 import relevantPrApi from "../../api/relevantPrApi"
 // reducers
@@ -29,7 +32,10 @@ export default function DetailPage ({prs, relevantFlowers, page}) {
 
   return (
     <div className="product-detail">
-      <Title>{prs.name} | Cassiopeia | Flower Store</Title>
+      <Title>{prs.name} | Cassiopeia</Title>
+      <Description>
+        {handleDescriptionText(prs)}
+      </Description>
       <BreadCrumb detailTab={prs.name} />
 
       <div className="product-detail__container">
