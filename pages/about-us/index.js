@@ -1,5 +1,6 @@
 // the head tag's title
 import Title from "../../components/title"
+import Description from "../../components/description"
 // components
 import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
@@ -10,6 +11,13 @@ export default function AboutUs () {
   return (
     <div className="about-us">
       <Title>About us | Cassiopeia | Flower store</Title>
+      <Description>
+        Over the course of the last 15 years we have grown steadily
+        thanks to the trust placed in us by our customers.
+        Today, We are a leading company in the world for sending flowers.
+        We are also able to speedily ship fresh flowers to more than 20
+        countries around the world.
+      </Description>
 
       <BreadCrumb tabName={{url: '/about-us', name: 'About us'}} />
       <PageName>About us</PageName>
