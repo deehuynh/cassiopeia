@@ -1,5 +1,6 @@
 // head tag's title
 import Title from "../../components/title"
+import Description from "../../components/description"
 // next api
 import Image from "next/image"
 // component
@@ -11,7 +12,10 @@ import Container from "../../components/contents/slide-container"
 export default function Disconts ({offerPrs}) {
   return (
     <div className="disconts">
-      <Title>Disconts | Cassiopeia | Flower store</Title>
+      <Title>Disconts | Cassiopeia</Title>
+      <Description>
+        Discovering the promotional items and the special occasion.
+      </Description>
 
       <Breadcrumb />
       <PageName>Disconts</PageName>
