@@ -33,7 +33,7 @@ export default function DetailPage ({prs, relevantFlowers, page}) {
       <BreadCrumb detailTab={prs.name} />
 
       <div className="product-detail__container">
-        <ImagesContainer avatarImage={prs.thumbnail} imageType={prs.imageType ? prs.imageType : ""} />
+        <ImagesContainer nameImage={prs.name} avatarImage={prs.thumbnail} imageType={prs.imageType ? prs.imageType : ""} />
         <InforContainer prDetail={prs} page={page} prState={prState} dispatch={dispatch} />
       </div>
 
@@ -88,7 +88,7 @@ export async function getStaticProps({params}) {
   }
 }
 
-function ImagesContainer ({avatarImage, imageType}) {
+function ImagesContainer ({avatarImage, imageType, nameImage}) {
   const addedClass = imageType === "transparent" ? " product-detail__images-container--pd" : ''
 
   return (
@@ -99,7 +99,7 @@ function ImagesContainer ({avatarImage, imageType}) {
           width={568}
           height={568}
           layout="responsive"
-          alt='image'
+          alt={nameImage}
         />
       </div>
 
