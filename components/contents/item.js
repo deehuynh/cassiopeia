@@ -73,7 +73,7 @@ export default function Item (props) {
               width={480}
               height={480}
               layout="responsive"
-              alt='flower thumbnail'
+              alt={prName}
             />
           ) : ''
         }
