@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 // head tag's title
 import Title from "../../components/title"
+import Description from "../../components/description"
 // components
 import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
@@ -37,7 +38,11 @@ export default function Gifts ({allFilters, allProducts}) {
 
   return (
     <div className="gifts">
-      <Title>Gifts | Cassiopeia | Flower store</Title>
+      <Title>Gifts | Cassiopeia</Title>
+      <Description>
+        Where you can buy special and beautiful gifts.
+        Safe and Fast Delivery. Payment Online or Checkout on Delivery.
+      </Description>
 
       <BreadCrumb />
       <PageName>Gifts</PageName>
