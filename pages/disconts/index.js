@@ -1,6 +1,7 @@
 // head tag's title
 import Title from "../../components/title"
 import Description from "../../components/description"
+import OpenGraph from "../../components/open-graph"
 // next api
 import Image from "next/image"
 // component
@@ -16,6 +17,11 @@ export default function Disconts ({offerPrs}) {
       <Description>
         Discovering the promotional items and the special occasion.
       </Description>
+      <OpenGraph
+        name="Disconts | Cassiopeia"
+        desc="Discovering the promotional items and the special occasion."
+        image="https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/31899025_10155755691763277_2010388124407955456_n.jpg_yeh6hh.jpg"
+      />
 
       <Breadcrumb />
       <PageName>Disconts</PageName>
