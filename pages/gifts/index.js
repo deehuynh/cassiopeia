@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 // head tag's title
 import Title from "../../components/title"
 import Description from "../../components/description"
+import OpenGraph from "../../components/open-graph"
 // components
 import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
@@ -43,6 +44,12 @@ export default function Gifts ({allFilters, allProducts}) {
         Where you can buy special and beautiful gifts.
         Safe and Fast Delivery. Payment Online or Checkout on Delivery.
       </Description>
+      <OpenGraph
+        name="Gifts | Cassiopeia"
+        desc="Where you can buy special and beautiful gifts.
+          Safe and Fast Delivery. Payment Online or Checkout on Delivery."
+        image="https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/6184e2a2c71d4438542627_moioxi.webp"
+      />
 
       <BreadCrumb />
       <PageName>Gifts</PageName>
