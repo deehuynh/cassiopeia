@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 // the head tag's title
 import Title from "../../components/title"
 import Description from "../../components/description"
+import OpenGraph from "../../components/open-graph"
 // components
 import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
@@ -44,6 +45,12 @@ export default function Plants ({allFilters, allProducts}) {
         Where you can buy beautiful and good quality plants.
         Safe and Fast Delivery. Payment Online or Checkout on Delivery.
       </Description>
+      <OpenGraph
+        name="Plants | Cassiopeia"
+        desc="Where you can buy beautiful and good quality plants.
+        Safe and Fast Delivery. Payment Online or Checkout on Delivery."
+        image="https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto/61694097bfc2b371726052_njjyar.webp"
+      />
 
       <BreadCrumb tabName={{url: '/plants', name: 'Plants'}} />
       <PageName>Plants</PageName>
