@@ -12,6 +12,7 @@ import BreadCrumb from "../../components/contents/breadcrumb"
 import Container from "../../components/contents/slide-container"
 import Headline from "../../components/contents/title"
 import Description from "../../components/description"
+import OpenGraph from "../../components/open-graph"
 // functions
 import handleShowChildButton from "../../function/handleShowChildButton"
 // handle data functions
@@ -36,6 +37,12 @@ export default function DetailPage ({prs, relevantFlowers, page}) {
       <Description>
         {handleDescriptionText(prs)}
       </Description>
+      <OpenGraph 
+        name={prs.name}
+        desc={handleDescriptionText(prs)}
+        image={'https://res.cloudinary.com/didlxgowc/image/upload/f_auto,c_limit,w_1920,q_auto' + prs.thumbnail}
+      />
+
       <BreadCrumb detailTab={prs.name} />
 
       <div className="product-detail__container">
