@@ -6,6 +6,7 @@ import { useSelector } from "react-redux"
 import Title from "../../components/title"
 import Description from "../../components/description"
 import OpenGraph from "../../components/open-graph"
+import Keywords from "../../components/keywords"
 // components
 import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
@@ -45,6 +46,9 @@ export default function Flowers ({allFilters, allProducts}) {
         Where you can buy fresh, beautiful and good quality flowers.
         Safe and Fast Delivery. Payment Online or Checkout on Delivery.
       </Description>
+      <Keywords>
+        Buy fresh, beautiful and good quality flowers
+      </Keywords>
       <OpenGraph 
         name="Flowers | Cassiopeia"
         desc="Where you can buy fresh, beautiful and good quality flowers.
