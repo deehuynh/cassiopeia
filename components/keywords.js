@@ -1,9 +1,9 @@
 import Head from "next/head"
 
-export default function Keywords ({kws}) {
+export default function Keywords ({children}) {
   return (
     <Head>
-      <meta name="keywords" content={kws} />
+      <meta name="keywords" content={children} />
     </Head>
   )
 }
