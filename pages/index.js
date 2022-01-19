@@ -1,6 +1,7 @@
 import Title from "../components/title"
 import Description from "../components/description"
 import OpenGraph from "../components/open-graph"
+import Keywords from "../components/keywords"
 // import components
 import BannerAds from "../components/contents/banner-ads"
 import Headline from "../components/contents/title"
@@ -17,6 +18,9 @@ export default function Home ({latestProducts, banners, relevantProducts}) {
         to surprise someone with a lovely bouquet no matter where he
         or she is in the world.
       </Description>
+      <Keywords>
+        Cassiopeia, flower store, florist online, buy fresh flowers and plants
+      </Keywords>
       <OpenGraph 
         name="Cassiopeia | Flower Store"
         desc="The best way to brighten the special day of a friend
