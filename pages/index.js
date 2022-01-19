@@ -19,7 +19,7 @@ export default function Home ({latestProducts, banners, relevantProducts}) {
         or she is in the world.
       </Description>
       <Keywords>
-        Cassiopeia, flower store, florist online, buy fresh flowers and plants
+        Cassiopeia, flower store, florist online, buy fresh flower and plant
       </Keywords>
       <OpenGraph 
         name="Cassiopeia | Flower Store"
