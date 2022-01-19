@@ -13,6 +13,7 @@ import Container from "../../components/contents/slide-container"
 import Headline from "../../components/contents/title"
 import Description from "../../components/description"
 import OpenGraph from "../../components/open-graph"
+import Keywords from "../../components/keywords"
 // functions
 import handleShowChildButton from "../../function/handleShowChildButton"
 // handle data functions
@@ -37,6 +38,9 @@ export default function DetailPage ({prs, relevantFlowers, page}) {
       <Description>
         {handleDescriptionText(prs)}
       </Description>
+      <Keywords>
+        {'Buy ' + prs.name}
+      </Keywords>
       <OpenGraph 
         name={prs.name}
         desc={handleDescriptionText(prs)}
