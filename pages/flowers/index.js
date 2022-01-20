@@ -47,7 +47,7 @@ export default function Flowers ({allFilters, allProducts}) {
         Safe and Fast Delivery. Payment Online or Checkout on Delivery.
       </Description>
       <Keywords>
-        Buy fresh, beautiful and good quality flowers
+        Buy flowers, rose, lily, Lisianthus
       </Keywords>
       <OpenGraph 
         name="Flowers | Cassiopeia"
