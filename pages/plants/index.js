@@ -46,7 +46,7 @@ export default function Plants ({allFilters, allProducts}) {
         Where you can buy beautiful and good quality plants.
         Safe and Fast Delivery. Payment Online or Checkout on Delivery.
       </Description>
-      <Keywords>Buy beautiful and good quality plants</Keywords>
+      <Keywords>Buy plants, Anthurium, Orchid, Dendrobium</Keywords>
       <OpenGraph
         name="Plants | Cassiopeia"
         desc="Where you can buy beautiful and good quality plants.
