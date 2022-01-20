@@ -6,6 +6,7 @@ import { useSelector } from "react-redux"
 import Title from "../../components/title"
 import Description from "../../components/description"
 import OpenGraph from "../../components/open-graph"
+import Keywords from "../../components/keywords"
 // components
 import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
@@ -44,6 +45,7 @@ export default function Gifts ({allFilters, allProducts}) {
         Where you can buy special and beautiful gifts.
         Safe and Fast Delivery. Payment Online or Checkout on Delivery.
       </Description>
+      <Keywords>gifts, chocolate, wine gift</Keywords>
       <OpenGraph
         name="Gifts | Cassiopeia"
         desc="Where you can buy special and beautiful gifts.
