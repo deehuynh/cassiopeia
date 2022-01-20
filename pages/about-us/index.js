@@ -5,7 +5,6 @@ import OpenGraph from "../../components/open-graph"
 // components
 import BreadCrumb from "../../components/contents/breadcrumb"
 import PageName from "../../components/contents/page-name"
-import FilterBar from "../../components/contents/filter-bar"
 import Gallery from "../../components/contents/gallery"
 
 export default function AboutUs () {
