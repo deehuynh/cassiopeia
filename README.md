@@ -10,7 +10,7 @@ This project will be updated in the near future to research the features of the 
 
 ## Live website
 
-~~https://cassiopeia.store~~
+[https://dh-cassiopeia.web.app](https://dh-cassiopeia.web.app/)
 
 ## About the product
 
